@@ -153,7 +153,7 @@ export default function Navbar() {
 
               <Link
                 href="/programs"
-                className={`hidden lg:inline-flex items-center gap-1.5 px-3 2xl:px-4 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
+                className={`hidden lg:inline-flex xl:hidden 2xl:inline-flex items-center gap-1.5 px-3 2xl:px-4 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
                   ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-navy-200 text-navy-600 hover:bg-navy-50'}`}
               >
                 Find a Coach
