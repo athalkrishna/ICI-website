@@ -32,7 +32,7 @@ export default function Navbar() {
             : 'bg-white shadow-sm'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-20">
 
             {/* ── Logo ── */}
@@ -69,7 +69,7 @@ export default function Navbar() {
                         e.preventDefault()
                         setActiveMenu(activeMenu === item.label ? null : item.label)
                       }}
-                      className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-sm font-sans font-medium
+                      className={`flex items-center gap-1 px-2 xl:px-3 py-2 rounded-lg text-sm font-sans font-medium whitespace-nowrap
                         transition-colors duration-200
                         ${scrolled
                           ? 'text-gray-200 hover:text-white hover:bg-white/10'
@@ -84,7 +84,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-sm font-sans font-medium
+                      className={`flex items-center gap-1 px-2 xl:px-3 py-2 rounded-lg text-sm font-sans font-medium whitespace-nowrap
                         transition-colors duration-200
                         ${scrolled
                           ? 'text-gray-200 hover:text-white hover:bg-white/10'
@@ -153,7 +153,7 @@ export default function Navbar() {
 
               <Link
                 href="/programs"
-                className={`hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-sans font-medium border transition-colors
+                className={`hidden md:inline-flex items-center gap-1.5 px-3 xl:px-4 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
                   ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-navy-200 text-navy-600 hover:bg-navy-50'}`}
               >
                 Find a Coach
@@ -161,7 +161,7 @@ export default function Navbar() {
 
               <Link
                 href="/apply"
-                className="btn-primary hidden md:inline-flex"
+                className="btn-primary hidden md:inline-flex whitespace-nowrap"
               >
                 Apply Now
                 <span aria-hidden>→</span>
