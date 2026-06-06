@@ -39,13 +39,13 @@ export default function GlobalReachMap() {
         { location: [35.6762, 139.6503], size: 0.06 }, // Tokyo
         { location: [-23.5505, -46.6333], size: 0.06 } // Sao Paulo
       ],
-      onRender: (state) => {
+      onRender: (state: Record<string, any>) => {
         state.phi = phi
         phi += 0.003
         state.width = width * 2
         state.height = width * 2
       }
-    })
+    } as any)
 
     return () => {
       globe.destroy()
