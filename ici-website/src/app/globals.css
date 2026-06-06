@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    color: #1A1A2E;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-playfair), Georgia, serif;
+    line-height: 1.15;
+    color: #0A1F44;
+  }
+
+  p, li, blockquote {
+    font-family: var(--font-source-serif), Georgia, serif;
+    line-height: 1.75;
+  }
+
+  a { text-decoration: none; transition: color 0.2s ease; }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F9F6F0; }
+  ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid #C9A84C;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Section label — gold all-caps with decorative lines */
+  .section-label {
+    @apply flex items-center gap-3 justify-center text-gold-500 text-xs font-sans font-semibold tracking-[0.2em] uppercase;
+  }
+  .section-label::before,
+  .section-label::after {
+    content: '';
+    @apply block h-px w-10 bg-gold-500;
+  }
+
+  /* Gold animated underline for H2 headings */
+  .heading-underline {
+    @apply relative inline-block;
+  }
+  .heading-underline::after {
+    content: '';
+    @apply absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.5 bg-gold-500 w-0 transition-all duration-700;
+  }
+  .heading-underline.in-view::after {
+    @apply w-12;
+  }
+
+  /* Card base */
+  .ici-card {
+    @apply bg-white rounded-xl border border-gray-100 shadow-card hover:shadow-card-hover
+           hover:-translate-y-1.5 transition-all duration-300 overflow-hidden;
+  }
+  .ici-card:hover {
+    border-top: 3px solid #C9A84C;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600
+           text-navy-700 font-sans font-semibold text-sm rounded-lg
+           transition-all duration-200 active:scale-95 shadow-gold;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-white
+           text-white hover:bg-white hover:text-navy-700 font-sans font-semibold
+           text-sm rounded-lg transition-all duration-200 active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-navy-700
+           text-navy-700 hover:bg-navy-700 hover:text-white font-sans font-semibold
+           text-sm rounded-lg transition-all duration-200 active:scale-95;
+  }
+}

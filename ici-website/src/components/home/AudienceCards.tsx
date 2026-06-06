@@ -1,0 +1,59 @@
+'use client'
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import Image from 'next/image'
+
+const audiences = [
+  {
+    title: 'Aspiring Coaches',
+    desc: 'Launch your new career with foundational certification and hands-on mentor coaching.',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80'
+  },
+  {
+    title: 'Experienced Practitioners',
+    desc: 'Elevate your practice with advanced credentialing and specialized masterclasses.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'
+  },
+  {
+    title: 'Corporate Leaders',
+    desc: 'Develop an internal coaching culture to drive organizational performance and engagement.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80'
+  }
+]
+
+export default function AudienceCards() {
+  return (
+    <section className="py-24 bg-cream-100">
+      <div className="max-w-7xl mx-auto px-4">
+        <AnimatedSection className="text-center mb-16">
+          <div className="section-label mb-4">Discover Your Path</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700">Coaching for Everyone</h2>
+        </AnimatedSection>
+        <div className="grid md:grid-cols-3 gap-8">
+          {audiences.map((aud, i) => (
+            <AnimatedSection key={i} delay={i * 0.1}>
+              <div className="relative group rounded-2xl overflow-hidden h-[400px] shadow-lg cursor-pointer">
+                <Image 
+                  src={aud.image} 
+                  alt={aud.title} 
+                  fill 
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="text-gold-400 font-display italic text-lg mb-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    Path 0{i + 1}
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-white mb-3">{aud.title}</h3>
+                  <p className="font-body text-sm text-blue-100 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75">
+                    {aud.desc}
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
