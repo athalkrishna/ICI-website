@@ -1,110 +1,68 @@
-'use client'
-import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import createGlobe from 'cobe'
 
 export default function GlobalReachMap() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    let phi = 0
-    let width = 0
-    const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth)
-    window.addEventListener('resize', onResize)
-    onResize()
-
-    if (!canvasRef.current) return
-
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: width * 2,
-      height: width * 2,
-      phi: 0,
-      theta: 0.3,
-      dark: 1, // dark mode globe
-      diffuse: 1.2,
-      scale: 1,
-      mapSamples: 20000,
-      mapBrightness: 6,
-      baseColor: [1, 1, 1], // White continents
-      markerColor: [201 / 255, 168 / 255, 76 / 255], // matches gold-400
-      glowColor: [1, 1, 1], // White glow
-      markers: [
-        // longitude, latitude
-        { location: [40.7128, -74.0060], size: 0.08 }, // New York
-        { location: [51.5074, -0.1278], size: 0.08 },  // London
-        { location: [25.2048, 55.2708], size: 0.08 },  // Dubai
-        { location: [1.3521, 103.8198], size: 0.08 },  // Singapore
-        { location: [-33.8688, 151.2093], size: 0.08 },// Sydney
-        { location: [35.6762, 139.6503], size: 0.06 }, // Tokyo
-        { location: [-23.5505, -46.6333], size: 0.06 } // Sao Paulo
-      ],
-      onRender: (state: Record<string, any>) => {
-        state.phi = phi
-        phi += 0.003
-        state.width = width * 2
-        state.height = width * 2
-      }
-    } as any)
-
-    return () => {
-      globe.destroy()
-      window.removeEventListener('resize', onResize)
-    }
-  }, [])
-
   return (
     <section className="py-32 bg-navy-900 relative overflow-hidden text-white">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-navy-800 to-navy-900 opacity-60" />
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/global-network-bg.png"
+          alt="Global Network Visualization"
+          fill
+          className="object-cover opacity-40 object-center mix-blend-screen"
+          priority
+        />
+        {/* Soft vignette gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/50" />
+      </div>
       
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10">
         
-        {/* Left side content */}
-        <AnimatedSection>
+        {/* Content */}
+        <AnimatedSection className="max-w-3xl">
           <div className="section-label mb-4 text-gold-400">Global Network</div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-[1.1]">
             Connecting Coaches Worldwide
           </h2>
-          <p className="font-body text-navy-200 text-lg mb-10 max-w-xl leading-relaxed">
+          <p className="font-body text-navy-200 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl">
             With graduates in over 60 countries, the ICI community is a diverse, dynamic network of professionals advancing the field of coaching. Connect, learn, and grow with the best in the industry.
           </p>
           
-          <div className="grid grid-cols-2 gap-6 mb-12 max-w-md">
-            <div className="bg-navy-800/40 backdrop-blur-md border border-navy-700/50 rounded-2xl p-6 shadow-xl transition-transform hover:-translate-y-1">
-              <div className="text-4xl font-display font-bold text-gold-400 mb-2">60+</div>
-              <div className="text-sm font-sans font-medium text-navy-200 uppercase tracking-widest">Countries</div>
-            </div>
-            <div className="bg-navy-800/40 backdrop-blur-md border border-navy-700/50 rounded-2xl p-6 shadow-xl transition-transform hover:-translate-y-1">
-              <div className="text-4xl font-display font-bold text-gold-400 mb-2">10k+</div>
-              <div className="text-sm font-sans font-medium text-navy-200 uppercase tracking-widest">Alumni</div>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-4xl">
+            {[
+              { label: 'Countries', value: '60+' },
+              { label: 'Alumni', value: '10k+' },
+              { label: 'Campuses', value: '5' },
+              { label: 'Partners', value: '200+' },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-navy-800/50 backdrop-blur-md border border-navy-700/50 rounded-2xl p-6 shadow-xl transition-transform hover:-translate-y-1">
+                <div className="text-3xl lg:text-4xl font-display font-bold text-gold-400 mb-2">{stat.value}</div>
+                <div className="text-[11px] lg:text-xs font-sans font-bold text-navy-200 uppercase tracking-widest">{stat.label}</div>
+              </div>
+            ))}
           </div>
           
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-sans font-bold uppercase tracking-widest text-navy-300">
-            <span className="hover:text-gold-400 transition-colors">New York</span>
-            <span className="text-gold-500/30">•</span>
-            <span className="hover:text-gold-400 transition-colors">London</span>
-            <span className="text-gold-500/30">•</span>
-            <span className="hover:text-gold-400 transition-colors">Dubai</span>
-            <span className="text-gold-500/30">•</span>
-            <span className="hover:text-gold-400 transition-colors">Singapore</span>
-            <span className="text-gold-500/30">•</span>
-            <span className="hover:text-gold-400 transition-colors">Sydney</span>
+            <span className="hover:text-gold-400 transition-colors cursor-pointer flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" /> New York
+            </span>
+            <span className="hover:text-gold-400 transition-colors cursor-pointer flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" style={{ animationDelay: '200ms' }} /> London
+            </span>
+            <span className="hover:text-gold-400 transition-colors cursor-pointer flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" style={{ animationDelay: '400ms' }} /> Dubai
+            </span>
+            <span className="hover:text-gold-400 transition-colors cursor-pointer flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" style={{ animationDelay: '600ms' }} /> Singapore
+            </span>
+            <span className="hover:text-gold-400 transition-colors cursor-pointer flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" style={{ animationDelay: '800ms' }} /> Sydney
+            </span>
           </div>
         </AnimatedSection>
         
-        {/* Right side Globe */}
-        <AnimatedSection className="relative aspect-square w-full max-w-[600px] mx-auto lg:ml-auto">
-          {/* A soft glow behind the globe */}
-          <div className="absolute inset-0 bg-gold-400/10 blur-[100px] rounded-full" />
-          
-          <canvas
-            ref={canvasRef}
-            className="w-full h-full relative z-10 drop-shadow-2xl cursor-grab active:cursor-grabbing"
-            style={{ contain: 'layout paint size' }}
-          />
-        </AnimatedSection>
       </div>
     </section>
   )
