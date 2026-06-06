@@ -1,13 +1,20 @@
 'use client'
 import { Phone, Mail, Globe, ChevronDown } from 'lucide-react'
+import Link from 'next/link'
 
-const audiences = ['Future Students', 'Current Students', 'Organizations', 'Alumni', 'Faculty & Staff']
+const audiences = [
+  { label: 'Future Students', href: '/future-students' },
+  { label: 'Current Students', href: '/current-students' },
+  { label: 'Organizations', href: '/organizations' },
+  { label: 'Alumni', href: '/alumni' },
+  { label: 'Faculty & Staff', href: '/faculty-staff' }
+]
 const languages = ['English', 'Español', 'Français', '中文', 'हिन्दी']
 
 export default function TopBar() {
   return (
     <div className="bg-navy-700 text-white text-xs font-sans">
-      <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 h-9 flex items-center justify-between">
 
         {/* Left: contact info */}
         <div className="hidden md:flex items-center gap-5">
@@ -29,13 +36,13 @@ export default function TopBar() {
         {/* Right: audience links */}
         <div className="flex items-center gap-4 ml-auto">
           {audiences.map((a) => (
-            <a key={a} href="#" className="hidden lg:block hover:text-gold-400 transition-colors">
-              {a}
-            </a>
+            <Link key={a.label} href={a.href} className="hidden xl:block hover:text-gold-400 transition-colors whitespace-nowrap">
+              {a.label}
+            </Link>
           ))}
           <span className="text-gold-500 mx-1">|</span>
-          <a href="/login" className="hover:text-gold-400 transition-colors">Log In</a>
-          <a href="/account" className="hover:text-gold-400 transition-colors">My Account</a>
+          <Link href="/login" className="hover:text-gold-400 transition-colors whitespace-nowrap">Log In</Link>
+          <Link href="/account" className="hover:text-gold-400 transition-colors whitespace-nowrap">My Account</Link>
         </div>
 
       </div>
