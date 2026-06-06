@@ -69,7 +69,7 @@ export default function Navbar() {
                         e.preventDefault()
                         setActiveMenu(activeMenu === item.label ? null : item.label)
                       }}
-                      className={`flex items-center gap-1 px-2 xl:px-3 py-2 rounded-lg text-sm font-sans font-medium whitespace-nowrap
+                      className={`flex items-center gap-1 px-1.5 xl:px-2 2xl:px-3 py-2 rounded-lg text-sm font-sans font-medium whitespace-nowrap
                         transition-colors duration-200
                         ${scrolled
                           ? 'text-gray-200 hover:text-white hover:bg-white/10'
@@ -84,7 +84,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-1 px-2 xl:px-3 py-2 rounded-lg text-sm font-sans font-medium whitespace-nowrap
+                      className={`flex items-center gap-1 px-1.5 xl:px-2 2xl:px-3 py-2 rounded-lg text-sm font-sans font-medium whitespace-nowrap
                         transition-colors duration-200
                         ${scrolled
                           ? 'text-gray-200 hover:text-white hover:bg-white/10'
@@ -142,7 +142,7 @@ export default function Navbar() {
             </nav>
 
             {/* ── Right CTAs ── */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 xl:gap-3 shrink-0">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className={`p-2 rounded-lg transition-colors ${scrolled ? 'text-white hover:bg-white/10' : 'text-navy-600 hover:bg-navy-50'}`}
@@ -153,7 +153,7 @@ export default function Navbar() {
 
               <Link
                 href="/programs"
-                className={`hidden md:inline-flex items-center gap-1.5 px-3 xl:px-4 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
+                className={`hidden lg:inline-flex items-center gap-1.5 px-3 2xl:px-4 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
                   ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-navy-200 text-navy-600 hover:bg-navy-50'}`}
               >
                 Find a Coach
@@ -161,7 +161,7 @@ export default function Navbar() {
 
               <Link
                 href="/apply"
-                className="btn-primary hidden md:inline-flex whitespace-nowrap"
+                className="btn-primary hidden md:inline-flex whitespace-nowrap px-4 2xl:px-6"
               >
                 Apply Now
                 <span aria-hidden>→</span>
