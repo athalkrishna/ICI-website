@@ -57,7 +57,7 @@ export default function Navbar() {
 
             {/* ── Desktop Nav ── */}
             <nav className="hidden xl:flex items-center gap-1" onMouseLeave={() => setActiveMenu(null)}>
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <div
                   key={item.label}
                   className="relative"
@@ -105,7 +105,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-1 w-[580px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6 grid grid-cols-2 gap-6"
+                        className={`absolute top-full ${index > 3 ? 'right-0' : 'left-0'} mt-1 w-[580px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6 grid grid-cols-2 gap-6`}
                       >
                         {item.children.map((group) => (
                           <div key={group.heading}>
