@@ -25,10 +25,10 @@ export default function GlobalReachMap() {
       diffuse: 1.2,
       scale: 1,
       mapSamples: 20000,
-      mapBrightness: 4,
-      baseColor: [10 / 255, 31 / 255, 68 / 255], // matches navy-900
+      mapBrightness: 6,
+      baseColor: [1, 1, 1], // White continents
       markerColor: [201 / 255, 168 / 255, 76 / 255], // matches gold-400
-      glowColor: [10 / 255, 31 / 255, 68 / 255], // subtle glow
+      glowColor: [1, 1, 1], // White glow
       markers: [
         // longitude, latitude
         { location: [40.7128, -74.0060], size: 0.08 }, // New York
