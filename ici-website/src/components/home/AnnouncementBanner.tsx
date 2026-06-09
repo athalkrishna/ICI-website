@@ -1,11 +1,11 @@
 'use client'
-import { Trophy, Calendar, MapPin } from 'lucide-react'
+import { Award, Calendar, Globe } from 'lucide-react'
 import Link from 'next/link'
 
 const items = [
-  { icon: <Trophy size={14} />, text: 'ICI Ranked #1 Coaching Institute in Asia-Pacific 2025', href: '/about/rankings' },
-  { icon: <Calendar size={14} />, text: 'Next Cohort Starts August 1 — Apply Before June 30', href: '/apply', cta: 'Apply Now →' },
-  { icon: <MapPin size={14} />, text: 'New Campus Opening: Dubai, UAE — 2026', href: '/about/global' },
+  { icon: <Calendar size={14} />, text: 'Next cohort begins every month. Enrol at your own place and pace.', href: '/apply' },
+  { icon: <Globe size={14} />, text: 'Now enrolling worldwide: one-to-one, online coaching certification.', href: '/credentials' },
+  { icon: <Award size={14} />, text: 'The ICI Mastery Pathway, from Catalyst to Luminary. Explore the credentials.', href: '/credentials' },
 ]
 
 export default function AnnouncementBanner() {

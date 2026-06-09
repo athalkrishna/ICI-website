@@ -1,0 +1,159 @@
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import { Metadata } from 'next'
+import Link from 'next/link'
+import { Briefcase, ArrowUpRight, LineChart, ShieldCheck, CheckCircle2, UserPlus, Compass } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Business Coaching Specialisation | ICI',
+  description: 'Train as a business coach with ICI. Help founders and owners build companies that work, one-to-one and online, within the Mastery Pathway.'
+}
+
+export default function BusinessCoachingPage() {
+  return (
+    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-gold-500/30">
+      
+      {/* ── Hero Section ── */}
+      <section className="bg-navy-700 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        {/* Diagonal grid texture overlay */}
+        <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
+        {/* Gold gradient line */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-80" aria-hidden />
+
+        {/* Ambient Lights */}
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+        </div>
+
+        {/* Abstract typography watermark */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 text-[600px] font-display font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter mix-blend-overlay">
+          B
+        </div>
+
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+          <AnimatedSection className="max-w-4xl">
+            <div className="flex items-center gap-6 mb-8">
+              <div className="w-16 h-[1px] bg-gradient-to-r from-gold-500 to-transparent"></div>
+              <div className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Specialisation | Business Coaching</div>
+            </div>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-10 text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+              Business Coaching
+            </h1>
+            <p className="font-body text-xl md:text-2xl text-blue-50 leading-relaxed font-light max-w-3xl opacity-90">
+              Founders rarely fail for lack of effort. They struggle because the business outgrows the way they lead it, and no one taught them to step back. Business coaching is the craft of helping owners work on the business and on themselves at once. As a focus within the Pathway, it equips you to coach for growth without losing sight of the human carrying it all.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── Split Layout Content ── */}
+      <section className="max-w-[1440px] mx-auto px-4 lg:px-8 py-32 lg:py-48 mt-8 relative z-20">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Left Column: What you will learn */}
+          <div className="lg:col-span-7 space-y-12">
+            <AnimatedSection>
+              <h2 className="font-display text-4xl font-bold text-navy-900 mb-10 flex items-center gap-4">
+                What you will learn to do
+              </h2>
+              
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { text: "Coach the owner and the business as one system", icon: <Briefcase size={24} /> },
+                  { text: "Help clients move from doing to leading", icon: <ArrowUpRight size={24} /> },
+                  { text: "Work with growth, money, risk and the fear beneath them", icon: <LineChart size={24} /> },
+                  { text: "Build accountability that drives results without breaking people", icon: <ShieldCheck size={24} /> }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-xl hover:shadow-2xl hover:border-gold-200 transition-all duration-300 group">
+                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-gold-100 flex items-center justify-center text-gold-500 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">
+                      {item.icon}
+                    </div>
+                    <p className="font-body text-gray-700 text-lg leading-relaxed">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Right Column: Sticky Sidebar */}
+          <div className="lg:col-span-5 relative">
+            <div className="sticky top-32 space-y-8">
+              
+              <AnimatedSection delay={0.2}>
+                <div className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-cream-50 rounded-full blur-[40px] opacity-50"></div>
+                  <h2 className="font-display text-2xl font-bold text-navy-800 mb-8 relative z-10 flex items-center gap-3">
+                    <UserPlus size={24} className="text-gold-500" />
+                    Who this suits
+                  </h2>
+                  <ul className="space-y-6 relative z-10">
+                    {[
+                      "Coaches drawn to founders and business owners",
+                      "Consultants and advisers adding coaching",
+                      "Experienced operators moving into a coaching role"
+                    ].map((item, i) => (
+                      <li key={i} className="flex gap-4 items-start group">
+                        <CheckCircle2 className="text-gold-500 shrink-0 mt-0.5" size={20} />
+                        <span className="font-body text-gray-600 leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.3}>
+                <div className="bg-cream-100 p-10 rounded-[40px] border border-gold-200/50 shadow-xl">
+                  <h2 className="font-display text-2xl font-bold text-navy-800 mb-8 flex items-center gap-3">
+                    <Compass size={24} className="text-gold-500" />
+                    At a glance
+                  </h2>
+                  <ul className="space-y-6">
+                    {[
+                      { label: "Role", value: "Focus area within the Mastery Pathway" },
+                      { label: "Format", value: "Online, one-to-one" },
+                      { label: "Entry", value: "Suggested from Architect (Level 2)" },
+                      { label: "Cost", value: "Follows the Pathway, see Pricing" }
+                    ].map((item, i) => (
+                      <li key={i} className="border-b border-navy-200/30 pb-4 last:border-0 last:pb-0">
+                        <div className="font-sans text-xs font-bold uppercase tracking-widest text-navy-400 mb-1">{item.label}</div>
+                        <div className="font-body text-navy-900">{item.value}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      {/* ── Banner: How it fits the Pathway ── */}
+      <section className="mt-24 lg:mt-32">
+        <AnimatedSection>
+          <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div className="bg-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-gold-500/20 shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
+              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
+              <div className="relative z-10 max-w-3xl">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
+                <p className="font-body text-xl md:text-2xl text-blue-100/90 leading-relaxed font-light mb-12">
+                  A business focus suits the Architect level and above. Your credential and investment follow the level you pursue.
+                </p>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link href="/credentials/architect" className="btn-primary px-8 py-4 text-sm tracking-widest">
+                    Advance to Architect
+                  </Link>
+                  <Link href="/admissions/contact" className="btn-secondary px-8 py-4 text-sm tracking-widest border-white/20 hover:border-white text-white">
+                    Speak to an Advisor
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
+
+    </div>
+  )
+}

@@ -1,7 +1,11 @@
 import Image from 'next/image'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
-export default function GlobalReachMap() {
+interface GlobalReachMapProps {
+  content?: Record<string, string>;
+}
+
+export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
   return (
     <section className="py-32 bg-navy-900 relative overflow-hidden text-white">
       {/* Background Image & Overlay */}
@@ -24,10 +28,10 @@ export default function GlobalReachMap() {
         <AnimatedSection className="max-w-3xl">
           <div className="section-label mb-4 text-gold-400">Global Network</div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-[1.1]">
-            Connecting Coaches Worldwide
+            {content.global_network_heading || 'Connecting Coaches Worldwide'}
           </h2>
           <p className="font-body text-navy-200 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl">
-            With graduates in over 60 countries, the ICI community is a diverse, dynamic network of professionals advancing the field of coaching. Connect, learn, and grow with the best in the industry.
+            {content.global_network_body || 'With graduates in over 60 countries, the ICI community is a diverse, dynamic network of professionals advancing the field of coaching. Connect, learn, and grow with the best in the industry.'}
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-4xl">

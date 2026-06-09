@@ -5,13 +5,17 @@ import Link from 'next/link'
 import { ArrowRight, Download, ChevronDown } from 'lucide-react'
 import CountUpNumber from '@/components/shared/CountUpNumber'
 
-const stats = [
-  { value: 25000, suffix: '+', label: 'Certified Graduates' },
-  { value: 60,    suffix: '+', label: 'Countries Served' },
-  { value: 3,     suffix: '',  label: 'Credential Levels' },
-]
+interface HeroSectionProps {
+  content?: Record<string, string>;
+}
 
-export default function HeroSection() {
+export default function HeroSection({ content = {} }: HeroSectionProps) {
+  const stats = [
+    { value: parseInt((content.stat_1_value || '25000').replace(/[^0-9]/g, '')) || 25000, suffix: '+', label: content.stat_1_label || 'Certified Graduates' },
+    { value: parseInt((content.stat_2_value || '60').replace(/[^0-9]/g, '')) || 60, suffix: '+', label: content.stat_2_label || 'Countries Served' },
+    { value: parseInt((content.stat_3_value || '4').replace(/[^0-9]/g, '')) || 4, suffix: '', label: content.stat_3_label || 'Credential Levels' },
+  ]
+
   return (
     <section className="relative min-h-screen flex items-center bg-navy-700 overflow-hidden">
 
@@ -49,7 +53,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6 }}
               className="section-label mb-6"
             >
-              Globally Accredited Coaching Education
+              {content.hero_eyebrow || 'Globally Accredited Coaching Education'}
             </motion.div>
 
             {/* H1 */}
@@ -57,11 +61,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6"
+              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 whitespace-pre-line"
             >
-              Where Great
-              <span className="block text-gold-400">Coaches Are</span>
-              <span className="block">Made.</span>
+              {content.hero_heading || 'Where Great Coaches Are Made.'}
             </motion.h1>
 
             {/* Subtext */}
@@ -71,9 +73,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-body text-lg text-blue-100 leading-relaxed mb-8 max-w-xl"
             >
-              The International Coaching Institute is the world's leading provider of
-              professional coaching education, certification, and continuing development —
-              trusted by coaches in over 60 countries.
+              {content.hero_body || 'The International Coaching Institute is the world\'s leading provider of professional coaching education, certification, and continuing development — trusted by coaches in over 60 countries.'}
             </motion.p>
 
             {/* Stats row */}
@@ -107,13 +107,13 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.45 }}
               className="flex flex-wrap gap-4"
             >
-              <Link href="/programs" className="btn-primary text-base px-8 py-4">
-                Explore Programs
+              <Link href={content.hero_btn_primary_url || '/credentials'} className="btn-primary text-base px-8 py-4">
+                {content.hero_btn_primary || 'Explore Programmes'}
                 <ArrowRight size={18} />
               </Link>
-              <Link href="/resources/brochure" className="btn-secondary text-base px-8 py-4">
+              <Link href={content.hero_btn_secondary_url || '/resources/brochure'} className="btn-secondary text-base px-8 py-4">
                 <Download size={18} />
-                Download Brochure
+                {content.hero_btn_secondary || 'Download Brochure'}
               </Link>
             </motion.div>
 
@@ -128,10 +128,10 @@ export default function HeroSection() {
           >
             <div className="bg-white rounded-2xl shadow-2xl p-7 border-l-4 border-gold-500">
               <h2 className="font-display text-xl font-bold text-navy-700 mb-1">
-                Start Your Coaching Journey
+                {content.lead_form_heading || 'Start Your Coaching Journey'}
               </h2>
               <p className="font-sans text-sm text-gray-500 mb-5">
-                Free application · No commitment
+                {content.lead_form_subtext || 'Free application · No commitment'}
               </p>
 
               <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
@@ -146,15 +146,14 @@ export default function HeroSection() {
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
                 />
                 <select className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400">
-                  <option value="">Program Interest</option>
-                  <option>Life Coach Certification</option>
-                  <option>Executive Leadership Coach</option>
-                  <option>Business Coach Certification</option>
-                  <option>Health & Wellness Coach</option>
-                  <option>Team & Organizational Coach</option>
+                  <option value="">Programme Interest</option>
+                  <option>Catalyst (Level 1)</option>
+                  <option>Architect (Level 2)</option>
+                  <option>Sage (Level 3)</option>
+                  <option>Luminary (Level 4)</option>
                 </select>
                 <button type="submit" className="w-full btn-primary justify-center py-3.5 text-base">
-                  Get Started
+                  {content.lead_form_btn || 'Get Started'}
                   <ArrowRight size={18} />
                 </button>
               </form>

@@ -5,11 +5,10 @@ import Link from 'next/link'
 const audiences = [
   { label: 'Future Students', href: '/future-students' },
   { label: 'Current Students', href: '/current-students' },
-  { label: 'Organizations', href: '/organizations' },
+  { label: 'Organisations', href: '/organizations' },
   { label: 'Alumni', href: '/alumni' },
   { label: 'Faculty & Staff', href: '/faculty-staff' }
 ]
-const languages = ['English', 'Español', 'Français', '中文', 'हिन्दी']
 
 export default function TopBar() {
   return (
@@ -18,9 +17,9 @@ export default function TopBar() {
 
         {/* Left: contact info */}
         <div className="hidden md:flex items-center gap-5">
-          <a href="tel:+18004242623" className="flex items-center gap-1.5 hover:text-gold-400 transition-colors">
+          <a href="tel:+919819984575" className="flex items-center gap-1.5 hover:text-gold-400 transition-colors">
             <Phone size={12} />
-            +1 (800) ICI-COACH
+            (+91) 98199 84575
           </a>
           <a href="mailto:info@internationalcoachinginstitute.org" className="flex items-center gap-1.5 hover:text-gold-400 transition-colors">
             <Mail size={12} />
@@ -28,8 +27,7 @@ export default function TopBar() {
           </a>
           <div className="flex items-center gap-1.5 cursor-pointer hover:text-gold-400 transition-colors">
             <Globe size={12} />
-            <span>English</span>
-            <ChevronDown size={10} />
+            <span>Language: English</span>
           </div>
         </div>
 

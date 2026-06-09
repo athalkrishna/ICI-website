@@ -3,42 +3,45 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const programs = [
+const programmes = [
   {
     title: 'Certified Life Coach',
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
     desc: 'Master the foundational competencies of transformational life coaching.',
-    type: 'Foundation'
+    type: 'Foundation',
+    href: '/programmes/certified-life-coach'
   },
   {
     title: 'Executive Coaching',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
-    desc: 'Drive organizational success through advanced leadership methodologies.',
-    type: 'Professional'
+    desc: 'Drive organisational success through advanced leadership methodologies.',
+    type: 'Professional',
+    href: '/programmes/executive-coaching'
   },
   {
     title: 'Health & Wellness',
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80',
-    desc: 'Empower clients to achieve sustainable physical and mental wellbeing.',
-    type: 'Specialization'
+    desc: 'Empower clients to achieve sustainable physical and mental well-being.',
+    type: 'Specialisation',
+    href: '/programmes/health-wellness'
   }
 ]
 
-export default function FeaturedPrograms() {
+export default function FeaturedProgrammes() {
   return (
     <section className="py-24 bg-cream-50">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
         <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
             <div className="section-label !justify-start mb-4">Academics</div>
-            <h2 className="font-display text-4xl font-bold text-navy-700">Featured Programs</h2>
+            <h2 className="font-display text-4xl font-bold text-navy-700">Featured Programmes</h2>
           </div>
-          <Link href="/programs" className="text-gold-600 hover:text-gold-700 font-sans font-semibold text-sm underline underline-offset-4">
-            View All Programs
+          <Link href="/programmes" className="text-gold-600 hover:text-gold-700 font-sans font-semibold text-sm underline underline-offset-4">
+            View All Programmes
           </Link>
         </AnimatedSection>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.map((prog, i) => (
+          {programmes.map((prog, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <div className="ici-card flex flex-col h-full bg-white group">
                 <div className="h-56 relative overflow-hidden border-b border-gray-100">
@@ -57,7 +60,7 @@ export default function FeaturedPrograms() {
                 <div className="p-8 flex-1 flex flex-col">
                   <h3 className="font-display text-2xl font-bold text-navy-700 mb-3 group-hover:text-gold-600 transition-colors">{prog.title}</h3>
                   <p className="font-body text-gray-600 mb-8 flex-1 leading-relaxed">{prog.desc}</p>
-                  <Link href={`/programs/${prog.title.toLowerCase().replace(/ /g, '-')}`} className="btn-outline w-full justify-center">
+                  <Link href={prog.href} className="btn-outline w-full justify-center">
                     Learn More
                   </Link>
                 </div>

@@ -57,7 +57,12 @@ export default function Navbar() {
 
             {/* ── Desktop Nav ── */}
             <nav className="hidden xl:flex items-center gap-1" onMouseLeave={() => setActiveMenu(null)}>
-              {navItems.map((item, index) => (
+              {navItems.map((item, index) => {
+                const isLargeMenu = item.children && item.children.length === 1 && item.children[0].links.length > 4;
+                const isMultiGroup = item.children && item.children.length > 1;
+                const useWideMenu = isLargeMenu || isMultiGroup;
+                
+                return (
                 <div
                   key={item.label}
                   className="relative"
@@ -101,31 +106,33 @@ export default function Navbar() {
                   <AnimatePresence>
                     {item.children && activeMenu === item.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.18 }}
-                        className={`absolute top-full ${index > 3 ? 'right-0' : 'left-0'} mt-1 w-[580px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6 grid grid-cols-2 gap-6`}
+                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className={`absolute top-full ${index > 3 ? 'right-0' : 'left-0'} mt-2 ${useWideMenu ? 'w-[640px] grid grid-cols-2 gap-8' : 'w-[320px] flex flex-col'} bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/50 p-6 ring-1 ring-black/5`}
                       >
                         {item.children.map((group) => (
-                          <div key={group.heading}>
-                            <p className="text-[10px] font-sans font-semibold tracking-[0.15em] uppercase text-gold-600 mb-3 pb-2 border-b border-gold-100">
-                              {group.heading}
-                            </p>
-                            <ul className="space-y-1">
+                          <div key={group.heading} className={isLargeMenu ? 'col-span-2' : ''}>
+                            {group.heading && (
+                              <p className="text-[11px] font-sans font-bold tracking-[0.2em] uppercase text-navy-400 mb-4 pb-3 border-b border-gray-100/60">
+                                {group.heading}
+                              </p>
+                            )}
+                            <ul className={isLargeMenu ? 'columns-2 gap-8' : 'space-y-2'}>
                               {group.links.map((link) => (
-                                <li key={link.label}>
+                                <li key={link.label} className={isLargeMenu ? "break-inside-avoid mb-4" : ""}>
                                   <Link
                                     href={link.href}
-                                    className="flex items-start gap-2 px-2 py-1.5 rounded-lg hover:bg-cream-100 group transition-colors"
+                                    className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-navy-50/50 group transition-all duration-200"
                                   >
-                                    <span className="text-gold-500 mt-0.5 shrink-0">›</span>
+                                    <span className="text-gold-400 mt-0.5 shrink-0 transition-transform group-hover:translate-x-0.5">✦</span>
                                     <div>
-                                      <div className="text-sm font-sans font-medium text-navy-700 group-hover:text-navy-800">
+                                      <div className="text-[13px] font-sans font-semibold text-navy-800 group-hover:text-gold-600 transition-colors">
                                         {link.label}
                                       </div>
                                       {link.desc && (
-                                        <div className="text-xs text-gray-400 font-sans mt-0.5">{link.desc}</div>
+                                        <div className="text-[12px] text-gray-500 font-sans mt-1 line-clamp-1 group-hover:text-gray-600 transition-colors">{link.desc}</div>
                                       )}
                                     </div>
                                   </Link>
@@ -138,7 +145,8 @@ export default function Navbar() {
                     )}
                   </AnimatePresence>
                 </div>
-              ))}
+                )
+              })}
             </nav>
 
             {/* ── Right CTAs ── */}
@@ -152,7 +160,7 @@ export default function Navbar() {
               </button>
 
               <Link
-                href="/programs"
+                href="/find-a-coach"
                 className={`hidden lg:inline-flex xl:hidden items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
                   ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-navy-200 text-navy-600 hover:bg-navy-50'}`}
               >

@@ -2,7 +2,11 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Image from 'next/image'
 
-export default function ICIDifference() {
+interface ICIDifferenceProps {
+  content?: Record<string, string>;
+}
+
+export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 items-center">
@@ -21,7 +25,7 @@ export default function ICIDifference() {
         </AnimatedSection>
         <AnimatedSection className="flex-1" direction="right">
           <div className="section-label !justify-start mb-4">Why ICI</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700 mb-6">The ICI Difference</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700 mb-6">{content.diff_heading || 'The ICI Difference'}</h2>
           <p className="font-body text-gray-600 mb-8 leading-relaxed text-lg">
             Our evidence-based curriculum, world-class faculty, and global alumni network provide an unmatched environment for aspiring and established coaches to thrive.
           </p>
@@ -29,22 +33,22 @@ export default function ICIDifference() {
             <li className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold-50 flex items-center justify-center text-gold-500">✦</div>
               <div>
-                <strong className="block text-navy-700 mb-1">ICF Accredited Curriculum</strong>
-                <span className="text-sm text-gray-500">Rigorous academic standards aligned with the International Coaching Federation.</span>
+                <strong className="block text-navy-700 mb-1">{content.diff_1_title || 'ICF Accredited Curriculum'}</strong>
+                <span className="text-sm text-gray-500">{content.diff_1_body || 'Rigorous academic standards aligned with the International Coaching Federation.'}</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold-50 flex items-center justify-center text-gold-500">✦</div>
               <div>
-                <strong className="block text-navy-700 mb-1">Expert Scholar-Practitioner Faculty</strong>
-                <span className="text-sm text-gray-500">Learn from seasoned industry leaders with decades of global experience.</span>
+                <strong className="block text-navy-700 mb-1">{content.diff_2_title || 'Expert Scholar-Practitioner Faculty'}</strong>
+                <span className="text-sm text-gray-500">{content.diff_2_body || 'Learn from seasoned industry leaders with decades of global experience.'}</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold-50 flex items-center justify-center text-gold-500">✦</div>
               <div>
-                <strong className="block text-navy-700 mb-1">Global Alumni Network</strong>
-                <span className="text-sm text-gray-500">Join a prestigious community of over 25,000 successful graduates worldwide.</span>
+                <strong className="block text-navy-700 mb-1">{content.diff_3_title || 'Global Alumni Network'}</strong>
+                <span className="text-sm text-gray-500">{content.diff_3_body || 'Join a prestigious community of over 25,000 successful graduates worldwide.'}</span>
               </div>
             </li>
           </ul>

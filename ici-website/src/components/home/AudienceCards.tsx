@@ -2,31 +2,34 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Image from 'next/image'
 
-const audiences = [
-  {
-    title: 'Aspiring Coaches',
-    desc: 'Launch your new career with foundational certification and hands-on mentor coaching.',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80'
-  },
-  {
-    title: 'Experienced Practitioners',
-    desc: 'Elevate your practice with advanced credentialing and specialized masterclasses.',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'
-  },
-  {
-    title: 'Corporate Leaders',
-    desc: 'Develop an internal coaching culture to drive organizational performance and engagement.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80'
-  }
-]
+interface AudienceCardsProps {
+  content?: Record<string, string>;
+}
 
-export default function AudienceCards() {
+export default function AudienceCards({ content = {} }: AudienceCardsProps) {
+  const audiences = [
+    {
+      title: content.path1_title || 'Aspiring Coaches',
+      desc: content.path1_body || 'Launch your new career with foundational certification and hands-on mentor coaching.',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80'
+    },
+    {
+      title: content.path2_title || 'Experienced Practitioners',
+      desc: content.path2_body || 'Elevate your practice with advanced credentialing and specialized masterclasses.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'
+    },
+    {
+      title: content.path3_title || 'Corporate Leaders',
+      desc: content.path3_body || 'Develop an internal coaching culture to drive organisational performance and engagement.',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80'
+    }
+  ]
   return (
     <section className="py-24 bg-cream-100">
       <div className="max-w-7xl mx-auto px-4">
         <AnimatedSection className="text-center mb-16">
           <div className="section-label mb-4">Discover Your Path</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700">Coaching for Everyone</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700">{content.coaching_for_everyone_heading || 'Coaching for Everyone'}</h2>
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-8">
           {audiences.map((aud, i) => (

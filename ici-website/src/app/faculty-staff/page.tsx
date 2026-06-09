@@ -1,29 +1,32 @@
-import PageHeader from '@/components/shared/PageHeader'
+import { getPageContent } from '@/lib/content'
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import { Metadata } from 'next'
 
-export const metadata = {
-  title: 'Faculty & Staff - International Coaching Institute',
-  description: 'Resources and portal for faculty and staff of the International Coaching Institute.',
+export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: 'Faculty & Staff | International Coaching Institute',
 }
 
-export default function FacultyStaffPage() {
+export default async function FacultyStaffPage() {
+  const content = await getPageContent('faculty-staff')
+
   return (
-    <main className="min-h-screen bg-white">
-      <PageHeader 
-        title="Faculty & Staff"
-        subtitle="Educator Resources"
-        image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?q=80&w=2000&auto=format&fit=crop"
-      />
-      <div className="max-w-7xl mx-auto px-4 py-20 lg:py-32">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Staff Portal</h2>
-          <p className="text-lg text-neutral-600 mb-8">
-            Access teaching materials, administrative tools, and faculty support services. We provide our staff with the resources they need to deliver world-class education.
+    <div className="bg-cream-50 min-h-screen pt-32 pb-24">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+        <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
+          <div className="section-label mb-6">Hub</div>
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-navy-900 mb-8 leading-tight">
+            {content.heading || 'For the people who make ICI work'}
+          </h1>
+          <p className="font-body text-xl text-gray-700 leading-relaxed">
+            {content.body || 'Teaching coaching well is demanding, and so is running the institute behind it. This area gives faculty and staff quick access to what they need.'}
           </p>
-          <div className="flex justify-center gap-4">
-            <a href="/login" className="btn-primary">Staff Login</a>
-          </div>
-        </div>
+        </AnimatedSection>
+        <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-10 text-center rounded-3xl shadow-sm border border-gray-100">
+          <a href="/admin" className="btn-primary inline-block">Log in to Staff Portal</a>
+        </AnimatedSection>
       </div>
-    </main>
+    </div>
   )
 }

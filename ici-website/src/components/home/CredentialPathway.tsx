@@ -4,40 +4,53 @@ import Link from 'next/link'
 import { Award, ChevronRight, CheckCircle2 } from 'lucide-react'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 
-const credentials = [
-  {
-    code:    'IAC',
-    name:    'ICI Associate Coach',
-    level:   'Entry Level',
-    hours:   '60 Training Hours',
-    desc:    'For coaches beginning their professional journey. Master core competencies and foundational coaching skills.',
-    badge:   'bg-white/10 text-white',
-    href:    '/credentials/iac',
-    popular: false,
-  },
-  {
-    code:    'IPC',
-    name:    'ICI Professional Coach',
-    level:   'Professional Level',
-    hours:   '125 Training Hours',
-    desc:    'For coaches with an active practice. Deepen advanced skills and demonstrate coaching mastery with clients.',
-    badge:   'bg-gold-500/20 text-gold-400',
-    href:    '/credentials/ipc',
-    popular: true,
-  },
-  {
-    code:    'IMC',
-    name:    'ICI Master Coach',
-    level:   'Master Level',
-    hours:   '200+ Training Hours',
-    desc:    'The pinnacle of coaching excellence. For experienced coaches seeking the highest global recognition.',
-    badge:   'bg-white/10 text-white',
-    href:    '/credentials/imc',
-    popular: false,
-  },
-]
+interface CredentialPathwayProps {
+  content?: Record<string, string>;
+}
 
-export default function CredentialPathway() {
+export default function CredentialPathway({ content = {} }: CredentialPathwayProps) {
+  const credentials = [
+    {
+      code:    'L1',
+      name:    content.cred_catalyst_title || 'Catalyst (Level 1)',
+      level:   'Foundation',
+      hours:   '36 Hours',
+      desc:    content.cred_catalyst_body || 'Foundation. You learn to spark and hold change, and become a competent, confident, ethical coach. 36 hours, one-to-one.',
+      badge:   'bg-white/10 text-white',
+      href:    '/credentials/catalyst',
+      popular: false,
+    },
+    {
+      code:    'L2',
+      name:    content.cred_architect_title || 'Architect (Level 2)',
+      level:   'Professional',
+      hours:   '60 Hours',
+      desc:    content.cred_architect_body || 'Professional. You learn to design and build change with clients and to build a thriving practice. 60 hours, one-to-one.',
+      badge:   'bg-gold-500/20 text-gold-400',
+      href:    '/credentials/architect',
+      popular: true,
+    },
+    {
+      code:    'L3',
+      name:    content.cred_sage_title || 'Sage (Level 3)',
+      level:   'Senior',
+      hours:   '90 Hours',
+      desc:    content.cred_sage_body || 'Senior. You coach with depth, range and presence, and work with the most complex clients. 90 hours, one-to-one.',
+      badge:   'bg-white/10 text-white',
+      href:    '/credentials/sage',
+      popular: false,
+    },
+    {
+      code:    'L4',
+      name:    content.cred_luminary_title || 'Luminary (Level 4)',
+      level:   'Master',
+      hours:   '120 Hours',
+      desc:    content.cred_luminary_body || 'The institute\'s highest distinction. You master the craft, mentor others and contribute to the field. 120 hours, one-to-one.',
+      badge:   'bg-purple-500/20 text-purple-300',
+      href:    '/credentials/luminary',
+      popular: false,
+    },
+  ];
   return (
     <section className="bg-navy-900 py-32 relative overflow-hidden">
       {/* Premium Background Glows */}
@@ -48,18 +61,17 @@ export default function CredentialPathway() {
 
         {/* Header */}
         <AnimatedSection className="text-center mb-20">
-          <div className="section-label mb-4 text-gold-400">ICI Credential Framework</div>
+          <div className="section-label mb-4 text-gold-400">{content.credential_eyebrow || 'The ICI Mastery Pathway'}</div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Your Path to Mastery
+            {content.credential_heading || 'Your path to mastery'}
           </h2>
           <p className="font-body text-lg text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
-            Three globally recognized levels — designed to grow with your coaching career,
-            at every stage of your professional journey.
+            {content.credential_subtext || 'Four progressive levels, each a credential you carry for life, taught one-to-one and online.'}
           </p>
         </AnimatedSection>
 
         {/* Credential cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {credentials.map((cred, i) => (
             <AnimatedSection key={cred.code} delay={i * 0.1}>
               <div 
