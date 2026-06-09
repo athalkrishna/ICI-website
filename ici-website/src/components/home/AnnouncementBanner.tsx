@@ -23,9 +23,7 @@ export default function AnnouncementBanner() {
           >
             <span className="text-navy-600">{item.icon}</span>
             {item.text}
-            {item.cta && (
-              <span className="ml-1 underline underline-offset-2">{item.cta}</span>
-            )}
+
           </Link>
         ))}
       </div>

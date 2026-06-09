@@ -29,7 +29,7 @@ export async function getPageContent(pageSlug: string): Promise<ContentMap> {
 
     if (!rows || rows.length === 0) {
       console.warn(`[CMS WARNING] No DB content found for ${pageSlug}. Using fallbacks.`);
-      return { ...FALLBACKS.global, ...FALLBACKS[pageSlug] } || {};
+      return { ...FALLBACKS.global, ...FALLBACKS[pageSlug] };
     }
 
     const contentMap: ContentMap = {};
@@ -44,6 +44,6 @@ export async function getPageContent(pageSlug: string): Promise<ContentMap> {
   } catch (error) {
     console.error(`[CMS CRITICAL ERROR] Failed to fetch content for ${pageSlug}:`, error);
     // In production, this could trigger an email or Slack alert to the dev team
-    return { ...FALLBACKS.global, ...FALLBACKS[pageSlug] } || {};
+    return { ...FALLBACKS.global, ...FALLBACKS[pageSlug] };
   }
 }
