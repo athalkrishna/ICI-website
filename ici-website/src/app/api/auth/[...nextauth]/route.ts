@@ -7,7 +7,7 @@ import { loginRateLimiter } from "@/lib/rate-limit";
 async function authHandler(req: NextRequest, ctx: { params: Promise<{ nextauth: string[] }> }) {
   const params = await ctx.params;
   if (req.method === "POST" && params.nextauth.includes("callback") && params.nextauth.includes("credentials")) {
-    const ip = req.headers.get("x-forwarded-for") ?? req.ip ?? "127.0.0.1";
+    const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1";
     try {
       await loginRateLimiter.check(5, ip); // 5 attempts per minute
     } catch {
