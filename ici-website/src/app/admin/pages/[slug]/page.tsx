@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
@@ -14,7 +14,7 @@ type ContentRow = {
 };
 
 export default function PageEditor({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = React.use(params);
+  const { slug } = use(params);
   const [content, setContent] = useState<ContentRow[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
