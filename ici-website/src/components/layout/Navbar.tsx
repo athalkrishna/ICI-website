@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Search, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -36,23 +37,15 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
 
             {/* ── Logo ── */}
-            <Link href="/" className="flex items-center gap-3 shrink-0">
-              {/* SVG inline logo */}
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="20" r="19" stroke={scrolled ? '#C9A84C' : '#0A1F44'} strokeWidth="1.5"/>
-                <path d="M20 4 C10 4, 4 11, 4 20 C4 29, 10 36, 20 36 C30 36, 36 29, 36 20 C36 11, 30 4, 20 4Z"
-                      stroke={scrolled ? '#C9A84C' : '#0A1F44'} strokeWidth="1" fill="none"/>
-                <path d="M4 20 Q12 16 20 20 Q28 24 36 20" stroke="#C9A84C" strokeWidth="1.5" fill="none"/>
-                <path d="M4 20 Q12 24 20 20 Q28 16 36 20" stroke="#C9A84C" strokeWidth="1" fill="none" strokeDasharray="2,2"/>
-              </svg>
-              <div>
-                <div className={`font-display font-bold text-xl leading-none tracking-tight ${scrolled ? 'text-white' : 'text-navy-700'}`}>
-                  ICI
-                </div>
-                <div className={`font-sans text-[9px] tracking-[0.18em] uppercase leading-none mt-0.5 ${scrolled ? 'text-gold-400' : 'text-navy-400'}`}>
-                  International Coaching Institute
-                </div>
-              </div>
+            <Link href="/" className="flex items-center shrink-0 -ml-4 -mt-2">
+              <Image 
+                src="/logo.png" 
+                alt="International Coaching Institute Logo" 
+                width={300} 
+                height={90} 
+                className="w-[200px] md:w-[260px] h-auto object-contain scale-110 origin-left" 
+                priority 
+              />
             </Link>
 
             {/* ── Desktop Nav ── */}
@@ -199,7 +192,7 @@ export default function Navbar() {
               <div className="max-w-2xl mx-auto px-4 py-4 flex gap-3">
                 <input
                   type="search"
-                  placeholder="Search programs, resources, faculty..."
+                  placeholder="Search programmes, resources, faculty..."
                   autoFocus
                   className="flex-1 px-4 py-2.5 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
                 />

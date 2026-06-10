@@ -5,15 +5,15 @@ import Link from 'next/link'
 const audiences = [
   { label: 'Future Students', href: '/future-students' },
   { label: 'Current Students', href: '/current-students' },
-  { label: 'Organisations', href: '/organizations' },
+  { label: 'Organisations', href: '/organisations' },
   { label: 'Alumni', href: '/alumni' },
   { label: 'Faculty & Staff', href: '/faculty-staff' }
 ]
 
-export default function TopBar() {
+export default function TopBar({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   return (
     <div className="bg-navy-700 text-white text-xs font-sans">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 h-9 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 h-8 md:h-9 flex items-center justify-between">
 
         {/* Left: contact info */}
         <div className="hidden md:flex items-center gap-5">
@@ -39,8 +39,11 @@ export default function TopBar() {
             </Link>
           ))}
           <span className="text-gold-500 mx-1">|</span>
-          <Link href="/login" className="hover:text-gold-400 transition-colors whitespace-nowrap">Log In</Link>
-          <Link href="/account" className="hover:text-gold-400 transition-colors whitespace-nowrap">My Account</Link>
+          {isLoggedIn ? (
+            <Link href="/account" className="hover:text-gold-400 transition-colors whitespace-nowrap">My Account</Link>
+          ) : (
+            <Link href="/login" className="hover:text-gold-400 transition-colors whitespace-nowrap">Log In</Link>
+          )}
         </div>
 
       </div>

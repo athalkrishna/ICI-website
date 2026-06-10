@@ -1,127 +1,86 @@
-import Image from 'next/image'
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import { Metadata } from 'next'
 import Link from 'next/link'
-import { Mail, Lock, ArrowRight } from 'lucide-react'
+import { mockLogin } from '@/app/actions/auth'
 
-export const metadata = {
-  title: 'Log In - International Coaching Institute',
-  description: 'Log in to your International Coaching Institute account.',
+export const metadata: Metadata = {
+  title: 'Log In | International Coaching Institute',
+  description: 'Log in to your ICI account to access your sessions, materials and supervision, or to manage your application and details.'
 }
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-neutral-50 flex">
-      {/* Left Column - Form */}
-      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:flex-none lg:w-1/2 xl:w-[600px] lg:px-20 xl:px-24">
-        <div className="mx-auto w-full max-w-sm lg:w-full">
-          <div>
-            <h2 className="mt-8 font-display text-3xl font-bold tracking-tight text-navy-900">
-              Welcome back
-            </h2>
-            <p className="mt-2 text-sm text-neutral-600">
-              Don't have an account?{' '}
-              <Link href="/register" className="font-medium text-gold-600 hover:text-gold-500 transition-colors">
-                Apply today
-              </Link>
+    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+      
+      {/* ── Background Effects ── */}
+      <div className="absolute inset-0 bg-hero-pattern opacity-10 pointer-events-none" aria-hidden />
+      <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+      </div>
+
+      <div className="min-h-screen flex items-center justify-center py-24 px-4 relative z-20">
+        <AnimatedSection className="w-full max-w-md">
+          
+          <div className="text-center mb-10">
+            <div className="section-label mb-6 justify-center text-gold-400">Log In</div>
+            <h1 className="font-display text-4xl font-bold text-white mb-4">Welcome back</h1>
+            <p className="font-body text-blue-100/70">
+              Log in to access your sessions, materials and account.
             </p>
           </div>
 
-          <div className="mt-8">
-            <div className="mt-6">
-              <form action="#" method="POST" className="space-y-6">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-navy-900">
-                    Email address
-                  </label>
-                  <div className="mt-2 relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Mail className="h-5 w-5 text-neutral-400" />
-                    </div>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      className="block w-full rounded-md border-0 py-2.5 pl-10 text-navy-900 shadow-sm ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-gold-500 sm:text-sm sm:leading-6 transition-all"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
+          <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 p-8 sm:p-10 rounded-[32px] shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
+            
+            <form className="space-y-6 relative z-10" action={mockLogin}>
+              <div className="space-y-2">
+                <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+                  Email
+                </label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  required 
+                  className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+                  placeholder="you@example.com"
+                />
+              </div>
 
-                <div>
-                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-navy-900">
+              <div className="space-y-2">
+                <div className="flex justify-between items-baseline">
+                  <label htmlFor="password" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
                     Password
                   </label>
-                  <div className="mt-2 relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Lock className="h-5 w-5 text-neutral-400" />
-                    </div>
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      className="block w-full rounded-md border-0 py-2.5 pl-10 text-navy-900 shadow-sm ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-gold-500 sm:text-sm sm:leading-6 transition-all"
-                      placeholder="••••••••"
-                    />
-                  </div>
+                  <Link href="#" className="text-sm font-body text-gold-400 hover:text-gold-300 transition-colors">
+                    Forgotten your password?
+                  </Link>
                 </div>
+                <input 
+                  type="password" 
+                  id="password" 
+                  required 
+                  className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+                  placeholder="••••••••"
+                />
+              </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-neutral-300 text-gold-600 focus:ring-gold-500"
-                    />
-                    <label htmlFor="remember-me" className="ml-3 block text-sm leading-6 text-neutral-700">
-                      Remember me
-                    </label>
-                  </div>
+              <div className="pt-4">
+                <button type="submit" className="btn-primary w-full justify-center py-4 text-base">
+                  Log in
+                </button>
+              </div>
+            </form>
 
-                  <div className="text-sm leading-6">
-                    <Link href="/forgot-password" className="font-semibold text-gold-600 hover:text-gold-500 transition-colors">
-                      Forgot password?
-                    </Link>
-                  </div>
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    className="flex w-full justify-center items-center gap-2 rounded-md bg-navy-800 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-navy-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-600 transition-colors"
-                  >
-                    Sign in
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
-              </form>
+            <div className="mt-8 text-center relative z-10">
+              <p className="font-body text-sm text-blue-100/60">
+                New to ICI? <Link href="/apply" className="text-gold-400 hover:text-gold-300 transition-colors font-medium">Apply here.</Link>
+              </p>
             </div>
           </div>
-        </div>
+
+        </AnimatedSection>
       </div>
 
-      {/* Right Column - Image */}
-      <div className="relative hidden w-0 flex-1 lg:block">
-        <Image
-          className="absolute inset-0 h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop"
-          alt="Students learning together"
-          fill
-          priority
-        />
-        <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/20 to-transparent" />
-        
-        <div className="absolute bottom-12 left-12 right-12 text-white">
-          <h3 className="font-display text-4xl font-bold mb-4">Empowering global leaders.</h3>
-          <p className="text-lg text-neutral-200 max-w-2xl">
-            Access your courses, connect with peers, and track your progress in the International Coaching Institute platform.
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

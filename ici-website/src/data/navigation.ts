@@ -68,68 +68,50 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: 'Pricing',
-    href:  '/pricing',
-  },
-  {
     label: 'Admissions',
     href:  '/admissions',
     children: [
       {
         heading: 'Join ICI',
         links: [
-          { label: 'How to Apply', href: '/admissions' },
-          { label: 'Free Assessment', href: '/admissions' },
-          { label: 'Tuition & Pricing', href: '/pricing' },
-          { label: 'FAQs', href: '/admissions' },
-          { label: 'Speak to an Advisor', href: '/admissions/contact' },
-        ],
-      }
-    ],
-  },
-  {
-    label: 'Faculty & Research',
-    href:  '/faculty',
-    children: [
-      {
-        heading: 'People & Thinking',
-        links: [
-          { label: 'Our Faculty', href: '/faculty' },
-          { label: 'Insights & Research', href: '/resources' },
+          { label: 'Admissions Overview', href: '/admissions', desc: 'How to become an ICI Coach' },
+          { label: 'Apply Now', href: '/apply', desc: 'Submit your application' },
+          { label: 'Tuition & Pricing', href: '/pricing', desc: 'Programme fees and options' },
         ],
       }
     ],
   },
   {
     label: 'Community',
-    href:  '/community',
+    href: '/community',
     children: [
       {
-        heading: 'Network',
+        heading: 'Network & People',
         links: [
-          { label: 'Overview', href: '/community' },
-          { label: 'Alumni', href: '/alumni' },
-          { label: 'Membership', href: '/community' },
-        ],
+          { label: 'The Community', href: '/community', desc: 'Connect with coaches worldwide' },
+          { label: 'Faculty & Research', href: '/faculty', desc: 'Meet our practising coaches' },
+          { label: 'Find a Coach', href: '/find-a-coach', desc: 'Search our certified directory' },
+          { label: 'Events', href: '/events', desc: 'Summits and masterclasses' },
+        ]
       }
-    ],
-  },
-  {
-    label: 'Events',
-    href:  '/events',
+    ]
   },
   {
     label: 'Resources',
-    href:  '/resources',
+    href: '/resources',
     children: [
       {
-        heading: 'Materials',
+        heading: 'Thinking & Materials',
         links: [
-          { label: 'Insights', href: '/resources' },
-          { label: 'Prospectus', href: '/resources/brochure' },
-          { label: 'Guides', href: '/resources' },
-        ],
+          { label: 'Resources Library', href: '/resources', desc: 'Guides, tools and articles' },
+          { label: 'The Blog', href: '/blog', desc: 'Latest insights from the field' },
+          { label: 'Prospectus', href: '/resources/brochure', desc: 'Download the full guide' },
+        ]
       }
-    ],
+    ]
   },
+  {
+    label: 'Contact',
+    href: '/contact'
+  }
 ]

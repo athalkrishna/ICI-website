@@ -30,7 +30,13 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
             <ul className="space-y-4">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <div className="font-sans font-bold text-navy-700 mb-2">{item.label}</div>
+                  {item.children ? (
+                    <div className="font-sans font-bold text-navy-700 mb-2">{item.label}</div>
+                  ) : (
+                    <Link href={item.href} className="font-sans font-bold text-navy-700 mb-2 block" onClick={onClose}>
+                      {item.label}
+                    </Link>
+                  )}
                   {item.children && (
                     <ul className="pl-4 space-y-2 border-l-2 border-gold-200">
                       {item.children.map((group) => (

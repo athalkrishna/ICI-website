@@ -1,32 +1,137 @@
-import { getPageContent } from '@/lib/content'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
-
-export const revalidate = 60;
+import Link from 'next/link'
+import { Search, SlidersHorizontal, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Find a Coach | International Coaching Institute',
+  title: 'Find a Certified ICI Coach',
+  description: 'Looking for a coach you can trust? Find an ICI-certified coach by specialism, level and language. Every coach here earned their credential through real practice.'
 }
 
-export default async function FindACoachPage() {
-  const content = await getPageContent('find-a-coach')
-
+export default function FindACoachPage() {
   return (
-    <div className="bg-cream-50 min-h-screen pt-32 pb-24">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
-        <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
-          <div className="section-label mb-6">Directory</div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-navy-900 mb-8 leading-tight">
-            {content.heading || 'Find a coach you can trust'}
-          </h1>
-          <p className="font-body text-xl text-gray-700 leading-relaxed">
-            {content.body || 'Anyone can call themselves a coach. The coaches listed here have earned an ICI credential...'}
-          </p>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-10 text-center rounded-3xl shadow-sm border border-gray-100">
-          <p className="font-body text-gray-500">Coach directory is coming soon.</p>
-        </AnimatedSection>
-      </div>
+    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+      
+      {/* ── Hero Section ── */}
+      <section className="bg-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+        </div>
+
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+          <AnimatedSection className="max-w-4xl">
+            <div className="section-label mb-8 justify-start text-gold-400">Find a Coach</div>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+              Find a coach you can trust
+            </h1>
+            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+              Anyone can call themselves a coach. The coaches listed here have earned an ICI credential through real training, one-to-one, and assessment on real coaching, which means you can approach them with confidence. Tell us what you are looking for and we will help you find someone who fits.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── Directory Section ── */}
+      <section className="py-24 relative z-20">
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+          
+          <AnimatedSection>
+            {/* Filter UI Shell */}
+            <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 p-6 md:p-8 rounded-[24px] mb-12">
+              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-white/10">
+                <SlidersHorizontal size={20} className="text-gold-400" />
+                <h2 className="font-sans font-bold text-lg text-white">Search and filter</h2>
+              </div>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="space-y-2">
+                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                    By specialism
+                  </label>
+                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                    <option value="">All Specialisms</option>
+                    <option value="Life">Life</option>
+                    <option value="Executive">Executive</option>
+                    <option value="Business">Business</option>
+                    <option value="Wellness">Wellness</option>
+                    <option value="Team">Team</option>
+                  </select>
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                    By level
+                  </label>
+                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                    <option value="">All Levels</option>
+                    <option value="Catalyst">Catalyst</option>
+                    <option value="Architect">Architect</option>
+                    <option value="Sage">Sage</option>
+                    <option value="Luminary">Luminary</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                    By language
+                  </label>
+                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                    <option value="">All Languages</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                    By availability
+                  </label>
+                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                    <option value="">Any Availability</option>
+                    <option value="Taking clients">Taking clients</option>
+                    <option value="Waitlist">Waitlist</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="mt-8 flex justify-end">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2 py-3 px-6">
+                  <Search size={18} /> Browse coaches
+                </Link>
+              </div>
+            </div>
+            
+            {/* Coach Directory Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {/* Note: This page needs a coach directory feature. If it is not ready for launch, point Find a Coach to the programmes or contact page for now. */}
+            </div>
+          </AnimatedSection>
+
+        </div>
+      </section>
+
+      {/* ── Why choose an ICI coach ── */}
+      <section className="py-24 bg-navy-800/30 border-t border-white/5 relative z-20">
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+          <AnimatedSection className="max-w-3xl text-center mx-auto">
+            <h2 className="font-display text-4xl font-bold text-white mb-6">Why choose an ICI coach</h2>
+            <p className="font-body text-lg text-blue-100/80 leading-relaxed mb-12">
+              Every coach in this directory holds a credential that was earned, not bought. They have been trained in coaching craft, psychology, neuroscience and human behaviour, and are held to a professional standard of ethics and practice.
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <Link href="/contact" className="btn-primary">
+                Browse coaches
+              </Link>
+              <Link href="/programmes" className="btn-secondary inline-flex items-center gap-2">
+                How coaching can help <ArrowRight size={18} />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
     </div>
   )
 }

@@ -4,6 +4,7 @@ import './globals.css'
 import TopBar from '@/components/layout/TopBar'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { cookies } from 'next/headers'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | International Coaching Institute',
   },
   description:
-    'ICI is the world\'s leading provider of professional coaching certification — trusted by 25,000+ coaches in 60+ countries. Earn your IAC, IPC, or IMC credential.',
+    'ICI is the world\'s leading provider of professional coaching certification, trusted by 25,000+ coaches in 60+ countries. Earn your IAC, IPC, or IMC credential.',
   keywords: ['coaching certification', 'life coach training', 'executive coaching', 'ICF accredited', 'professional coaching institute'],
   openGraph: {
     type: 'website',
@@ -45,14 +46,17 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies()
+  const isLoggedIn = cookieStore.get('ici_mock_auth')?.value === 'true'
+
   return (
     <html
       lang="en"
       className={`${playfair.variable} ${montserrat.variable} ${sourceSerif.variable} ${jetbrains.variable}`}
     >
       <body className="font-sans bg-white text-navy-700 antialiased">
-        <TopBar />
+        <TopBar isLoggedIn={isLoggedIn} />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />

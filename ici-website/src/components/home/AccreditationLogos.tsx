@@ -5,9 +5,9 @@ export default function AccreditationLogos() {
     <section className="py-12 bg-white border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-4">
         <p className="text-center text-xs font-sans font-semibold text-gray-400 uppercase tracking-widest mb-8">
-          Recognized and Accredited By
+          Recognised and Accredited By
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-500">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-20 text-gray-400 opacity-60 hover:opacity-100 transition-opacity duration-500">
           <div className="flex items-center gap-3">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2"/>

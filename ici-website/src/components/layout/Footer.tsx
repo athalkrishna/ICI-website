@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -7,7 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-16 mb-16">
           
           <div className="md:col-span-1">
-             <div className="font-display font-bold text-3xl tracking-tight mb-2">ICI</div>
+             <Link href="/" className="inline-block -mt-4 md:-mt-8 -ml-4 md:-ml-6 mb-2 md:-mb-6">
+               <Image src="/logo.png" alt="International Coaching Institute Logo" width={300} height={90} className="w-[200px] md:w-[260px] h-auto object-contain" />
+             </Link>
              <p className="font-body text-sm text-gray-400 leading-relaxed">
                The International Coaching Institute trains and certifies coaches one-to-one, online, blending coaching craft with leadership, psychology, neuroscience and human behaviour. Become the coach people trust.
              </p>
@@ -47,9 +50,9 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-sans gap-4">
+        <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-sans gap-4 text-center md:text-left">
           <p>Copyright [2026] International Coaching Institute. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex gap-4 md:gap-6 flex-wrap justify-center">
             <Link href="/privacy" className="hover:text-gold-400 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-400 transition-colors">Terms of Service</Link>
           </div>

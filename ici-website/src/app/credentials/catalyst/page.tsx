@@ -58,10 +58,10 @@ export default function CatalystPage() {
   ]
 
   return (
-    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+      <section className="bg-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
@@ -70,7 +70,7 @@ export default function CatalystPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="section-label mb-8 justify-start text-gold-400">Level 1 | Foundation</div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight">
               Catalyst
             </h1>
             <p className="font-mono text-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-gold-500 pl-4">
@@ -92,18 +92,18 @@ export default function CatalystPage() {
       </section>
 
       {/* ── Content ── */}
-      <section className="py-24 relative z-20">
+      <section className="py-16 lg:py-24 relative z-20">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column */}
-            <div className="lg:col-span-8 space-y-24">
+            <div className="lg:col-span-8 space-y-16 lg:space-y-24">
               
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-8">Who this level is for</h2>
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6 lg:mb-8">Who this level is for</h2>
                 <ul className="space-y-4">
                   {forWho.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-blue-100/80 font-body text-lg">
+                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
                       <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
@@ -112,27 +112,27 @@ export default function CatalystPage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-6">Entry requirements</h2>
-                <p className="font-body text-blue-100/80 text-lg leading-relaxed">
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Entry requirements</h2>
+                <p className="font-body text-gray-600 text-lg leading-relaxed">
                   Open to anyone serious about learning to coach. No prior coaching qualification is required, only commitment and a genuine interest in people.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-6">Format and hours</h2>
-                <p className="font-body text-blue-100/80 text-lg leading-relaxed mb-6">
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Format and hours</h2>
+                <p className="font-body text-gray-600 text-lg leading-relaxed mb-6">
                   Delivered entirely online and one-to-one. Your 36 hours are structured as:
                 </p>
                 <ul className="space-y-4">
-                  <li className="flex items-start gap-4 text-blue-100/80 font-body text-lg">
+                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg">
                     <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
                     12 hours of one-to-one online coaching and training with a professional coach
                   </li>
-                  <li className="flex items-start gap-4 text-blue-100/80 font-body text-lg">
+                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg">
                     <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
                     24 hours of guided self-work and research, including reflection, reading, practice and assignments
                   </li>
-                  <li className="flex items-start gap-4 text-blue-100/80 font-body text-lg font-bold">
+                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg font-bold">
                     <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
                     Total: 36 hours
                   </li>
@@ -140,10 +140,10 @@ export default function CatalystPage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-8">What you will be able to do</h2>
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">What you will be able to do</h2>
                 <ul className="space-y-4">
                   {outcomes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-blue-100/80 font-body text-lg">
+                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
                       <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
@@ -152,32 +152,32 @@ export default function CatalystPage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-8">Syllabus</h2>
-                <p className="font-body text-blue-100/80 text-lg leading-relaxed mb-8">
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">Syllabus</h2>
+                <p className="font-body text-gray-600 text-lg leading-relaxed mb-8">
                   Delivered across your one-to-one sessions and guided self-work. Each module pairs live coaching with reflection and practice.
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-navy-800/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-gold-500/30 transition-colors">
-                      <h4 className="font-sans font-bold text-gold-400 text-lg mb-3">{mod.title}</h4>
-                      <p className="font-body text-blue-100/70 leading-relaxed">{mod.desc}</p>
+                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-gold-300 transition-colors">
+                      <h4 className="font-sans font-bold text-navy-900 text-lg mb-3">{mod.title}</h4>
+                      <p className="font-body text-gray-600 leading-relaxed">{mod.desc}</p>
                     </div>
                   ))}
                 </div>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-6">Assessment</h2>
-                <p className="font-body text-blue-100/80 text-lg leading-relaxed">
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Assessment</h2>
+                <p className="font-body text-gray-600 text-lg leading-relaxed">
                   Assessment is based on your actual coaching. You demonstrate a coaching session and complete reflective assignments. There is no multiple-choice exam, because coaching is a craft, not a quiz.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-white mb-8">What you graduate with</h2>
+                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">What you graduate with</h2>
                 <ul className="space-y-4">
                   {graduateWith.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-blue-100/80 font-body text-lg">
+                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
                       <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>

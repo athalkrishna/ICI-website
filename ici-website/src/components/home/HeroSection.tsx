@@ -22,7 +22,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
       {/* Background image */}
       <Image
         src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=85"
-        alt="Professional coaching session — diverse group in a modern conference room"
+        alt="Professional coaching session, diverse group in a modern conference room"
         fill
         priority
         className="object-cover opacity-25"
@@ -61,7 +61,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 whitespace-pre-line"
+              className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 whitespace-pre-line"
             >
               {content.hero_heading || 'Where Great Coaches Are Made.'}
             </motion.h1>
@@ -73,7 +73,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-body text-lg text-blue-100 leading-relaxed mb-8 max-w-xl"
             >
-              {content.hero_body || 'The International Coaching Institute is the world\'s leading provider of professional coaching education, certification, and continuing development — trusted by coaches in over 60 countries.'}
+              {content.hero_body || 'The International Coaching Institute is the world\'s leading provider of professional coaching education, certification, and continuing development, trusted by coaches in over 60 countries.'}
             </motion.p>
 
             {/* Stats row */}
@@ -81,11 +81,11 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex items-center gap-0 mb-10"
+              className="flex flex-wrap md:flex-nowrap items-center gap-y-6 mb-10"
             >
               {stats.map((stat, i) => (
-                <div key={stat.label} className="flex items-center">
-                  <div className="px-6 first:pl-0">
+                <div key={stat.label} className="flex items-center w-1/2 md:w-auto">
+                  <div className="pr-6 md:px-6 md:first:pl-0">
                     <div className="font-mono text-3xl font-bold text-gold-400">
                       <CountUpNumber end={stat.value} suffix={stat.suffix} />
                     </div>
@@ -94,7 +94,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                     </div>
                   </div>
                   {i < stats.length - 1 && (
-                    <div className="h-10 w-px bg-gold-600/40" aria-hidden />
+                    <div className="hidden md:block h-10 w-px bg-gold-600/40" aria-hidden />
                   )}
                 </div>
               ))}

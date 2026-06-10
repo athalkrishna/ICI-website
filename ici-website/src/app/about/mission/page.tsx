@@ -9,34 +9,30 @@ export default function MissionPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
-        {/* Diagonal grid texture overlay */}
-        <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
-        {/* Gold gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-80" aria-hidden />
-
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
+      <section className="bg-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
+        
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
+
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
-          <AnimatedSection className="max-w-3xl">
+          <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-gold-400">Our Mission</div>
+              <div className="section-label mb-8 justify-start text-gold-400">About ICI</div>
             </div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
-              Mission, Vision & Values
+            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+              A New Standard for Coaching
             </h1>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* ── Main Content ── */}
-      <section className="py-24 lg:py-32 relative">
+      {/* ── Standard Section ── */}
+      <section className="py-16 lg:py-24 relative z-20">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
-          
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-32">
             <AnimatedSection>
               <div className="pl-6 border-l-2 border-gold-400 relative">
                 <span className="absolute -left-[3px] top-0 text-gold-400 text-6xl leading-none font-display opacity-20">"</span>

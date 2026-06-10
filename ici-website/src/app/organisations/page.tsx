@@ -1,32 +1,104 @@
-import { getPageContent } from '@/lib/content'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
-
-export const revalidate = 60;
+import Link from 'next/link'
+import { Briefcase, Building, Users, Target, BarChart, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Organisations | International Coaching Institute',
+  title: 'Coaching for Organisations | ICI',
+  description: 'Build a coaching culture with ICI. Train managers and internal coaches one-to-one, develop leaders, and make feedback and accountability part of how people work.'
 }
 
-export default async function OrganisationsPage() {
-  const content = await getPageContent('organizations') // DB key is organizations
+export default function OrganizationsPage() {
+  const workLinks = [
+    { label: 'Train managers and leaders to coach in the flow of work', icon: Users },
+    { label: 'Develop internal coaches your organisation owns', icon: Building },
+    { label: 'Executive coaching for senior leaders', icon: Briefcase },
+    { label: 'Tailored programmes built around your context', icon: Target },
+    { label: 'Measurement that speaks the language of the business', icon: BarChart },
+  ]
 
   return (
-    <div className="bg-cream-50 min-h-screen pt-32 pb-24">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
-        <AnimatedSection className="max-w-4xl mx-auto text-center mb-16">
-          <div className="section-label mb-6">Hub</div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-navy-900 mb-8 leading-tight">
-            {content.heading || 'Build a coaching culture, not just send people on a course'}
-          </h1>
-          <p className="font-body text-xl text-gray-700 leading-relaxed">
-            {content.body || 'Most leadership training is forgotten within a month because it teaches ideas, not habits...'}
-          </p>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-10 text-center rounded-3xl shadow-sm border border-gray-100">
-          <a href="/programmes/team-coaching" className="btn-primary inline-block">Explore Team Coaching</a>
-        </AnimatedSection>
-      </div>
+    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+      
+      {/* ── Hero Section ── */}
+      <section className="bg-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+        </div>
+
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+          <AnimatedSection className="max-w-4xl">
+            <div className="section-label mb-8 justify-start text-gold-400">For Organisations</div>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+              Build a coaching culture, not just send people on a course
+            </h1>
+            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+              Most leadership training is forgotten within a month because it teaches ideas, not habits. Coaching is different. When managers learn to coach, the change shows up in everyday conversations: clearer feedback, real accountability, people who grow instead of stall. ICI helps organisations build that capability from the inside, one-to-one, and own it.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── How we work Section ── */}
+      <section className="py-24 relative z-20">
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+            
+            <AnimatedSection>
+              <h2 className="font-display text-4xl font-bold text-white mb-6">How we work with organisations</h2>
+              <p className="font-body text-lg text-blue-100/70 leading-relaxed mb-8">
+                We do not do off-the-shelf theory. We partner with you to embed coaching behaviours directly into your operational rhythm.
+              </p>
+              <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                Request a proposal <ArrowRight size={18} />
+              </Link>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.1}>
+              <div className="grid gap-4">
+                {workLinks.map((item, index) => {
+                  const Icon = item.icon
+                  return (
+                    <div 
+                      key={index}
+                      className="group flex items-center justify-between p-6 bg-navy-800/50 backdrop-blur-sm border border-white/5 hover:border-gold-500/30 rounded-2xl transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-navy-900 border border-white/5 flex items-center justify-center text-gold-400 group-hover:bg-gold-500/10 group-hover:scale-110 transition-all duration-300">
+                          <Icon size={20} />
+                        </div>
+                        <span className="font-sans font-medium text-lg text-white group-hover:text-gold-200 transition-colors">
+                          {item.label}
+                        </span>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </AnimatedSection>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why it works Section ── */}
+      <section className="py-24 bg-navy-800/30 border-t border-white/5 relative z-20">
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+          <AnimatedSection className="max-w-4xl text-center mx-auto">
+            <h2 className="font-display text-4xl font-bold text-white mb-6">Why it works</h2>
+            <p className="font-body text-xl text-blue-100/80 leading-relaxed mb-12">
+              Because it changes habits, not just knowledge. Our programmes are live, one-to-one and grounded in how leaders actually behave under pressure, drawing on deep experience inside demanding organisations.
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
+                Speak to our team <ArrowRight size={18} />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
     </div>
   )
 }
