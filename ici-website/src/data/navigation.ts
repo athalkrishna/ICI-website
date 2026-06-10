@@ -25,9 +25,9 @@ export const navItems: NavItem[] = [
         links: [
           { label: 'Mission, Vision & Values', href: '/about/mission', desc: 'Our core philosophy and approach' },
           { label: 'History & Heritage', href: '/about/history', desc: 'The origins and traditions we draw upon' },
-          { label: 'Leadership & Faculty', href: '/about/leadership-faculty', desc: 'Meet the people behind the institute' },
+          { label: 'Faculty & Research', href: '/faculty', desc: 'Meet our practising coaches' },
           { label: 'Global Presence', href: '/about/global', desc: 'Our international network of coaches' },
-          { label: 'Recognition & Accreditation', href: '/about/accreditation', desc: 'Our rigorous standards and credentials' },
+          { label: 'Recognition & Accreditation', href: '/about/accreditation', desc: 'Built to international coaching standards' },
           { label: 'Partnerships & Alliances', href: '/about/partnerships', desc: 'Collaborations with aligned organisations' },
           { label: 'Press & Media', href: '/about/press', desc: 'Information for journalists and editors' },
           { label: 'Annual Reports', href: '/about/annual-reports', desc: 'Our yearly transparency and progress' },
@@ -68,6 +68,10 @@ export const navItems: NavItem[] = [
     ],
   },
   {
+    label: 'Pricing',
+    href:  '/pricing',
+  },
+  {
     label: 'Admissions',
     href:  '/admissions',
     children: [
@@ -89,7 +93,6 @@ export const navItems: NavItem[] = [
         heading: 'Network & People',
         links: [
           { label: 'The Community', href: '/community', desc: 'Connect with coaches worldwide' },
-          { label: 'Faculty & Research', href: '/faculty', desc: 'Meet our practising coaches' },
           { label: 'Find a Coach', href: '/find-a-coach', desc: 'Search our certified directory' },
           { label: 'Events', href: '/events', desc: 'Summits and masterclasses' },
         ]

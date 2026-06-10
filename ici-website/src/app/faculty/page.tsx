@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Faculty & Research | International Coaching Institute',
+  title: {
+    absolute: 'Faculty & Research | International Coaching Institute',
+  },
   description: 'Meet the ICI faculty: practising coaches who teach what they do. Explore our thinking on coaching, leadership and behavioural change.'
 }
 
@@ -42,7 +44,7 @@ export default function FacultyPage() {
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Faculty profiles to be added as supplied: name, photo, role, expertise. Do not fabricate names or photos. */}
+              {/* <!-- Add faculty profiles here when supplied: name, photo, role, expertise. Present as faculty, not as founders or owners. --> */}
             </div>
           </AnimatedSection>
         </div>

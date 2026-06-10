@@ -36,36 +36,50 @@ export default function PressPage() {
       <section className="py-24 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           
+          <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
+            <h2 className="font-display text-4xl font-bold text-navy-800 mb-8">Press & Media</h2>
+            <p className="font-body text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+              For journalists, editors and event producers: ICI faculty speak and write on coaching, leadership, the inner life of high achievers, and how people actually change. We are glad to provide commentary, contributed articles and interviews on these themes.
+            </p>
+          </AnimatedSection>
+          
           <div className="grid lg:grid-cols-12 gap-16">
-            <AnimatedSection className="lg:col-span-5 space-y-12">
+            <AnimatedSection className="lg:col-span-6 space-y-12">
               <div>
-                <h2 className="font-display text-3xl font-bold text-navy-800 mb-6">Media Enquiries</h2>
+                <h3 className="font-display text-3xl font-bold text-navy-800 mb-6">Media Enquiries</h3>
                 <p className="font-body text-xl text-gray-700 leading-relaxed font-light mb-8">
-                  For all press and media enquiries, including requests for comment or interviews with our faculty, please contact our media team.
+                  All enquiries will be answered within 2 working days.
                 </p>
                 
-                <a href="mailto:press@internationalcoachinginstitute.org" className="inline-flex items-center gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group w-full">
+                <a href="mailto:info@internationalcoachinginstitute.org" className="inline-flex items-center gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group w-full">
                   <div className="w-12 h-12 bg-navy-50 rounded-full flex items-center justify-center text-navy-600 group-hover:bg-navy-800 group-hover:text-white transition-colors">
                     <Mail size={20} />
                   </div>
                   <div>
                     <div className="font-sans text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Email us</div>
-                    <div className="font-body text-lg text-navy-800 font-medium">press@internationalcoachinginstitute.org</div>
+                    <div className="font-body text-lg text-navy-800 font-medium break-all">info@internationalcoachinginstitute.org</div>
                   </div>
                 </a>
               </div>
+
+              <div className="bg-cream-100 p-10 rounded-3xl border border-gold-200/50">
+                <h3 className="font-display text-2xl font-bold text-navy-800 mb-4">Topics our faculty can speak to</h3>
+                <p className="font-body text-lg text-gray-700 leading-relaxed">
+                  Coaching, leadership, the psychology of high achievers, and how people actually change.
+                </p>
+              </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.2} className="lg:col-span-7">
-              <div className="bg-white p-10 md:p-14 rounded-[40px] border border-gray-100 shadow-xl shadow-navy-900/5">
-                <h3 className="font-display text-3xl font-bold text-navy-800 mb-2">Media Assets</h3>
+            <AnimatedSection delay={0.2} className="lg:col-span-6">
+              <div className="bg-white p-10 md:p-14 rounded-[40px] border border-gray-100 shadow-xl shadow-navy-900/5 h-full">
+                <h3 className="font-display text-3xl font-bold text-navy-800 mb-2">Press Kit</h3>
                 <p className="font-body text-lg text-gray-500 mb-10">Download official ICI brand assets and background information.</p>
                 
                 <div className="space-y-4">
                   {[
-                    { title: "Brand Guidelines & Logos", type: "ZIP File, 12MB", icon: <ImageIcon size={24} /> },
-                    { title: "Institute Fact Sheet", type: "PDF, 1.2MB", icon: <FileText size={24} /> },
-                    { title: "Leadership Biographies", type: "PDF, 2.5MB", icon: <FileText size={24} /> }
+                    { title: "Logo & Brand Guidelines", type: "ZIP", icon: <ImageIcon size={24} /> },
+                    { title: "Institute Fact Sheet", type: "PDF", icon: <FileText size={24} /> },
+                    { title: "Approved Descriptions", type: "PDF", icon: <FileText size={24} /> }
                   ].map((asset, i) => (
                     <div key={i} className="flex items-center justify-between p-6 rounded-2xl border border-gray-100 hover:border-gold-300 hover:bg-gold-50/30 transition-all group cursor-pointer">
                       <div className="flex items-center gap-5">
@@ -86,6 +100,12 @@ export default function PressPage() {
               </div>
             </AnimatedSection>
           </div>
+
+          <AnimatedSection delay={0.3} className="mt-24 text-center">
+             <a href="mailto:info@internationalcoachinginstitute.org" className="btn-primary">
+                For an interview or expert comment, contact info@internationalcoachinginstitute.org
+             </a>
+          </AnimatedSection>
 
         </div>
       </section>

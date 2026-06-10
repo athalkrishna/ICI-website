@@ -2,7 +2,9 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Apply to the International Coaching Institute',
+  title: {
+    absolute: 'Apply to the International Coaching Institute',
+  },
   description: 'Apply to ICI in minutes. Tell us your goals, choose your level, and an advisor will help you take the next step. Free to apply, no commitment.'
 }
 

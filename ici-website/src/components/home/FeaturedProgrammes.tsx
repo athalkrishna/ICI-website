@@ -8,21 +8,21 @@ const programmes = [
     title: 'Certified Life Coach',
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
     desc: 'Master the foundational competencies of transformational life coaching.',
-    type: 'Foundation',
+    type: 'Levels 1–2',
     href: '/programmes/certified-life-coach'
   },
   {
     title: 'Executive Coaching',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
     desc: 'Drive organisational success through advanced leadership methodologies.',
-    type: 'Professional',
+    type: 'Levels 3–4',
     href: '/programmes/executive-coaching'
   },
   {
     title: 'Health & Wellness',
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80',
     desc: 'Empower clients to achieve sustainable physical and mental well-being.',
-    type: 'Specialisation',
+    type: 'Open entry',
     href: '/programmes/health-wellness'
   }
 ]

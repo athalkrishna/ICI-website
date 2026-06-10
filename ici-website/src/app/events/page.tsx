@@ -1,7 +1,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Calendar, Video } from 'lucide-react'
+import EventsForm from '@/components/shared/EventsForm'
 
 export const metadata: Metadata = {
   title: 'Coaching Events, Summits & Masterclasses | ICI',
@@ -38,34 +38,12 @@ export default function EventsPage() {
           <AnimatedSection>
             <h2 className="font-display text-4xl font-bold text-white mb-12">Upcoming events</h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Pull from live events feed. Each event should show: title, date, online or location, one-line description, and a Register link. Never display past events. */}
-              
-              {/* Placeholder Event Card */}
-              <div className="bg-navy-800/50 border border-white/5 rounded-[24px] overflow-hidden flex flex-col hover:border-gold-500/30 transition-colors relative">
-                <div className="absolute top-4 right-4 bg-gold-500/10 text-gold-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-gold-500/20">
-                  Example / Placeholder
-                </div>
-                <div className="p-8 flex-1 flex flex-col">
-                  <div className="flex items-center gap-2 text-blue-100/50 text-sm font-bold uppercase tracking-wider mb-4">
-                    <Calendar size={16} />
-                    <span>To be confirmed</span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-white mb-3">ICI Global Summit</h3>
-                  <div className="flex items-center gap-2 text-gold-400 text-sm font-bold uppercase tracking-wider mb-6">
-                    <Video size={16} />
-                    <span>Online</span>
-                  </div>
-                  <p className="font-body text-blue-100/80 leading-relaxed mb-8 flex-1">
-                    A gathering of coaches from across our network for a day of practice, ideas and connection.
-                  </p>
-                  <Link href="#register" className="btn-outline w-full text-center">
-                    Register now
-                  </Link>
-                </div>
+              <div className="bg-navy-800/50 border border-white/5 rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
+                <p className="font-body text-2xl text-blue-100/80 leading-relaxed font-light mb-8">
+                  Our first public events are being scheduled. Register your interest and we will tell you first.
+                </p>
+                <EventsForm />
               </div>
-
-            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -79,10 +57,7 @@ export default function EventsPage() {
               Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <Link href="#all-events" className="btn-primary">
-                See all events
-              </Link>
-              <Link href="/contact" className="btn-secondary">
+              <Link href="#events-form" className="btn-primary">
                 Register your interest
               </Link>
             </div>

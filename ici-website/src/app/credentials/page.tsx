@@ -12,28 +12,32 @@ export const metadata: Metadata = {
 export default function CredentialsPage() {
   const pathways = [
     {
-      level: 'Catalyst (Level 1, post-nominal ICI-C)',
+      title: 'Catalyst',
+      subline: 'Level 1',
       href: '/credentials/catalyst',
       desc: 'Foundation. You learn to spark and hold change, and become a competent, confident, ethical coach. 36 hours, one-to-one.',
       badge: 'bg-navy-50 text-navy-700',
       cta: 'Explore Catalyst'
     },
     {
-      level: 'Architect (Level 2, post-nominal ICI-A)',
+      title: 'Architect',
+      subline: 'Level 2',
       href: '/credentials/architect',
       desc: 'Professional. You learn to design and build change with clients and to build a thriving practice. 60 hours, one-to-one.',
       badge: 'bg-gold-50 text-gold-600',
       cta: 'Explore Architect'
     },
     {
-      level: 'Sage (Level 3, post-nominal ICI-S)',
+      title: 'Sage',
+      subline: 'Level 3',
       href: '/credentials/sage',
       desc: 'Senior. You coach with depth, range and presence, and hold the most complex clients. 90 hours, one-to-one.',
       badge: 'bg-navy-50 text-navy-700',
       cta: 'Explore Sage'
     },
     {
-      level: 'Luminary (Level 4, post-nominal ICI-L)',
+      title: 'Luminary',
+      subline: 'Level 4',
       href: '/credentials/luminary',
       desc: "The institute's highest distinction. You master the craft, mentor others and contribute to the field. 120 hours, one-to-one.",
       badge: 'bg-purple-50 text-purple-600',
@@ -136,9 +140,9 @@ export default function CredentialsPage() {
                       <Award size={14} /> Level {i + 1}
                     </div>
                     <h3 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-6 group-hover:text-gold-500 transition-colors">
-                      {path.level.split(' (')[0]}
+                      {path.title}
                       <span className="block text-lg font-sans font-normal text-gray-500 mt-2">
-                        ({path.level.split(' (')[1]}
+                        {path.subline}
                       </span>
                     </h3>
                     <p className="font-body text-xl text-gray-600 mb-12 flex-1 leading-relaxed">

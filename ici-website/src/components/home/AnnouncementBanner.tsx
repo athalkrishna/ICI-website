@@ -3,7 +3,7 @@ import { Award, Calendar, Globe } from 'lucide-react'
 import Link from 'next/link'
 
 const items = [
-  { icon: <Calendar size={14} />, text: 'Next cohort begins every month. Enrol at your own place and pace.', href: '/apply' },
+  { icon: <Calendar size={14} />, text: 'Free admissions assessment now available.', href: '/admissions/assessment' },
   { icon: <Globe size={14} />, text: 'Now enrolling worldwide: one-to-one, online coaching certification.', href: '/credentials' },
   { icon: <Award size={14} />, text: 'The ICI Mastery Pathway, from Catalyst to Luminary. Explore the credentials.', href: '/credentials' },
 ]

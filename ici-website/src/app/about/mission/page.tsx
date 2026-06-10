@@ -2,7 +2,10 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Mission, Vision & Values | International Coaching Institute',
+  title: {
+    absolute: 'Our Mission | International Coaching Institute',
+  },
+  description: 'The International Coaching Institute exists to produce coaches who create real, lasting change. Read our mission and the principles that guide us.'
 }
 
 export default function MissionPage() {

@@ -86,31 +86,7 @@ export default function AccreditationPage() {
             </AnimatedSection>
           </div>
           
-          <AnimatedSection delay={0.3} className="text-center py-20 border-t border-gray-200">
-            <p className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-navy-400 mb-12">
-              Recognised By Leading Professional Bodies
-            </p>
-            
-            {/* Premium Logo Ribbon Placeholder */}
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-navy-800 rounded-full"></div>
-                <div className="font-display font-bold text-2xl text-navy-800">ICF</div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-navy-800 rounded-sm"></div>
-                <div className="font-display font-bold text-2xl text-navy-800">EMCC</div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 border-4 border-navy-800 rounded-full"></div>
-                <div className="font-display font-bold text-2xl text-navy-800">AC</div>
-              </div>
-            </div>
-            
-            <p className="font-sans text-xs text-gray-400 mt-12 italic">
-              * Awaiting formal client logo assets for publication.
-            </p>
-          </AnimatedSection>
+
 
         </div>
       </section>

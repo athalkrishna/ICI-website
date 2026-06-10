@@ -11,9 +11,9 @@ interface HeroSectionProps {
 
 export default function HeroSection({ content = {} }: HeroSectionProps) {
   const stats = [
-    { value: parseInt((content.stat_1_value || '25000').replace(/[^0-9]/g, '')) || 25000, suffix: '+', label: content.stat_1_label || 'Certified Graduates' },
-    { value: parseInt((content.stat_2_value || '60').replace(/[^0-9]/g, '')) || 60, suffix: '+', label: content.stat_2_label || 'Countries Served' },
-    { value: parseInt((content.stat_3_value || '4').replace(/[^0-9]/g, '')) || 4, suffix: '', label: content.stat_3_label || 'Credential Levels' },
+    { isText: false, value: 4, suffix: '', label: content.stat_1_label || 'Credential Levels' },
+    { isText: false, value: 306, suffix: '', label: content.stat_2_label || 'Hours Across the Full Pathway' },
+    { isText: true, text: '1:1', label: content.stat_3_label || 'Every Session, One-to-One' },
   ]
 
   return (
@@ -21,7 +21,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
 
       {/* Background image */}
       <Image
-        src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=85"
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=85"
         alt="Professional coaching session, diverse group in a modern conference room"
         fill
         priority
@@ -87,7 +87,11 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                 <div key={stat.label} className="flex items-center w-1/2 md:w-auto">
                   <div className="pr-6 md:px-6 md:first:pl-0">
                     <div className="font-mono text-3xl font-bold text-gold-400">
-                      <CountUpNumber end={stat.value} suffix={stat.suffix} />
+                      {stat.isText ? (
+                        stat.text
+                      ) : (
+                        <CountUpNumber end={stat.value as number} suffix={stat.suffix as string} />
+                      )}
                     </div>
                     <div className="font-sans text-xs text-blue-200 tracking-wide mt-0.5">
                       {stat.label}
@@ -134,23 +138,62 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                 {content.lead_form_subtext || 'Free application · No commitment'}
               </p>
 
-              <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-3" onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                try {
+                  const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+                  const originalText = submitBtn.innerHTML;
+                  submitBtn.innerHTML = 'Sending...';
+                  submitBtn.disabled = true;
+
+                  const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                  });
+                  
+                  if (res.ok) {
+                    form.innerHTML = '<div class="text-green-600 font-sans font-bold text-center py-4 bg-green-50 rounded-lg">Thank you. We will be in touch shortly.</div>';
+                  } else {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    alert('There was an error sending your message. Please try again.');
+                  }
+                } catch (err) {
+                  alert('There was an error sending your message. Please try again.');
+                }
+              }}>
                 <input
                   type="text"
+                  name="website"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+                <input
+                  type="text"
+                  name="name"
+                  required
                   placeholder="Full Name"
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
                 />
                 <input
                   type="email"
+                  name="email"
+                  required
                   placeholder="Email Address"
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
                 />
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400">
+                <select name="programme" required className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400">
                   <option value="">Programme Interest</option>
-                  <option>Catalyst (Level 1)</option>
-                  <option>Architect (Level 2)</option>
-                  <option>Sage (Level 3)</option>
-                  <option>Luminary (Level 4)</option>
+                  <option value="catalyst">Catalyst (Level 1)</option>
+                  <option value="architect">Architect (Level 2)</option>
+                  <option value="sage">Sage (Level 3)</option>
+                  <option value="luminary">Luminary (Level 4)</option>
                 </select>
                 <button type="submit" className="w-full btn-primary justify-center py-3.5 text-base">
                   {content.lead_form_btn || 'Get Started'}
@@ -159,9 +202,9 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               </form>
 
               {/* Trust badges */}
-              <div className="mt-5 pt-5 border-t border-gray-100 flex items-center justify-between">
-                {['ICF Accredited', 'ISO Certified', '5-Star Rated'].map((badge) => (
-                  <div key={badge} className="flex items-center gap-1 text-xs font-sans text-green-700 font-medium">
+              <div className="mt-5 pt-5 border-t border-gray-100 flex items-center justify-between gap-2 flex-wrap">
+                {['One-to-one, never group classes', 'Online, delivered worldwide', 'Assessed on real coaching'].map((badge) => (
+                  <div key={badge} className="flex items-center gap-1.5 text-xs font-sans text-green-700 font-medium whitespace-nowrap">
                     <span className="text-green-500">✓</span>
                     {badge}
                   </div>

@@ -5,8 +5,10 @@ import { Metadata } from 'next'
 import AdmissionsFaq from './AdmissionsFaq'
 
 export const metadata: Metadata = {
-  title: 'Admissions: How to Become an ICI Coach',
-  description: 'Apply to the International Coaching Institute. Simple admissions, a free assessment to find your level, and an advisor to help. Next cohort starts [date].'
+  title: {
+    absolute: 'Admissions | International Coaching Institute',
+  },
+  description: 'Everything you need to enrol at ICI. Explore entry requirements, programme levels, and speak to an advisor. Enrolment is open now.'
 }
 
 export default function AdmissionsPage() {

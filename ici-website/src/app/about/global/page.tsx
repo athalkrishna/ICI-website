@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Global Presence | International Coaching Institute',
+  description: 'Delivered entirely online, ICI trains coaches across many countries and time zones. Our campus is the community, not a building.',
 }
 
 export default function GlobalPage() {
@@ -47,7 +48,7 @@ export default function GlobalPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <Link href="/admissions" className="btn-primary text-base px-8 py-4 text-center">
+                <Link href="/community" className="btn-primary text-base px-8 py-4 text-center">
                   Join a global community of coaches
                 </Link>
                 <Link href="/credentials" className="btn-secondary text-base px-8 py-4 text-center">
@@ -99,7 +100,12 @@ export default function GlobalPage() {
             </div>
 
             {/* Glowing Map Component */}
-            <div className="mt-24 relative z-20 w-full max-w-5xl mx-auto aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-white/5 bg-navy-800/30">
+            <div className="mt-24 text-center">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">Where our coaches are</h2>
+              <p className="font-body text-xl text-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
+            </div>
+            
+            <div className="relative z-20 w-full max-w-5xl mx-auto aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-white/5 bg-navy-800/30">
               {/* Abstract decorative map dots */}
               <div className="absolute inset-0 opacity-[0.15]" style={{
                 backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)',

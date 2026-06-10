@@ -33,22 +33,22 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
             <li className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold-50 flex items-center justify-center text-gold-500">✦</div>
               <div>
-                <strong className="block text-navy-700 mb-1">{content.diff_1_title || 'ICF Accredited Curriculum'}</strong>
-                <span className="text-sm text-gray-500">{content.diff_1_body || 'Rigorous academic standards aligned with the International Coaching Federation.'}</span>
+                <strong className="block text-navy-700 mb-1">{content.diff_1_title || 'Evidence-based curriculum'}</strong>
+                <span className="text-sm text-gray-500">{content.diff_1_body || 'Coaching psychology, neuroscience and behavioural science, taught in plain language and tied to what happens in a real session.'}</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold-50 flex items-center justify-center text-gold-500">✦</div>
               <div>
-                <strong className="block text-navy-700 mb-1">{content.diff_2_title || 'Expert Scholar-Practitioner Faculty'}</strong>
-                <span className="text-sm text-gray-500">{content.diff_2_body || 'Learn from seasoned industry leaders with decades of global experience.'}</span>
+                <strong className="block text-navy-700 mb-1">{content.diff_2_title || 'One-to-one, never one-to-many'}</strong>
+                <span className="text-sm text-gray-500">{content.diff_2_body || 'You are coached and developed individually, so nothing is glossed over and no one hides at the back of a room.'}</span>
               </div>
             </li>
             <li className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold-50 flex items-center justify-center text-gold-500">✦</div>
               <div>
-                <strong className="block text-navy-700 mb-1">{content.diff_3_title || 'Global Alumni Network'}</strong>
-                <span className="text-sm text-gray-500">{content.diff_3_body || 'Join a prestigious community of over 25,000 successful graduates worldwide.'}</span>
+                <strong className="block text-navy-700 mb-1">{content.diff_3_title || 'Faculty who still practise'}</strong>
+                <span className="text-sm text-gray-500">{content.diff_3_body || 'Learn from working coaches who carry real client experience into every session.'}</span>
               </div>
             </li>
           </ul>

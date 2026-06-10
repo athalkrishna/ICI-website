@@ -153,18 +153,18 @@ export default function Navbar() {
               </button>
 
               <Link
-                href="/find-a-coach"
-                className={`hidden lg:inline-flex xl:hidden items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
+                href="/apply"
+                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap
                   ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-navy-200 text-navy-600 hover:bg-navy-50'}`}
               >
-                Find a Coach
+                Apply Now
               </Link>
 
               <Link
-                href="/apply"
-                className="btn-primary hidden md:inline-flex whitespace-nowrap px-3 2xl:px-5 shrink-0"
+                href="/find-a-coach"
+                className="btn-primary hidden md:inline-flex whitespace-nowrap px-4 2xl:px-6 py-2.5 shrink-0"
               >
-                Apply Now
+                Find a Coach
                 <span aria-hidden>→</span>
               </Link>
 

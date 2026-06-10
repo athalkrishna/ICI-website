@@ -1,9 +1,12 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import ContactForm from '@/components/contact/ContactForm'
 import { Metadata } from 'next'
 import { Phone, Mail, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Contact ICI | Speak to a Coaching Advisor',
+  title: {
+    absolute: 'Contact ICI | Speak to a Coaching Advisor',
+  },
   description: 'Get in touch with the International Coaching Institute. Ask about programmes, credentials or organisational training, and speak to a human who can help.'
 }
 
@@ -41,88 +44,7 @@ export default function ContactPage() {
               <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 p-8 md:p-10 rounded-[32px] shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
                 
-                <form className="space-y-6 relative z-10" action="#">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                        Name <span className="text-gold-500">*</span>
-                      </label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        required 
-                        className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                        Email <span className="text-gold-500">*</span>
-                      </label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        required 
-                        className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                        placeholder="you@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                        Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
-                      </label>
-                      <input 
-                        type="tel" 
-                        id="phone" 
-                        className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                        placeholder="+1 (555) 000-0000"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="topic" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                        What can we help with? <span className="text-gold-500">*</span>
-                      </label>
-                      <select 
-                        id="topic" 
-                        required
-                        defaultValue=""
-                        className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
-                      >
-                        <option value="" disabled>Select a topic</option>
-                        <option value="Programmes">Programmes</option>
-                        <option value="Admissions">Admissions</option>
-                        <option value="Organisations">Organisations</option>
-                        <option value="Alumni">Alumni</option>
-                        <option value="Media">Media</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                      Your message <span className="text-gold-500">*</span>
-                    </label>
-                    <textarea 
-                      id="message" 
-                      rows={5}
-                      required
-                      className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
-                      placeholder="How can we help you?"
-                    ></textarea>
-                  </div>
-
-                  <div className="pt-4">
-                    <button type="submit" className="btn-primary w-full justify-center py-4 text-base">
-                      Send message
-                    </button>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </AnimatedSection>
 

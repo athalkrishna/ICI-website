@@ -36,62 +36,36 @@ export default function AnnualReportsPage() {
       <section className="py-24 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           
-          <div className="grid lg:grid-cols-12 gap-16 mb-24">
-            <AnimatedSection className="lg:col-span-5 space-y-8">
-              <h2 className="font-display text-4xl font-bold text-navy-800">Measuring what matters.</h2>
-              <p className="font-body text-xl text-gray-700 leading-relaxed font-light">
-                Because we believe in the measurable impact of good coaching, we believe in measuring our own. 
-              </p>
-              <p className="font-body text-xl text-gray-700 leading-relaxed font-light">
-                Our first annual report will be published at the close of our first full financial year.
-              </p>
-            </AnimatedSection>
+          <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
+            <h2 className="font-display text-4xl font-bold text-navy-800 mb-8">Annual Reports</h2>
+            <p className="font-body text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+              We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
+            </p>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.2} className="lg:col-span-7">
-              <div className="bg-white rounded-3xl p-10 border border-gray-100 shadow-sm relative overflow-hidden">
-                <div className="absolute -right-8 -top-8 text-navy-50 opacity-50 transform rotate-12">
-                  <FileBarChart2 size={200} strokeWidth={1} />
-                </div>
-                <h3 className="font-display text-2xl font-bold text-navy-800 mb-8 relative z-10">What we will report on:</h3>
-                
-                <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 relative z-10">
-                  {[
-                    "Student outcomes and pass rates",
-                    "Demographics and global spread",
-                    "Scholarship and bursary distribution",
-                    "Financial performance and reinvestment",
-                    "Updates to our curriculum and faculty"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="w-6 h-6 rounded-full bg-gold-50 flex items-center justify-center shrink-0 mt-1">
-                        <div className="w-2 h-2 bg-gold-500 rounded-full"></div>
-                      </div>
-                      <div className="font-body text-lg text-gray-700">{item}</div>
-                    </div>
-                  ))}
-                </div>
+          <AnimatedSection delay={0.2}>
+            <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 md:p-14 border border-gray-100 shadow-xl shadow-navy-900/5 relative overflow-hidden">
+              <div className="absolute -right-8 -top-8 text-navy-50 opacity-50 transform rotate-12">
+                <FileBarChart2 size={200} strokeWidth={1} />
               </div>
-            </AnimatedSection>
-          </div>
-
-          <AnimatedSection delay={0.3}>
-            <div className="text-center mb-16">
-              <h2 className="font-display text-3xl font-bold text-navy-800 mb-6">Archive</h2>
-              <div className="w-16 h-1 bg-gray-300 mx-auto rounded-full"></div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Placeholder Card for future report */}
-              <div className="bg-white p-8 rounded-[32px] border border-dashed border-gray-300 flex flex-col items-center justify-center text-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                <div className="w-16 h-16 bg-navy-50 rounded-2xl flex items-center justify-center text-navy-300 mb-6">
-                  <FileBarChart2 size={32} />
-                </div>
-                <div className="font-sans text-sm font-bold uppercase tracking-widest text-navy-400 mb-2">Upcoming</div>
-                <h3 className="font-display text-2xl font-bold text-navy-800 mb-6">2024 / 25 Impact Report</h3>
-                <button disabled className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-400 rounded-full font-sans text-sm font-bold tracking-wide uppercase cursor-not-allowed">
-                  <Download size={16} />
-                  Available soon
-                </button>
+              <h3 className="font-display text-2xl font-bold text-navy-800 mb-8 relative z-10">
+                Until this year is fully complete, this is what we commit to reporting on, openly and without spin:
+              </h3>
+              
+              <div className="space-y-6 relative z-10">
+                {[
+                  "Coaches trained and credentials awarded",
+                  "How we upheld our assessment standard",
+                  "Community, alumni and social-impact activity",
+                  "What worked, what did not, and what we are changing"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-cream-50 flex items-center justify-center shrink-0 mt-0.5 border border-gold-100">
+                      <div className="w-2.5 h-2.5 bg-gold-500 rounded-full"></div>
+                    </div>
+                    <div className="font-body text-xl text-gray-700 font-light">{item}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </AnimatedSection>

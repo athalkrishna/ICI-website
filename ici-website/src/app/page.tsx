@@ -4,12 +4,19 @@ import AudienceCards        from '@/components/home/AudienceCards'
 import CredentialPathway    from '@/components/home/CredentialPathway'
 import ICIDifference        from '@/components/home/ICIDifference'
 import FeaturedProgrammes     from '@/components/home/FeaturedProgrammes'
-import Testimonials         from '@/components/home/Testimonials'
 import NewsEvents           from '@/components/home/NewsEvents'
 import GlobalReachMap       from '@/components/home/GlobalReachMap'
 import ApplyCTA             from '@/components/home/ApplyCTA'
 import AccreditationLogos   from '@/components/home/AccreditationLogos'
+import type { Metadata } from 'next'
 import { getPageContent }   from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: {
+    absolute: 'International Coaching Institute | Become a Certified Coach',
+  },
+  description: 'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+}
 
 export const revalidate = 60; // Cloudways ISR Strategy: 60-second window
 
@@ -25,7 +32,6 @@ export default async function Home() {
       <CredentialPathway content={content} />
       <ICIDifference content={content} />
       <FeaturedProgrammes />
-      <Testimonials />
       <GlobalReachMap content={content} />
       <NewsEvents />
       <ApplyCTA content={content} />

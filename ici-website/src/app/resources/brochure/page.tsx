@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
+import ProspectusForm from '@/components/shared/ProspectusForm'
 
 export const metadata: Metadata = {
   title: 'Download the ICI Prospectus',
@@ -41,73 +42,7 @@ export default function BrochurePage() {
               </h2>
               
               {/* Confirm whether prospectus is gated (email required) or a direct download, and wire up accordingly */}
-              <form className="space-y-6 relative z-10" action="#">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                    Name <span className="text-gold-500">*</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    required 
-                    className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                    placeholder="Your name"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                    Email <span className="text-gold-500">*</span>
-                  </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    required 
-                    className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                    placeholder="you@example.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="country" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                    Country <span className="text-gold-500">*</span>
-                  </label>
-                  <select 
-                    id="country" 
-                    required
-                    defaultValue=""
-                    className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
-                  >
-                    <option value="" disabled>Select your country</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="US">United States</option>
-                    <option value="IN">India</option>
-                    <option value="AU">Australia</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="interest" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                    Level or specialism of interest <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="interest" 
-                    className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                    placeholder="e.g. Catalyst, Executive Coaching"
-                  />
-                </div>
-
-                <div className="pt-4 text-center">
-                  <button type="submit" className="btn-primary w-full justify-center py-4 text-base mb-4">
-                    Send me the prospectus
-                  </button>
-                  <p className="font-body text-sm text-blue-100/50 leading-relaxed">
-                    We will email the PDF straight away and, with your permission, occasional updates you can opt out of at any time.
-                  </p>
-                </div>
-              </form>
+              <ProspectusForm />
             </div>
           </AnimatedSection>
         </div>

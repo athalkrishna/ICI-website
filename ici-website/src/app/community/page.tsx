@@ -74,7 +74,7 @@ export default function CommunityPage() {
               <p className="font-body text-lg text-blue-100/80 leading-relaxed mb-8">
                 Coaching is a practice, which means it is never finished.
               </p>
-              {/* Membership details, inclusions and fees to be confirmed and added here */}
+              {/* <!-- Confirm membership offer, what it includes, and any cost, then replace this section --> */}
             </AnimatedSection>
 
           </div>

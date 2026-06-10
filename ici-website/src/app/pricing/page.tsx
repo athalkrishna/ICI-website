@@ -4,6 +4,7 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import Link from 'next/link'
 import { ChevronRight, CheckCircle2, ChevronDown, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { Metadata } from 'next'
 import { useLocalCurrency } from '@/hooks/useLocalCurrency'
 
 const pricingData = [
@@ -52,7 +53,7 @@ const faqs = [
   },
   {
     q: 'What is your refund policy?',
-    a: 'Refunds are granted strictly in accordance with our terms of service. Generally, a full refund is available if cancelled within 14 days of enrolment and before any coaching sessions have commenced.'
+    a: 'Your place is confirmed on payment. If you change your mind before your first scheduled session, tell us in writing and we will refund your fee in full, less any payment-processing charges. Once sessions have begun, fees are not refundable, but you may pause and resume your level within its suggested duration. [This interim wording must be confirmed or replaced by the institute\'s final policy and mirrored in the Terms of Service.]'
   }
 ]
 
@@ -107,14 +108,18 @@ export default function PricingPage() {
                     <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm w-1/4">Level & Credential</th>
                     <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm w-1/3">Format & Hours</th>
                     <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm">Duration</th>
-                    <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm text-right flex items-center justify-end gap-2">
-                      Price ({loading ? '...' : currencyCode}, excl. GST)
-                      {loading && <Loader2 size={14} className="animate-spin" />}
+                    <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm text-right">
+                      Price (INR, excl. GST)
                     </th>
+                    <th className="py-6 px-6"></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
-                  {pricingData.map((row, i) => (
+                  {pricingData.map((row, i) => {
+                    const slug = row.level.toLowerCase().includes('catalyst') ? 'catalyst' : 
+                                 row.level.toLowerCase().includes('architect') ? 'architect' : 
+                                 row.level.toLowerCase().includes('sage') ? 'sage' : 'luminary';
+                    return (
                     <tr key={i} className="hover:bg-white/5 transition-colors group">
                       <td className="py-8 px-6">
                         <div className="font-display font-bold text-xl text-white group-hover:text-gold-400 transition-colors">
@@ -139,8 +144,13 @@ export default function PricingPage() {
                           {formatPrice(row.basePriceINR)}
                         </motion.span>
                       </td>
+                      <td className="py-8 px-6 text-right">
+                        <Link href={`/checkout/${slug}`} className="btn-primary py-2 px-6 text-sm">
+                          Enrol
+                        </Link>
+                      </td>
                     </tr>
-                  ))}
+                  )})}
                 </tbody>
               </table>
             </div>
@@ -210,7 +220,7 @@ export default function PricingPage() {
                   Payment options
                 </h3>
                 <p className="text-blue-100/80 font-body leading-relaxed">
-                  Pay in full, or spread the cost across an instalment plan if available on the check-out page (based on the bank cards you are using).
+                  Pay in full at checkout, or choose an instalment option where available. Card EMI is offered by most major banks at checkout; if you would prefer an institute instalment plan, speak to an advisor and we will agree a schedule before you enrol.
                 </p>
               </div>
               

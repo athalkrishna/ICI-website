@@ -17,41 +17,37 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Programmes</h4>
+            <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Programmes & Credentials</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="/credentials" className="hover:text-gold-400 transition-colors">The Mastery Pathway</Link></li>
-              <li><Link href="/programmes" className="hover:text-gold-400 transition-colors">Specialisations</Link></li>
-              <li><Link href="/pricing" className="hover:text-gold-400 transition-colors">Pricing</Link></li>
-              <li><Link href="/find-a-coach" className="hover:text-gold-400 transition-colors">Find a Coach</Link></li>
+              <li><Link href="/programmes" className="hover:text-gold-400 transition-colors">Programmes</Link></li>
+              <li><Link href="/credentials" className="hover:text-gold-400 transition-colors">Credentials</Link></li>
+              <li><Link href="/admissions" className="hover:text-gold-400 transition-colors">Assessment</Link></li>
             </ul>
           </div>
 
           <div>
-             <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Institute</h4>
+             <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">About</h4>
              <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link href="/about/mission" className="hover:text-gold-400 transition-colors">About ICI</Link></li>
-              <li><Link href="/faculty" className="hover:text-gold-400 transition-colors">Faculty & Research</Link></li>
-              <li><Link href="/admissions" className="hover:text-gold-400 transition-colors">Admissions</Link></li>
-              <li><Link href="/community" className="hover:text-gold-400 transition-colors">Community</Link></li>
+              <li><Link href="/faculty" className="hover:text-gold-400 transition-colors">Faculty</Link></li>
+              <li><Link href="/about/global" className="hover:text-gold-400 transition-colors">Global Network</Link></li>
+              <li><Link href="/about/accreditation" className="hover:text-gold-400 transition-colors">Accreditation</Link></li>
               <li><Link href="/contact" className="hover:text-gold-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Contact</h4>
+            <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Legal</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li>(+91) 98199 84575</li>
-              <li>info@internationalcoachinginstitute.org</li>
-              <li>Registered office: Mumbai – 400051</li>
-              <li className="pt-2">
-                <Link href="/apply" className="btn-primary inline-flex text-sm px-6 py-2.5">Apply Now</Link>
-              </li>
+              <li><Link href="/terms" className="hover:text-gold-400 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="hover:text-gold-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/complaints" className="hover:text-gold-400 transition-colors">Complaints</Link></li>
+              <li><Link href="/pricing" className="hover:text-gold-400 transition-colors">Refunds</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-sans gap-4 text-center md:text-left">
-          <p>Copyright [2026] International Coaching Institute. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} International Coaching Institute. All rights reserved.</p>
           <div className="flex gap-4 md:gap-6 flex-wrap justify-center">
             <Link href="/privacy" className="hover:text-gold-400 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold-400 transition-colors">Terms of Service</Link>
