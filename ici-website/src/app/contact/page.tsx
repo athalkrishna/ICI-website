@@ -139,7 +139,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <div className="text-sm font-bold text-blue-100/50 uppercase tracking-wider mb-1">Phone</div>
-                        <div className="font-body text-white">[placeholder: to be confirmed]</div>
+                        <div className="font-body text-white">+91 98199 84575</div>
                       </div>
                     </div>
                     
@@ -149,7 +149,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <div className="text-sm font-bold text-blue-100/50 uppercase tracking-wider mb-1">Email</div>
-                        <div className="font-body text-white">[placeholder: to be confirmed]</div>
+                        <div className="font-body text-white">info@internationalcoachinginstitute.org</div>
                       </div>
                     </div>
 
@@ -160,7 +160,7 @@ export default function ContactPage() {
                       <div>
                         <div className="text-sm font-bold text-blue-100/50 uppercase tracking-wider mb-1">Hours</div>
                         <div className="font-body text-white text-sm leading-relaxed">
-                          [placeholder: to be confirmed, include time zone]
+                          Mon-Fri, 9:00 AM - 6:00 PM (IST)
                         </div>
                       </div>
                     </div>
