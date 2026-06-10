@@ -83,11 +83,11 @@ export default function ArchitectPage() {
             <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
               Competence gets you started. Becoming an architect makes you a professional. An architect does not just react to what appears; they design and build. Over 60 hours of one-to-one work with a senior coach, you learn to work with the harder parts of real practice, emotion, resistance and complexity, and to build a coaching practice that lasts. You leave able to take on clients other coaches refer elsewhere.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link href="/admissions" className="btn-primary">
+            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+              <Link href="/admissions" className="btn-primary w-full md:w-auto justify-center">
                 Advance to Architect <ChevronRight size={18} />
               </Link>
-              <Link href="/admissions/contact" className="btn-secondary">
+              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
                 Speak to an Advisor
               </Link>
             </div>

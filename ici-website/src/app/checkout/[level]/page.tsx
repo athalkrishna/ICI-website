@@ -50,15 +50,15 @@ export default async function CheckoutPage({ params }: { params: { level: string
             <div className="bg-white border border-gray-100 p-8 md:p-12 rounded-[32px] shadow-xl">
               <div className="mb-8 pb-8 border-b border-gray-100">
                 <h2 className="font-display text-2xl font-bold text-navy-900 mb-4">Order Summary</h2>
-                <div className="flex justify-between text-gray-600 mb-2">
+                <div className="flex flex-wrap justify-between gap-x-4 text-gray-600 mb-2">
                   <span>{levelInfo.title}</span>
                   <span>₹{levelInfo.price.toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between text-gray-600 mb-2">
+                <div className="flex flex-wrap justify-between gap-x-4 text-gray-600 mb-2">
                   <span>GST (18%)</span>
                   <span>₹{(levelInfo.price * 0.18).toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between text-navy-900 font-bold text-lg pt-4 border-t border-gray-100 mt-4">
+                <div className="flex flex-wrap justify-between gap-x-4 text-navy-900 font-bold text-lg pt-4 border-t border-gray-100 mt-4">
                   <span>Total Due Today</span>
                   <span>₹{(levelInfo.price * 1.18).toLocaleString()}</span>
                 </div>

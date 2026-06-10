@@ -31,22 +31,26 @@
   ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
 
   /* Focus ring */
-  :focus-visible {
+  /* Focus ring */
+  *:focus-visible {
     outline: 2px solid #C9A84C;
     outline-offset: 2px;
     border-radius: 2px;
+  }
+  *:focus:not(:focus-visible) {
+    outline: none;
   }
 }
 
 @layer components {
   /* Section label — gold all-caps with decorative lines */
   .section-label {
-    @apply flex items-center gap-3 justify-center text-gold-500 text-xs font-sans font-semibold tracking-[0.2em] uppercase;
+    @apply flex items-center gap-3 justify-center text-[#B45309] text-xs font-sans font-semibold tracking-[0.2em] uppercase;
   }
   .section-label::before,
   .section-label::after {
     content: '';
-    @apply block h-px w-10 bg-gold-500;
+    @apply block h-px w-10 bg-[#B45309];
   }
 
   /* Gold animated underline for H2 headings */

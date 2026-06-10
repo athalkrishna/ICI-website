@@ -80,11 +80,11 @@ export default function PricingPage() {
             <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
               Coaching education is an investment in a career, so we will not hide what it costs. Every level of the Mastery Pathway is delivered one-to-one and online, with real coaching hours from a professional coach and substantial guided self-work. You enrol one level at a time, and each price is complete. What you see is what you pay, plus applicable GST.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link href="/credentials" className="btn-primary">
+            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+              <Link href="/credentials" className="btn-primary w-full md:w-auto justify-center">
                 Choose your level <ChevronRight size={18} />
               </Link>
-              <Link href="/admissions" className="btn-secondary">
+              <Link href="/admissions" className="btn-secondary w-full md:w-auto justify-center">
                 Take the free assessment
               </Link>
             </div>
@@ -101,7 +101,7 @@ export default function PricingPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
               <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
                   <tr className="border-b-2 border-gold-500/50">
@@ -145,7 +145,17 @@ export default function PricingPage() {
                         </motion.span>
                       </td>
                       <td className="py-8 px-6 text-right">
-                        <Link href={`/checkout/${slug}`} className="btn-primary py-2 px-6 text-sm">
+                        <Link 
+                          href={`/checkout/${slug}`} 
+                          className="btn-primary py-2 px-6 text-sm"
+                          onClick={() => {
+                            if (typeof window !== 'undefined' && (window as any).fbq) {
+                              (window as any).fbq('track', 'InitiateCheckout', {
+                                content_name: slug
+                              })
+                            }
+                          }}
+                        >
                           Enrol
                         </Link>
                       </td>
@@ -154,6 +164,9 @@ export default function PricingPage() {
                 </tbody>
               </table>
             </div>
+            <p className="text-sm text-blue-100/50 mt-4 md:hidden">
+              Scroll horizontally to see full table →
+            </p>
             
             <div className="mt-6 text-right">
               <p className="font-body text-sm text-blue-100/50">

@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
+import SuccessTracker from '@/components/checkout/SuccessTracker';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: {
@@ -13,6 +15,9 @@ export const metadata: Metadata = {
 export default function CheckoutSuccessPage() {
   return (
     <div className="bg-cream-50 min-h-screen pb-24 font-sans selection:bg-gold-500/30">
+      <Suspense fallback={null}>
+        <SuccessTracker />
+      </Suspense>
       <section className="bg-navy-800 pt-28 pb-16 lg:pt-40 lg:pb-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">

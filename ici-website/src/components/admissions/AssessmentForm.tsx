@@ -70,7 +70,20 @@ export default function AssessmentForm() {
             {['None (Beginner)', '1-3 years (Practising)', '3+ years (Experienced)'].map((opt) => (
               <button
                 key={opt}
-                onClick={() => { setExperience(opt); handleNext(); }}
+                onClick={() => { 
+                  setExperience(opt); 
+                  handleNext(); 
+                  
+                  // Fire tracking events
+                  if (typeof window !== 'undefined') {
+                    if ((window as any).gtag) {
+                      (window as any).gtag('event', 'form_submit', { form_name: 'assessment_form' });
+                    }
+                    if ((window as any).fbq) {
+                      (window as any).fbq('track', 'Lead', { content_name: 'assessment_form' });
+                    }
+                  }
+                }}
                 className={`w-full text-left p-4 rounded-xl border-2 transition-all ${experience === opt ? 'border-gold-500 bg-gold-50/50' : 'border-gray-100 hover:border-gold-300 hover:bg-gray-50'}`}
               >
                 <span className="font-sans font-medium text-navy-900">{opt}</span>

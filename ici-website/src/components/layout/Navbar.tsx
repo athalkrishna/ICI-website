@@ -40,7 +40,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center shrink-0 -ml-4 -mt-2">
               <Image 
                 src="/logo.png" 
-                alt="International Coaching Institute Logo" 
+                alt="International Coaching Institute logo" 
                 width={300} 
                 height={90} 
                 className="w-[200px] md:w-[260px] h-auto object-contain scale-110 origin-left" 

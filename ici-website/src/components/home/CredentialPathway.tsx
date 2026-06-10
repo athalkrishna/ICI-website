@@ -71,11 +71,11 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
         </AnimatedSection>
 
         {/* Credential cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {credentials.map((cred, i) => (
             <AnimatedSection key={cred.code} delay={i * 0.1}>
               <div 
-                className={`relative rounded-3xl p-10 h-full flex flex-col transition-all duration-500 group
+                className={`relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group
                   ${cred.popular 
                     ? 'bg-navy-800/80 border border-gold-500/40 shadow-[0_0_40px_rgba(201,168,76,0.15)] transform md:-translate-y-4' 
                     : 'bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10'}

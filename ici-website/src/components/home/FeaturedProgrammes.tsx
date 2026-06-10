@@ -7,6 +7,7 @@ const programmes = [
   {
     title: 'Certified Life Coach',
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
+    altText: 'People in a classroom setting collaborating on laptops',
     desc: 'Master the foundational competencies of transformational life coaching.',
     type: 'Levels 1–2',
     href: '/programmes/certified-life-coach'
@@ -14,6 +15,7 @@ const programmes = [
   {
     title: 'Executive Coaching',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+    altText: 'Two professionals having an engaging one-to-one conversation',
     desc: 'Drive organisational success through advanced leadership methodologies.',
     type: 'Levels 3–4',
     href: '/programmes/executive-coaching'
@@ -21,6 +23,7 @@ const programmes = [
   {
     title: 'Health & Wellness',
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80',
+    altText: 'Woman doing yoga near a window',
     desc: 'Empower clients to achieve sustainable physical and mental well-being.',
     type: 'Open entry',
     href: '/programmes/health-wellness'
@@ -47,7 +50,7 @@ export default function FeaturedProgrammes() {
                 <div className="h-56 relative overflow-hidden border-b border-gray-100">
                   <Image 
                     src={prog.image}
-                    alt={prog.title}
+                    alt={prog.altText}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 33vw"

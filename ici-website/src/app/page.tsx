@@ -10,6 +10,7 @@ import ApplyCTA             from '@/components/home/ApplyCTA'
 import AccreditationLogos   from '@/components/home/AccreditationLogos'
 import type { Metadata } from 'next'
 import { getPageContent }   from '@/lib/content'
+import { getAnnouncements } from '@/lib/queries'
 
 export const metadata: Metadata = {
   title: {
@@ -23,9 +24,37 @@ export const revalidate = 60; // Cloudways ISR Strategy: 60-second window
 export default async function Home() {
   const content = await getPageContent('home');
 
+  const fallbackAnnouncements = [
+    { 
+      _id: '1', 
+      text: 'Enrolment is open now. Begin any month, one-to-one.', 
+      link: '/apply' 
+    },
+    { 
+      _id: '2', 
+      text: 'Now enrolling worldwide: one-to-one, online coaching certification.', 
+      link: '/credentials' 
+    },
+    { 
+      _id: '3', 
+      text: 'The ICI Mastery Pathway, from Catalyst to Luminary. Explore the credentials.', 
+      link: '/credentials' 
+    },
+  ];
+
+  let announcements = fallbackAnnouncements;
+  try {
+    const fetched = await getAnnouncements();
+    if (fetched && fetched.length > 0) {
+      announcements = fetched;
+    }
+  } catch (e) {
+    // Sanity not yet configured — using fallback
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
-      <AnnouncementBanner />
+      <AnnouncementBanner announcements={announcements} />
       <HeroSection content={content} />
       <AccreditationLogos />
       <AudienceCards content={content} />

@@ -140,11 +140,11 @@ export default function TeamCoachingPage() {
                 <p className="font-body text-xl md:text-2xl text-blue-100/90 leading-relaxed font-light mb-12">
                   A team focus suits the Architect level and above, and is often pursued by organisations training several people. Your credential and investment follow the level.
                 </p>
-                <div className="flex flex-wrap items-center gap-4">
-                  <Link href="/admissions/contact" className="btn-primary px-8 py-4 text-sm tracking-widest">
+                <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+                  <Link href="/admissions/contact" className="btn-primary w-full md:w-auto justify-center px-8 py-4 text-sm tracking-widest">
                     Request an Organisational Proposal
                   </Link>
-                  <Link href="/admissions/contact" className="btn-secondary px-8 py-4 text-sm tracking-widest border-white/20 hover:border-white text-white">
+                  <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center px-8 py-4 text-sm tracking-widest border-white/20 hover:border-white text-white">
                     Speak to an Advisor
                   </Link>
                 </div>

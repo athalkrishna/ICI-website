@@ -4,6 +4,8 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { cookies } from 'next/headers'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import MetaPixel from '@/components/MetaPixel'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -78,6 +80,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
+        <MetaPixel />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />

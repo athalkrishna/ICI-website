@@ -11,17 +11,20 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
     {
       title: content.path1_title || 'Aspiring Coaches',
       desc: content.path1_body || 'Launch your new career with foundational certification and hands-on mentor coaching.',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80',
+      altText: 'People in a classroom setting collaborating on laptops'
     },
     {
       title: content.path2_title || 'Experienced Practitioners',
       desc: content.path2_body || 'Elevate your practice with advanced credentialing and specialized masterclasses.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
+      altText: 'Two professionals having an engaging one-to-one conversation'
     },
     {
       title: content.path3_title || 'Corporate Leaders',
       desc: content.path3_body || 'Develop an internal coaching culture to drive organisational performance and engagement.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
+      altText: 'A group of executives having a meeting in a modern conference room'
     }
   ]
   return (
@@ -37,7 +40,7 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
               <div className="relative group rounded-2xl overflow-hidden h-[400px] shadow-lg cursor-pointer">
                 <Image 
                   src={aud.image} 
-                  alt={aud.title} 
+                  alt={aud.altText} 
                   fill 
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 33vw"

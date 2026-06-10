@@ -126,7 +126,7 @@ export default function AdminMediaPage() {
                     type="text"
                     readOnly
                     value={uploadedUrl}
-                    className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 bg-white text-gray-600 focus:outline-none"
+                    className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 bg-white text-gray-600"
                   />
                   <button
                     onClick={copyToClipboard}

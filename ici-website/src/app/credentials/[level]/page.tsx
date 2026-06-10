@@ -34,7 +34,7 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
         <div className="absolute inset-0 z-0 opacity-20">
           <Image 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80" 
-            alt="Coaching Session" 
+            alt="" 
             fill 
             className="object-cover mix-blend-overlay" 
           />

@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { name, email, phone, country, discuss, times, honeypot, turnstileToken } = body;
+    const { name, email, phone, country, level, specialism, experience, goals, source, honeypot, turnstileToken } = body;
 
     // Honeypot check
     if (honeypot) {
@@ -37,25 +37,24 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const message = `Discuss: ${discuss}\n\nPreferred times: ${times}`;
+    const message = `Experience: ${experience}\n\nGoals: ${goals}\n\nSpecialism: ${specialism || 'None'}\n\nSource: ${source || 'None'}`;
 
     // Insert Lead
     try {
       await query(
         `INSERT INTO leads (source_page, name, email, phone, country, programme_interest, message)
          VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        ['Contact Form', name, email, phone || null, country, 'General Inquiry', message]
+        ['Apply Form', name, email, phone || null, country, level, message]
       );
     } catch (dbError) {
       console.warn('DB Insert failed, continuing execution:', dbError);
     }
 
     // Here you would also add nodemailer to send an email to admin.
-    // For now we assume DB insert is the primary action as done in /api/leads/route.ts
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Contact Form Submission Error:', error);
+    console.error('Apply Form Submission Error:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

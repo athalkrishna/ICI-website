@@ -42,6 +42,10 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
 
       if (!res.ok) throw new Error('Submission failed')
       setStatus('success')
+      if (typeof window !== 'undefined') {
+        if ((window as any).gtag) (window as any).gtag('event', 'form_submit', { form_name: 'apply_form' })
+        if ((window as any).fbq) (window as any).fbq('track', 'Lead', { content_name: 'apply_form' })
+      }
     } catch (err) {
       console.error(err)
       setStatus('error')

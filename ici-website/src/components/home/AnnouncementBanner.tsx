@@ -1,30 +1,37 @@
 'use client'
-import { Award, Calendar, Globe } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import Link from 'next/link'
 
-const items = [
-  { icon: <Calendar size={14} />, text: 'Free admissions assessment now available.', href: '/admissions/assessment' },
-  { icon: <Globe size={14} />, text: 'Now enrolling worldwide: one-to-one, online coaching certification.', href: '/credentials' },
-  { icon: <Award size={14} />, text: 'The ICI Mastery Pathway, from Catalyst to Luminary. Explore the credentials.', href: '/credentials' },
-]
+interface Announcement {
+  _id: string;
+  text: string;
+  link?: string;
+}
 
-export default function AnnouncementBanner() {
-  // Duplicate items for seamless loop
-  const doubled = [...items, ...items]
+interface AnnouncementBannerProps {
+  announcements: Announcement[];
+}
+
+export default function AnnouncementBanner({ announcements }: AnnouncementBannerProps) {
+  // Duplicate items for seamless loop if there are few
+  const doubled = [...announcements, ...announcements]
+
+  if (announcements.length === 0) return null;
 
   return (
-    <div className="bg-gold-500 text-navy-700 py-2.5 overflow-hidden">
+    <div className="bg-gold-500 text-navy-700 w-full overflow-hidden overflow-x-hidden">
       <div className="flex animate-ticker whitespace-nowrap">
         {doubled.map((item, i) => (
-          <Link
-            key={i}
-            href={item.href}
-            className="inline-flex items-center gap-2 mx-10 text-sm font-sans font-semibold hover:text-navy-900 transition-colors shrink-0"
-          >
-            <span className="text-navy-600">{item.icon}</span>
-            {item.text}
-
-          </Link>
+          <div key={`${item._id}-${i}`} className="flex items-center min-h-[44px] gap-2 mx-10 text-[13px] md:text-sm font-sans font-semibold shrink-0">
+            <span className="text-navy-600"><Calendar size={14} /></span>
+            {item.link ? (
+              <Link href={item.link} className="hover:text-navy-900 transition-colors">
+                {item.text}
+              </Link>
+            ) : (
+              <span>{item.text}</span>
+            )}
+          </div>
         ))}
       </div>
     </div>

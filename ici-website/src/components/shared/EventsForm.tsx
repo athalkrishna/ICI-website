@@ -22,6 +22,10 @@ export default function EventsForm() {
 
       if (response.ok) {
         setStatus('success')
+        if (typeof window !== 'undefined') {
+          if ((window as any).gtag) (window as any).gtag('event', 'form_submit', { form_name: 'events_interest_form' })
+          if ((window as any).fbq) (window as any).fbq('track', 'Lead', { content_name: 'events_interest_form' })
+        }
       } else {
         setStatus('error')
       }

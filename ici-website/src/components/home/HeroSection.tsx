@@ -22,7 +22,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
       {/* Background image */}
       <Image
         src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=85"
-        alt="Professional coaching session, diverse group in a modern conference room"
+        alt=""
         fill
         priority
         className="object-cover opacity-25"
@@ -157,6 +157,10 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                   });
                   
                   if (res.ok) {
+                    if (typeof window !== 'undefined') {
+                      if ((window as any).gtag) (window as any).gtag('event', 'form_submit', { form_name: 'lead_form' })
+                      if ((window as any).fbq) (window as any).fbq('track', 'Lead', { content_name: 'lead_form' })
+                    }
                     form.innerHTML = '<div class="text-green-600 font-sans font-bold text-center py-4 bg-green-50 rounded-lg">Thank you. We will be in touch shortly.</div>';
                   } else {
                     submitBtn.innerHTML = originalText;
@@ -179,16 +183,16 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                   name="name"
                   required
                   placeholder="Full Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
+                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
                 />
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
+                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
                 />
-                <select name="programme" required className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm font-sans text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400">
+                <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400">
                   <option value="">Programme Interest</option>
                   <option value="catalyst">Catalyst (Level 1)</option>
                   <option value="architect">Architect (Level 2)</option>

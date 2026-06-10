@@ -1,6 +1,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import ContactForm from '@/components/admissions/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Speak to an Advisor | ICI Admissions',
@@ -42,94 +43,7 @@ export default function ContactAdmissionsPage() {
                 Book a conversation
               </h2>
               
-              <form className="space-y-6 relative z-10" action="#">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                      Name <span className="text-gold-500">*</span>
-                    </label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      required 
-                      className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                      Email <span className="text-gold-500">*</span>
-                    </label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      required 
-                      className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                      Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
-                    </label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
-                      className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                      placeholder="+1 (555) 000-0000"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="country" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                      Country and time zone <span className="text-gold-500">*</span>
-                    </label>
-                    <input 
-                      type="text" 
-                      id="country" 
-                      required
-                      className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                      placeholder="e.g. India (IST)"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="discuss" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                    What would you like to discuss? <span className="text-gold-500">*</span>
-                  </label>
-                  <textarea 
-                    id="discuss" 
-                    rows={4}
-                    required
-                    className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
-                    placeholder="Tell us a bit about your background and what you're looking for..."
-                  ></textarea>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="times" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-                    Preferred times <span className="text-gold-500">*</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="times" 
-                    required
-                    className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
-                    placeholder="e.g. Wednesday afternoons, or tomorrow morning"
-                  />
-                </div>
-
-                <div className="pt-4">
-                  <button type="submit" className="btn-primary w-full justify-center py-4 text-base">
-                    Request a call
-                  </button>
-                </div>
-              </form>
+              <ContactForm />
             </div>
           </AnimatedSection>
           

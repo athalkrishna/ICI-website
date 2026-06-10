@@ -25,6 +25,10 @@ export default function ProspectusForm() {
 
       if (response.ok) {
         setStatus('success')
+        if (typeof window !== 'undefined') {
+          if ((window as any).gtag) (window as any).gtag('event', 'form_submit', { form_name: 'prospectus_form' })
+          if ((window as any).fbq) (window as any).fbq('track', 'Lead', { content_name: 'prospectus_form' })
+        }
       } else {
         setStatus('error')
       }

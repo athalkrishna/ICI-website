@@ -9,7 +9,7 @@ export default function Footer() {
           
           <div className="md:col-span-1">
              <Link href="/" className="inline-block -mt-4 md:-mt-8 -ml-4 md:-ml-6 mb-2 md:-mb-6">
-               <Image src="/logo.png" alt="International Coaching Institute Logo" width={300} height={90} className="w-[200px] md:w-[260px] h-auto object-contain" />
+               <Image src="/logo.png" alt="International Coaching Institute logo" width={300} height={90} className="w-[200px] md:w-[260px] h-auto object-contain" />
              </Link>
              <p className="font-body text-sm text-gray-400 leading-relaxed">
                The International Coaching Institute trains and certifies coaches one-to-one, online, blending coaching craft with leadership, psychology, neuroscience and human behaviour. Become the coach people trust.

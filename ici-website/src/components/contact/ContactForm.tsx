@@ -26,6 +26,10 @@ export default function ContactForm() {
 
       if (res.ok) {
         setSuccess(true);
+        if (typeof window !== 'undefined') {
+          if ((window as any).gtag) (window as any).gtag('event', 'form_submit', { form_name: 'contact_form' })
+          if ((window as any).fbq) (window as any).fbq('track', 'Lead', { content_name: 'contact_form' })
+        }
       } else {
         setError(true);
       }

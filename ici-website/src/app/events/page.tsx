@@ -2,13 +2,24 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import EventsForm from '@/components/shared/EventsForm'
+import { getUpcomingEvents } from '@/lib/queries'
 
 export const metadata: Metadata = {
   title: 'Coaching Events, Summits & Masterclasses | ICI',
   description: 'Join ICI events: masterclasses, summits and live sessions for coaches and leaders. Learn, connect and grow with the wider coaching community.'
 }
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  let events: any[] = [];
+  try {
+    const fetched = await getUpcomingEvents();
+    if (fetched && fetched.length > 0) {
+      events = fetched;
+    }
+  } catch (e) {
+    // Sanity not yet configured
+  }
+
   return (
     <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
       
@@ -38,12 +49,35 @@ export default function EventsPage() {
           <AnimatedSection>
             <h2 className="font-display text-4xl font-bold text-white mb-12">Upcoming events</h2>
             
+            {events.length === 0 ? (
               <div className="bg-navy-800/50 border border-white/5 rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
                 <p className="font-body text-2xl text-blue-100/80 leading-relaxed font-light mb-8">
                   Our first public events are being scheduled. Register your interest and we will tell you first.
                 </p>
                 <EventsForm />
               </div>
+            ) : (
+              <div className="grid gap-8 max-w-4xl mx-auto">
+                {events.map((event: any) => (
+                  <div key={event._id} className="bg-navy-800/50 border border-white/5 rounded-[24px] overflow-hidden p-8 md:p-10">
+                    <h3 className="font-display text-3xl font-bold text-white mb-2">{event.title}</h3>
+                    <div className="flex flex-wrap items-center gap-4 text-sm font-sans text-gold-400 mb-6 uppercase tracking-wider">
+                      <span>{new Date(event.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                      <span className="w-1.5 h-1.5 bg-gold-400/50 rounded-full"></span>
+                      <span>{event.format || 'Online'}</span>
+                    </div>
+                    {event.description && (
+                      <p className="font-body text-blue-100/80 leading-relaxed mb-8">{event.description}</p>
+                    )}
+                    {event.registerLink && (
+                      <Link href={event.registerLink} target="_blank" className="btn-primary inline-flex">
+                        Register for event
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </AnimatedSection>
         </div>
       </section>

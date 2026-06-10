@@ -84,11 +84,11 @@ export default function CredentialsPage() {
             <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
               Most coaching certificates are earned by sitting in a group and watching the clock. Ours are earned one-to-one, online, with a coach who works with you directly, hour by hour, until the skill is genuinely yours. The Mastery Pathway has four progressive levels, each a credential you carry for life. Wherever you are now, there is a clear next step and a coach to take it with you.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Link href="#levels" className="btn-primary">
+            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+              <Link href="#levels" className="btn-primary w-full md:w-auto justify-center">
                 Find your level <ChevronRight size={18} />
               </Link>
-              <Link href="/pricing" className="btn-secondary">
+              <Link href="/pricing" className="btn-secondary w-full md:w-auto justify-center">
                 See pricing
               </Link>
             </div>
