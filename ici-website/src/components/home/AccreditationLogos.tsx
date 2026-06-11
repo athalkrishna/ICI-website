@@ -1,6 +1,6 @@
-import Section from '@/components/layout/Section'
-
 'use client'
+
+import Section from '@/components/layout/Section'
 
 export default function AccreditationLogos() {
   return (
