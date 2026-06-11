@@ -70,6 +70,8 @@
   .text-muted-dark { @apply text-blue-100/80; }
   .border-subtle { @apply border-white/10; }
   .border-faint { @apply border-white/5; }
+  .gradient-accent-gold { @apply bg-gradient-to-r from-brand-gold-500 to-transparent; }
+  .gradient-fade-gold { @apply bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent; }
 
   /* Section label — gold all-caps with decorative lines */
   .section-label {

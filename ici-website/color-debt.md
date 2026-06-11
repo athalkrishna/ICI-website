@@ -1,6 +1,7 @@
 # Color Debt (Group 3)
 
 This file lists all complex color usages (opacity modifiers, hover states, gradients) that require manual review.
+**UPDATE**: Opacity modifiers and pseudo-classes (hover/focus) have been batch-migrated successfully. Only gradients remain as open items.
 
 - `hover:bg-navy-800` in `app\error.tsx` on line 27
 - `hover:bg-gray-200` in `app\error.tsx` on line 31
