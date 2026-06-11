@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
           
           <div className="md:col-span-2 lg:col-span-2">
-             <Link href="/" className="inline-block bg-white/95 rounded-2xl px-5 py-3 mb-6 shadow-md border border-white/10">
-               <Image src="/logo-transparent.png" alt="International Coaching Institute logo" width={300} height={90} className="w-[180px] md:w-[240px] h-auto object-contain" />
+             <Link href="/" className="inline-block -mt-4 md:-mt-8 -ml-4 md:-ml-6 mb-2 md:-mb-6">
+               <Image src="/logo-white.png" alt="International Coaching Institute logo" width={300} height={90} className="w-[180px] md:w-[240px] h-auto object-contain" />
              </Link>
              <p className="font-body text-sm text-gray-400 leading-relaxed">
                The International Coaching Institute trains and certifies coaches one-to-one, online, blending coaching craft with leadership, psychology, neuroscience and human behaviour. Become the coach people trust.

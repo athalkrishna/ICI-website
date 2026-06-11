@@ -39,18 +39,14 @@ export default function Navbar() {
             {/* ── Logo ── */}
             <Link 
               href="/" 
-              className={`flex items-center shrink-0 transition-all duration-300 ${
-                scrolled 
-                  ? 'bg-white/95 backdrop-blur-sm shadow-sm border border-navy-100 rounded-2xl px-3 py-1.5' 
-                  : '-ml-4 -mt-2'
-              }`}
+              className="flex items-center shrink-0 -ml-4 -mt-2 transition-all duration-300"
             >
               <Image 
-                src="/logo-transparent.png" 
+                src={scrolled ? "/logo-white.png" : "/logo-transparent.png"}
                 alt="International Coaching Institute logo" 
                 width={300} 
                 height={90} 
-                className="w-[200px] md:w-[280px] h-auto object-contain" 
+                className="w-[180px] md:w-[240px] h-auto object-contain" 
                 priority 
               />
             </Link>
