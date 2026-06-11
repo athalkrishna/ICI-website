@@ -6,25 +6,25 @@ import Image from 'next/image'
 // None may be published as real customer testimonials before being replaced with genuine, consented graduate quotes.
 const testimonials = [
   {
-    name: 'Priya Menon',
-    title: 'People and Culture leader turned coach, ICI-C',
+    name: 'Sarah Jenkins',
+    title: 'Alumni',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80',
-    quote: 'I spent fifteen years telling people I was a good listener. My first one-to-one sessions quietly showed me how much I had been missing. The Catalyst work rebuilt the way I pay attention, and my clients can feel the difference.',
-    location: 'Bengaluru, India'
+    quote: 'The ICI changed my practice...',
+    location: ''
   },
   {
-    name: 'Rohan Iyer',
-    title: 'Engineering manager and executive coach, ICI-A',
+    name: 'Dr. James Worthington',
+    title: 'Alumni',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80',
-    quote: 'What sold me was that it was genuinely one-to-one. There was nowhere to hide and nothing to coast through. By the end I was coaching senior people with a steadiness I simply did not have before.',
-    location: 'Mumbai, India'
+    quote: 'Rigorous, challenging, and exactly what I needed...',
+    location: ''
   },
   {
-    name: 'Sarah Whitfield',
-    title: 'Executive coach, ICI-S',
+    name: 'Amira Al-Fayed',
+    title: 'Alumni',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80',
-    quote: 'I have an alphabet of letters after my name from other bodies. The ICI work was the most demanding and the most useful. The Sage level changed how I work with power and ego in the room.',
-    location: 'London, United Kingdom'
+    quote: 'I finally feel equipped...',
+    location: ''
   },
 ]
 

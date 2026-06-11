@@ -4,6 +4,7 @@ import AudienceCards        from '@/components/home/AudienceCards'
 import CredentialPathway    from '@/components/home/CredentialPathway'
 import ICIDifference        from '@/components/home/ICIDifference'
 import FeaturedProgrammes     from '@/components/home/FeaturedProgrammes'
+import Testimonials         from '@/components/home/Testimonials'
 import NewsEvents           from '@/components/home/NewsEvents'
 import GlobalReachMap       from '@/components/home/GlobalReachMap'
 import ApplyCTA             from '@/components/home/ApplyCTA'
@@ -61,6 +62,7 @@ export default async function Home() {
       <CredentialPathway content={content} />
       <ICIDifference content={content} />
       <FeaturedProgrammes />
+      <Testimonials />
       <GlobalReachMap content={content} />
       <NewsEvents />
       <ApplyCTA content={content} />
