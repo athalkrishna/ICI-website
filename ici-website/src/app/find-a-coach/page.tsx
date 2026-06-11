@@ -38,7 +38,7 @@ export default function FindACoachPage() {
           
           <AnimatedSection>
             {/* Filter UI Shell */}
-            <div className="bg-gradient-to-br from-navy-800/90 to-navy-900/95 backdrop-blur-xl border border-subtle shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-6 md:p-8 rounded-[24px] mb-12 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-brand-navy-800/90 to-brand-navy-900/95 backdrop-blur-xl border border-subtle shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-6 md:p-8 rounded-[24px] mb-12 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-subtle relative z-10">
                 <SlidersHorizontal size={20} className="text-brand-gold-400" />
