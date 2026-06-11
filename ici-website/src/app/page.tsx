@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: 'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
 }
 
-export const revalidate = 60; // Cloudways ISR Strategy: 60-second window
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const content = await getPageContent('home');
