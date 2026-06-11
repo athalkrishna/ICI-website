@@ -81,8 +81,8 @@ export default function ContactForm() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="name" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Name <span className="text-gold-500">*</span>
           </label>
           <input 
@@ -95,8 +95,8 @@ export default function ContactForm() {
           {errors.name && <p className="text-red-400 text-sm">{errors.name.message}</p>}
         </div>
         
-        <div className="space-y-2">
-          <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="email" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Email <span className="text-gold-500">*</span>
           </label>
           <input 
@@ -111,8 +111,8 @@ export default function ContactForm() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label htmlFor="phone" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="phone" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
@@ -124,8 +124,8 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="country" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="country" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Country and time zone <span className="text-gold-500">*</span>
           </label>
           <input 
@@ -139,8 +139,8 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label htmlFor="discuss" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+      <div className="flex flex-col justify-end h-full relative">
+        <label htmlFor="discuss" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
           What would you like to discuss? <span className="text-gold-500">*</span>
         </label>
         <textarea 
@@ -153,8 +153,8 @@ export default function ContactForm() {
         {errors.discuss && <p className="text-red-400 text-sm">{errors.discuss.message}</p>}
       </div>
 
-      <div className="space-y-2">
-        <label htmlFor="times" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+      <div className="flex flex-col justify-end h-full relative">
+        <label htmlFor="times" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
           Preferred times <span className="text-gold-500">*</span>
         </label>
         <input 

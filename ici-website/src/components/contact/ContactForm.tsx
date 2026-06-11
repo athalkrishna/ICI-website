@@ -59,8 +59,8 @@ export default function ContactForm() {
         autoComplete="off"
       />
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="name" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Name <span className="text-gold-500">*</span>
           </label>
           <input 
@@ -73,8 +73,8 @@ export default function ContactForm() {
           />
         </div>
         
-        <div className="space-y-2">
-          <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="email" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Email <span className="text-gold-500">*</span>
           </label>
           <input 
@@ -89,8 +89,8 @@ export default function ContactForm() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label htmlFor="phone" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="phone" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
@@ -102,8 +102,8 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="topic" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <div className="flex flex-col justify-end h-full relative">
+          <label htmlFor="topic" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
             What can we help with? <span className="text-gold-500">*</span>
           </label>
           <select 
@@ -123,8 +123,8 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label htmlFor="message" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+      <div className="flex flex-col justify-end h-full relative mb-6">
+        <label htmlFor="message" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
           Your message <span className="text-gold-500">*</span>
         </label>
         <textarea 
