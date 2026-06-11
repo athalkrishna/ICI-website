@@ -68,7 +68,7 @@ export default function ContactForm() {
             name="name"
             id="name" 
             required 
-            className="w-full bg-white/5 border border-white/10 hover:bg-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+            className="w-full bg-white rounded-xl px-4 py-3.5 text-navy-900 placeholder:text-navy-900/40 focus:outline-none focus:ring-4 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-body shadow-sm"
             placeholder="Your name"
           />
         </div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
             name="email"
             id="email" 
             required 
-            className="w-full bg-white/5 border border-white/10 hover:bg-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+            className="w-full bg-white rounded-xl px-4 py-3.5 text-navy-900 placeholder:text-navy-900/40 focus:outline-none focus:ring-4 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-body shadow-sm"
             placeholder="you@example.com"
           />
         </div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
             type="tel" 
             name="phone"
             id="phone" 
-            className="w-full bg-white/5 border border-white/10 hover:bg-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+            className="w-full bg-white rounded-xl px-4 py-3.5 text-navy-900 placeholder:text-navy-900/40 focus:outline-none focus:ring-4 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-body shadow-sm"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -111,7 +111,7 @@ export default function ContactForm() {
             name="topic"
             required
             defaultValue=""
-            className="w-full bg-white/5 border border-white/10 hover:bg-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
+            className="w-full bg-white rounded-xl px-4 py-3.5 text-navy-900 placeholder:text-navy-900/40 focus:outline-none focus:ring-4 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-body appearance-none shadow-sm"
           >
             <option value="" disabled>Select a topic</option>
             <option value="Programmes & admissions">Programmes & admissions</option>
@@ -132,7 +132,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full bg-white/5 border border-white/10 hover:bg-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
+          className="w-full bg-white rounded-xl px-4 py-3.5 text-navy-900 placeholder:text-navy-900/40 focus:outline-none focus:ring-4 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-body resize-none shadow-sm"
           placeholder="How can we help you?"
         ></textarea>
       </div>
@@ -145,7 +145,7 @@ export default function ContactForm() {
               name="gdprConsent"
               type="checkbox"
               required
-              className="w-4 h-4 rounded border-white/20 bg-white/5 text-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-1"
+              className="w-4 h-4 rounded border-white/20 bg-white shadow-inner text-navy-900 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-1"
             />
           </div>
           <div className="flex flex-col">
