@@ -17,7 +17,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center bg-navy-700 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-brand-navy-700 overflow-hidden">
 
       {/* Background image */}
       <Image
@@ -51,7 +51,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="section-label mb-6"
+              className="text-eyebrow flex items-center gap-3 justify-center mb-6"
             >
               {content.hero_eyebrow || 'Globally Accredited Coaching Education'}
             </motion.div>
@@ -71,7 +71,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-body text-lg text-blue-100 leading-relaxed mb-8 max-w-xl"
+              className="text-body-lg text-blue-100 mb-8 max-w-xl"
             >
               {content.hero_body || 'The International Coaching Institute is the world\'s leading provider of professional coaching education, certification, and continuing development, trusted by coaches in over 60 countries.'}
             </motion.p>
@@ -86,7 +86,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               {stats.map((stat, i) => (
                 <div key={stat.label} className="flex items-center w-1/2 md:w-auto">
                   <div className="pr-6 md:px-6 md:first:pl-0">
-                    <div className="font-mono text-3xl font-bold text-gold-400">
+                    <div className="font-mono text-3xl font-bold text-brand-gold-400">
                       {stat.isText ? (
                         stat.text
                       ) : (
@@ -98,7 +98,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                     </div>
                   </div>
                   {i < stats.length - 1 && (
-                    <div className="hidden md:block h-10 w-px bg-gold-600/40" aria-hidden />
+                    <div className="hidden md:block h-10 w-px bg-brand-gold-600/40" aria-hidden />
                   )}
                 </div>
               ))}
@@ -130,11 +130,11 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="lg:col-span-2"
           >
-            <div className="bg-white rounded-2xl shadow-2xl p-7 border-l-4 border-gold-500">
-              <h2 className="font-display text-xl font-bold text-navy-700 mb-1">
+            <div className="bg-white rounded-2xl shadow-2xl p-7 border-l-4 border-brand-gold-500">
+              <h2 className="font-display text-xl font-bold text-brand-navy-700 mb-1">
                 {content.lead_form_heading || 'Start Your Coaching Journey'}
               </h2>
-              <p className="font-sans text-sm text-gray-500 mb-5">
+              <p className="font-sans text-sm text-muted mb-5">
                 {content.lead_form_subtext || 'Free application · No commitment'}
               </p>
 
@@ -183,16 +183,16 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                   name="name"
                   required
                   placeholder="Full Name"
-                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
+                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
                 />
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-gold-400"
+                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
                 />
-                <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400">
+                <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-400">
                   <option value="">Programme Interest</option>
                   <option value="catalyst">Catalyst (Level 1)</option>
                   <option value="architect">Architect (Level 2)</option>

@@ -90,8 +90,8 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
       )}
 
       <div className="space-y-2">
-        <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-900 uppercase tracking-wider">
-          Full Name <span className="text-gold-500">*</span>
+        <label htmlFor="name" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
+          Full Name <span className="text-brand-gold-500">*</span>
         </label>
         <input
           type="text"
@@ -99,14 +99,14 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50"
+          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
           placeholder="Your full name"
         />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="email" className="block font-sans text-sm font-bold text-navy-900 uppercase tracking-wider">
-          Email <span className="text-gold-500">*</span>
+        <label htmlFor="email" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
+          Email <span className="text-brand-gold-500">*</span>
         </label>
         <input
           type="email"
@@ -114,14 +114,14 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50"
+          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
           placeholder="you@example.com"
         />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="phone" className="block font-sans text-sm font-bold text-navy-900 uppercase tracking-wider">
-          Phone <span className="text-gold-500">*</span>
+        <label htmlFor="phone" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
+          Phone <span className="text-brand-gold-500">*</span>
         </label>
         <input
           type="tel"
@@ -129,7 +129,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           required
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50"
+          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
           placeholder="+91 00000 00000"
         />
       </div>

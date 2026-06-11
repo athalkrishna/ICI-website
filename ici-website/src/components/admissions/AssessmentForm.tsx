@@ -37,26 +37,26 @@ export default function AssessmentForm() {
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex gap-2 mb-2">
-          <div className={`h-1.5 flex-1 rounded-full ${step >= 1 ? 'bg-gold-500' : 'bg-gray-100'}`} />
-          <div className={`h-1.5 flex-1 rounded-full ${step >= 2 ? 'bg-gold-500' : 'bg-gray-100'}`} />
-          <div className={`h-1.5 flex-1 rounded-full ${step >= 3 ? 'bg-gold-500' : 'bg-gray-100'}`} />
+          <div className={`h-1.5 flex-1 rounded-full ${step >= 1 ? 'bg-brand-gold-500' : 'bg-gray-100'}`} />
+          <div className={`h-1.5 flex-1 rounded-full ${step >= 2 ? 'bg-brand-gold-500' : 'bg-gray-100'}`} />
+          <div className={`h-1.5 flex-1 rounded-full ${step >= 3 ? 'bg-brand-gold-500' : 'bg-gray-100'}`} />
         </div>
-        <p className="text-xs text-gray-500 font-sans uppercase tracking-widest text-center mt-4">
+        <p className="text-xs text-muted font-sans uppercase tracking-widest text-center mt-4">
           {step === 3 ? 'Your Result' : `Step ${step} of 2`}
         </p>
       </div>
 
       {step === 1 && (
         <div className="space-y-6">
-          <h2 className="text-2xl font-display font-bold text-navy-900 mb-6 text-center">What is your primary goal for seeking a coaching credential?</h2>
+          <h2 className="text-2xl font-display font-bold text-brand-navy-900 mb-6 text-center">What is your primary goal for seeking a coaching credential?</h2>
           <div className="space-y-3">
             {['Start a professional coaching practice', 'Enhance my leadership and management skills', 'Personal development and growth'].map((opt) => (
               <button
                 key={opt}
                 onClick={() => { setGoal(opt); handleNext(); }}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${goal === opt ? 'border-gold-500 bg-gold-50/50' : 'border-gray-100 hover:border-gold-300 hover:bg-gray-50'}`}
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${goal === opt ? 'border-brand-gold-500 bg-brand-gold-50/50' : 'border-gray-100 hover:border-brand-gold-300 hover:bg-gray-50'}`}
               >
-                <span className="font-sans font-medium text-navy-900">{opt}</span>
+                <span className="font-sans font-medium text-brand-navy-900">{opt}</span>
               </button>
             ))}
           </div>
@@ -65,7 +65,7 @@ export default function AssessmentForm() {
 
       {step === 2 && (
         <div className="space-y-6">
-          <h2 className="text-2xl font-display font-bold text-navy-900 mb-6 text-center">How much formal coaching experience do you have?</h2>
+          <h2 className="text-2xl font-display font-bold text-brand-navy-900 mb-6 text-center">How much formal coaching experience do you have?</h2>
           <div className="space-y-3">
             {['None (Beginner)', '1-3 years (Practising)', '3+ years (Experienced)'].map((opt) => (
               <button
@@ -84,13 +84,13 @@ export default function AssessmentForm() {
                     }
                   }
                 }}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${experience === opt ? 'border-gold-500 bg-gold-50/50' : 'border-gray-100 hover:border-gold-300 hover:bg-gray-50'}`}
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${experience === opt ? 'border-brand-gold-500 bg-brand-gold-50/50' : 'border-gray-100 hover:border-brand-gold-300 hover:bg-gray-50'}`}
               >
-                <span className="font-sans font-medium text-navy-900">{opt}</span>
+                <span className="font-sans font-medium text-brand-navy-900">{opt}</span>
               </button>
             ))}
           </div>
-          <button onClick={handlePrev} className="flex items-center gap-2 text-gray-500 hover:text-navy-900 font-sans text-sm mt-8 transition-colors">
+          <button onClick={handlePrev} className="flex items-center gap-2 text-muted hover:text-brand-navy-900 font-sans text-sm mt-8 transition-colors">
             <ArrowLeft size={16} /> Back
           </button>
         </div>
@@ -101,11 +101,11 @@ export default function AssessmentForm() {
           <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           </div>
-          <h2 className="text-3xl font-display font-bold text-navy-900">Your Recommended Pathway</h2>
+          <h2 className="text-3xl font-display font-bold text-brand-navy-900">Your Recommended Pathway</h2>
           
-          <div className="bg-navy-50 p-8 rounded-2xl border border-navy-100 my-8">
-            <h3 className="text-2xl font-bold font-sans text-navy-900 mb-2">{getRecommendation().level}</h3>
-            <p className="text-navy-700 font-body mb-6">{getRecommendation().desc}</p>
+          <div className="bg-brand-navy-50 p-8 rounded-2xl border border-brand-navy-100 my-8">
+            <h3 className="text-2xl font-bold font-sans text-brand-navy-900 mb-2">{getRecommendation().level}</h3>
+            <p className="text-brand-navy-700 font-body mb-6">{getRecommendation().desc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={getRecommendation().href} className="btn-secondary">
                 Learn More
@@ -116,7 +116,7 @@ export default function AssessmentForm() {
             </div>
           </div>
           
-          <button onClick={() => setStep(1)} className="text-navy-600 underline font-sans text-sm hover:text-gold-600 transition-colors">
+          <button onClick={() => setStep(1)} className="text-brand-navy-600 underline font-sans text-sm hover:text-brand-gold-600 transition-colors">
             Retake Assessment
           </button>
         </div>

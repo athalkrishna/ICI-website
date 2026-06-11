@@ -8,7 +8,7 @@ export default function AccreditationLogos() {
           The standard we hold ourselves to
         </p>
 
-        <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-sans text-navy-600">
+        <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-sans text-brand-navy-600">
           {[
             "Curriculum aligned to international coaching competency standards",
             "Every credential assessed on real coaching, not attendance",
@@ -30,8 +30,8 @@ export default function AccreditationLogos() {
               <path d="M10 16H22M16 10V22" stroke="currentColor" strokeWidth="2"/>
             </svg>
             <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-xl text-navy-700 leading-none tracking-tight">ICF</span>
-              <span className="font-sans text-[8px] text-gray-500 uppercase tracking-widest leading-none mt-1.5">Accredited</span>
+              <span className="font-display font-bold text-xl text-brand-navy-700 leading-none tracking-tight">ICF</span>
+              <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Accredited</span>
             </div>
           </div>
 
@@ -41,8 +41,8 @@ export default function AccreditationLogos() {
               <path d="M12 16L16 12L20 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-xl text-navy-700 leading-none tracking-tight">EMCC</span>
-              <span className="font-sans text-[8px] text-gray-500 uppercase tracking-widest leading-none mt-1.5">Global Standard</span>
+              <span className="font-display font-bold text-xl text-brand-navy-700 leading-none tracking-tight">EMCC</span>
+              <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Global Standard</span>
             </div>
           </div>
 
@@ -52,8 +52,8 @@ export default function AccreditationLogos() {
               <circle cx="16" cy="18" r="2" fill="currentColor"/>
             </svg>
             <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-xl text-navy-700 leading-none tracking-tight">AC</span>
-              <span className="font-sans text-[8px] text-gray-500 uppercase tracking-widest leading-none mt-1.5">Association</span>
+              <span className="font-display font-bold text-xl text-brand-navy-700 leading-none tracking-tight">AC</span>
+              <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Association</span>
             </div>
           </div>
 
@@ -63,8 +63,8 @@ export default function AccreditationLogos() {
               <circle cx="16" cy="16" r="4" stroke="currentColor" strokeWidth="2"/>
             </svg>
             <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-xl text-navy-700 leading-none tracking-tight">CCE</span>
-              <span className="font-sans text-[8px] text-gray-500 uppercase tracking-widest leading-none mt-1.5">Approved Provider</span>
+              <span className="font-display font-bold text-xl text-brand-navy-700 leading-none tracking-tight">CCE</span>
+              <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Approved Provider</span>
             </div>
           </div>
 
@@ -74,8 +74,8 @@ export default function AccreditationLogos() {
               <path d="M11 16L15 20L21 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-xl text-navy-700 leading-none tracking-tight">ISO</span>
-              <span className="font-sans text-[8px] text-gray-500 uppercase tracking-widest leading-none mt-1.5">9001:2015</span>
+              <span className="font-display font-bold text-xl text-brand-navy-700 leading-none tracking-tight">ISO</span>
+              <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">9001:2015</span>
             </div>
           </div>
         </div>

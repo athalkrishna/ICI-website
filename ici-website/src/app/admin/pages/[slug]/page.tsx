@@ -95,7 +95,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
             {item.content_type === 'text' || item.content_type === 'url' ? (
               <input 
                 type="text"
-                className="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:border-navy-900 focus:ring-navy-900"
+                className="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:border-brand-navy-900 focus:ring-brand-navy-900"
                 value={item.content_value || ''}
                 onChange={e => {
                   const newContent = [...content];
@@ -105,7 +105,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
               />
             ) : item.content_type === 'richtext' ? (
               <textarea
-                className="w-full border-gray-300 rounded-md shadow-sm p-2 border h-32 focus:border-navy-900 focus:ring-navy-900"
+                className="w-full border-gray-300 rounded-md shadow-sm p-2 border h-32 focus:border-brand-navy-900 focus:ring-brand-navy-900"
                 value={item.content_value || ''}
                 onChange={e => {
                   const newContent = [...content];
@@ -114,13 +114,13 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
                 }}
               />
             ) : (
-              <div className="text-sm text-gray-500 italic">Image upload UI component placeholder</div>
+              <div className="text-sm text-muted italic">Image upload UI component placeholder</div>
             )}
           </div>
         ))}
 
         <div className="pt-4 sticky bottom-0 bg-gray-50 p-4 border-t border-gray-200 flex justify-end">
-          <button type="submit" className="bg-navy-900 text-white px-6 py-2 rounded-md hover:bg-navy-800 transition">
+          <button type="submit" className="bg-brand-navy-900 text-white px-6 py-2 rounded-md hover:bg-brand-navy-800 transition">
             Save Page Content
           </button>
         </div>

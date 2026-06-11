@@ -36,8 +36,8 @@ export default function EventsForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-navy-800/50 border border-gold-500/30 p-8 rounded-2xl text-center">
-        <p className="font-body text-xl text-gold-400">Thank you — we will be in touch.</p>
+      <div className="bg-brand-navy-800/50 border border-brand-gold-500/30 p-8 rounded-2xl text-center">
+        <p className="font-body text-xl text-brand-gold-400">Thank you — we will be in touch.</p>
       </div>
     )
   }
@@ -53,7 +53,7 @@ export default function EventsForm() {
           name="email"
           required
           placeholder="Your email address"
-          className="flex-1 bg-navy-800 border border-white/10 rounded-full px-6 py-4 text-white placeholder-blue-100/50 focus:outline-none focus:border-gold-500 transition-colors"
+          className="flex-1 bg-brand-navy-800 border border-subtle rounded-full px-6 py-4 text-white placeholder-blue-100/50 focus:outline-none focus:border-brand-gold-500 transition-colors"
         />
         <button
           type="submit"

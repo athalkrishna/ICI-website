@@ -76,7 +76,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       lang="en"
       className={`${playfair.variable} ${montserrat.variable} ${sourceSerif.variable} ${jetbrains.variable}`}
     >
-      <body className="font-sans bg-white text-navy-700 antialiased">
+      <body className="font-sans bg-white text-brand-navy-700 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

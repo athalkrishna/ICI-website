@@ -20,7 +20,7 @@ export default function PageHeader({ title, subtitle, image }: Props) {
         className="object-cover"
       />
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-navy-900/70 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-brand-navy-900/70 mix-blend-multiply" />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent opacity-80" />
       
       {/* Content */}
@@ -30,8 +30,8 @@ export default function PageHeader({ title, subtitle, image }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="section-label mb-6 text-gold-400">{subtitle}</div>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]">
+          <div className="text-eyebrow flex items-center gap-3 justify-center mb-6">{subtitle}</div>
+          <h1 className="text-h1 text-white">
             {title}
           </h1>
         </motion.div>

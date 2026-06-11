@@ -21,8 +21,8 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
           className="fixed inset-0 z-[60] bg-white overflow-y-auto flex flex-col xl:hidden"
         >
           <div className="flex items-center justify-between p-4 border-b border-gray-100">
-            <span className="font-display font-bold text-xl text-navy-700">ICI Menu</span>
-            <button onClick={onClose} className="p-2 text-navy-600 hover:bg-gray-100 rounded-lg">
+            <span className="font-display font-bold text-xl text-brand-navy-700">ICI Menu</span>
+            <button onClick={onClose} className="p-2 text-brand-navy-600 hover:bg-gray-100 rounded-lg">
               <X size={24} />
             </button>
           </div>
@@ -31,21 +31,21 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
               {navItems.map((item) => (
                 <li key={item.label}>
                   {item.children ? (
-                    <div className="font-sans font-bold text-navy-700 mb-2">{item.label}</div>
+                    <div className="font-sans font-bold text-brand-navy-700 mb-2">{item.label}</div>
                   ) : (
-                    <Link href={item.href} className="font-sans font-bold text-navy-700 mb-2 block" onClick={onClose}>
+                    <Link href={item.href} className="font-sans font-bold text-brand-navy-700 mb-2 block" onClick={onClose}>
                       {item.label}
                     </Link>
                   )}
                   {item.children && (
-                    <ul className="pl-4 space-y-2 border-l-2 border-gold-200">
+                    <ul className="pl-4 space-y-2 border-l-2 border-brand-gold-200">
                       {item.children.map((group) => (
                         <li key={group.heading}>
-                          <div className="text-xs text-gold-600 font-semibold uppercase tracking-wider mb-1 mt-2">{group.heading}</div>
+                          <div className="text-xs text-brand-gold-600 font-semibold uppercase tracking-wider mb-1 mt-2">{group.heading}</div>
                           <ul className="space-y-2">
                             {group.links.map((link) => (
                               <li key={link.label}>
-                                <Link href={link.href} className="text-sm text-gray-600 hover:text-navy-700 block" onClick={onClose}>
+                                <Link href={link.href} className="text-sm text-muted hover:text-brand-navy-700 block" onClick={onClose}>
                                   {link.label}
                                 </Link>
                               </li>

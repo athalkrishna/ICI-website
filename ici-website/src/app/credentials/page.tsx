@@ -65,23 +65,23 @@ export default function CredentialsPage() {
   ]
 
   return (
-    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-gold-500/30">
+    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+      <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
-            <div className="section-label mb-8 justify-start text-gold-400">The Credential System</div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+            <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">The Credential System</div>
+            <h1 className="text-h1 text-white mb-8">
               The ICI Mastery Pathway
             </h1>
-            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
+            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               Most coaching certificates are earned by sitting in a group and watching the clock. Ours are earned one-to-one, online, with a coach who works with you directly, hour by hour, until the skill is genuinely yours. The Mastery Pathway has four progressive levels, each a credential you carry for life. Wherever you are now, there is a clear next step and a coach to take it with you.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
@@ -100,19 +100,19 @@ export default function CredentialsPage() {
       <section className="py-16 lg:py-24 relative z-20">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="mb-12 lg:mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">Why this pathway is different</h2>
-            <div className="w-24 h-1 bg-gold-500" />
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-4">Why this pathway is different</h2>
+            <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {reasons.map((reason, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-gold-300 shadow-xl hover:shadow-2xl transition-all h-full">
-                  <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center border border-gold-100 mb-6 text-gold-500">
+                <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-gold-300 shadow-xl hover:shadow-2xl transition-all h-full">
+                  <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center border border-brand-gold-100 mb-6 text-brand-gold-500">
                     <CheckCircle2 size={24} />
                   </div>
-                  <h4 className="font-sans font-bold text-navy-900 text-lg mb-3">{reason.title}.</h4>
-                  <p className="font-body text-gray-600 leading-relaxed">{reason.text}</p>
+                  <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{reason.title}.</h4>
+                  <p className="font-body text-muted leading-relaxed">{reason.text}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -124,14 +124,14 @@ export default function CredentialsPage() {
       <section id="levels" className="py-16 lg:py-24 relative z-20">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="mb-12 lg:mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">The four levels</h2>
-            <div className="w-24 h-1 bg-gold-500" />
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-4">The four levels</h2>
+            <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-8">
             {pathways.map((path, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <Link href={path.href} className="group block bg-white border border-gray-100 hover:border-gold-300 rounded-3xl p-8 lg:p-12 transition-all duration-300 h-full relative overflow-hidden shadow-xl hover:shadow-2xl">
+                <Link href={path.href} className="group block bg-white border border-gray-100 hover:border-brand-gold-300 rounded-3xl p-8 lg:p-12 transition-all duration-300 h-full relative overflow-hidden shadow-xl hover:shadow-2xl">
                   {/* Subtle hover glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-gold-500/0 to-gold-500/0 group-hover:from-gold-500/5 group-hover:to-transparent transition-colors duration-500" />
                   
@@ -139,17 +139,17 @@ export default function CredentialsPage() {
                     <div className={`inline-flex items-center gap-2 ${path.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8 self-start`}>
                       <Award size={14} /> Level {i + 1}
                     </div>
-                    <h3 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-6 group-hover:text-gold-500 transition-colors">
+                    <h3 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-500 transition-colors">
                       {path.title}
-                      <span className="block text-lg font-sans font-normal text-gray-500 mt-2">
+                      <span className="block text-lg font-sans font-normal text-muted mt-2">
                         {path.subline}
                       </span>
                     </h3>
-                    <p className="font-body text-xl text-gray-600 mb-12 flex-1 leading-relaxed">
+                    <p className="font-body text-xl text-muted mb-12 flex-1 leading-relaxed">
                       {path.desc}
                     </p>
                     
-                    <div className="flex items-center gap-3 text-gold-400 font-sans font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">
+                    <div className="flex items-center gap-3 text-brand-gold-400 font-sans font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">
                       {path.cta} <ChevronRight size={18} />
                     </div>
                   </div>

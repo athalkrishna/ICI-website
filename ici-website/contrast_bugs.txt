@@ -1,0 +1,10 @@
+app\admissions\contact\page.tsx:51 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+app\checkout\success\page.tsx:49 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+app\checkout\success\page.tsx:57 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+app\checkout\success\page.tsx:65 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+app\privacy\page.tsx:33 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+app\terms\page.tsx:33 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+components\home\FeaturedProgrammes.tsx:65 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+components\home\ICIDifference.tsx:29 - Found text-gray-600 near a dark background (bg-navy or bg-black).
+components\layout\Navbar.tsx:143 - Found text-gray-500 near a dark background (bg-navy or bg-black).
+components\layout\Navbar.tsx:143 - Found text-gray-600 near a dark background (bg-navy or bg-black).

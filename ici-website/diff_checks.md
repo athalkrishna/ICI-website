@@ -1,0 +1,348 @@
+## Check 1: Group 3 patterns found in diff
+- app\error.tsx:30 - `className="bg-brand-navy-900 text-white px-6 py-2 rounded hover:bg-navy-800 transition"`
+- app\error.tsx:35 - `<Link href="/" className="bg-gray-100 text-brand-navy-900 px-6 py-2 rounded hover:bg-gray-200 transition">`
+- app\not-found.tsx:14 - `<Link href="/" className="bg-brand-navy-900 text-white px-8 py-3 rounded hover:bg-navy-800 transition">`
+- app\about\accreditation\page.tsx:20 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\about\accreditation\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />`
+- app\about\accreditation\page.tsx:77 - `<div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center shrink-0 text-brand-gold-500 group-hover:bg-gold-500 group-hover:text-white transition-colors">`
+- app\about\annual-reports\page.tsx:19 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\about\annual-reports\page.tsx:23 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />`
+- app\about\global\page.tsx:20 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\about\global\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />`
+- app\about\global\page.tsx:80 - `<div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-400">Online & One-to-One</div>`
+- app\about\history\page.tsx:25 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\about\history\page.tsx:29 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />`
+- app\about\leadership-faculty\page.tsx:14 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\about\leadership-faculty\page.tsx:19 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\about\leadership-faculty\page.tsx:59 - `<div className="aspect-[4/5] bg-brand-navy-100 rounded-3xl overflow-hidden relative shadow-2xl">`
+- app\about\leadership-faculty\page.tsx:84 - `<h3 className="font-display text-xl font-bold text-brand-navy-800 mb-1 group-hover:text-gold-600 transition-colors">`
+- app\about\mission\page.tsx:16 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\about\mission\page.tsx:21 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\about\mission\page.tsx:79 - `<h4 className="font-display font-bold text-brand-navy-800 text-2xl mb-4 group-hover:text-gold-600 transition-colors">{val.title}.</h4>`
+- app\about\partnerships\page.tsx:20 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\about\partnerships\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />`
+- app\about\partnerships\page.tsx:70 - `<div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center text-brand-gold-500 shrink-0 group-hover:bg-gold-500 group-hover:text-white transition-colors">`
+- app\about\partnerships\page.tsx:85 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[80px] opacity-20 translate-x-1/3 -translate-y-1/3"></div>`
+- app\about\partnerships\page.tsx:93 - `<Link href="/contact" className="inline-flex items-center gap-3 bg-white text-brand-navy-900 px-8 py-4 rounded-full font-sans font-bold text-sm tracking-wide uppercase hover:bg-gold-50 transition-colors">`
+- app\about\press\page.tsx:19 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\about\press\page.tsx:23 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />`
+- app\about\press\page.tsx:57 - `<div className="w-12 h-12 bg-brand-navy-50 rounded-full flex items-center justify-center text-brand-navy-600 group-hover:bg-navy-800 group-hover:text-white transition-colors">`
+- app\about\press\page.tsx:91 - `<div className="font-body font-bold text-brand-navy-800 text-lg mb-1 group-hover:text-gold-700 transition-colors">{asset.title}</div>`
+- app\about\press\page.tsx:96 - `<div className="w-10 h-10 rounded-full bg-cream-100 flex items-center justify-center text-brand-navy-600 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">`
+- app\account\page.tsx:32 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\account\page.tsx:69 - `className={`flex items-center gap-3 px-4 py-3 rounded-xl font-sans font-medium text-sm transition-all text-left ${tab.active ? 'bg-gold-500/10 text-brand-gold-400 border border-gold-500/20' : 'text-blue-100/70 hover:text-white hover:bg-white/5 border border-transparent' }`}`
+- app\account\page.tsx:78 - `<div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold-400 rounded-full blur-[150px] opacity-10 translate-x-1/2 -translate-y-1/2" />`
+- app\account\page.tsx:82 - `<div className="w-16 h-16 rounded-full bg-brand-navy-800 border border-white/10 flex items-center justify-center text-brand-gold-400 mx-auto mb-6">`
+- app\admin\media\page.tsx:93 - `className="text-xs text-muted hover:text-red-600 font-medium"`
+- app\admin\media\page.tsx:102 - `className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-brand-navy-900 hover:bg-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"`
+- app\admin\pages\[slug]\page.tsx:125 - `<button type="submit" className="bg-brand-navy-900 text-white px-6 py-2 rounded-md hover:bg-navy-800 transition">`
+- app\admissions\page.tsx:20 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\admissions\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\admissions\page.tsx:87 - `<Link href="/admissions/contact" className="text-brand-gold-400 font-sans font-bold hover:text-gold-300 transition-colors inline-flex items-center gap-1">`
+- app\admissions\page.tsx:103 - `<Link href="/pricing" className="text-brand-gold-400 font-sans font-bold hover:text-gold-300 transition-colors inline-flex items-center gap-1">`
+- app\admissions\contact\page.tsx:17 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\admissions\contact\page.tsx:21 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\admissions\contact\page.tsx:42 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />`
+- app\admissions\contact\page.tsx:54 - `Or reach us directly at <a href="tel:+919819984575" className="text-brand-navy-900 font-bold hover:text-gold-500 transition-colors">(+91) 98199 84575</a> and <a href="mailto:info@internationalcoachinginstitute.org" className="text-brand-navy-900 font-bold hover:text-gold-500 transition-colors">info@internationalcoachinginstitute.org</a>`
+- app\alumni\page.tsx:22 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\alumni\page.tsx:26 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\alumni\page.tsx:30 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\alumni\page.tsx:66 - `<div className="w-12 h-12 rounded-full bg-brand-navy-900 border border-white/5 flex items-center justify-center text-brand-gold-400 group-hover:bg-gold-500/10 group-hover:scale-110 transition-all duration-300">`
+- app\apply\page.tsx:18 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\apply\page.tsx:22 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\apply\page.tsx:42 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-100 rounded-full blur-[100px] opacity-50 translate-x-1/3 -translate-y-1/3" />`
+- app\blog\page.tsx:13 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\blog\page.tsx:17 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\blog\page.tsx:21 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\blog\page.tsx:40 - `<div className="w-16 h-16 bg-brand-navy-800 border border-white/10 rounded-full flex items-center justify-center text-brand-gold-400 mx-auto mb-8">`
+- app\checkout\success\page.tsx:27 - `<div className="w-20 h-20 bg-gold-500/20 text-brand-gold-400 rounded-full flex items-center justify-center mx-auto mb-8">`
+- app\checkout\success\page.tsx:82 - `<Link href="/programmes" className="inline-flex items-center gap-2 text-brand-navy-900 font-sans font-bold hover:text-gold-500 transition-colors">`
+- app\community\page.tsx:14 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\community\page.tsx:18 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\community\page.tsx:22 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\community\page.tsx:50 - `<div className="w-12 h-12 bg-brand-navy-900 border border-white/10 rounded-xl flex items-center justify-center text-brand-gold-400 mb-6">`
+- app\contact\page.tsx:16 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\contact\page.tsx:20 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\contact\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\contact\page.tsx:46 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />`
+- app\contact\page.tsx:60 - `<div className="w-10 h-10 rounded-full bg-brand-navy-800 border border-white/5 flex items-center justify-center shrink-0 text-brand-gold-400">`
+- app\contact\page.tsx:70 - `<div className="w-10 h-10 rounded-full bg-brand-navy-800 border border-white/5 flex items-center justify-center shrink-0 text-brand-gold-400">`
+- app\contact\page.tsx:80 - `<div className="w-10 h-10 rounded-full bg-brand-navy-800 border border-white/5 flex items-center justify-center shrink-0 text-brand-gold-400">`
+- app\credentials\page.tsx:72 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\credentials\page.tsx:77 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\credentials\page.tsx:143 - `<h3 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-6 group-hover:text-gold-500 transition-colors">`
+- app\credentials\page.tsx:156 - `<div className="flex items-center gap-3 text-brand-gold-400 font-sans font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">`
+- app\credentials\architect\page.tsx:69 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\credentials\architect\page.tsx:73 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\credentials\architect\page.tsx:199 - `<div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-white/10 shadow-2xl">`
+- app\credentials\catalyst\page.tsx:65 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\credentials\catalyst\page.tsx:69 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\credentials\catalyst\page.tsx:195 - `<div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-white/10 shadow-2xl">`
+- app\credentials\luminary\page.tsx:69 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\credentials\luminary\page.tsx:199 - `<div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-white/10 shadow-2xl">`
+- app\credentials\sage\page.tsx:73 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\credentials\sage\page.tsx:77 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\credentials\sage\page.tsx:203 - `<div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-white/10 shadow-2xl">`
+- app\credentials\[level]\page.tsx:43 - `<div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900 via-navy-900/95 to-navy-900/40 z-10" />`
+- app\credentials\[level]\page.tsx:48 - `<div className="inline-flex items-center gap-2 bg-gold-500/20 text-brand-gold-400 text-sm font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8">`
+- app\current-students\page.tsx:22 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\current-students\page.tsx:26 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\current-students\page.tsx:30 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\current-students\page.tsx:70 - `<div className="w-12 h-12 rounded-full bg-brand-navy-900 border border-white/5 flex items-center justify-center text-brand-gold-400 group-hover:bg-gold-500/10 group-hover:scale-110 transition-all duration-300">`
+- app\events\page.tsx:25 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\events\page.tsx:29 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\events\page.tsx:33 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\faculty\page.tsx:16 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\faculty\page.tsx:20 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\faculty\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\faculty-staff\page.tsx:22 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\faculty-staff\page.tsx:26 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\faculty-staff\page.tsx:30 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\faculty-staff\page.tsx:70 - `<div className="w-12 h-12 rounded-full bg-brand-navy-900 border border-white/5 flex items-center justify-center text-brand-gold-400 group-hover:bg-gold-500/10 group-hover:scale-110 transition-all duration-300">`
+- app\find-a-coach\page.tsx:14 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\find-a-coach\page.tsx:18 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\find-a-coach\page.tsx:22 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\find-a-coach\page.tsx:43 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2 pointer-events-none" />`
+- app\future-students\page.tsx:22 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\future-students\page.tsx:26 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\future-students\page.tsx:30 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\future-students\page.tsx:67 - `<div className="w-12 h-12 rounded-full bg-brand-navy-900 border border-white/5 flex items-center justify-center text-brand-gold-400 group-hover:bg-gold-500/10 group-hover:scale-110 transition-all duration-300">`
+- app\login\page.tsx:14 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\login\page.tsx:20 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\login\page.tsx:34 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />`
+- app\login\page.tsx:55 - `<Link href="#" className="text-sm font-body text-brand-gold-400 hover:text-gold-300 transition-colors">`
+- app\login\page.tsx:77 - `New to ICI? <Link href="/apply" className="text-brand-gold-400 hover:text-gold-300 transition-colors font-medium">Apply here.</Link>`
+- app\organisations\page.tsx:22 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\organisations\page.tsx:26 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\organisations\page.tsx:30 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\organisations\page.tsx:69 - `<div className="w-12 h-12 rounded-full bg-brand-navy-900 border border-white/5 flex items-center justify-center text-brand-gold-400 group-hover:bg-gold-500/10 group-hover:scale-110 transition-all duration-300">`
+- app\pricing\page.tsx:65 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\pricing\page.tsx:69 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\pricing\page.tsx:73 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\pricing\page.tsx:111 - `<th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w-1/4">Level & Credential</th>`
+- app\pricing\page.tsx:112 - `<th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w-1/3">Format & Hours</th>`
+- app\pricing\page.tsx:221 - `<div className="w-6 h-6 rounded-full bg-gold-500/20 text-brand-gold-400 flex items-center justify-center shrink-0 font-sans font-bold text-xs mt-0.5">`
+- app\privacy\page.tsx:20 - `<section className="bg-white py-24 font-sans text-brand-navy-800 selection:bg-gold-500/30 selection:text-navy-900">`
+- app\privacy\page.tsx:38 - `<div className="bg-brand-navy-50 border border-gold-500/30 rounded-xl p-6 my-8 text-sm text-muted font-body">`
+- app\programmes\page.tsx:22 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\programmes\page.tsx:27 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\page.tsx:38 - `<div className="w-16 h-[1px] bg-gradient-to-r from-brand-gold-500 to-transparent"></div>`
+- app\programmes\page.tsx:67 - `<div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-gray-200 via-brand-gold-400 to-gray-200 hidden lg:block -translate-y-1/2"></div>`
+- app\programmes\page.tsx:81 - `<div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-8 group-hover:scale-110 group-hover:bg-gold-500 group-hover:text-white transition-all duration-500 shadow-sm">`
+- app\programmes\page.tsx:132 - `<div className="bg-brand-navy-800 p-8 md:p-10 rounded-[32px] border border-white/5 hover:border-gold-500/50 transition-all duration-300 relative overflow-hidden h-full flex flex-col justify-between min-h-[200px]">`
+- app\programmes\page.tsx:185 - `<Link href="/pricing" className="btn-secondary w-full sm:w-auto justify-center px-10 py-5 text-sm tracking-widest border-brand-navy-200 hover:border-navy-900 text-brand-navy-700 hover:text-navy-900 hover:bg-navy-50">`
+- app\programmes\business-coach\page.tsx:22 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\programmes\business-coach\page.tsx:27 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\business-coach\page.tsx:37 - `<div className="w-16 h-[1px] bg-gradient-to-r from-brand-gold-500 to-transparent"></div>`
+- app\programmes\business-coach\page.tsx:68 - `<div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">`
+- app\programmes\business-coach\page.tsx:136 - `<div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-gold-500/20 shadow-2xl relative overflow-hidden">`
+- app\programmes\business-coach\page.tsx:139 - `<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\certified-life-coach\page.tsx:22 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\programmes\certified-life-coach\page.tsx:27 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\certified-life-coach\page.tsx:37 - `<div className="w-16 h-[1px] bg-gradient-to-r from-brand-gold-500 to-transparent"></div>`
+- app\programmes\certified-life-coach\page.tsx:68 - `<div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">`
+- app\programmes\certified-life-coach\page.tsx:136 - `<div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-gold-500/20 shadow-2xl relative overflow-hidden">`
+- app\programmes\certified-life-coach\page.tsx:139 - `<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\executive-coaching\page.tsx:22 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\programmes\executive-coaching\page.tsx:27 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\executive-coaching\page.tsx:37 - `<div className="w-16 h-[1px] bg-gradient-to-r from-brand-gold-500 to-transparent"></div>`
+- app\programmes\executive-coaching\page.tsx:68 - `<div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">`
+- app\programmes\executive-coaching\page.tsx:136 - `<div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-gold-500/20 shadow-2xl relative overflow-hidden">`
+- app\programmes\executive-coaching\page.tsx:139 - `<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\health-wellness\page.tsx:22 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\programmes\health-wellness\page.tsx:27 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\health-wellness\page.tsx:37 - `<div className="w-16 h-[1px] bg-gradient-to-r from-brand-gold-500 to-transparent"></div>`
+- app\programmes\health-wellness\page.tsx:68 - `<div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">`
+- app\programmes\health-wellness\page.tsx:136 - `<div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-gold-500/20 shadow-2xl relative overflow-hidden">`
+- app\programmes\health-wellness\page.tsx:139 - `<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\team-coaching\page.tsx:22 - `<div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />`
+- app\programmes\team-coaching\page.tsx:27 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\programmes\team-coaching\page.tsx:37 - `<div className="w-16 h-[1px] bg-gradient-to-r from-brand-gold-500 to-transparent"></div>`
+- app\programmes\team-coaching\page.tsx:68 - `<div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-6 group-hover:bg-gold-500 group-hover:text-white transition-colors shadow-sm">`
+- app\programmes\team-coaching\page.tsx:136 - `<div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-gold-500/20 shadow-2xl relative overflow-hidden">`
+- app\programmes\team-coaching\page.tsx:139 - `<div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />`
+- app\prospectus\page.tsx:19 - `<section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\prospectus\page.tsx:24 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\prospectus\page.tsx:48 - `<input type="email" placeholder="Your email address" required className="flex-1 bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50" />`
+- app\resources\page.tsx:14 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\resources\page.tsx:18 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\resources\page.tsx:22 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\resources\page.tsx:77 - `<Link href="#insights" className="text-brand-gold-400 font-sans font-bold hover:text-gold-300 transition-colors inline-flex items-center gap-1">`
+- app\resources\brochure\page.tsx:13 - `<div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">`
+- app\resources\brochure\page.tsx:17 - `<section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">`
+- app\resources\brochure\page.tsx:21 - `<div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />`
+- app\resources\brochure\page.tsx:39 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />`
+- app\terms\page.tsx:20 - `<section className="bg-white py-24 font-sans text-brand-navy-800 selection:bg-gold-500/30 selection:text-navy-900">`
+- app\terms\page.tsx:38 - `<div className="bg-brand-navy-50 border border-gold-500/30 rounded-xl p-6 my-8 text-sm text-muted font-body">`
+- components\admissions\ApplyForm.tsx:94 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"`
+- components\admissions\ApplyForm.tsx:111 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"`
+- components\admissions\ApplyForm.tsx:124 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"`
+- components\admissions\ApplyForm.tsx:140 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none min-h-[44px]"`
+- components\admissions\ApplyForm.tsx:158 - `<input type="radio" value={level} {...register('level')} className="w-4 h-4 text-brand-gold-500 bg-white border-gray-300 focus:ring-gold-500/50 min-h-[44px]" />`
+- components\admissions\ApplyForm.tsx:173 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"`
+- components\admissions\ApplyForm.tsx:189 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"`
+- components\admissions\ApplyForm.tsx:206 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"`
+- components\admissions\ApplyForm.tsx:223 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"`
+- components\admissions\AssessmentForm.tsx:63 - `className={`w-full text-left p-4 rounded-xl border-2 transition-all ${goal === opt ? 'border-brand-gold-500 bg-gold-50/50' : 'border-gray-100 hover:border-gold-300 hover:bg-gray-50'}`}`
+- components\admissions\AssessmentForm.tsx:88 - `className={`w-full text-left p-4 rounded-xl border-2 transition-all ${experience === opt ? 'border-brand-gold-500 bg-gold-50/50' : 'border-gray-100 hover:border-gold-300 hover:bg-gray-50'}`}`
+- components\admissions\AssessmentForm.tsx:96 - `<button onClick={handlePrev} className="flex items-center gap-2 text-muted hover:text-navy-900 font-sans text-sm mt-8 transition-colors">`
+- components\admissions\AssessmentForm.tsx:120 - `<button onClick={() => setStep(1)} className="text-brand-navy-600 underline font-sans text-sm hover:text-gold-600 transition-colors">`
+- components\admissions\ContactForm.tsx:64 - `<div className="w-16 h-16 bg-gold-500/10 text-brand-gold-500 rounded-full flex items-center justify-center mx-auto mb-6">`
+- components\admissions\ContactForm.tsx:179 - `className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-0.5"`
+- components\admissions\ContactForm.tsx:185 - `I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>`
+- components\checkout\CheckoutForm.tsx:103 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50"`
+- components\checkout\CheckoutForm.tsx:118 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50"`
+- components\checkout\CheckoutForm.tsx:133 - `className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-500/50"`
+- components\contact\ContactForm.tsx:150 - `className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-0.5"`
+- components\contact\ContactForm.tsx:156 - `I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>`
+- components\home\ApplyCTA.tsx:24 - `<Link href={content.cta_btn_primary_url || '/apply'} className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-navy-700 hover:bg-navy-800 text-white font-sans font-semibold rounded-lg transition-colors">`
+- components\home\ApplyCTA.tsx:29 - `<Link href={content.cta_btn_secondary_url || '/admissions/contact'} className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-brand-navy-700 text-brand-navy-700 hover:bg-navy-700 hover:text-white font-sans font-semibold rounded-lg transition-colors">`
+- components\home\AudienceCards.tsx:49 - `<div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 via-navy-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />`
+- components\home\AudienceCards.tsx:52 - `<div className="text-brand-gold-400 font-display italic text-lg mb-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">`
+- components\home\CredentialPathway.tsx:87 - `className={`relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group ${cred.popular ? 'bg-navy-800/80 border border-gold-500/40 shadow-[0_0_40px_rgba(201,168,76,0.15)] transform md:-translate-y-4' : 'bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10'} backdrop-blur-md`}`
+- components\home\CredentialPathway.tsx:92 - `<div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-gold-400 to-brand-gold-600 text-brand-navy-900 text-[10px] font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-gold-500/30">`
+- components\home\CredentialPathway.tsx:127 - `className={`flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit ${cred.popular ? 'text-brand-gold-400 hover:text-gold-300' : 'text-white hover:text-gold-400'}`}`
+- components\home\FeaturedProgrammes.tsx:44 - `<Link href="/programmes" className="text-brand-gold-600 hover:text-gold-700 font-sans font-semibold text-sm underline underline-offset-4">`
+- components\home\FeaturedProgrammes.tsx:60 - `<div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider text-brand-navy-700 shadow-sm">`
+- components\home\FeaturedProgrammes.tsx:67 - `<h3 className="text-h3 text-brand-navy-700 mb-3 group-hover:text-gold-600 transition-colors">{prog.title}</h3>`
+- components\home\GlobalReachMap.tsx:23 - `<div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900 via-navy-900/80 to-transparent" />`
+- components\home\GlobalReachMap.tsx:24 - `<div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 via-transparent to-navy-900/50" />`
+- components\home\HeroSection.tsx:38 - `className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent"`
+- components\home\HeroSection.tsx:196 - `<select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans text-muted focus:outline-none focus:ring-2 focus:ring-gold-400">`
+- components\home\ICIDifference.tsx:15 - `<div className="w-full aspect-square md:aspect-[4/3] bg-brand-navy-50 rounded-2xl relative overflow-hidden shadow-2xl">`
+- components\home\ICIDifference.tsx:52 - `<strong className="block text-brand-navy-700 mb-1">{content.diff_2_title || 'One-to-one, never one-to-many'}</strong>`
+- components\home\NewsEvents.tsx:41 - `<h4 className="font-sans font-bold text-brand-navy-700 text-sm hover:text-gold-500 cursor-pointer transition-colors">ICI Announces New Research Lab in Dubai</h4>`
+- components\home\Testimonials.tsx:150 - `<div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-gradient-to-r from-brand-navy-900 to-transparent z-20 pointer-events-none" />`
+- components\home\Testimonials.tsx:151 - `<div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-gradient-to-l from-brand-navy-900 to-transparent z-20 pointer-events-none" />`
+- components\layout\MobileMenu.tsx:27 - `<button onClick={onClose} className="p-2 text-brand-navy-600 hover:bg-gray-100 rounded-lg">`
+- components\layout\MobileMenu.tsx:53 - `<Link href={link.href} className="text-sm text-muted hover:text-navy-700 block" onClick={onClose}>`
+- components\layout\Navbar.tsx:89 - `className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-[13px] 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-navy-700 hover:bg-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-600') : ''}`}`
+- components\layout\Navbar.tsx:97 - `className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-[13px] 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-navy-700 hover:bg-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-600') : ''}`}`
+- components\layout\Navbar.tsx:109 - `<p className="text-[11px] font-sans font-bold tracking-[0.2em] uppercase text-brand-navy-400 mb-4 pb-3 border-b border-gray-100/60">`
+- components\layout\Navbar.tsx:120 - `<span className="text-brand-gold-400 mt-0.5 shrink-0 transition-transform group-hover:translate-x-0.5">✦</span>`
+- components\layout\Navbar.tsx:123 - `<div className="text-[13px] font-sans font-semibold text-brand-navy-800 group-hover:text-gold-600 transition-colors">`
+- components\layout\Navbar.tsx:128 - `<div className="text-[12px] text-muted font-sans mt-1 line-clamp-1 group-hover:text-gray-600 transition-colors">{link.desc}</div>`
+- components\layout\Navbar.tsx:147 - `className={`p-2 rounded-lg transition-colors ${scrolled ? 'text-white hover:bg-white/10' : 'text-brand-navy-600 hover:bg-navy-50'}`}`
+- components\layout\Navbar.tsx:156 - `className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-brand-navy-200 text-brand-navy-600 hover:bg-navy-50'}`}`
+- components\layout\Navbar.tsx:169 - `className={`xl:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-white hover:bg-white/10' : 'text-brand-navy-600 hover:bg-navy-50'}`}`
+- components\shared\CookieNotice.tsx:35 - `<div className="bg-brand-navy-900 border border-white/10 shadow-2xl rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden backdrop-blur-xl">`
+- components\shared\CookieNotice.tsx:36 - `<div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/2 -translate-y-1/2 pointer-events-none" />`
+- components\shared\CookieNotice.tsx:43 - `<Link href="/privacy" className="text-brand-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">`
+- components\shared\EventsForm.tsx:57 - `className="flex-1 bg-brand-navy-800 border border-white/10 rounded-full px-6 py-4 text-white placeholder-blue-100/50 focus:outline-none focus:border-gold-500 transition-colors"`
+- components\shared\PageHeader.tsx:25 - `<div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 to-transparent opacity-80" />`
+
+## Check 2: Double colors
+
+## Check 3: text-muted replacements
+- app\error.tsx:23 - <p className="text-muted mb-8 max-w-md">
+- app\not-found.tsx:10 - <p className="text-muted mb-8 max-w-md">
+- app\about\mission\page.tsx:80 - <p className="font-body text-lg text-muted leading-relaxed">{val.desc}</p>
+- app\about\press\page.tsx:78 - <p className="font-body text-lg text-muted mb-10">Download official ICI brand assets and background information.</p>
+- app\admin\page.tsx:34 - <h3 className="text-muted font-medium mb-2">Total Leads</h3>
+- app\admin\page.tsx:40 - <h3 className="text-muted font-medium mb-2">Captured Payments</h3>
+- app\admin\leads\page.tsx:18 - <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
+- app\admin\leads\page.tsx:21 - <div className="text-sm text-muted font-medium bg-white px-4 py-2 border border-gray-200 rounded-lg shadow-sm">
+- app\admin\leads\page.tsx:28 - <thead className="bg-gray-50 border-b border-gray-200 text-muted">
+- app\admin\leads\page.tsx:53 - <span className="text-xs text-muted">{lead.phone}</span>
+- app\admin\media\page.tsx:49 - <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
+- app\admin\media\page.tsx:60 - <p className="text-xs text-muted mb-6">PNG, JPG, WEBP, or PDF up to 5MB</p>
+- app\admin\media\page.tsx:86 - <p className="text-xs text-muted">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+- app\admin\media\page.tsx:93 - className="text-xs text-muted hover:text-red-600 font-medium"
+- app\admin\media\page.tsx:130 - className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 bg-white text-muted"
+- app\admin\pages\[slug]\page.tsx:118 - <div className="text-sm text-muted italic">Image upload UI component placeholder</div>
+- app\admissions\AdmissionsFaq.tsx:49 - <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-gray-100">
+- app\admissions\page.tsx:56 - <li key={i} className="flex gap-6 text-muted font-body text-lg items-start">
+- app\admissions\page.tsx:72 - <p className="text-muted font-body leading-relaxed text-lg mb-8">
+- app\admissions\page.tsx:83 - <p className="text-muted font-body leading-relaxed mb-6">
+- app\admissions\page.tsx:99 - <p className="text-muted font-body leading-relaxed text-lg mb-6">
+- app\admissions\contact\page.tsx:53 - <p className="font-body text-muted text-lg">
+- app\apply\page.tsx:52 - <p className="font-body text-muted leading-relaxed max-w-lg mx-auto">
+- app\checkout\success\page.tsx:53 - <p className="text-muted font-body leading-relaxed">We will send a receipt and a welcome pack to the email address you provided.</p>
+- app\checkout\success\page.tsx:64 - <p className="text-muted font-body leading-relaxed">An advisor will contact you within 24 hours to arrange an introduction and schedule your first session.</p>
+- app\checkout\success\page.tsx:75 - <p className="text-muted font-body leading-relaxed">You will be matched with a faculty member and gain access to your pre-reading materials.</p>
+- app\checkout\[level]\page.tsx:55 - <div className="flex flex-wrap justify-between gap-x-4 text-muted mb-2">
+- app\checkout\[level]\page.tsx:60 - <div className="flex flex-wrap justify-between gap-x-4 text-muted mb-2">
+- app\credentials\page.tsx:120 - <p className="font-body text-muted leading-relaxed">{reason.text}</p>
+- app\credentials\page.tsx:146 - <span className="block text-lg font-sans font-normal text-muted mt-2">
+- app\credentials\page.tsx:151 - <p className="font-body text-xl text-muted mb-12 flex-1 leading-relaxed">
+- app\credentials\architect\page.tsx:113 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\architect\page.tsx:122 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\architect\page.tsx:131 - <p className="font-body text-muted text-lg leading-relaxed mb-6">
+- app\credentials\architect\page.tsx:137 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\architect\page.tsx:143 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\architect\page.tsx:149 - <li className="flex items-start gap-4 text-muted font-body text-lg font-bold">
+- app\credentials\architect\page.tsx:163 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\architect\page.tsx:162 - <p className="font-body text-muted text-lg leading-relaxed mb-8">
+- app\credentials\architect\page.tsx:171 - <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
+- app\credentials\architect\page.tsx:181 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\architect\page.tsx:193 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\catalyst\page.tsx:109 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\catalyst\page.tsx:118 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\catalyst\page.tsx:127 - <p className="font-body text-muted text-lg leading-relaxed mb-6">
+- app\credentials\catalyst\page.tsx:133 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\catalyst\page.tsx:139 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\catalyst\page.tsx:145 - <li className="flex items-start gap-4 text-muted font-body text-lg font-bold">
+- app\credentials\catalyst\page.tsx:159 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\catalyst\page.tsx:158 - <p className="font-body text-muted text-lg leading-relaxed mb-8">
+- app\credentials\catalyst\page.tsx:167 - <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
+- app\credentials\catalyst\page.tsx:177 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\catalyst\page.tsx:189 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\luminary\page.tsx:113 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\luminary\page.tsx:122 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\luminary\page.tsx:131 - <p className="font-body text-muted text-lg leading-relaxed mb-6">
+- app\credentials\luminary\page.tsx:137 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\luminary\page.tsx:143 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\luminary\page.tsx:149 - <li className="flex items-start gap-4 text-muted font-body text-lg font-bold">
+- app\credentials\luminary\page.tsx:163 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\luminary\page.tsx:162 - <p className="font-body text-muted text-lg leading-relaxed mb-8">
+- app\credentials\luminary\page.tsx:171 - <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
+- app\credentials\luminary\page.tsx:181 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\luminary\page.tsx:193 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\sage\page.tsx:117 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\sage\page.tsx:126 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\sage\page.tsx:135 - <p className="font-body text-muted text-lg leading-relaxed mb-6">
+- app\credentials\sage\page.tsx:141 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\sage\page.tsx:147 - <li className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\sage\page.tsx:153 - <li className="flex items-start gap-4 text-muted font-body text-lg font-bold">
+- app\credentials\sage\page.tsx:167 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\credentials\sage\page.tsx:166 - <p className="font-body text-muted text-lg leading-relaxed mb-8">
+- app\credentials\sage\page.tsx:175 - <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
+- app\credentials\sage\page.tsx:185 - <p className="font-body text-muted text-lg leading-relaxed">
+- app\credentials\sage\page.tsx:197 - <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+- app\privacy\page.tsx:38 - <div className="bg-brand-navy-50 border border-gold-500/30 rounded-xl p-6 my-8 text-sm text-muted font-body">
+- app\programmes\page.tsx:61 - <p className="font-body text-xl text-muted leading-relaxed max-w-3xl">
+- app\programmes\page.tsx:89 - <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
+- app\programmes\page.tsx:175 - <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
+- app\programmes\business-coach\page.tsx:98 - <span className="font-body text-muted leading-relaxed">{item}</span>
+- app\programmes\certified-life-coach\page.tsx:98 - <span className="font-body text-muted leading-relaxed">{item}</span>
+- app\programmes\executive-coaching\page.tsx:98 - <span className="font-body text-muted leading-relaxed">{item}</span>
+- app\programmes\health-wellness\page.tsx:98 - <span className="font-body text-muted leading-relaxed">{item}</span>
+- app\programmes\team-coaching\page.tsx:98 - <span className="font-body text-muted leading-relaxed">{item}</span>
+- app\prospectus\page.tsx:45 - <p className="font-body text-muted mb-8 max-w-xl mx-auto">Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.</p>
+- app\terms\page.tsx:38 - <div className="bg-brand-navy-50 border border-gold-500/30 rounded-xl p-6 my-8 text-sm text-muted font-body">
+- app\[...slug]\page.tsx:67 - <p className="font-body text-muted leading-relaxed text-lg mb-12">
+- components\admissions\ApplyForm.tsx:70 - <p className="font-body text-muted leading-relaxed mb-8">
+- components\admissions\ApplyForm.tsx:117 - Phone <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+- components\admissions\ApplyForm.tsx:166 - Specialism of interest <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+- components\admissions\ApplyForm.tsx:216 - How did you hear about us? <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+- components\admissions\ApplyForm.tsx:241 - <p className="font-body text-sm text-muted">
+- components\admissions\AssessmentForm.tsx:48 - <p className="text-xs text-muted font-sans uppercase tracking-widest text-center mt-4">
+- components\admissions\AssessmentForm.tsx:96 - <button onClick={handlePrev} className="flex items-center gap-2 text-muted hover:text-navy-900 font-sans text-sm mt-8 transition-colors">
+- components\apply\ApplyForm.tsx:68 - <p className="font-body text-muted text-lg mb-8 max-w-lg mx-auto">
+- components\apply\ApplyForm.tsx:84 - <p className="font-body text-muted mb-10 text-lg">
+- components\home\AccreditationLogos.tsx:36 - <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Accredited</span>
+- components\home\AccreditationLogos.tsx:47 - <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Global Standard</span>
+- components\home\AccreditationLogos.tsx:58 - <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Association</span>
+- components\home\AccreditationLogos.tsx:69 - <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">Approved Provider</span>
+- components\home\AccreditationLogos.tsx:80 - <span className="font-sans text-[8px] text-muted uppercase tracking-widest leading-none mt-1.5">9001:2015</span>
+- components\home\FeaturedProgrammes.tsx:68 - <p className="font-body text-muted mb-8 flex-1 leading-relaxed">{prog.desc}</p>
+- components\home\HeroSection.tsx:140 - <p className="font-sans text-sm text-muted mb-5">
+- components\home\HeroSection.tsx:196 - <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans text-muted focus:outline-none focus:ring-2 focus:ring-gold-400">
+- components\home\ICIDifference.tsx:31 - <p className="font-body text-muted mb-8 leading-relaxed text-lg">
+- components\home\ICIDifference.tsx:43 - <span className="text-sm text-muted">{content.diff_1_body || 'Coaching psychology, neuroscience and behavioural science, taught in plain language and tied to what happens in a real session.'}</span>
+- components\home\ICIDifference.tsx:53 - <span className="text-sm text-muted">{content.diff_2_body || 'You are coached and developed individually, so nothing is glossed over and no one hides at the back of a room.'}</span>
+- components\home\ICIDifference.tsx:63 - <span className="text-sm text-muted">{content.diff_3_body || 'Learn from working coaches who carry real client experience into every session.'}</span>
+- components\home\NewsEvents.tsx:31 - <p className="font-body text-xs text-muted mt-1">Join thousands of coaches worldwide for our annual summit.</p>
+- components\layout\Footer.tsx:61 - <div className="border-t border-brand-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted font-sans gap-4 text-center md:text-left">
+- components\layout\MobileMenu.tsx:53 - <Link href={link.href} className="text-sm text-muted hover:text-navy-700 block" onClick={onClose}>
+- components\layout\Navbar.tsx:128 - <div className="text-[12px] text-muted font-sans mt-1 line-clamp-1 group-hover:text-gray-600 transition-colors">{link.desc}</div>

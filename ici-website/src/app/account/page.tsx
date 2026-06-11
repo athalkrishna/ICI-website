@@ -28,7 +28,7 @@ export default async function AccountPage() {
   ]
 
   return (
-    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
       
       {/* ── Background Effects ── */}
       <div className="absolute inset-0 bg-hero-pattern opacity-5 pointer-events-none" aria-hidden />
@@ -38,8 +38,8 @@ export default async function AccountPage() {
         <AnimatedSection>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <div className="section-label mb-6 justify-start text-gold-400">My Account</div>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
+              <div className="text-eyebrow flex items-center gap-3 mb-6 justify-start">My Account</div>
+              <h1 className="text-h1 text-white">
                 Your account
               </h1>
             </div>
@@ -55,17 +55,13 @@ export default async function AccountPage() {
           
           {/* Sidebar Tabs */}
           <AnimatedSection delay={0.1}>
-            <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 rounded-[24px] p-4 flex flex-col gap-2">
+            <div className="bg-brand-navy-800/50 backdrop-blur-sm border border-subtle rounded-[24px] p-4 flex flex-col gap-2">
               {tabs.map((tab, idx) => {
                 const Icon = tab.icon
                 return (
                   <button 
                     key={idx}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-sans font-medium text-sm transition-all text-left
-                      ${tab.active 
-                        ? 'bg-gold-500/10 text-gold-400 border border-gold-500/20' 
-                        : 'text-blue-100/70 hover:text-white hover:bg-white/5 border border-transparent'
-                      }`}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-sans font-medium text-sm transition-all text-left ${tab.active ? 'bg-brand-gold-500/10 text-brand-gold-400 border border-brand-gold-500/20' : 'text-blue-100/70 hover:text-white hover:bg-white/5 border border-transparent' }`}
                   >
                     <Icon size={18} className={tab.active ? 'text-gold-400' : 'text-blue-100/40'} />
                     {tab.label}
@@ -77,14 +73,14 @@ export default async function AccountPage() {
 
           {/* Main Content Area */}
           <AnimatedSection delay={0.2}>
-            <div className="bg-navy-800/30 backdrop-blur-sm border border-white/5 rounded-[32px] p-8 md:p-16 min-h-[500px] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-400 rounded-full blur-[150px] opacity-10 translate-x-1/2 -translate-y-1/2" />
+            <div className="bg-brand-navy-800/30 backdrop-blur-sm border border-faint rounded-[32px] p-8 md:p-16 min-h-[500px] flex items-center justify-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold-400 rounded-full blur-[150px] opacity-10 translate-x-1/2 -translate-y-1/2" />
               
               <div className="text-center relative z-10 max-w-lg">
-                <div className="w-16 h-16 rounded-full bg-navy-800 border border-white/10 flex items-center justify-center text-gold-400 mx-auto mb-6">
+                <div className="w-16 h-16 rounded-full bg-brand-navy-800 border border-subtle flex items-center justify-center text-brand-gold-400 mx-auto mb-6">
                   <Book size={24} />
                 </div>
-                <h2 className="font-display text-2xl font-bold text-white mb-4">No active enrolment</h2>
+                <h2 className="text-h3 text-white mb-4">No active enrolment</h2>
                 <p className="font-body text-blue-100/70 leading-relaxed mb-8">
                   You have not enrolled on a level yet. Explore the Mastery Pathway or speak to an advisor to begin your journey.
                 </p>

@@ -32,9 +32,9 @@ export default function AdmissionsFaq() {
               onClick={() => setOpenFaq(openFaq === i ? null : i)}
               className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
             >
-              <span className="font-sans font-bold text-lg text-navy-900 pr-8">{faq.q}</span>
+              <span className="font-sans font-bold text-lg text-brand-navy-900 pr-8">{faq.q}</span>
               <ChevronDown 
-                className={`text-gold-400 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
+                className={`text-brand-gold-400 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
               />
             </button>
             <AnimatePresence>
@@ -45,7 +45,7 @@ export default function AdmissionsFaq() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="px-6 pb-6 pt-2 font-body text-gray-600 leading-relaxed border-t border-gray-100">
+                  <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-gray-100">
                     {faq.a}
                   </div>
                 </motion.div>

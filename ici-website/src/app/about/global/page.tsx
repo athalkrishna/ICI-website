@@ -11,23 +11,23 @@ export default function GlobalPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+      <section className="bg-brand-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-80" aria-hidden />
 
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
         </div>
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-gold-400">Global Presence</div>
+              <div className="w-12 h-[1px] bg-brand-gold-400"></div>
+              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">Global Presence</div>
             </div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
+            <h1 className="text-h1 text-white mb-8">
               Online, and genuinely global
             </h1>
           </AnimatedSection>
@@ -60,28 +60,28 @@ export default function GlobalPage() {
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
-                  <div className="font-display text-5xl font-bold text-navy-800 mb-2">60+</div>
-                  <div className="font-sans text-sm font-bold uppercase tracking-widest text-gold-600">Countries</div>
+                  <div className="font-display text-5xl font-bold text-brand-navy-800 mb-2">60+</div>
+                  <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Countries</div>
                 </div>
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
-                  <div className="font-display text-5xl font-bold text-navy-800 mb-2">1,000+</div>
-                  <div className="font-sans text-sm font-bold uppercase tracking-widest text-gold-600">Coaches</div>
+                  <div className="font-display text-5xl font-bold text-brand-navy-800 mb-2">1,000+</div>
+                  <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Coaches</div>
                 </div>
-                <div className="bg-navy-800 p-8 rounded-3xl shadow-sm border border-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden">
-                   <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500 rounded-full blur-[50px] opacity-20"></div>
-                   <div className="font-display text-3xl font-bold text-white mb-2">100%</div>
-                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-gold-400">Online & One-to-One</div>
+                <div className="bg-brand-navy-800 p-8 rounded-3xl shadow-sm border border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden">
+                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold-500 rounded-full blur-[50px] opacity-20"></div>
+                   <div className="text-h3 text-white mb-2">100%</div>
+                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-400">Online & One-to-One</div>
                 </div>
               </div>
             </AnimatedSection>
           </div>
 
-          <AnimatedSection delay={0.3} className="bg-navy-900 rounded-[40px] p-8 md:p-16 relative overflow-hidden shadow-2xl">
+          <AnimatedSection delay={0.3} className="bg-brand-navy-900 rounded-[40px] p-8 md:p-16 relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
             
             <div className="relative z-20 text-center mb-16">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How global delivery works</h2>
-              <div className="w-16 h-1 bg-gold-400 mx-auto rounded-full"></div>
+              <div className="w-16 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
@@ -91,10 +91,10 @@ export default function GlobalPage() {
                 { title: "One Network", desc: "A single global community rather than separate regional ones" },
                 { title: "Universal Standard", desc: "The same standard and credential wherever you are based" }
               ].map((item, i) => (
-                <div key={i} className="bg-navy-800/50 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-navy-800 transition-colors">
-                  <div className="text-gold-400 font-display text-3xl mb-4 italic leading-none">0{i+1}</div>
+                <div key={i} className="bg-brand-navy-800/50 backdrop-blur-sm p-8 rounded-3xl border border-subtle hover:bg-brand-navy-800 transition-colors">
+                  <div className="text-brand-gold-400 font-display text-3xl mb-4 italic leading-none">0{i+1}</div>
                   <h4 className="font-sans font-bold text-white text-lg mb-3">{item.title}</h4>
-                  <p className="font-body text-navy-200 leading-relaxed text-sm">{item.desc}</p>
+                  <p className="font-body text-brand-navy-200 leading-relaxed text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -102,10 +102,10 @@ export default function GlobalPage() {
             {/* Glowing Map Component */}
             <div className="mt-24 text-center">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">Where our coaches are</h2>
-              <p className="font-body text-xl text-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
+              <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
             </div>
             
-            <div className="relative z-20 w-full max-w-5xl mx-auto aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-white/5 bg-navy-800/30">
+            <div className="relative z-20 w-full max-w-5xl mx-auto aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-faint bg-brand-navy-800/30">
               {/* Abstract decorative map dots */}
               <div className="absolute inset-0 opacity-[0.15]" style={{
                 backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)',
@@ -131,8 +131,8 @@ export default function GlobalPage() {
                 { top: '45%', left: '70%', delay: '0.9s' }, { top: '55%', left: '75%', delay: '0.4s' },
                 { top: '35%', left: '80%', delay: '1.1s' }, { top: '80%', left: '85%', delay: '0.6s' }
               ].map((pos, i) => (
-                <div key={i} className="absolute w-2 h-2 bg-gold-400 rounded-full shadow-[0_0_15px_rgba(201,168,76,0.8)]" style={{ top: pos.top, left: pos.left }}>
-                  <div className="absolute inset-0 bg-gold-400 rounded-full animate-ping opacity-75" style={{ animationDelay: pos.delay }}></div>
+                <div key={i} className="absolute w-2 h-2 bg-brand-gold-400 rounded-full shadow-[0_0_15px_rgba(201,168,76,0.8)]" style={{ top: pos.top, left: pos.left }}>
+                  <div className="absolute inset-0 bg-brand-gold-400 rounded-full animate-ping opacity-75" style={{ animationDelay: pos.delay }}></div>
                 </div>
               ))}
             </div>

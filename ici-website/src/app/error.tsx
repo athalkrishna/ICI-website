@@ -17,18 +17,18 @@ export default function Error({
 
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
-      <h2 className="text-3xl font-display font-bold text-navy-900 mb-4">Something went wrong</h2>
-      <p className="text-gray-600 mb-8 max-w-md">
+      <h2 className="text-3xl font-display font-bold text-brand-navy-900 mb-4">Something went wrong</h2>
+      <p className="text-muted mb-8 max-w-md">
         We encountered an unexpected error while loading this page. Our technical team has been notified.
       </p>
       <div className="flex space-x-4">
         <button
           onClick={() => reset()}
-          className="bg-navy-900 text-white px-6 py-2 rounded hover:bg-navy-800 transition"
+          className="bg-brand-navy-900 text-white px-6 py-2 rounded hover:bg-brand-navy-800 transition"
         >
           Try again
         </button>
-        <Link href="/" className="bg-gray-100 text-navy-900 px-6 py-2 rounded hover:bg-gray-200 transition">
+        <Link href="/" className="bg-gray-100 text-brand-navy-900 px-6 py-2 rounded hover:bg-gray-200 transition">
           Return Home
         </Link>
       </div>

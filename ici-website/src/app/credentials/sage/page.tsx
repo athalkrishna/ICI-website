@@ -66,25 +66,25 @@ export default function SagePage() {
   ]
 
   return (
-    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-gold-500/30">
+    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+      <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
-            <div className="section-label mb-8 justify-start text-gold-400">Level 3 | Senior Professional</div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+            <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Level 3 | Senior Professional</div>
+            <h1 className="text-h1 text-white mb-6">
               Sage
             </h1>
-            <p className="font-mono text-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-gold-500 pl-4">
+            <p className="font-mono text-brand-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-brand-gold-500 pl-4">
               Credential awarded: ICI Sage Coach, post-nominal ICI-S
             </p>
-            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
+            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               A sage is not someone with all the answers, but someone whose presence helps others find their own. At this level, technique is no longer the point. Depth is. Over 90 hours of one-to-one work with a master coach, you move from doing coaching to being a coach: able to sit with the most complex clients, to work with power and the inner life, and to bring a presence that cannot be faked. This is the level that marks you out among your peers.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
@@ -108,11 +108,11 @@ export default function SagePage() {
             <div className="lg:col-span-8 space-y-16 lg:space-y-24">
               
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6 lg:mb-8">Who this level is for</h2>
+                <h2 className="text-h3 text-brand-navy-900 mb-6 lg:mb-8">Who this level is for</h2>
                 <ul className="space-y-4">
                   {forWho.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                      <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
+                    <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+                      <CheckCircle2 className="text-brand-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
                   ))}
@@ -120,39 +120,39 @@ export default function SagePage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Entry requirements</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed">
+                <h2 className="text-h3 text-brand-navy-900 mb-6">Entry requirements</h2>
+                <p className="font-body text-muted text-lg leading-relaxed">
                   Hold the ICI Architect credential and demonstrate a substantial body of coaching practice.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Format and hours</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed mb-6">
+                <h2 className="text-h3 text-brand-navy-900 mb-6">Format and hours</h2>
+                <p className="font-body text-muted text-lg leading-relaxed mb-6">
                   Delivered entirely online and one-to-one with a master coach. Your 90 hours are structured as:
                 </p>
                 <ul className="space-y-4">
-                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li className="flex items-start gap-4 text-muted font-body text-lg">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     30 hours of one-to-one online coaching and advanced supervision with a master coach
                   </li>
-                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li className="flex items-start gap-4 text-muted font-body text-lg">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     60 hours of guided self-work and research, including case work and a specialism portfolio
                   </li>
-                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg font-bold">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li className="flex items-start gap-4 text-muted font-body text-lg font-bold">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     Total: 90 hours
                   </li>
                 </ul>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">What you will be able to do</h2>
+                <h2 className="text-h3 text-brand-navy-900 mb-8">What you will be able to do</h2>
                 <ul className="space-y-4">
                   {outcomes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                      <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
+                    <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+                      <CheckCircle2 className="text-brand-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
                   ))}
@@ -160,33 +160,33 @@ export default function SagePage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">Syllabus</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed mb-8">
+                <h2 className="text-h3 text-brand-navy-900 mb-8">Syllabus</h2>
+                <p className="font-body text-muted text-lg leading-relaxed mb-8">
                   The syllabus integrates the deeper psychology, leadership application and contemplative grounding that distinguish a senior coach.
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-gold-300 transition-colors">
-                      <h4 className="font-sans font-bold text-navy-900 text-lg mb-3">{mod.title}</h4>
-                      <p className="font-body text-gray-600 leading-relaxed">{mod.desc}</p>
+                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-brand-gold-300 transition-colors">
+                      <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
+                      <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
                   ))}
                 </div>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Assessment</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed">
+                <h2 className="text-h3 text-brand-navy-900 mb-6">Assessment</h2>
+                <p className="font-body text-muted text-lg leading-relaxed">
                   Assessment combines advanced coaching demonstrations, written case studies, and a specialism portfolio that shows depth in a chosen area of practice.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">What you graduate with</h2>
+                <h2 className="text-h3 text-brand-navy-900 mb-8">What you graduate with</h2>
                 <ul className="space-y-4">
                   {graduateWith.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                      <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
+                    <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+                      <CheckCircle2 className="text-brand-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
                   ))}
@@ -199,34 +199,34 @@ export default function SagePage() {
             <div className="lg:col-span-4 relative">
               <div className="sticky top-32">
                 <AnimatedSection delay={0.2}>
-                  <div className="bg-navy-800 p-8 lg:p-10 rounded-[32px] border border-white/10 shadow-2xl">
-                    <h3 className="font-display text-2xl font-bold text-white mb-8 pb-6 border-b border-white/10">
+                  <div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-subtle shadow-2xl">
+                    <h3 className="text-h3 text-white mb-8 pb-6 border-b border-subtle">
                       Details at a glance
                     </h3>
                     <ul className="space-y-6">
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Level</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Level</div>
                         <div className="text-blue-50 font-sans">3 of 4 (Senior)</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Format</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Format</div>
                         <div className="text-blue-50 font-sans">online, one-to-one with a master coach</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Hours</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Hours</div>
                         <div className="text-blue-50 font-sans">90 total (30 coaching, 60 self-work)</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Suggested duration</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Suggested duration</div>
                         <div className="text-blue-50 font-sans">up to 6 months</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Investment</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Investment</div>
                         <div className="text-blue-50 font-sans">INR 4,95,000, exclusive of GST</div>
                       </li>
                     </ul>
 
-                    <div className="mt-10 pt-8 border-t border-white/10 flex flex-col gap-4">
+                    <div className="mt-10 pt-8 border-t border-subtle flex flex-col gap-4">
                       <Link href="/admissions" className="btn-primary w-full justify-center">
                         Apply for Sage <ChevronRight size={18} />
                       </Link>

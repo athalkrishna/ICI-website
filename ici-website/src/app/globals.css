@@ -67,6 +67,9 @@
   .text-btn { @apply font-sans font-semibold text-sm; }
   .text-nav { @apply font-sans font-medium text-sm; }
   .text-muted { @apply text-gray-600; }
+  .text-muted-dark { @apply text-blue-100/80; }
+  .border-subtle { @apply border-white/10; }
+  .border-faint { @apply border-white/5; }
 
   /* Section label — gold all-caps with decorative lines */
   .section-label {

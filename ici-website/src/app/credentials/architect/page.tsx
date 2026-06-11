@@ -62,25 +62,25 @@ export default function ArchitectPage() {
   ]
 
   return (
-    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-gold-500/30">
+    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+      <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
-            <div className="section-label mb-8 justify-start text-gold-400">Level 2 | Professional</div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+            <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Level 2 | Professional</div>
+            <h1 className="text-h1 text-white mb-6">
               Architect
             </h1>
-            <p className="font-mono text-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-gold-500 pl-4">
+            <p className="font-mono text-brand-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-brand-gold-500 pl-4">
               Credential awarded: ICI Architect Coach, post-nominal ICI-A
             </p>
-            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
+            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               Competence gets you started. Becoming an architect makes you a professional. An architect does not just react to what appears; they design and build. Over 60 hours of one-to-one work with a senior coach, you learn to work with the harder parts of real practice, emotion, resistance and complexity, and to build a coaching practice that lasts. You leave able to take on clients other coaches refer elsewhere.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
@@ -104,11 +104,11 @@ export default function ArchitectPage() {
             <div className="lg:col-span-8 space-y-16 lg:space-y-24">
               
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6 lg:mb-8">Who this level is for</h2>
+                <h2 className="text-h3 text-brand-navy-900 mb-6 lg:mb-8">Who this level is for</h2>
                 <ul className="space-y-4">
                   {forWho.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                      <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
+                    <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+                      <CheckCircle2 className="text-brand-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
                   ))}
@@ -116,39 +116,39 @@ export default function ArchitectPage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Entry requirements</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed">
+                <h2 className="text-h3 text-brand-navy-900 mb-6">Entry requirements</h2>
+                <p className="font-body text-muted text-lg leading-relaxed">
                   Hold the ICI Catalyst credential, or demonstrate equivalent training and coaching experience confirmed at interview.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Format and hours</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed mb-6">
+                <h2 className="text-h3 text-brand-navy-900 mb-6">Format and hours</h2>
+                <p className="font-body text-muted text-lg leading-relaxed mb-6">
                   Delivered entirely online and one-to-one with a senior coach. Your 60 hours are structured as:
                 </p>
                 <ul className="space-y-4">
-                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li className="flex items-start gap-4 text-muted font-body text-lg">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     20 hours of one-to-one online coaching and supervision with a senior coach
                   </li>
-                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li className="flex items-start gap-4 text-muted font-body text-lg">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     40 hours of guided self-work and research, including supervised practice and reflective assignments
                   </li>
-                  <li className="flex items-start gap-4 text-gray-600 font-body text-lg font-bold">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li className="flex items-start gap-4 text-muted font-body text-lg font-bold">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     Total: 60 hours
                   </li>
                 </ul>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">What you will be able to do</h2>
+                <h2 className="text-h3 text-brand-navy-900 mb-8">What you will be able to do</h2>
                 <ul className="space-y-4">
                   {outcomes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                      <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
+                    <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+                      <CheckCircle2 className="text-brand-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
                   ))}
@@ -156,33 +156,33 @@ export default function ArchitectPage() {
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">Syllabus</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed mb-8">
+                <h2 className="text-h3 text-brand-navy-900 mb-8">Syllabus</h2>
+                <p className="font-body text-muted text-lg leading-relaxed mb-8">
                   The syllabus deepens your craft and adds the professional and psychological range that distinguishes an advanced coach.
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-gold-300 transition-colors">
-                      <h4 className="font-sans font-bold text-navy-900 text-lg mb-3">{mod.title}</h4>
-                      <p className="font-body text-gray-600 leading-relaxed">{mod.desc}</p>
+                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-brand-gold-300 transition-colors">
+                      <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
+                      <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
                   ))}
                 </div>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-6">Assessment</h2>
-                <p className="font-body text-gray-600 text-lg leading-relaxed">
+                <h2 className="text-h3 text-brand-navy-900 mb-6">Assessment</h2>
+                <p className="font-body text-muted text-lg leading-relaxed">
                   Assessment is based on coaching across a range of clients, supervised practice logs, and a short, practical plan for your professional practice. You demonstrate not just competence but consistency.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
-                <h2 className="font-display text-3xl font-bold text-navy-900 mb-8">What you graduate with</h2>
+                <h2 className="text-h3 text-brand-navy-900 mb-8">What you graduate with</h2>
                 <ul className="space-y-4">
                   {graduateWith.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-gray-600 font-body text-lg">
-                      <CheckCircle2 className="text-gold-500 shrink-0 mt-1" size={20} />
+                    <li key={i} className="flex items-start gap-4 text-muted font-body text-lg">
+                      <CheckCircle2 className="text-brand-gold-500 shrink-0 mt-1" size={20} />
                       {item}
                     </li>
                   ))}
@@ -195,34 +195,34 @@ export default function ArchitectPage() {
             <div className="lg:col-span-4 relative">
               <div className="sticky top-32">
                 <AnimatedSection delay={0.2}>
-                  <div className="bg-navy-800 p-8 lg:p-10 rounded-[32px] border border-white/10 shadow-2xl">
-                    <h3 className="font-display text-2xl font-bold text-white mb-8 pb-6 border-b border-white/10">
+                  <div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-subtle shadow-2xl">
+                    <h3 className="text-h3 text-white mb-8 pb-6 border-b border-subtle">
                       Details at a glance
                     </h3>
                     <ul className="space-y-6">
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Level</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Level</div>
                         <div className="text-blue-50 font-sans">2 of 4 (Professional)</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Format</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Format</div>
                         <div className="text-blue-50 font-sans">online, one-to-one with a senior coach</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Hours</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Hours</div>
                         <div className="text-blue-50 font-sans">60 total (20 coaching, 40 self-work)</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Suggested duration</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Suggested duration</div>
                         <div className="text-blue-50 font-sans">up to 4 months</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-gold-400 uppercase mb-1">Investment</div>
+                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Investment</div>
                         <div className="text-blue-50 font-sans">INR 3,45,000, exclusive of GST</div>
                       </li>
                     </ul>
 
-                    <div className="mt-10 pt-8 border-t border-white/10 flex flex-col gap-4">
+                    <div className="mt-10 pt-8 border-t border-subtle flex flex-col gap-4">
                       <Link href="/admissions" className="btn-primary w-full justify-center">
                         Advance to Architect <ChevronRight size={18} />
                       </Link>

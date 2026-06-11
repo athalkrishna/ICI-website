@@ -36,10 +36,10 @@ export default function FeaturedProgrammes() {
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
         <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <div className="section-label !justify-start mb-4">Academics</div>
-            <h2 className="font-display text-4xl font-bold text-navy-700">Featured Programmes</h2>
+            <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Academics</div>
+            <h2 className="text-h2 text-brand-navy-700">Featured Programmes</h2>
           </div>
-          <Link href="/programmes" className="text-gold-600 hover:text-gold-700 font-sans font-semibold text-sm underline underline-offset-4">
+          <Link href="/programmes" className="text-brand-gold-600 hover:text-brand-gold-700 font-sans font-semibold text-sm underline underline-offset-4">
             View All Programmes
           </Link>
         </AnimatedSection>
@@ -55,14 +55,14 @@ export default function FeaturedProgrammes() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors duration-500" />
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider text-navy-700 shadow-sm">
+                  <div className="absolute inset-0 bg-brand-navy-900/10 group-hover:bg-transparent transition-colors duration-500" />
+                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider text-brand-navy-700 shadow-sm">
                     {prog.type}
                   </div>
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
-                  <h3 className="font-display text-2xl font-bold text-navy-700 mb-3 group-hover:text-gold-600 transition-colors">{prog.title}</h3>
-                  <p className="font-body text-gray-600 mb-8 flex-1 leading-relaxed">{prog.desc}</p>
+                  <h3 className="text-h3 text-brand-navy-700 mb-3 group-hover:text-brand-gold-600 transition-colors">{prog.title}</h3>
+                  <p className="font-body text-muted mb-8 flex-1 leading-relaxed">{prog.desc}</p>
                   <Link href={prog.href} className="btn-outline w-full justify-center">
                     Learn More
                   </Link>

@@ -13,10 +13,10 @@ export default async function AdminLeadsPage() {
     <div>
       <div className="flex justify-between items-end mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-1">Leads & Applications</h1>
-          <p className="text-sm text-gray-500">View and manage form submissions from the public website.</p>
+          <h1 <h1 className="text-2xl font-bold text-gray-900 mb-1">Leads & Applications</h1>
+          <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
         </div>
-        <div className="text-sm text-gray-500 font-medium bg-white px-4 py-2 border border-gray-200 rounded-lg shadow-sm">
+        <div className="text-sm text-muted font-medium bg-white px-4 py-2 border border-gray-200 rounded-lg shadow-sm">
           Total: {leads.length} leads
         </div>
       </div>
@@ -24,7 +24,7 @@ export default async function AdminLeadsPage() {
       <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm whitespace-nowrap">
-            <thead className="bg-gray-50 border-b border-gray-200 text-gray-500">
+            <thead className="bg-gray-50 border-b border-gray-200 text-muted">
               <tr>
                 <th className="px-6 py-4 font-medium">Date</th>
                 <th className="px-6 py-4 font-medium">Name</th>
@@ -49,7 +49,7 @@ export default async function AdminLeadsPage() {
                     <td className="px-6 py-4 font-medium text-gray-900">{lead.name}</td>
                     <td className="px-6 py-4">
                       <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline block">{lead.email}</a>
-                      <span className="text-xs text-gray-500">{lead.phone}</span>
+                      <span className="text-xs text-muted">{lead.phone}</span>
                     </td>
                     <td className="px-6 py-4">{lead.country}</td>
                     <td className="px-6 py-4">

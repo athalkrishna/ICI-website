@@ -31,8 +31,8 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
     <section className="py-24 bg-cream-100">
       <div className="max-w-7xl mx-auto px-4">
         <AnimatedSection className="text-center mb-16">
-          <div className="section-label mb-4">Discover Your Path</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700">{content.coaching_for_everyone_heading || 'Coaching for Everyone'}</h2>
+          <div className="text-eyebrow flex items-center gap-3 justify-center mb-4">Discover Your Path</div>
+          <h2 className="text-h2 text-brand-navy-700">{content.coaching_for_everyone_heading || 'Coaching for Everyone'}</h2>
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-8">
           {audiences.map((aud, i) => (
@@ -47,10 +47,10 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="text-gold-400 font-display italic text-lg mb-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                  <div className="text-brand-gold-400 font-display italic text-lg mb-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                     Path 0{i + 1}
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-white mb-3">{aud.title}</h3>
+                  <h3 className="text-h3 text-white mb-3">{aud.title}</h3>
                   <p className="font-body text-sm text-blue-100 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75">
                     {aud.desc}
                   </p>

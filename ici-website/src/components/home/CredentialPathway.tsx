@@ -56,20 +56,20 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
     },
   ];
   return (
-    <section className="bg-navy-900 py-32 relative overflow-hidden">
+    <section className="bg-brand-navy-900 py-32 relative overflow-hidden">
       {/* Premium Background Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-brand-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
 
         {/* Header */}
         <AnimatedSection className="text-center mb-20">
-          <div className="section-label mb-4 text-gold-400">{content.credential_eyebrow || 'The ICI Mastery Pathway'}</div>
+          <div className="text-eyebrow flex items-center gap-3 justify-center mb-4">{content.credential_eyebrow || 'The ICI Mastery Pathway'}</div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {content.credential_heading || 'Your path to mastery'}
           </h2>
-          <p className="font-body text-lg text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-lg text-muted-dark max-w-2xl mx-auto leading-relaxed">
             {content.credential_subtext || 'Four progressive levels, each a credential you carry for life, taught one-to-one and online.'}
           </p>
         </AnimatedSection>
@@ -79,15 +79,11 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
           {credentials.map((cred, i) => (
             <AnimatedSection key={cred.code} delay={i * 0.1}>
               <div 
-                className={`relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group
-                  ${cred.popular 
-                    ? 'bg-navy-800/80 border border-gold-500/40 shadow-[0_0_40px_rgba(201,168,76,0.15)] transform md:-translate-y-4' 
-                    : 'bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10'}
-                  backdrop-blur-md`}
+                className={`relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group ${cred.popular ? 'bg-brand-navy-800/80 border border-brand-gold-500/40 shadow-[0_0_40px_rgba(201,168,76,0.15)] transform md:-translate-y-4' : 'bg-white/5 border border-subtle hover:border-white/30 hover:bg-white/10'} backdrop-blur-md`}
               >
                 {/* Most popular badge */}
                 {cred.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-400 to-gold-600 text-navy-900 text-[10px] font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-gold-500/30">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-400 to-gold-600 text-brand-navy-900 text-[10px] font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-brand-gold-500/30">
                     Most Popular
                   </div>
                 )}
@@ -98,14 +94,14 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                     <Award size={14} />
                     {cred.code}
                   </div>
-                  <div className={`font-display text-6xl font-bold leading-none ${cred.popular ? 'text-gold-500/20' : 'text-white/10'} group-hover:scale-110 transition-transform duration-500`}>
+                  <div className={`font-display text-6xl font-bold leading-none ${cred.popular ? 'text-brand-gold-500/20' : 'text-white/10'} group-hover:scale-110 transition-transform duration-500`}>
                     0{i + 1}
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-3xl font-bold text-white mb-2">{cred.name}</h3>
-                <div className="font-sans text-xs text-gold-400 font-semibold tracking-widest uppercase mb-2">
+                <h3 className="text-h3 text-white mb-2">{cred.name}</h3>
+                <div className="font-sans text-xs text-brand-gold-400 font-semibold tracking-widest uppercase mb-2">
                   {cred.level}
                 </div>
                 <div className="font-mono text-sm text-blue-300 mb-6">{cred.hours}</div>
@@ -114,19 +110,18 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                 </p>
 
                 {/* Divider */}
-                <div className="border-t border-white/10 pt-8 mt-auto">
+                <div className="border-t border-subtle pt-8 mt-auto">
                   <ul className="space-y-4 text-sm text-blue-100/90 font-sans mb-8">
                     {cred.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 size={18} className="text-gold-400 shrink-0 mt-0.5" /> 
+                        <CheckCircle2 size={18} className="text-brand-gold-400 shrink-0 mt-0.5" /> 
                         <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
                   <Link
                     href={cred.href}
-                    className={`flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit
-                      ${cred.popular ? 'text-gold-400 hover:text-gold-300' : 'text-white hover:text-gold-400'}`}
+                    className={`flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit ${cred.popular ? 'text-brand-gold-400 hover:text-brand-gold-300' : 'text-white hover:text-brand-gold-400'}`}
                   >
                     Explore Pathway
                     <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
@@ -139,7 +134,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
 
         {/* CTA bar */}
         <AnimatedSection className="text-center">
-          <p className="font-body text-blue-100/80 mb-6 text-lg">Not sure which level is right for you?</p>
+          <p className="font-body text-muted-dark mb-6 text-lg">Not sure which level is right for you?</p>
           <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4">
             Not sure where to start? Speak to an advisor
             <ChevronRight size={18} />

@@ -57,12 +57,12 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
       <div className="max-w-4xl mx-auto px-4 py-24">
         
         {status === 'success' ? (
-          <AnimatedSection className="bg-white p-16 rounded-3xl shadow-xl text-center border-t-4 border-gold-500">
+          <AnimatedSection className="bg-white p-16 rounded-3xl shadow-xl text-center border-t-4 border-brand-gold-500">
             <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 size={40} className="text-green-500" />
             </div>
-            <h1 className="font-display text-4xl font-bold text-navy-900 mb-4">Application Received</h1>
-            <p className="font-body text-gray-600 text-lg mb-8 max-w-lg mx-auto">
+            <h1 className="text-h1 text-brand-navy-900 mb-4">Application Received</h1>
+            <p className="font-body text-muted text-lg mb-8 max-w-lg mx-auto">
               Thank you for taking the first step. Our admissions team will review your application and be in touch within 24-48 hours.
             </p>
             <button 
@@ -77,18 +77,18 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
             
             <div className="md:col-span-5">
               <AnimatedSection>
-                <div className="section-label !justify-start mb-4">Admissions</div>
-                <h1 className="font-display text-5xl font-bold text-navy-900 mb-6 leading-tight">{heading}</h1>
-                <p className="font-body text-gray-600 mb-10 text-lg">
+                <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Admissions</div>
+                <h1 className="text-h1 text-brand-navy-900 mb-6">{heading}</h1>
+                <p className="font-body text-muted mb-10 text-lg">
                   {body}
                 </p>
 
-                <div className="bg-navy-900 text-white p-8 rounded-2xl">
-                  <h3 className="font-sans font-bold mb-4 text-gold-400 tracking-widest uppercase text-sm">Next Steps</h3>
+                <div className="bg-brand-navy-900 text-white p-8 rounded-2xl">
+                  <h3 className="font-sans font-bold mb-4 text-brand-gold-400 tracking-widest uppercase text-sm">Next Steps</h3>
                   <ul className="space-y-4 font-body text-sm text-blue-100">
-                    <li className="flex gap-3"><span className="text-gold-500">01</span> We review your background</li>
-                    <li className="flex gap-3"><span className="text-gold-500">02</span> Brief interview with a faculty member</li>
-                    <li className="flex gap-3"><span className="text-gold-500">03</span> Official offer and enrolment</li>
+                    <li className="flex gap-3"><span className="text-brand-gold-500">01</span> We review your background</li>
+                    <li className="flex gap-3"><span className="text-brand-gold-500">02</span> Brief interview with a faculty member</li>
+                    <li className="flex gap-3"><span className="text-brand-gold-500">03</span> Official offer and enrolment</li>
                   </ul>
                 </div>
               </AnimatedSection>
@@ -101,29 +101,29 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
                     
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-navy-700">Full Name *</label>
-                        <input required name="name" type="text" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow" />
+                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Full Name *</label>
+                        <input required name="name" type="text" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-navy-700">Email Address *</label>
-                        <input required name="email" type="email" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow" />
+                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Email Address *</label>
+                        <input required name="email" type="email" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-navy-700">Phone Number *</label>
-                        <input required name="phone" type="tel" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow" />
+                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Phone Number *</label>
+                        <input required name="phone" type="tel" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-navy-700">Country of Residence *</label>
-                        <input required name="country" type="text" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow" />
+                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Country of Residence *</label>
+                        <input required name="country" type="text" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-sans font-bold uppercase tracking-widest text-navy-700">Programme Interest *</label>
-                      <select required name="programme_interest" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow">
+                      <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Programme Interest *</label>
+                      <select required name="programme_interest" className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow">
                         <option value="">Select a pathway</option>
                         <option value="Catalyst (Level 1)">Catalyst (Level 1)</option>
                         <option value="Architect (Level 2)">Architect (Level 2)</option>
@@ -134,8 +134,8 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-sans font-bold uppercase tracking-widest text-navy-700">Brief Background / Goal</label>
-                      <textarea name="message" rows={4} className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow placeholder:text-gray-400" placeholder="Tell us briefly why you want to become a coach..." />
+                      <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Brief Background / Goal</label>
+                      <textarea name="message" rows={4} className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow placeholder:text-gray-400" placeholder="Tell us briefly why you want to become a coach..." />
                     </div>
 
                     {status === 'error' && (

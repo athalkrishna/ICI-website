@@ -61,22 +61,22 @@ export default function PricingPage() {
   const { currencyCode, loading, formatPrice } = useLocalCurrency()
 
   return (
-    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
       
       {/* ── Hero Section ── */}
-      <section className="bg-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-white/5">
+      <section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
-            <div className="section-label mb-8 justify-start text-gold-400">Pricing</div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
+            <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Pricing</div>
+            <h1 className="text-h1 text-white mb-8">
               Honest pricing for serious training
             </h1>
-            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
+            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               Coaching education is an investment in a career, so we will not hide what it costs. Every level of the Mastery Pathway is delivered one-to-one and online, with real coaching hours from a professional coach and substantial guided self-work. You enrol one level at a time, and each price is complete. What you see is what you pay, plus applicable GST.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
@@ -95,19 +95,19 @@ export default function PricingPage() {
       <section className="py-24 relative z-20">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="mb-12">
-            <h2 className="font-display text-4xl font-bold text-white mb-4">The Mastery Pathway</h2>
-            <div className="w-24 h-1 bg-gold-500" />
+            <h2 className="text-h2 text-white mb-4">The Mastery Pathway</h2>
+            <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
             <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
               <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
-                  <tr className="border-b-2 border-gold-500/50">
-                    <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm w-1/4">Level & Credential</th>
-                    <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm w-1/3">Format & Hours</th>
-                    <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm">Duration</th>
-                    <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm text-right">
+                  <tr className="border-b-2 border-brand-gold-500/50">
+                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w-1/4">Level & Credential</th>
+                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w-1/3">Format & Hours</th>
+                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm">Duration</th>
+                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm text-right">
                       Price ({currencyCode}, excl. GST)
                     </th>
                     <th className="py-6 px-6"></th>
@@ -121,7 +121,7 @@ export default function PricingPage() {
                     return (
                     <tr key={i} className="hover:bg-white/5 transition-colors group">
                       <td className="py-8 px-6">
-                        <div className="font-display font-bold text-xl text-white group-hover:text-gold-400 transition-colors">
+                        <div className="font-display font-bold text-xl text-white group-hover:text-brand-gold-400 transition-colors">
                           {row.level}
                         </div>
                         <div className="font-mono text-sm text-gray-400 mt-1">{row.credential}</div>
@@ -130,7 +130,7 @@ export default function PricingPage() {
                         <div className="font-body text-blue-100/90">{row.format}.</div>
                         <div className="font-body text-blue-100/70 text-sm mt-1">{row.hours}</div>
                       </td>
-                      <td className="py-8 px-6 font-body text-blue-100/80">
+                      <td className="py-8 px-6 font-body text-muted-dark">
                         {row.duration}
                       </td>
                       <td className="py-8 px-6 text-right font-mono text-xl text-white">
@@ -181,12 +181,12 @@ export default function PricingPage() {
       </section>
 
       {/* ── Content Grid ── */}
-      <section className="py-24 bg-navy-800/30 border-t border-y border-white/5 relative z-20">
+      <section className="py-24 bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-16">
             
             <AnimatedSection>
-              <h3 className="font-display text-2xl font-bold text-white mb-8 pb-4 border-b border-white/10">
+              <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
                 What every price includes
               </h3>
               <ul className="space-y-4">
@@ -197,8 +197,8 @@ export default function PricingPage() {
                   'The right to use the credential and post-nominal letters',
                   'Membership of the ICI coaching community'
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-blue-100/80 font-body">
-                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shrink-0 mt-2.5" />
+                  <li key={i} className="flex items-start gap-3 text-muted-dark font-body">
+                    <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     {item}
                   </li>
                 ))}
@@ -206,7 +206,7 @@ export default function PricingPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <h3 className="font-display text-2xl font-bold text-white mb-8 pb-4 border-b border-white/10">
+              <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
                 How enrolment works
               </h3>
               <ol className="space-y-6">
@@ -216,8 +216,8 @@ export default function PricingPage() {
                   'Pay securely online, in full or by an agreed instalment plan.',
                   'Get matched with your coach and begin, usually within 7 working days.'
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4 text-blue-100/80 font-body">
-                    <div className="w-6 h-6 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 font-sans font-bold text-xs mt-0.5">
+                  <li key={i} className="flex gap-4 text-muted-dark font-body">
+                    <div className="w-6 h-6 rounded-full bg-brand-gold-500/20 text-brand-gold-400 flex items-center justify-center shrink-0 font-sans font-bold text-xs mt-0.5">
                       {i + 1}
                     </div>
                     {item}
@@ -228,19 +228,19 @@ export default function PricingPage() {
 
             <AnimatedSection delay={0.2} className="space-y-16">
               <div>
-                <h3 className="font-display text-2xl font-bold text-white mb-8 pb-4 border-b border-white/10">
+                <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
                   Payment options
                 </h3>
-                <p className="text-blue-100/80 font-body leading-relaxed">
+                <p className="text-muted-dark font-body leading-relaxed">
                   Pay in full at checkout, or choose an instalment option where available. Card EMI is offered by most major banks at checkout; if you would prefer an institute instalment plan, speak to an advisor and we will agree a schedule before you enrol.
                 </p>
               </div>
               
               <div>
-                <h3 className="font-display text-2xl font-bold text-white mb-8 pb-4 border-b border-white/10">
+                <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
                   GST and international clients
                 </h3>
-                <p className="text-blue-100/80 font-body leading-relaxed">
+                <p className="text-muted-dark font-body leading-relaxed">
                   All prices are exclusive of GST. Applicable GST is added at checkout for clients billed in India. International clients see the price they will be charged in their own currency at checkout.
                 </p>
               </div>
@@ -254,21 +254,21 @@ export default function PricingPage() {
       <section className="py-24 relative z-20">
         <div className="max-w-[800px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold text-white mb-4">Frequently asked questions</h2>
-            <div className="w-24 h-1 bg-gold-500 mx-auto" />
+            <h2 className="text-h2 text-white mb-4">Frequently asked questions</h2>
+            <div className="w-24 h-1 bg-brand-gold-500 mx-auto" />
           </AnimatedSection>
 
           <div className="space-y-4">
             {faqs.map((faq, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden">
+                <div className="bg-brand-navy-800/50 backdrop-blur-sm border border-subtle rounded-2xl overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
                   >
                     <span className="font-sans font-bold text-lg text-white pr-8">{faq.q}</span>
                     <ChevronDown 
-                      className={`text-gold-400 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
+                      className={`text-brand-gold-400 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
                     />
                   </button>
                   <AnimatePresence>
@@ -279,7 +279,7 @@ export default function PricingPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="px-6 pb-6 pt-2 font-body text-blue-100/80 leading-relaxed border-t border-white/5">
+                        <div className="px-6 pb-6 pt-2 font-body text-muted-dark leading-relaxed border-t border-faint">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -291,7 +291,7 @@ export default function PricingPage() {
           </div>
 
           <AnimatedSection delay={0.4} className="mt-16 text-center">
-            <p className="font-body text-blue-100/80 mb-8">Ready to begin your journey?</p>
+            <p className="font-body text-muted-dark mb-8">Ready to begin your journey?</p>
             <div className="flex flex-wrap justify-center items-center gap-4">
               <Link href="/credentials" className="btn-primary">
                 Choose your level <ChevronRight size={18} />

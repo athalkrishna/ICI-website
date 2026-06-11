@@ -129,16 +129,16 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-navy-900 text-white relative overflow-hidden">
+    <section className="py-24 bg-brand-navy-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-hero-pattern opacity-5" />
       
       {/* Decorative background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-gold-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10 mb-16">
         <AnimatedSection className="text-center">
-          <div className="section-label mb-4 text-gold-400 justify-center">Alumni Success</div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">Hear From Our Graduates</h2>
+          <div className="text-eyebrow flex items-center gap-3 mb-4 justify-center">Alumni Success</div>
+          <h2 className="text-h2 text-white">Hear From Our Graduates</h2>
         </AnimatedSection>
       </div>
 
@@ -167,15 +167,15 @@ export default function Testimonials() {
                 key={`first-${i}`} 
                 className="w-[320px] md:w-[420px] shrink-0"
               >
-                <div className="bg-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-white/10 shadow-2xl relative h-full flex flex-col hover:border-gold-500/30 transition-colors duration-300">
-                  <div className="text-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
+                <div className="bg-brand-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-subtle shadow-2xl relative h-full flex flex-col hover:border-brand-gold-500/30 transition-colors duration-300">
+                  <div className="text-brand-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
                   <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
                     "{testimonial.quote}"
                   </p>
-                  <div className="flex items-center gap-4 border-t border-white/10 pt-6 mt-auto">
+                  <div className="flex items-center gap-4 border-t border-subtle pt-6 mt-auto">
                     {/* @ts-ignore */}
                     {testimonial.image ? (
-                      <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-gold-500/30 shrink-0">
+                      <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-brand-gold-500/30 shrink-0">
                         <Image 
                           // @ts-ignore
                           src={testimonial.image} 
@@ -185,13 +185,13 @@ export default function Testimonials() {
                         />
                       </div>
                     ) : (
-                      <div className="w-14 h-14 relative rounded-full bg-navy-700/50 border-2 border-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
-                        <span className="text-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
+                      <div className="w-14 h-14 relative rounded-full bg-brand-navy-700/50 border-2 border-brand-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
+                        <span className="text-brand-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
                       </div>
                     )}
                     <div>
                       <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
-                      <div className="font-sans text-xs text-gold-400 mt-0.5">{testimonial.title}</div>
+                      <div className="font-sans text-xs text-brand-gold-400 mt-0.5">{testimonial.title}</div>
                       {testimonial.location && (
                         <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
                       )}
@@ -209,15 +209,15 @@ export default function Testimonials() {
                 key={`second-${i}`} 
                 className="w-[320px] md:w-[420px] shrink-0"
               >
-                <div className="bg-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-white/10 shadow-2xl relative h-full flex flex-col hover:border-gold-500/30 transition-colors duration-300">
-                  <div className="text-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
+                <div className="bg-brand-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-subtle shadow-2xl relative h-full flex flex-col hover:border-brand-gold-500/30 transition-colors duration-300">
+                  <div className="text-brand-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
                   <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
                     "{testimonial.quote}"
                   </p>
-                  <div className="flex items-center gap-4 border-t border-white/10 pt-6 mt-auto">
+                  <div className="flex items-center gap-4 border-t border-subtle pt-6 mt-auto">
                     {/* @ts-ignore */}
                     {testimonial.image ? (
-                      <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-gold-500/30 shrink-0">
+                      <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-brand-gold-500/30 shrink-0">
                         <Image 
                           // @ts-ignore
                           src={testimonial.image} 
@@ -227,13 +227,13 @@ export default function Testimonials() {
                         />
                       </div>
                     ) : (
-                      <div className="w-14 h-14 relative rounded-full bg-navy-700/50 border-2 border-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
-                        <span className="text-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
+                      <div className="w-14 h-14 relative rounded-full bg-brand-navy-700/50 border-2 border-brand-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
+                        <span className="text-brand-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
                       </div>
                     )}
                     <div>
                       <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
-                      <div className="font-sans text-xs text-gold-400 mt-0.5">{testimonial.title}</div>
+                      <div className="font-sans text-xs text-brand-gold-400 mt-0.5">{testimonial.title}</div>
                       {testimonial.location && (
                         <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
                       )}

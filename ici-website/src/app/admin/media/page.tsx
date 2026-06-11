@@ -44,8 +44,8 @@ export default function AdminMediaPage() {
   return (
     <div className="max-w-3xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Media Library</h1>
-        <p className="text-sm text-gray-500">Upload images and documents securely to the Bunny.net global CDN.</p>
+        <h1 <h1 className="text-2xl font-bold text-gray-900 mb-1">Media Library</h1>
+        <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 
       <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
@@ -56,7 +56,7 @@ export default function AdminMediaPage() {
             <div className="border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center hover:bg-gray-50 transition-colors">
               <UploadCloud size={40} className="mx-auto text-gray-400 mb-4" />
               <p className="text-sm font-medium text-gray-900 mb-1">Drag and drop your file here</p>
-              <p className="text-xs text-gray-500 mb-6">PNG, JPG, WEBP, or PDF up to 5MB</p>
+              <p className="text-xs text-muted mb-6">PNG, JPG, WEBP, or PDF up to 5MB</p>
               
               <div className="relative">
                 <input
@@ -68,7 +68,7 @@ export default function AdminMediaPage() {
                 />
                 <label
                   htmlFor="file-upload"
-                  className="cursor-pointer inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-gold-500"
+                  className="cursor-pointer inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-gold-500"
                 >
                   Select File
                 </label>
@@ -80,14 +80,14 @@ export default function AdminMediaPage() {
                 <div className="flex items-center gap-3">
                   <ImageIcon size={20} className="text-blue-500" />
                   <div>
-                    <p className="text-sm font-medium text-navy-900">{file.name}</p>
-                    <p className="text-xs text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                    <p className="text-sm font-medium text-brand-navy-900">{file.name}</p>
+                    <p className="text-xs text-muted">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setFile(null)}
-                  className="text-xs text-gray-500 hover:text-red-600 font-medium"
+                  className="text-xs text-muted hover:text-red-600 font-medium"
                 >
                   Remove
                 </button>
@@ -98,7 +98,7 @@ export default function AdminMediaPage() {
               <button
                 type="submit"
                 disabled={!file || status === 'uploading'}
-                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-navy-900 hover:bg-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-brand-navy-900 hover:bg-brand-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-navy-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {status === 'uploading' ? 'Uploading to CDN...' : 'Upload File'}
               </button>
@@ -126,7 +126,7 @@ export default function AdminMediaPage() {
                     type="text"
                     readOnly
                     value={uploadedUrl}
-                    className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 bg-white text-gray-600"
+                    className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 bg-white text-muted"
                   />
                   <button
                     onClick={copyToClipboard}

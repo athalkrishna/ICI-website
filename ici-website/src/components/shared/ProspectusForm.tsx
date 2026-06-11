@@ -39,8 +39,8 @@ export default function ProspectusForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-navy-900/80 border border-gold-500/30 p-8 rounded-2xl text-center relative z-10">
-        <p className="font-body text-xl text-gold-400">Thank you. We will email you the prospectus shortly.</p>
+      <div className="bg-brand-navy-900/80 border border-brand-gold-500/30 p-8 rounded-2xl text-center relative z-10">
+        <p className="font-body text-xl text-brand-gold-400">Thank you. We will email you the prospectus shortly.</p>
       </div>
     )
   }
@@ -58,42 +58,42 @@ export default function ProspectusForm() {
 
       <div className="space-y-2">
         <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-          Name <span className="text-gold-500">*</span>
+          Name <span className="text-brand-gold-500">*</span>
         </label>
         <input 
           type="text" 
           id="name" 
           name="name"
           required 
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50 focus:border-brand-gold-500/50 transition-all font-body"
           placeholder="Your name"
         />
       </div>
       
       <div className="space-y-2">
         <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-          Email <span className="text-gold-500">*</span>
+          Email <span className="text-brand-gold-500">*</span>
         </label>
         <input 
           type="email" 
           id="email" 
           name="email"
           required 
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50 focus:border-brand-gold-500/50 transition-all font-body"
           placeholder="you@example.com"
         />
       </div>
 
       <div className="space-y-2">
         <label htmlFor="country" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-          Country <span className="text-gold-500">*</span>
+          Country <span className="text-brand-gold-500">*</span>
         </label>
         <select 
           id="country" 
           name="country"
           required
           defaultValue=""
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50 focus:border-brand-gold-500/50 transition-all font-body appearance-none"
         >
           <option value="" disabled>Select your country</option>
           <option value="UK">United Kingdom</option>
@@ -112,7 +112,7 @@ export default function ProspectusForm() {
           id="interest" 
           name="interest"
           defaultValue=""
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50 focus:border-brand-gold-500/50 transition-all font-body appearance-none"
         >
           <option value="" disabled>Select a specialism</option>
           <option value="Catalyst">Catalyst</option>

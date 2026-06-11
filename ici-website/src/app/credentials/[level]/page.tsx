@@ -30,7 +30,7 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
     <div className="bg-white min-h-screen pt-20">
       
       {/* ── Hero Section ── */}
-      <section className="bg-navy-900 text-white py-24 lg:py-32 relative overflow-hidden">
+      <section className="bg-brand-navy-900 text-white py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80" 
@@ -43,13 +43,13 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
         
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-gold-500/20 text-gold-400 text-sm font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8">
+            <div className="inline-flex items-center gap-2 bg-brand-gold-500/20 text-brand-gold-400 text-sm font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8">
               <Award size={16} /> {content.label || 'Level'}
             </div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+            <h1 className="text-h1 text-white mb-6">
               {content.heading || 'Credential'}
             </h1>
-            <p className="font-mono text-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-gold-500 pl-4">
+            <p className="font-mono text-brand-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-brand-gold-500 pl-4">
               {content.credential || 'ICI Coach'}
             </p>
           </AnimatedSection>

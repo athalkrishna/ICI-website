@@ -59,10 +59,10 @@ export default async function DynamicPage({ params }: PageProps) {
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <AnimatedSection>
-            <h2 className="font-display text-4xl font-bold text-navy-700 mb-6">
+            <h2 className="text-h2 text-brand-navy-700 mb-6">
               {pageData.title}
             </h2>
-            <p className="font-body text-gray-600 leading-relaxed text-lg mb-12">
+            <p className="font-body text-muted leading-relaxed text-lg mb-12">
               {pageData.desc ? pageData.desc : `Welcome to the ${pageData.title} page. This section provides detailed information regarding ${pageData.subtitle.toLowerCase()} at the International Coaching Institute.`}
             </p>
             <div className="p-16 border border-dashed border-gray-200 rounded-3xl bg-cream-50">

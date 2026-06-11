@@ -61,29 +61,29 @@ export default function ContactForm() {
       />
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="name" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
-            Name <span className="text-gold-500">*</span>
+          <label htmlFor="name" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+            Name <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="text" 
             name="name"
             id="name" 
             required 
-            className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body"
+            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
             placeholder="Your name"
           />
         </div>
         
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="email" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
-            Email <span className="text-gold-500">*</span>
+          <label htmlFor="email" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+            Email <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="email" 
             name="email"
             id="email" 
             required 
-            className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body"
+            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
             placeholder="you@example.com"
           />
         </div>
@@ -91,28 +91,28 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="phone" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
+          <label htmlFor="phone" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
             Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
             type="tel" 
             name="phone"
             id="phone" 
-            className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body"
+            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
             placeholder="+1 (555) 000-0000"
           />
         </div>
 
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="topic" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
-            What can we help with? <span className="text-gold-500">*</span>
+          <label htmlFor="topic" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+            What can we help with? <span className="text-brand-gold-500">*</span>
           </label>
           <select 
             id="topic" 
             name="topic"
             required
             defaultValue=""
-            className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body appearance-none"
+            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none"
           >
             <option value="" disabled>Select a topic</option>
             <option value="Programmes & admissions">Programmes & admissions</option>
@@ -125,15 +125,15 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col justify-end h-full relative mb-6">
-        <label htmlFor="message" className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
-          Your message <span className="text-gold-500">*</span>
+        <label htmlFor="message" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+          Your message <span className="text-brand-gold-500">*</span>
         </label>
         <textarea 
           id="message" 
           name="message"
           rows={5}
           required
-          className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body resize-none"
+          className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body resize-none"
           placeholder="How can we help you?"
         ></textarea>
       </div>
@@ -146,12 +146,12 @@ export default function ContactForm() {
               name="gdprConsent"
               type="checkbox"
               required
-              className="w-5 h-5 rounded border-white/20 bg-navy-800 text-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-0.5"
+              className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-brand-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-0.5"
             />
           </div>
           <div className="flex flex-col">
             <label htmlFor="gdprConsent" className="font-body text-sm text-blue-100/90 cursor-pointer">
-              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-gold-500">*</span>
+              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
             </label>
           </div>
         </div>
