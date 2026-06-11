@@ -36,7 +36,7 @@ export default function ContactAdmissionsPage() {
       <section className="py-24 relative z-20" id="book">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-[32px] shadow-2xl relative overflow-hidden">
+            <div className="bg-navy-900 border border-navy-700 p-8 md:p-12 rounded-[32px] shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
               
               <h2 className="font-display text-3xl font-bold text-white mb-8 relative z-10">
@@ -48,17 +48,9 @@ export default function ContactAdmissionsPage() {
           </AnimatedSection>
           
           <AnimatedSection delay={0.2} className="mt-16 text-center">
-            <p className="font-body text-gray-600 mb-8 text-lg">
+            <p className="font-body text-gray-600 text-lg">
               Or reach us directly at <a href="tel:+919819984575" className="text-navy-900 font-bold hover:text-gold-500 transition-colors">(+91) 98199 84575</a> and <a href="mailto:info@internationalcoachinginstitute.org" className="text-navy-900 font-bold hover:text-gold-500 transition-colors">info@internationalcoachinginstitute.org</a>
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
-              <Link href="#book" className="btn-primary">
-                Request a call
-              </Link>
-              <Link href="/admissions/contact" className="btn-secondary">
-                Not sure where to start? Speak to an advisor
-              </Link>
-            </div>
           </AnimatedSection>
 
         </div>

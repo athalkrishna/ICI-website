@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className="bg-navy-900 text-white pt-16 pb-8 border-t-4 border-gold-500">
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
           
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="md:col-span-2 lg:col-span-2">
              <Link href="/" className="inline-block -mt-4 md:-mt-8 -ml-4 md:-ml-6 mb-2 md:-mb-6">
                <Image src="/logo.png" alt="International Coaching Institute logo" width={300} height={90} className="w-[200px] md:w-[260px] h-auto object-contain" />
              </Link>
