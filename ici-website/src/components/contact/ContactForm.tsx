@@ -68,7 +68,7 @@ export default function ContactForm() {
             name="name"
             id="name" 
             required 
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
             placeholder="Your name"
           />
         </div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
             name="email"
             id="email" 
             required 
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
             placeholder="you@example.com"
           />
         </div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
             type="tel" 
             name="phone"
             id="phone" 
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -111,7 +111,7 @@ export default function ContactForm() {
             name="topic"
             required
             defaultValue=""
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
           >
             <option value="" disabled>Select a topic</option>
             <option value="Programmes & admissions">Programmes & admissions</option>
@@ -132,9 +132,28 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
+          className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
           placeholder="How can we help you?"
         ></textarea>
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-start space-x-3">
+          <div className="flex items-center h-5">
+            <input
+              id="gdprConsent"
+              name="gdprConsent"
+              type="checkbox"
+              required
+              className="w-4 h-4 rounded border-white/10 bg-navy-900 shadow-inner text-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="gdprConsent" className="font-body text-sm text-blue-100/90 cursor-pointer">
+              I consent to the collection and processing of my personal data in accordance with the Privacy Policy for the purpose of handling this inquiry. <span className="text-gold-500">*</span>
+            </label>
+          </div>
+        </div>
       </div>
 
       {error && (

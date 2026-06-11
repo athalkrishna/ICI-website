@@ -120,14 +120,6 @@ export default function FindACoachPage() {
             <p className="font-body text-lg text-blue-100/80 leading-relaxed mb-12">
               Every coach in this directory holds a credential that was earned, not bought. They have been trained in coaching craft, psychology, neuroscience and human behaviour, and are held to a professional standard of ethics and practice.
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
-              <Link href="/contact" className="btn-primary">
-                Browse coaches
-              </Link>
-              <Link href="/programmes" className="btn-secondary inline-flex items-center gap-2">
-                How coaching can help <ArrowRight size={18} />
-              </Link>
-            </div>
           </AnimatedSection>
         </div>
       </section>

@@ -89,7 +89,7 @@ export default function ContactForm() {
             type="text" 
             id="name" 
             {...register('name')}
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="Your full name"
           />
           {errors.name && <p className="text-red-400 text-sm">{errors.name.message}</p>}
@@ -103,7 +103,7 @@ export default function ContactForm() {
             type="email" 
             id="email" 
             {...register('email')}
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="you@example.com"
           />
           {errors.email && <p className="text-red-400 text-sm">{errors.email.message}</p>}
@@ -119,7 +119,7 @@ export default function ContactForm() {
             type="tel" 
             id="phone" 
             {...register('phone')}
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -132,7 +132,7 @@ export default function ContactForm() {
             type="text" 
             id="country" 
             {...register('country')}
-            className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="e.g. India (IST)"
           />
           {errors.country && <p className="text-red-400 text-sm">{errors.country.message}</p>}
@@ -147,7 +147,7 @@ export default function ContactForm() {
           id="discuss" 
           rows={4}
           {...register('discuss')}
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
+          className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body resize-none"
           placeholder="Tell us a bit about your background and what you're looking for..."
         ></textarea>
         {errors.discuss && <p className="text-red-400 text-sm">{errors.discuss.message}</p>}
@@ -161,7 +161,7 @@ export default function ContactForm() {
           type="text" 
           id="times" 
           {...register('times')}
-          className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
+          className="w-full bg-navy-900 shadow-inner border border-white/5 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body min-h-[44px]"
           placeholder="e.g. Wednesday afternoons, or tomorrow morning"
         />
         {errors.times && <p className="text-red-400 text-sm">{errors.times.message}</p>}
@@ -174,7 +174,7 @@ export default function ContactForm() {
               id="gdprConsent"
               type="checkbox"
               {...register('gdprConsent')}
-              className="w-4 h-4 rounded border-white/10 bg-navy-900/80 text-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-1"
+              className="w-4 h-4 rounded border-white/10 bg-navy-900 shadow-inner text-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-1"
             />
           </div>
           <div className="flex flex-col">
