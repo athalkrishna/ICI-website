@@ -37,7 +37,14 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
 
             {/* ── Logo ── */}
-            <Link href="/" className="flex items-center shrink-0 -ml-4 -mt-2">
+            <Link 
+              href="/" 
+              className={`flex items-center shrink-0 transition-all duration-300 ${
+                scrolled 
+                  ? 'bg-white/95 backdrop-blur-sm shadow-sm border border-navy-100 rounded-2xl px-3 py-1.5' 
+                  : '-ml-4 -mt-2'
+              }`}
+            >
               <Image 
                 src="/logo-transparent.png" 
                 alt="International Coaching Institute logo" 
