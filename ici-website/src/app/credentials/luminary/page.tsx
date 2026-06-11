@@ -80,7 +80,7 @@ export default function LuminaryPage() {
             <p className="font-mono text-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-gold-500 pl-4">
               Credential awarded: ICI Luminary, post-nominal ICI-L
             </p>
-            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               A luminary does not only practise the craft; they light the way for others in it. This is the highest recognition ICI offers, and it is rare on purpose. Over 120 hours of one-to-one work with our most senior faculty, you define your own coaching model, contribute something original to the field, and learn to develop other coaches. A Luminary is not just an excellent coach but a steward of the craft. This is the work of a coaching career at its summit.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">

@@ -35,10 +35,10 @@ export default function LifeCoachingPage() {
               <div className="w-16 h-[1px] bg-gradient-to-r from-gold-500 to-transparent"></div>
               <div className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Specialisation | Life Coaching</div>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-10 text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Life Coaching
             </h1>
-            <p className="font-body text-xl md:text-2xl text-blue-50 leading-relaxed font-light max-w-3xl opacity-90">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               Life coaching done well is not advice with enthusiasm. It is the skilled, patient work of helping a person see themselves clearly and move towards the life they actually want. As a life coaching focus within the Mastery Pathway, this is where most coaches begin, learning the craft that everything else builds on.
             </p>
           </AnimatedSection>

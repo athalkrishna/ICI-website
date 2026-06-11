@@ -73,10 +73,10 @@ export default function PricingPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="section-label mb-8 justify-start text-gold-400">Pricing</div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Honest pricing for serious training
             </h1>
-            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               Coaching education is an investment in a career, so we will not hide what it costs. Every level of the Mastery Pathway is delivered one-to-one and online, with real coaching hours from a professional coach and substantial guided self-work. You enrol one level at a time, and each price is complete. What you see is what you pay, plus applicable GST.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">

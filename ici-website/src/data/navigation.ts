@@ -85,20 +85,7 @@ export const navItems: NavItem[] = [
       }
     ],
   },
-  {
-    label: 'Community',
-    href: '/community',
-    children: [
-      {
-        heading: 'Network & People',
-        links: [
-          { label: 'The Community', href: '/community', desc: 'Connect with coaches worldwide' },
-          { label: 'Find a Coach', href: '/find-a-coach', desc: 'Search our certified directory' },
-          { label: 'Events', href: '/events', desc: 'Summits and masterclasses' },
-        ]
-      }
-    ]
-  },
+
   {
     label: 'Resources',
     href: '/resources',

@@ -28,7 +28,7 @@ export default function AdmissionsPage() {
             <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight">
               Joining ICI
             </h1>
-            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               Applying to ICI is meant to be human, not bureaucratic. There is no entrance exam and no long wait. We want to understand where you are, what you want to build, and which level will get you there, then help you take the next step with confidence. Here is exactly how it works.
             </p>
           </AnimatedSection>

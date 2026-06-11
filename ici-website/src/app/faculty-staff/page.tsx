@@ -30,10 +30,10 @@ export default function FacultyStaffPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="section-label mb-8 justify-start text-gold-400">For Faculty & Staff</div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               For the people who make ICI work
             </h1>
-            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               Teaching coaching well is demanding, and so is running the institute behind it. This area gives faculty and staff quick access to what they need: schedules, systems, materials and support. If you teach or work with us, start here.
             </p>
           </AnimatedSection>

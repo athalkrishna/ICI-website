@@ -24,10 +24,10 @@ export default function FacultyPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="section-label mb-8 justify-start text-gold-400">Faculty & Research</div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Taught by people who still do the work
             </h1>
-            <p className="font-body text-xl text-blue-100/80 leading-relaxed max-w-3xl mb-12">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               A coaching school is only as good as the people who teach in it. At ICI you learn from practising coaches, not career lecturers: people who carry real client work into the room with them. Alongside our teaching, we share thinking on coaching, leadership and the psychology of change, because the field only advances when practitioners keep questioning it.
             </p>
           </AnimatedSection>
@@ -39,7 +39,7 @@ export default function FacultyPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <AnimatedSection>
             <h2 className="font-display text-4xl font-bold text-white mb-6">Our faculty</h2>
-            <p className="font-body text-lg text-blue-100/80 leading-relaxed max-w-3xl mb-16">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               ICI faculty combine deep coaching experience with grounding in leadership, psychology, neuroscience and human behaviour. Many continue to coach senior leaders while they teach, so what you learn reflects how coaching actually works today. Because we teach one-to-one, you work closely with a coach matched to your level and focus.
             </p>
 

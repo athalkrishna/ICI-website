@@ -35,10 +35,10 @@ export default function ExecutiveCoachingPage() {
               <div className="w-16 h-[1px] bg-gradient-to-r from-gold-500 to-transparent"></div>
               <div className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Specialisation | Executive & Leadership</div>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-10 text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Executive & Leadership Coaching
             </h1>
-            <p className="font-body text-xl md:text-2xl text-blue-50 leading-relaxed font-light max-w-3xl opacity-90">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               Coaching a senior leader is a different discipline. The stakes are higher, the defences are subtler, and the room can feel lonely at the top. As an executive and leadership focus within the Pathway, this prepares you to coach leaders through pressure, difficult decisions and growth, grounded in how leaders actually think and behave.
             </p>
           </AnimatedSection>

@@ -27,7 +27,7 @@ export default function GlobalPage() {
               <div className="w-12 h-[1px] bg-gold-400"></div>
               <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-gold-400">Global Presence</div>
             </div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Online, and genuinely global
             </h1>
           </AnimatedSection>

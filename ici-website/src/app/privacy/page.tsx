@@ -1,4 +1,5 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import PageHeader from '@/components/shared/PageHeader'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,29 +9,28 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-navy-900 min-h-screen font-sans text-blue-50 selection:bg-gold-500/30 selection:text-gold-200">
+    <div className="flex flex-col min-h-screen">
+      <PageHeader 
+        title="Privacy Policy" 
+        subtitle="Privacy" 
+        image="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80" 
+      />
       
-      {/* ── Background Effects ── */}
-      <div className="absolute inset-0 bg-hero-pattern opacity-10 pointer-events-none" aria-hidden />
-
-      <div className="max-w-[1024px] mx-auto px-4 lg:px-8 pt-32 pb-24 relative z-20">
-        <AnimatedSection>
-          <div className="section-label mb-8 justify-start text-gold-400">Privacy</div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
-            Privacy Policy
-          </h1>
-          <p className="font-body text-sm text-gold-400 uppercase tracking-wider font-bold mb-16">
-            Last updated: [date]
-          </p>
-
-          <div className="prose prose-invert prose-lg max-w-none prose-p:text-blue-100/80 prose-li:text-blue-100/80 prose-headings:text-white prose-headings:font-display prose-headings:font-bold prose-a:text-gold-400 hover:prose-a:text-gold-300">
-            
-            <p className="lead text-xl text-white">
-              The International Coaching Institute ([legal entity name], we, us, our) respects your privacy and is committed to protecting your personal data. This policy explains what we collect, why, how we use it, and the rights you have.
+      <section className="bg-white py-24 font-sans text-navy-800 selection:bg-gold-500/30 selection:text-navy-900">
+        <div className="max-w-[1024px] mx-auto px-4 lg:px-8 relative z-20">
+          <AnimatedSection>
+            <p className="font-body text-sm text-gold-600 uppercase tracking-wider font-bold mb-16">
+              Last updated: [date]
             </p>
 
-            {/* Note to Developers/Admins */}
-            <div className="bg-navy-800/50 border border-gold-500/30 rounded-xl p-6 my-8 text-sm text-blue-100/60 font-body">
+            <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-li:text-gray-600 prose-headings:text-navy-900 prose-headings:font-display prose-headings:font-bold prose-a:text-gold-600 hover:prose-a:text-gold-700">
+              
+              <p className="lead text-xl text-navy-800">
+                The International Coaching Institute ([legal entity name], we, us, our) respects your privacy and is committed to protecting your personal data. This policy explains what we collect, why, how we use it, and the rights you have.
+              </p>
+
+              {/* Note to Developers/Admins */}
+              <div className="bg-navy-50 border border-gold-500/30 rounded-xl p-6 my-8 text-sm text-gray-600 font-body">
               <strong className="text-gold-400">Note:</strong> Plain-language starting draft, not legal advice. Have a qualified lawyer review for the jurisdictions ICI operates in, including India&apos;s Digital Personal Data Protection Act 2023 and the GDPR where EU or UK clients are involved. Fill all bracketed fields.
             </div>
 
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
           </div>
         </AnimatedSection>
       </div>
-
+      </section>
     </div>
   )
 }

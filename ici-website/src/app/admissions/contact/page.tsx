@@ -22,7 +22,7 @@ export default function ContactAdmissionsPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <div className="section-label mb-8 justify-center text-gold-400">Speak to an Advisor</div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               Not sure? Talk it through
             </h1>
             <p className="font-body text-xl text-blue-100/80 leading-relaxed mb-12">

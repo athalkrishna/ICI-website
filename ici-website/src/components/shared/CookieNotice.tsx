@@ -37,7 +37,7 @@ export default function CookieNotice() {
                 <h3 className="text-white font-display font-bold text-lg mb-2">We value your privacy</h3>
                 <p className="text-blue-100/80 font-body text-sm leading-relaxed">
                   We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and support our marketing efforts. By continuing to use our website, you agree to our{' '}
-                  <Link href="/privacy-policy" className="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">
+                  <Link href="/privacy" className="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">
                     Privacy Policy
                   </Link>
                   {' '}and our use of cookies.

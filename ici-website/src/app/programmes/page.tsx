@@ -36,11 +36,11 @@ export default function ProgrammesOverviewPage() {
               <div className="w-16 h-[1px] bg-gradient-to-r from-gold-500 to-transparent"></div>
               <div className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Programmes</div>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-10 text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] tracking-tight">
               One pathway, <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-200">many ways to serve</span>
             </h1>
-            <p className="font-body text-xl md:text-2xl text-blue-50 leading-relaxed font-light max-w-3xl opacity-90">
+            <p className="font-body text-xl md:text-2xl text-blue-100/80 leading-relaxed font-light max-w-3xl mb-12">
               Everything we teach is built around the same promise: you will leave able to coach well, not just talk about coaching. The core of ICI is the Mastery Pathway, a four-level certification journey taught one-to-one and online. Within it, you can focus on the kind of coaching that calls you, from life and executive work to business, wellness and teams. Here is how the two fit together.
             </p>
           </AnimatedSection>

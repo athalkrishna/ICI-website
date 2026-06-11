@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -179,7 +180,7 @@ export default function ContactForm() {
           </div>
           <div className="flex flex-col">
             <label htmlFor="gdprConsent" className="font-body text-sm text-blue-100/90 cursor-pointer">
-              I consent to the collection and processing of my personal data in accordance with the Privacy Policy for the purpose of handling this inquiry. <span className="text-gold-500">*</span>
+              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-gold-500">*</span>
             </label>
             {errors.gdprConsent && <p className="text-red-400 text-sm mt-1">{errors.gdprConsent.message}</p>}
           </div>

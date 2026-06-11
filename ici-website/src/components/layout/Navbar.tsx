@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { ChevronDown, Search, Menu, X } from 'lucide-react'
+import { ChevronDown, Search, Menu, X, Mail, Phone } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { navItems } from '@/data/navigation'
 import MobileMenu from './MobileMenu'
@@ -33,6 +33,18 @@ export default function Navbar() {
             : 'bg-white shadow-sm'
         }`}
       >
+        {/* ── Top Bar ── */}
+        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-navy-900 text-gray-300 border-b border-navy-800'}`}>
+          <div className="flex gap-6 items-center max-w-[1440px] mx-auto w-full px-0">
+            <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-gold-400 flex items-center gap-1.5 transition-colors">
+              <Mail size={14} /> info@internationalcoachinginstitute.org
+            </a>
+            <a href="tel:+919819984575" className="hover:text-gold-400 flex items-center gap-1.5 transition-colors">
+              <Phone size={14} /> +91 98199 84575
+            </a>
+          </div>
+        </div>
+
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-20">
 
