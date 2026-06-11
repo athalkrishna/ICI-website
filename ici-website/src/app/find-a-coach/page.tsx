@@ -38,18 +38,19 @@ export default function FindACoachPage() {
           
           <AnimatedSection>
             {/* Filter UI Shell */}
-            <div className="bg-navy-800/50 backdrop-blur-sm border border-white/10 p-6 md:p-8 rounded-[24px] mb-12">
-              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-white/10">
+            <div className="bg-gradient-to-br from-navy-800/90 to-navy-900/95 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-6 md:p-8 rounded-[24px] mb-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500 rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-white/10 relative z-10">
                 <SlidersHorizontal size={20} className="text-gold-400" />
                 <h2 className="font-sans font-bold text-lg text-white">Search and filter</h2>
               </div>
               
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                  <label className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
                     By specialism
                   </label>
-                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                  <select className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body appearance-none relative z-10">
                     <option value="">All Specialisms</option>
                     <option value="Life">Life</option>
                     <option value="Executive">Executive</option>
@@ -60,10 +61,10 @@ export default function FindACoachPage() {
                 </div>
                 
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                  <label className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
                     By level
                   </label>
-                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                  <select className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body appearance-none relative z-10">
                     <option value="">All Levels</option>
                     <option value="Catalyst">Catalyst</option>
                     <option value="Architect">Architect</option>
@@ -73,10 +74,10 @@ export default function FindACoachPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                  <label className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
                     By language
                   </label>
-                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                  <select className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body appearance-none relative z-10">
                     <option value="">All Languages</option>
                     <option value="English">English</option>
                     <option value="Spanish">Spanish</option>
@@ -85,10 +86,10 @@ export default function FindACoachPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-blue-100/50 uppercase tracking-wider">
+                  <label className="block font-sans text-xs font-bold text-gold-400 uppercase tracking-widest mb-2 relative z-10">
                     By availability
                   </label>
-                  <select className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none">
+                  <select className="w-full bg-navy-800/50 border-0 border-b-2 border-white/10 hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-gold-400 focus:bg-navy-800 transition-all font-body appearance-none relative z-10">
                     <option value="">Any Availability</option>
                     <option value="Taking clients">Taking clients</option>
                     <option value="Waitlist">Waitlist</option>
