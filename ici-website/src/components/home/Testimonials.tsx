@@ -145,8 +145,8 @@ export default function Testimonials() {
       {/* Infinite Auto-Scroller */}
       <div className="relative z-10 w-full overflow-hidden">
         {/* Fade gradients on edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-gradient-to-r from-navy-900 to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-gradient-to-l from-navy-900 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-gradient-to-r from-brand-navy-900 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-gradient-to-l from-brand-navy-900 to-transparent z-20 pointer-events-none" />
 
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           
