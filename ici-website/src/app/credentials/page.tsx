@@ -133,7 +133,7 @@ export default function CredentialsPage() {
               <AnimatedSection key={i} delay={i * 0.1}>
                 <Link href={path.href} className="group block bg-white border border-gray-100 hover:border-brand-gold-300 rounded-3xl p-8 lg:p-12 transition-all duration-300 h-full relative overflow-hidden shadow-xl hover:shadow-2xl">
                   {/* Subtle hover glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold-500/0 to-gold-500/0 group-hover:from-gold-500/5 group-hover:to-transparent transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-gold-500/0 to-brand-gold-500/0 group-hover:from-brand-gold-500/5 group-hover:to-transparent transition-colors duration-500" />
                   
                   <div className="relative z-10 flex flex-col h-full">
                     <div className={`inline-flex items-center gap-2 ${path.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8 self-start`}>
