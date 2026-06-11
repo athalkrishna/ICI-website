@@ -151,7 +151,7 @@ export default function ApplyForm() {
         <div className="grid sm:grid-cols-2 gap-4">
           {['Catalyst', 'Architect', 'Sage', 'Luminary', 'Not sure yet'].map((level) => (
             <label key={level} className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 bg-cream-50 cursor-pointer hover:border-brand-gold-500 transition-colors">
-              <input type="radio" value={level} {...register('level')} className="w-4 h-4 text-brand-gold-500 bg-white border-gray-300 focus:ring-brand-gold-500/70 min-h-[44px]" />
+              <input type="radio" value={level} {...register('level')} className="w-4 h-4 text-brand-gold-700 bg-white border-gray-300 focus:ring-brand-gold-500/70 min-h-[44px]" />
               <span className="font-body text-brand-navy-900">{level}</span>
             </label>
           ))}

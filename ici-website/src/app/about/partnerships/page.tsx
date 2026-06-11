@@ -66,7 +66,7 @@ export default function PartnershipsPage() {
                 }
               ].map((card, i) => (
                 <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 flex items-center gap-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                  <div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center text-brand-gold-500 shrink-0 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
+                  <div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center text-brand-gold-700 shrink-0 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
                     {card.icon}
                   </div>
                   <p className="font-body text-brand-navy-800 leading-relaxed text-lg font-medium">

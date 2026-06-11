@@ -108,7 +108,7 @@ export default function CredentialsPage() {
             {reasons.map((reason, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-gold-300 shadow-xl hover:shadow-2xl transition-all h-full">
-                  <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center border border-brand-gold-100 mb-6 text-brand-gold-500">
+                  <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center border border-brand-gold-100 mb-6 text-brand-gold-700">
                     <CheckCircle2 size={24} />
                   </div>
                   <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{reason.title}.</h4>

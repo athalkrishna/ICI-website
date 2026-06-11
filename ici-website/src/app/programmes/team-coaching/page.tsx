@@ -64,7 +64,7 @@ export default function TeamCoachingPage() {
                   { text: "Measure the impact of a coaching culture", icon: <LineChart size={24} /> }
                 ].map((item, i) => (
                   <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-xl hover:shadow-2xl hover:border-brand-gold-200 transition-all duration-300 group">
-                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors shadow-sm">
+                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors shadow-sm">
                       {item.icon}
                     </div>
                     <p className="font-body text-gray-700 text-lg leading-relaxed">{item.text}</p>
@@ -82,7 +82,7 @@ export default function TeamCoachingPage() {
                 <div className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-cream-50 rounded-full blur-[40px] opacity-50"></div>
                   <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
-                    <UserPlus size={24} className="text-brand-gold-500" />
+                    <UserPlus size={24} className="text-brand-gold-700" />
                     Who this suits
                   </h2>
                   <ul className="space-y-6 relative z-10">
@@ -103,7 +103,7 @@ export default function TeamCoachingPage() {
               <AnimatedSection delay={0.3}>
                 <div className="bg-cream-100 p-10 rounded-[40px] border border-brand-gold-200/50 shadow-xl">
                   <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
-                    <Compass size={24} className="text-brand-gold-500" />
+                    <Compass size={24} className="text-brand-gold-700" />
                     At a glance
                   </h2>
                   <ul className="space-y-6">

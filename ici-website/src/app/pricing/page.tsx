@@ -121,7 +121,7 @@ export default function PricingPage() {
                     return (
                     <tr key={i} className="hover:bg-white/5 transition-colors group">
                       <td className="py-8 px-6">
-                        <div className="font-display font-bold text-xl text-white group-hover:text-brand-gold-400 transition-colors">
+                        <div className="font-display font-bold text-xl text-white group-hover:text-brand-gold-700 transition-colors">
                           {row.level}
                         </div>
                         <div className="font-mono text-sm text-gray-400 mt-1">{row.credential}</div>

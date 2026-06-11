@@ -73,7 +73,7 @@ export default function AccreditationPage() {
                     { icon: <ShieldCheck />, text: "Independent review of our assessment process" }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-6 items-start group">
-                      <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center shrink-0 text-brand-gold-500 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
+                      <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center shrink-0 text-brand-gold-700 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
                         {item.icon}
                       </div>
                       <div className="pt-2.5">

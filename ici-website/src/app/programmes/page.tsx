@@ -77,10 +77,10 @@ export default function ProgrammesOverviewPage() {
                     <div className="absolute -top-20 -right-20 text-[150px] font-display font-bold text-gray-50 select-none transition-colors">
                       0{i+1}
                     </div>
-                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-500 mb-8 group-hover:scale-110 group-hover:bg-brand-gold-500 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-8 group-hover:scale-110 group-hover:bg-brand-gold-500 group-hover:text-white transition-all duration-500 shadow-sm">
                       {item.icon}
                     </div>
-                    <div className="font-sans text-xs font-bold uppercase tracking-widest text-brand-gold-500 mb-3">{item.level}</div>
+                    <div className="font-sans text-xs font-bold uppercase tracking-widest text-brand-gold-700 mb-3">{item.level}</div>
                     <h3 className="text-h3 text-brand-navy-900 mb-4">{item.title}</h3>
                     <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
                   </div>
@@ -167,7 +167,7 @@ export default function ProgrammesOverviewPage() {
                     0{i+1}
                   </div>
                   <div className="relative z-10">
-                    <span className="text-brand-gold-500 font-display text-2xl mb-6 block italic">0{i+1}</span>
+                    <span className="text-brand-gold-700 font-display text-2xl mb-6 block italic">0{i+1}</span>
                     <h3 className="font-sans font-bold text-brand-navy-800 text-2xl mb-4">{item.title}</h3>
                     <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
                   </div>
