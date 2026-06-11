@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: 'What is your refund policy?',
-    a: 'Your place is confirmed on payment. If you change your mind before your first scheduled session, tell us in writing and we will refund your fee in full, less any payment-processing charges. Once sessions have begun, fees are not refundable, but you may pause and resume your level within its suggested duration. [This interim wording must be confirmed or replaced by the institute\'s final policy and mirrored in the Terms of Service.]'
+    a: 'Your place is confirmed on payment. If you change your mind before your first scheduled session, tell us in writing and we will refund your fee in full, less any payment-processing charges. Once sessions have begun, fees are not refundable, but you may pause and resume your level within its suggested duration.'
   }
 ]
 
@@ -84,8 +84,8 @@ export default function PricingPage() {
               <Link href="/credentials" className="btn-primary w-full md:w-auto justify-center">
                 Choose your level <ChevronRight size={18} />
               </Link>
-              <Link href="/admissions" className="btn-secondary w-full md:w-auto justify-center">
-                Take the free assessment
+              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
+                Not sure where to start? Speak to an advisor
               </Link>
             </div>
           </AnimatedSection>
@@ -146,7 +146,7 @@ export default function PricingPage() {
                       </td>
                       <td className="py-8 px-6 text-right">
                         <Link 
-                          href={`/checkout/${slug}`} 
+                          href={`/apply`} 
                           className="btn-primary py-2 px-6 text-sm"
                           onClick={() => {
                             if (typeof window !== 'undefined' && (window as any).fbq) {
@@ -212,7 +212,7 @@ export default function PricingPage() {
               </h3>
               <ol className="space-y-6">
                 {[
-                  'Choose your level, or take the free assessment if you are unsure where to start.',
+                  'Choose your level, or speak to an advisor if you are unsure where to start.',
                   'Speak briefly with an advisor to confirm the right fit.',
                   'Pay securely online, in full or by an agreed instalment plan.',
                   'Get matched with your coach and begin, usually within 7 working days.'
@@ -297,8 +297,8 @@ export default function PricingPage() {
               <Link href="/credentials" className="btn-primary">
                 Choose your level <ChevronRight size={18} />
               </Link>
-              <Link href="/admissions" className="btn-secondary">
-                Take the free assessment
+              <Link href="/admissions/contact" className="btn-secondary">
+                Not sure where to start? Speak to an advisor
               </Link>
             </div>
           </AnimatedSection>

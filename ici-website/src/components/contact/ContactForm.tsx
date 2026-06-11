@@ -44,7 +44,7 @@ export default function ContactForm() {
     return (
       <div className="bg-green-50/10 border border-green-500/20 p-8 rounded-2xl text-center space-y-4">
         <h3 className="text-xl font-display font-bold text-green-400">Message Sent!</h3>
-        <p className="text-blue-100 font-body">Thank you for reaching out. A coaching advisor will be in touch with you shortly.</p>
+        <p className="text-blue-100 font-body">Thank you. An advisor will be in touch within 2 working days.</p>
       </div>
     );
   }
@@ -114,12 +114,11 @@ export default function ContactForm() {
             className="w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500/50 transition-all font-body appearance-none"
           >
             <option value="" disabled>Select a topic</option>
-            <option value="Programmes">Programmes</option>
-            <option value="Admissions">Admissions</option>
-            <option value="Organisations">Organisations</option>
-            <option value="Alumni">Alumni</option>
-            <option value="Media">Media</option>
-            <option value="Other">Other</option>
+            <option value="Programmes & admissions">Programmes & admissions</option>
+            <option value="Organisational training">Organisational training</option>
+            <option value="Alumni & community">Alumni & community</option>
+            <option value="Media & press">Media & press</option>
+            <option value="Something else">Something else</option>
           </select>
         </div>
       </div>
@@ -140,7 +139,7 @@ export default function ContactForm() {
 
       {error && (
         <div className="text-red-400 font-sans text-sm p-3 border border-red-500/30 bg-red-500/10 rounded-lg">
-          There was an error sending your message. Please try again.
+          Something went wrong. Please email info@internationalcoachinginstitute.org.
         </div>
       )}
 

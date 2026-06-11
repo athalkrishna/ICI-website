@@ -26,27 +26,6 @@ const testimonials = [
     quote: 'I have an alphabet of letters after my name from other bodies. The ICI work was the most demanding and the most useful. The Sage level changed how I work with power and ego in the room.',
     location: 'London, United Kingdom'
   },
-  {
-    name: 'Marcus Chen',
-    title: 'Founder & CEO, ICI-A',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80',
-    quote: 'As a founder, I thought coaching was about giving advice. The ICI methodology taught me how to guide my team to their own solutions. It fundamentally shifted how I lead my company.',
-    location: 'Singapore'
-  },
-  {
-    name: 'Elena Rodriguez',
-    title: 'Independent Life Coach, ICI-C',
-    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&q=80',
-    quote: 'The rigorous assessment meant I couldn\'t just rely on charm or intuition. I had to prove I could actually coach. Earning my Catalyst credential gave me the deep confidence I needed to launch my practice.',
-    location: 'Madrid, Spain'
-  },
-  {
-    name: 'David Okafor',
-    title: 'Senior HR Partner, ICI-S',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
-    quote: 'The faculty don\'t just teach coaching, they model it constantly. Being coached by master practitioners while you learn is what makes this pathway so transformative. The depth of the Sage curriculum is unmatched.',
-    location: 'Lagos, Nigeria'
-  }
 ]
 
 export default function Testimonials() {

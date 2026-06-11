@@ -27,7 +27,7 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
           <div className="section-label !justify-start mb-4">Why ICI</div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-navy-700 mb-6">{content.diff_heading || 'The ICI Difference'}</h2>
           <p className="font-body text-gray-600 mb-8 leading-relaxed text-lg">
-            Our evidence-based curriculum, world-class faculty, and global alumni network provide an unmatched environment for aspiring and established coaches to thrive.
+            Our evidence-based curriculum, world-class faculty, and supportive community provide an unmatched environment for aspiring and established coaches to thrive.
           </p>
           <ul className="space-y-6 font-sans text-navy-600">
             <li className="flex items-start gap-4">

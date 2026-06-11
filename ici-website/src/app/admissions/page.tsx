@@ -45,7 +45,7 @@ export default function AdmissionsPage() {
               <h2 className="font-display text-4xl font-bold text-navy-900 mb-12">How to apply</h2>
               <ol className="space-y-8">
                 {[
-                  'Choose your level, or take the free assessment if you are unsure.',
+                  'Choose your level, or speak to an advisor if you are unsure.',
                   'Submit a short application. It takes a few minutes and costs nothing.',
                   'Speak with an advisor to confirm the right fit and answer your questions.',
                   'Confirm your place and complete enrolment, in full or by instalments.',
@@ -78,8 +78,8 @@ export default function AdmissionsPage() {
                   <p className="text-gray-600 font-body leading-relaxed mb-6">
                     Not sure whether to start at Catalyst or higher? Our short, free assessment asks about your experience and goals and points you to the right starting place. No email wall, no pressure.
                   </p>
-                  <Link href="/admissions" className="text-gold-400 font-sans font-bold hover:text-gold-300 transition-colors inline-flex items-center gap-1">
-                    Take the free assessment <ChevronRight size={16} />
+                  <Link href="/admissions/contact" className="text-gold-400 font-sans font-bold hover:text-gold-300 transition-colors inline-flex items-center gap-1">
+                    Not sure where to start? Speak to an advisor <ChevronRight size={16} />
                   </Link>
                 </div>
               </AnimatedSection>

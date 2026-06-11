@@ -12,7 +12,7 @@ export default function FutureStudentsPage() {
   const startLinks = [
     { label: 'Explore the Mastery Pathway and find your level', icon: Compass, href: '/credentials' },
     { label: 'Understand the specialisations you can pursue', icon: Target, href: '/programmes' },
-    { label: 'Take the free assessment', icon: ClipboardCheck, href: '/admissions' },
+    { label: 'Not sure where to start?', icon: ClipboardCheck, href: '/admissions/contact' },
     { label: 'See pricing and how enrolment works', icon: CreditCard, href: '/pricing' },
     { label: 'Speak to an advisor with your questions', icon: MessageSquare, href: '/contact' },
   ]
@@ -90,8 +90,8 @@ export default function FutureStudentsPage() {
               Life coach, executive coach, business coach, wellness coach, or a coach inside an organisation. Whatever draws you, there is a path here that starts where you are and takes you somewhere real.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <Link href="/admissions" className="btn-primary">
-                Take the free assessment
+              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
+                Not sure where to start? Speak to an advisor
               </Link>
               <Link href="/credentials" className="btn-secondary inline-flex items-center gap-2">
                 Explore the pathway <ArrowRight size={18} />

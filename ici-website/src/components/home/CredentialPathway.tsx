@@ -19,6 +19,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       badge:   'bg-white/10 text-white',
       href:    '/credentials/catalyst',
       popular: false,
+      bullets: ['12 hours one-to-one coaching', '24 hours guided self-work', 'Final assessment & credential']
     },
     {
       code:    'L2',
@@ -29,6 +30,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       badge:   'bg-gold-500/20 text-gold-400',
       href:    '/credentials/architect',
       popular: true,
+      bullets: ['20 hours one-to-one with a senior coach', '40 hours guided self-work', 'Final assessment & credential']
     },
     {
       code:    'L3',
@@ -39,6 +41,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       badge:   'bg-white/10 text-white',
       href:    '/credentials/sage',
       popular: false,
+      bullets: ['30 hours with a master coach', '60 hours self-work & specialism portfolio', 'Final assessment & credential']
     },
     {
       code:    'L4',
@@ -49,6 +52,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       badge:   'bg-purple-500/20 text-purple-300',
       href:    '/credentials/luminary',
       popular: false,
+      bullets: ['40 hours with senior faculty', '80 hours self-work & capstone', 'Conferral of the Luminary distinction']
     },
   ];
   return (
@@ -112,18 +116,12 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                 {/* Divider */}
                 <div className="border-t border-white/10 pt-8 mt-auto">
                   <ul className="space-y-4 text-sm text-blue-100/90 font-sans mb-8">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 size={18} className="text-gold-400 shrink-0 mt-0.5" /> 
-                      <span>Core competency training</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 size={18} className="text-gold-400 shrink-0 mt-0.5" /> 
-                      <span>10 hours mentor coaching</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 size={18} className="text-gold-400 shrink-0 mt-0.5" /> 
-                      <span>Final assessment & credential</span>
-                    </li>
+                    {cred.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 size={18} className="text-gold-400 shrink-0 mt-0.5" /> 
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
                   </ul>
                   <Link
                     href={cred.href}
@@ -142,8 +140,8 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
         {/* CTA bar */}
         <AnimatedSection className="text-center">
           <p className="font-body text-blue-100/80 mb-6 text-lg">Not sure which level is right for you?</p>
-          <Link href="/admissions" className="btn-primary inline-flex text-base px-8 py-4">
-            Take the Free Assessment
+          <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4">
+            Not sure where to start? Speak to an advisor
             <ChevronRight size={18} />
           </Link>
         </AnimatedSection>

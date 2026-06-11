@@ -55,8 +55,8 @@ export default function ContactAdmissionsPage() {
               <Link href="#book" className="btn-primary">
                 Request a call
               </Link>
-              <Link href="/admissions" className="btn-outline">
-                Take the free assessment
+              <Link href="/admissions/contact" className="btn-secondary">
+                Not sure where to start? Speak to an advisor
               </Link>
             </div>
           </AnimatedSection>
