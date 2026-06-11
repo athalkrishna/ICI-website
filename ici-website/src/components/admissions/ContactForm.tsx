@@ -14,6 +14,7 @@ const schema = z.object({
   discuss: z.string().min(10, 'Please tell us what you would like to discuss'),
   times: z.string().min(2, 'Please let us know your preferred times'),
   honeypot: z.string().optional(),
+  gdprConsent: z.boolean().refine(val => val === true, 'You must agree to the privacy policy'),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -164,6 +165,25 @@ export default function ContactForm() {
           placeholder="e.g. Wednesday afternoons, or tomorrow morning"
         />
         {errors.times && <p className="text-red-400 text-sm">{errors.times.message}</p>}
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-start space-x-3">
+          <div className="flex items-center h-5">
+            <input
+              id="gdprConsent"
+              type="checkbox"
+              {...register('gdprConsent')}
+              className="w-4 h-4 rounded border-white/10 bg-navy-900/80 text-gold-500 focus:ring-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="gdprConsent" className="font-body text-sm text-blue-100/90 cursor-pointer">
+              I consent to the collection and processing of my personal data in accordance with the Privacy Policy for the purpose of handling this inquiry. <span className="text-gold-500">*</span>
+            </label>
+            {errors.gdprConsent && <p className="text-red-400 text-sm mt-1">{errors.gdprConsent.message}</p>}
+          </div>
+        </div>
       </div>
 
       {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (

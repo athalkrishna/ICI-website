@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import { cookies } from 'next/headers'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import MetaPixel from '@/components/MetaPixel'
+import CookieNotice from '@/components/shared/CookieNotice'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -87,6 +88,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />
+        <CookieNotice />
       </body>
     </html>
   )
