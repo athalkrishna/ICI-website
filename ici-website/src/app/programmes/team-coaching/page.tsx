@@ -17,7 +17,7 @@ export default function TeamCoachingPage() {
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent opacity-80" aria-hidden />
+        <div className="absolute top-0 left-0 right-0 h-[2px] gradient-fade-gold opacity-80" aria-hidden />
 
         {/* Ambient Lights */}
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
@@ -32,7 +32,7 @@ export default function TeamCoachingPage() {
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
-              <div className="w-16 h-[1px] bg-gradient-to-r from-gold-500 to-transparent"></div>
+              <div className="w-16 h-[1px] gradient-accent-gold"></div>
               <div className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-brand-gold-400">Specialisation | Team & Organisational</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
