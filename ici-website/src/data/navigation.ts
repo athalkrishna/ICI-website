@@ -40,14 +40,14 @@ export const navItems: NavItem[] = [
     href:  '/programmes',
     children: [
       {
-        heading: '',
+        heading: 'Our Training',
         links: [
-          { label: 'Programmes', href: '/programmes' },
-          { label: 'Life Coaching', href: '/programmes/certified-life-coach' },
-          { label: 'Executive & Leadership', href: '/programmes/executive-coaching' },
-          { label: 'Business Coaching', href: '/programmes/business-coach' },
-          { label: 'Health & Wellness', href: '/programmes/health-wellness' },
-          { label: 'Team & Organisational', href: '/programmes/team-coaching' },
+          { label: 'Programmes', href: '/programmes', desc: 'Explore our full range of training' },
+          { label: 'Life Coaching', href: '/programmes/certified-life-coach', desc: 'Core skills for personal transformation' },
+          { label: 'Executive & Leadership', href: '/programmes/executive-coaching', desc: 'Develop leaders and senior managers' },
+          { label: 'Business Coaching', href: '/programmes/business-coach', desc: 'Scale and support entrepreneurs' },
+          { label: 'Health & Wellness', href: '/programmes/health-wellness', desc: 'Guide clients to physical wellbeing' },
+          { label: 'Team & Organisational', href: '/programmes/team-coaching', desc: 'Drive systemic team performance' },
         ],
       }
     ],
@@ -59,10 +59,10 @@ export const navItems: NavItem[] = [
       {
         heading: 'The Levels',
         links: [
-          { label: 'Catalyst (Level 1)', href: '/credentials/catalyst' },
-          { label: 'Architect (Level 2)', href: '/credentials/architect' },
-          { label: 'Sage (Level 3)', href: '/credentials/sage' },
-          { label: 'Luminary (Level 4)', href: '/credentials/luminary' },
+          { label: 'Catalyst (Level 1)', href: '/credentials/catalyst', desc: 'Foundational one-to-one certification' },
+          { label: 'Architect (Level 2)', href: '/credentials/architect', desc: 'Advanced methodology and framing' },
+          { label: 'Sage (Level 3)', href: '/credentials/sage', desc: 'Mastery in coaching presence' },
+          { label: 'Luminary (Level 4)', href: '/credentials/luminary', desc: 'The pinnacle of coaching craft' },
         ],
       }
     ],
