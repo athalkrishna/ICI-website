@@ -13,6 +13,14 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    plugins: {
+      "local-rules": (await import("eslint-plugin-local-rules")).default,
+    },
+    rules: {
+      "local-rules/enforce-design-system": "error"
+    }
+  },
 ]);
 
 export default eslintConfig;

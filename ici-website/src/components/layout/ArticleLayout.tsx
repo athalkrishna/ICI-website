@@ -37,7 +37,7 @@ export default function ArticleLayout({
               Last updated: {formattedDate}
             </p>
 
-            <div className="prose prose-lg max-w-none prose-p:text-gray-600 prose-li:text-gray-600 prose-headings:text-brand-navy-900 prose-headings:font-display prose-headings:font-bold prose-a:text-brand-gold-600 hover:prose-a:text-gold-700 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-3">
+            <div className="prose prose-lg max-w-none prose-p:text-muted-dark prose-li:text-muted-dark prose-headings:text-brand-navy-900 prose-headings:font-display prose-headings:font-bold prose-a:text-brand-gold-600 hover:prose-a:text-brand-gold-700 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-3">
               {children}
             </div>
           </AnimatedSection>

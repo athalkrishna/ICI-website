@@ -63,7 +63,7 @@ export default async function AccountPage() {
                     key={idx}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl font-sans font-medium text-sm transition-all text-left ${tab.active ? 'bg-brand-gold-500/10 text-brand-gold-400 border border-brand-gold-500/20' : 'text-blue-100/70 hover:text-white hover:bg-white/5 border border-transparent' }`}
                   >
-                    <Icon size={18} className={tab.active ? 'text-gold-400' : 'text-blue-100/40'} />
+                    <Icon size={18} className={tab.active ? 'text-brand-gold-400' : 'text-blue-100/40'} />
                     {tab.label}
                   </button>
                 )

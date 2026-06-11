@@ -122,7 +122,7 @@ export default function Navbar() {
                                         {link.label}
                                       </div>
                                       {link.desc && (
-                                        <div className="text-[12px] text-muted font-sans mt-1 line-clamp-1 group-hover:text-gray-600 transition-colors">{link.desc}</div>
+                                        <div className="text-[12px] text-muted font-sans mt-1 line-clamp-1 group-hover:text-muted-dark transition-colors">{link.desc}</div>
                                       )}
                                     </div>
                                   </Link>
