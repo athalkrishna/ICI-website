@@ -83,7 +83,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
               >
                 {/* Most popular badge */}
                 {cred.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-400 to-gold-600 text-brand-navy-900 text-[10px] font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-brand-gold-500/30">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-gold-400 to-brand-gold-600 text-brand-navy-900 text-[10px] font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-brand-gold-500/30">
                     Most Popular
                   </div>
                 )}
