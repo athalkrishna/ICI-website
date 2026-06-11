@@ -142,45 +142,108 @@ export default function Testimonials() {
         </AnimatedSection>
       </div>
 
-      {/* Static Cards Grid */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, i) => (
-            <div 
-              key={i} 
-              className="bg-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-white/10 shadow-2xl relative flex flex-col hover:border-gold-500/30 transition-colors duration-300 h-full"
-            >
-              <div className="text-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
-              <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
-                "{testimonial.quote}"
-              </p>
-              <div className="flex items-center gap-4 border-t border-white/10 pt-6 mt-auto">
-                {/* @ts-ignore */}
-                {testimonial.image ? (
-                  <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-gold-500/30 shrink-0">
-                    <Image 
-                      // @ts-ignore
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      fill 
-                      className="object-cover"
-                    />
+      {/* Infinite Auto-Scroller */}
+      <div className="relative z-10 w-full overflow-hidden">
+        {/* Fade gradients on edges */}
+        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-48 bg-gradient-to-r from-navy-900 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-48 bg-gradient-to-l from-navy-900 to-transparent z-20 pointer-events-none" />
+
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+          
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              animation: marquee 300s linear infinite;
+            }
+          `}} />
+
+          {/* First set of cards */}
+          <div className="flex gap-6 px-3">
+            {testimonials.map((testimonial, i) => (
+              <div 
+                key={`first-${i}`} 
+                className="w-[320px] md:w-[420px] shrink-0"
+              >
+                <div className="bg-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-white/10 shadow-2xl relative h-full flex flex-col hover:border-gold-500/30 transition-colors duration-300">
+                  <div className="text-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
+                  <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex items-center gap-4 border-t border-white/10 pt-6 mt-auto">
+                    {/* @ts-ignore */}
+                    {testimonial.image ? (
+                      <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-gold-500/30 shrink-0">
+                        <Image 
+                          // @ts-ignore
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          fill 
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-14 h-14 relative rounded-full bg-navy-700/50 border-2 border-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
+                        <span className="text-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
+                      </div>
+                    )}
+                    <div>
+                      <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
+                      <div className="font-sans text-xs text-gold-400 mt-0.5">{testimonial.title}</div>
+                      {testimonial.location && (
+                        <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
+                      )}
+                    </div>
                   </div>
-                ) : (
-                  <div className="w-14 h-14 relative rounded-full bg-navy-700/50 border-2 border-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
-                    <span className="text-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
-                  </div>
-                )}
-                <div>
-                  <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
-                  <div className="font-sans text-xs text-gold-400 mt-0.5">{testimonial.title}</div>
-                  {testimonial.location && (
-                    <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
-                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Duplicate set of cards for seamless infinite scroll */}
+          <div className="flex gap-6 px-3">
+            {testimonials.map((testimonial, i) => (
+              <div 
+                key={`second-${i}`} 
+                className="w-[320px] md:w-[420px] shrink-0"
+              >
+                <div className="bg-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-white/10 shadow-2xl relative h-full flex flex-col hover:border-gold-500/30 transition-colors duration-300">
+                  <div className="text-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
+                  <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex items-center gap-4 border-t border-white/10 pt-6 mt-auto">
+                    {/* @ts-ignore */}
+                    {testimonial.image ? (
+                      <div className="w-14 h-14 relative rounded-full overflow-hidden border-2 border-gold-500/30 shrink-0">
+                        <Image 
+                          // @ts-ignore
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          fill 
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-14 h-14 relative rounded-full bg-navy-700/50 border-2 border-gold-500/30 shrink-0 flex items-center justify-center shadow-inner">
+                        <span className="text-gold-400 font-display font-bold text-xl">{testimonial.name.charAt(0)}</span>
+                      </div>
+                    )}
+                    <div>
+                      <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
+                      <div className="font-sans text-xs text-gold-400 mt-0.5">{testimonial.title}</div>
+                      {testimonial.location && (
+                        <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
