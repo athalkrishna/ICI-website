@@ -4,7 +4,6 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import Link from 'next/link'
 import { ChevronRight, CheckCircle2, ChevronDown, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import type { Metadata } from 'next'
 import { useLocalCurrency } from '@/hooks/useLocalCurrency'
 
 const pricingData = [
@@ -109,7 +108,7 @@ export default function PricingPage() {
                     <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm w-1/3">Format & Hours</th>
                     <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm">Duration</th>
                     <th className="py-6 px-6 font-sans font-bold text-gold-400 uppercase tracking-widest text-sm text-right">
-                      Price (INR, excl. GST)
+                      Price ({currencyCode}, excl. GST)
                     </th>
                     <th className="py-6 px-6"></th>
                   </tr>
