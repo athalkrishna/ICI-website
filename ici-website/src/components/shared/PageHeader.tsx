@@ -21,7 +21,7 @@ export default function PageHeader({ title, subtitle, image }: Props) {
       />
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-brand-navy-900/70 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 to-transparent opacity-80" />
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
