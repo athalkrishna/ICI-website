@@ -18,8 +18,8 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
           priority
         />
         {/* Soft vignette gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-navy-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900 via-brand-navy-900/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 via-transparent to-brand-navy-900/50" />
       </div>
       
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10">
