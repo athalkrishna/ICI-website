@@ -78,7 +78,7 @@ export default function AdmissionsPage() {
                   <p className="text-muted font-body leading-relaxed mb-6">
                     Not sure whether to start at Catalyst or higher? Our short, free assessment asks about your experience and goals and points you to the right starting place. No email wall, no pressure.
                   </p>
-                  <Link href="/admissions/contact" className="text-brand-gold-400 font-sans font-bold hover:text-brand-gold-300 transition-colors inline-flex items-center gap-1">
+                  <Link href="/admissions/contact" className="text-brand-gold-700 font-sans font-bold hover:text-brand-gold-800 transition-colors inline-flex items-center gap-1">
                     Not sure where to start? Speak to an advisor <ChevronRight size={16} />
                   </Link>
                 </div>

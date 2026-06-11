@@ -34,7 +34,7 @@ export default function AdmissionsFaq() {
             >
               <span className="font-sans font-bold text-lg text-brand-navy-900 pr-8">{faq.q}</span>
               <ChevronDown 
-                className={`text-brand-gold-400 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
+                className={`text-brand-gold-700 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
               />
             </button>
             <AnimatePresence>

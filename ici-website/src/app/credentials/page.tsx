@@ -139,7 +139,7 @@ export default function CredentialsPage() {
                     <div className={`inline-flex items-center gap-2 ${path.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8 self-start`}>
                       <Award size={14} /> Level {i + 1}
                     </div>
-                    <h3 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-500 transition-colors">
+                    <h3 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
                       {path.title}
                       <span className="block text-lg font-sans font-normal text-muted mt-2">
                         {path.subline}
@@ -149,7 +149,7 @@ export default function CredentialsPage() {
                       {path.desc}
                     </p>
                     
-                    <div className="flex items-center gap-3 text-brand-gold-400 font-sans font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">
+                    <div className="flex items-center gap-3 text-brand-gold-700 font-sans font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">
                       {path.cta} <ChevronRight size={18} />
                     </div>
                   </div>
