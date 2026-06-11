@@ -13,7 +13,7 @@ export default function PartnershipsPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 text-white lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -21,7 +21,7 @@ export default function PartnershipsPage() {
 
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-navy-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
         </div>
         <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
@@ -34,7 +34,7 @@ export default function PartnershipsPage() {
             </h1>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Main Content ── */}
       <Section spacing="standard" className="lg:py-32">
@@ -42,7 +42,7 @@ export default function PartnershipsPage() {
           
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-h2 text-brand-navy-800 mb-8">Partnerships & Alliances</h2>
-            <p className="font-body text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+            <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
               Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.
             </p>
           </AnimatedSection>
@@ -67,7 +67,7 @@ export default function PartnershipsPage() {
                   desc: "Community and social-impact collaborations" 
                 }
               ].map((card, i) => (
-                <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 flex items-center gap-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                <div key={i} className="bg-white rounded-3xl p-8 border border-navy-100 flex items-center gap-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                   <div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center text-brand-gold-700 shrink-0 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
                     {card.icon}
                   </div>
@@ -83,7 +83,7 @@ export default function PartnershipsPage() {
           <AnimatedSection delay={0.3}>
             <div className="max-w-4xl mx-auto bg-brand-navy-800 rounded-[40px] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[80px] opacity-20 translate-x-1/3 -translate-y-1/3"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 rounded-full blur-[80px] opacity-20 -translate-x-1/3 translate-y-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-500 rounded-full blur-[80px] opacity-20 -translate-x-1/3 translate-y-1/3"></div>
               
               <div className="relative z-10">
                 <p className="font-body text-2xl text-white mb-10 max-w-2xl mx-auto font-light leading-relaxed">

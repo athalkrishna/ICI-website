@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
       
       {/* ── Background Effects ── */}
       <div className="absolute inset-0 bg-hero-pattern opacity-10 pointer-events-none" aria-hidden />
@@ -24,7 +24,7 @@ export default function LoginPage() {
           <div className="text-center mb-10">
             <div className="text-eyebrow flex items-center gap-3 mb-6 justify-center">Log In</div>
             <h1 className="text-h1 text-white mb-4">Welcome back</h1>
-            <p className="font-body text-blue-100/70">
+            <p className="font-body text-navy-100/70">
               Log in to access your sessions, materials and account.
             </p>
           </div>
@@ -34,21 +34,21 @@ export default function LoginPage() {
             
             <form className="space-y-6 relative z-10" action={mockLogin}>
               <div className="space-y-2">
-                <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+                <label htmlFor="email" className="block font-sans text-sm font-bold text-navy-100/90 uppercase tracking-wider">
                   Email
                 </label>
                 <input 
                   type="email" 
                   id="email" 
                   required 
-                  className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
+                  className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
                   placeholder="you@example.com"
                 />
               </div>
 
               <div className="space-y-2">
                 <div className="flex justify-between items-baseline">
-                  <label htmlFor="password" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+                  <label htmlFor="password" className="block font-sans text-sm font-bold text-navy-100/90 uppercase tracking-wider">
                     Password
                   </label>
                   <Link href="#" className="text-sm font-body text-brand-gold-400 hover:text-brand-gold-300 transition-colors">
@@ -59,7 +59,7 @@ export default function LoginPage() {
                   type="password" 
                   id="password" 
                   required 
-                  className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
+                  className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
                   placeholder="••••••••"
                 />
               </div>
@@ -72,7 +72,7 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-8 text-center relative z-10">
-              <p className="font-body text-sm text-blue-100/60">
+              <p className="font-body text-sm text-navy-100/60">
                 New to ICI? <Link href="/apply" className="text-brand-gold-400 hover:text-brand-gold-300 transition-colors font-medium">Apply here.</Link>
               </p>
             </div>

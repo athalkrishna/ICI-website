@@ -13,18 +13,18 @@ export default async function AdminLeadsPage() {
     <div>
       <div className="flex justify-between items-end mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-1">Leads & Applications</h1>
+          <h1 className="text-2xl font-bold text-navy-900 mb-1">Leads & Applications</h1>
           <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
         </div>
-        <div className="text-sm text-muted font-medium bg-white px-4 py-2 border border-gray-200 rounded-lg shadow-sm">
+        <div className="text-sm text-muted font-medium bg-white px-4 py-2 border border-navy-200 rounded-lg shadow-sm">
           Total: {leads.length} leads
         </div>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-navy-200 rounded-xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm whitespace-nowrap">
-            <thead className="bg-gray-50 border-b border-gray-200 text-muted">
+            <thead className="bg-cream-50 border-b border-navy-200 text-muted">
               <tr>
                 <th className="px-6 py-4 font-medium">Date</th>
                 <th className="px-6 py-4 font-medium">Name</th>
@@ -33,27 +33,27 @@ export default async function AdminLeadsPage() {
                 <th className="px-6 py-4 font-medium">Interest</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 text-gray-700">
+            <tbody className="divide-y divide-gray-100 text-navy-700">
               {leads.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-8 text-center text-gray-400">No leads found yet.</td>
+                  <td colSpan={5} className="px-6 py-8 text-center text-navy-400">No leads found yet.</td>
                 </tr>
               ) : (
                 leads.map((lead: any) => (
-                  <tr key={lead.id} className="hover:bg-gray-50 transition-colors">
+                  <tr key={lead.id} className="hover:bg-cream-50 transition-colors">
                     <td className="px-6 py-4">
                       {new Date(lead.created_at).toLocaleDateString('en-GB', {
                         day: '2-digit', month: 'short', year: 'numeric'
                       })}
                     </td>
-                    <td className="px-6 py-4 font-medium text-gray-900">{lead.name}</td>
+                    <td className="px-6 py-4 font-medium text-navy-900">{lead.name}</td>
                     <td className="px-6 py-4">
-                      <a href={`mailto:${lead.email}`} className="text-blue-600 hover:underline block">{lead.email}</a>
+                      <a href={`mailto:${lead.email}`} className="text-navy-600 hover:underline block">{lead.email}</a>
                       <span className="text-xs text-muted">{lead.phone}</span>
                     </td>
                     <td className="px-6 py-4">{lead.country}</td>
                     <td className="px-6 py-4">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-navy-50 text-navy-700 border border-navy-100">
                         {lead.programme_interest}
                       </span>
                     </td>

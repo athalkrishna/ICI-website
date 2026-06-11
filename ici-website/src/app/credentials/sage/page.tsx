@@ -168,7 +168,7 @@ export default function SagePage() {
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-brand-gold-300 transition-colors">
+                    <div key={i} className="bg-white p-8 rounded-2xl border border-navy-100 shadow-xl hover:border-brand-gold-300 transition-colors">
                       <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
                       <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
@@ -208,23 +208,23 @@ export default function SagePage() {
                     <ul className="space-y-6">
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Level</div>
-                        <div className="text-blue-50 font-sans">3 of 4 (Senior)</div>
+                        <div className="text-navy-50 font-sans">3 of 4 (Senior)</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Format</div>
-                        <div className="text-blue-50 font-sans">online, one-to-one with a master coach</div>
+                        <div className="text-navy-50 font-sans">online, one-to-one with a master coach</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Hours</div>
-                        <div className="text-blue-50 font-sans">90 total (30 coaching, 60 self-work)</div>
+                        <div className="text-navy-50 font-sans">90 total (30 coaching, 60 self-work)</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Suggested duration</div>
-                        <div className="text-blue-50 font-sans">up to 6 months</div>
+                        <div className="text-navy-50 font-sans">up to 6 months</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Investment</div>
-                        <div className="text-blue-50 font-sans">INR 4,95,000, exclusive of GST</div>
+                        <div className="text-navy-50 font-sans">INR 4,95,000, exclusive of GST</div>
                       </li>
                     </ul>
 

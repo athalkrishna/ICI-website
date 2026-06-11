@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
       
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
+      <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
@@ -30,7 +30,7 @@ export default function BlogPage() {
             </p>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Empty State / Coming Soon ── */}
       <Section spacing="standard" className="relative z-20">
@@ -45,7 +45,7 @@ export default function BlogPage() {
               <h2 className="text-h3 text-white mb-6">
                 The first articles are on their way
               </h2>
-              <p className="font-body text-lg text-blue-100/70 leading-relaxed mb-12">
+              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-12">
                 We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.
               </p>
               
@@ -53,7 +53,7 @@ export default function BlogPage() {
                 <input 
                   type="email" 
                   required 
-                  className="flex-1 bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
+                  className="flex-1 bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
                   placeholder="Enter your email address"
                 />
                 <button type="submit" className="btn-primary py-3.5">

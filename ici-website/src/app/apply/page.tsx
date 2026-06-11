@@ -39,7 +39,7 @@ export default function ApplyPage() {
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-white border border-gray-100 p-8 md:p-12 rounded-[32px] shadow-xl relative overflow-hidden">
+            <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-100 rounded-full blur-[100px] opacity-50 translate-x-1/3 -translate-y-1/3" />
               
               <ApplyForm />

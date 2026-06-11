@@ -160,7 +160,7 @@ export default function CatalystPage() {
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-brand-gold-300 transition-colors">
+                    <div key={i} className="bg-white p-8 rounded-2xl border border-navy-100 shadow-xl hover:border-brand-gold-300 transition-colors">
                       <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
                       <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
@@ -200,23 +200,23 @@ export default function CatalystPage() {
                     <ul className="space-y-6">
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Level</div>
-                        <div className="text-blue-50 font-sans">1 of 4 (Foundation)</div>
+                        <div className="text-navy-50 font-sans">1 of 4 (Foundation)</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Format</div>
-                        <div className="text-blue-50 font-sans">online, one-to-one</div>
+                        <div className="text-navy-50 font-sans">online, one-to-one</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Hours</div>
-                        <div className="text-blue-50 font-sans">36 total (12 coaching, 24 self-work)</div>
+                        <div className="text-navy-50 font-sans">36 total (12 coaching, 24 self-work)</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Suggested duration</div>
-                        <div className="text-blue-50 font-sans">up to 3 months</div>
+                        <div className="text-navy-50 font-sans">up to 3 months</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Investment</div>
-                        <div className="text-blue-50 font-sans">INR 2,15,000, exclusive of GST</div>
+                        <div className="text-navy-50 font-sans">INR 2,15,000, exclusive of GST</div>
                       </li>
                     </ul>
 

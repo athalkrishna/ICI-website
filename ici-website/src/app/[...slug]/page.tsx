@@ -66,8 +66,8 @@ export default async function DynamicPage({ params }: PageProps) {
             <p className="font-body text-muted leading-relaxed text-lg mb-12">
               {pageData.desc ? pageData.desc : `Welcome to the ${pageData.title} page. This section provides detailed information regarding ${pageData.subtitle.toLowerCase()} at the International Coaching Institute.`}
             </p>
-            <div className="p-16 border border-dashed border-gray-200 rounded-3xl bg-cream-50">
-              <span className="text-gray-400 font-display italic text-xl">Detailed content for this section is currently being updated.</span>
+            <div className="p-16 border border-dashed border-navy-200 rounded-3xl bg-cream-50">
+              <span className="text-navy-400 font-display italic text-xl">Detailed content for this section is currently being updated.</span>
             </div>
           </AnimatedSection>
         </div>

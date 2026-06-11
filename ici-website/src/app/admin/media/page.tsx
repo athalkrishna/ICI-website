@@ -45,18 +45,18 @@ export default function AdminMediaPage() {
   return (
     <Container size="narrow">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Media Library</h1>
+        <h1 className="text-2xl font-bold text-navy-900 mb-1">Media Library</h1>
         <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-navy-200 rounded-xl shadow-sm overflow-hidden">
         <div className="p-8">
           
           <form onSubmit={handleUpload} className="space-y-6">
             
-            <div className="border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center hover:bg-gray-50 transition-colors">
-              <UploadCloud size={40} className="mx-auto text-gray-400 mb-4" />
-              <p className="text-sm font-medium text-gray-900 mb-1">Drag and drop your file here</p>
+            <div className="border-2 border-dashed border-navy-200 rounded-2xl p-12 text-center hover:bg-cream-50 transition-colors">
+              <UploadCloud size={40} className="mx-auto text-navy-400 mb-4" />
+              <p className="text-sm font-medium text-navy-900 mb-1">Drag and drop your file here</p>
               <p className="text-xs text-muted mb-6">PNG, JPG, WEBP, or PDF up to 5MB</p>
               
               <div className="relative">
@@ -69,7 +69,7 @@ export default function AdminMediaPage() {
                 />
                 <label
                   htmlFor="file-upload"
-                  className="cursor-pointer inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-gold-500"
+                  className="cursor-pointer inline-flex items-center justify-center px-4 py-2 border border-navy-300 shadow-sm text-sm font-medium rounded-md text-navy-700 bg-white hover:bg-cream-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-gold-500"
                 >
                   Select File
                 </label>
@@ -77,9 +77,9 @@ export default function AdminMediaPage() {
             </div>
 
             {file && (
-              <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-100 rounded-xl">
+              <div className="flex items-center justify-between p-4 bg-navy-50 border border-navy-100 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <ImageIcon size={20} className="text-blue-500" />
+                  <ImageIcon size={20} className="text-navy-500" />
                   <div>
                     <p className="text-sm font-medium text-brand-navy-900">{file.name}</p>
                     <p className="text-xs text-muted">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
@@ -120,18 +120,18 @@ export default function AdminMediaPage() {
               <CheckCircle2 className="text-green-600 shrink-0 mt-0.5" />
               <div className="flex-1">
                 <h3 className="text-sm font-bold text-green-900 mb-1">Upload Successful!</h3>
-                <p className="text-xs text-green-700 mb-4">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
+                <p className="text-xs text-green-600 mb-4">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
                 
                 <div className="flex rounded-md shadow-sm">
                   <input
                     type="text"
                     readOnly
                     value={uploadedUrl}
-                    className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-3 py-2 bg-white text-muted"
+                    className="flex-1 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-navy-300 px-3 py-2 bg-white text-muted"
                   />
                   <button
                     onClick={copyToClipboard}
-                    className="inline-flex items-center space-x-2 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md bg-gray-50 text-gray-700 sm:text-sm hover:bg-gray-100 transition-colors"
+                    className="inline-flex items-center space-x-2 px-4 py-2 border border-l-0 border-navy-300 rounded-r-md bg-cream-50 text-navy-700 sm:text-sm hover:bg-cream-100 transition-colors"
                   >
                     <LinkIcon size={14} />
                     <span>Copy URL</span>

@@ -28,7 +28,7 @@ export default async function AccountPage() {
   ]
 
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
       
       {/* ── Background Effects ── */}
       <div className="absolute inset-0 bg-hero-pattern opacity-5 pointer-events-none" aria-hidden />
@@ -44,7 +44,7 @@ export default async function AccountPage() {
               </h1>
             </div>
             <form action={mockLogout}>
-              <button type="submit" className="inline-flex items-center gap-2 text-sm font-bold font-sans text-blue-100/50 hover:text-white uppercase tracking-wider transition-colors cursor-pointer">
+              <button type="submit" className="inline-flex items-center gap-2 text-sm font-bold font-sans text-navy-100/50 hover:text-white uppercase tracking-wider transition-colors cursor-pointer">
                 <LogOut size={16} /> Log out
               </button>
             </form>
@@ -61,9 +61,9 @@ export default async function AccountPage() {
                 return (
                   <button 
                     key={idx}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-sans font-medium text-sm transition-all text-left ${tab.active ? 'bg-brand-gold-500/10 text-brand-gold-400 border border-brand-gold-500/20' : 'text-blue-100/70 hover:text-white hover:bg-white/5 border border-transparent' }`}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-sans font-medium text-sm transition-all text-left ${tab.active ? 'bg-brand-gold-500/10 text-brand-gold-400 border border-brand-gold-500/20' : 'text-navy-100/70 hover:text-white hover:bg-white/5 border border-transparent' }`}
                   >
-                    <Icon size={18} className={tab.active ? 'text-brand-gold-700' : 'text-blue-100/40'} />
+                    <Icon size={18} className={tab.active ? 'text-brand-gold-700' : 'text-navy-100/40'} />
                     {tab.label}
                   </button>
                 )
@@ -81,7 +81,7 @@ export default async function AccountPage() {
                   <Book size={24} />
                 </div>
                 <h2 className="text-h3 text-white mb-4">No active enrolment</h2>
-                <p className="font-body text-blue-100/70 leading-relaxed mb-8">
+                <p className="font-body text-navy-100/70 leading-relaxed mb-8">
                   You have not enrolled on a level yet. Explore the Mastery Pathway or speak to an advisor to begin your journey.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">

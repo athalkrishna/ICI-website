@@ -93,7 +93,7 @@ export default function ContactForm() {
             className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
             placeholder="Your full name"
           />
-          {errors.name && <p className="text-red-400 text-sm">{errors.name.message}</p>}
+          {errors.name && <p className="text-red-600 text-sm">{errors.name.message}</p>}
         </div>
         
         <div className="flex flex-col justify-end h-full relative">
@@ -107,14 +107,14 @@ export default function ContactForm() {
             className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
             placeholder="you@example.com"
           />
-          {errors.email && <p className="text-red-400 text-sm">{errors.email.message}</p>}
+          {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="phone" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
-            Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
+            Phone <span className="text-navy-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
             type="tel" 
@@ -136,7 +136,7 @@ export default function ContactForm() {
             className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
             placeholder="e.g. India (IST)"
           />
-          {errors.country && <p className="text-red-400 text-sm">{errors.country.message}</p>}
+          {errors.country && <p className="text-red-600 text-sm">{errors.country.message}</p>}
         </div>
       </div>
 
@@ -151,7 +151,7 @@ export default function ContactForm() {
           className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body resize-none"
           placeholder="Tell us a bit about your background and what you're looking for..."
         ></textarea>
-        {errors.discuss && <p className="text-red-400 text-sm">{errors.discuss.message}</p>}
+        {errors.discuss && <p className="text-red-600 text-sm">{errors.discuss.message}</p>}
       </div>
 
       <div className="flex flex-col justify-end h-full relative">
@@ -165,7 +165,7 @@ export default function ContactForm() {
           className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
           placeholder="e.g. Wednesday afternoons, or tomorrow morning"
         />
-        {errors.times && <p className="text-red-400 text-sm">{errors.times.message}</p>}
+        {errors.times && <p className="text-red-600 text-sm">{errors.times.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -179,10 +179,10 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="gdprConsent" className="font-body text-sm text-blue-100/90 cursor-pointer">
+            <label htmlFor="gdprConsent" className="font-body text-sm text-navy-100/90 cursor-pointer">
               I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
             </label>
-            {errors.gdprConsent && <p className="text-red-400 text-sm mt-1">{errors.gdprConsent.message}</p>}
+            {errors.gdprConsent && <p className="text-red-600 text-sm mt-1">{errors.gdprConsent.message}</p>}
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@ export default function ContactForm() {
       )}
 
       {status === 'error' && (
-        <div className="bg-red-500/10 text-red-400 p-4 rounded-xl text-sm">
+        <div className="bg-red-600/10 text-red-600 p-4 rounded-xl text-sm">
           There was an error submitting your request. Please try again later.
         </div>
       )}

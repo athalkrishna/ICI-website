@@ -12,7 +12,7 @@ export default function AnnualReportsPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 text-white lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -32,7 +32,7 @@ export default function AnnualReportsPage() {
             </h1>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Main Content ── */}
       <Section spacing="standard" className="lg:py-32">
@@ -40,13 +40,13 @@ export default function AnnualReportsPage() {
           
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-h2 text-brand-navy-800 mb-8">Annual Reports</h2>
-            <p className="font-body text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+            <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
               We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
             </p>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 md:p-14 border border-gray-100 shadow-xl shadow-brand-navy-900/5 relative overflow-hidden">
+            <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 md:p-14 border border-navy-100 shadow-xl shadow-brand-navy-900/5 relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-brand-navy-50 opacity-50 transform rotate-12">
                 <FileBarChart2 size={200} strokeWidth={1} />
               </div>
@@ -65,7 +65,7 @@ export default function AnnualReportsPage() {
                     <div className="w-8 h-8 rounded-full bg-cream-50 flex items-center justify-center shrink-0 mt-0.5 border border-brand-gold-100">
                       <div className="w-2.5 h-2.5 bg-brand-gold-500 rounded-full"></div>
                     </div>
-                    <div className="font-body text-xl text-gray-700 font-light">{item}</div>
+                    <div className="font-body text-xl text-navy-700 font-light">{item}</div>
                   </div>
                 ))}
               </div>

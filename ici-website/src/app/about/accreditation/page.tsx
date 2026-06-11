@@ -13,7 +13,7 @@ export default function AccreditationPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 text-white lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -33,7 +33,7 @@ export default function AccreditationPage() {
             </h1>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Main Content ── */}
       <Section spacing="standard">
@@ -45,10 +45,10 @@ export default function AccreditationPage() {
                 <ShieldCheck className="w-10 h-10 text-brand-gold-500" />
               </div>
               <h2 className="text-h2 text-brand-navy-800">A credential is only worth what it can be trusted to mean.</h2>
-              <p className="font-body text-xl text-gray-700 leading-relaxed font-light">
+              <p className="font-body text-xl text-navy-700 leading-relaxed font-light">
                 This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned.
               </p>
-              <p className="font-body text-lg text-gray-700 leading-relaxed">
+              <p className="font-body text-lg text-navy-700 leading-relaxed">
                 We would rather say less and be believed than claim more and be doubted.
               </p>
               
@@ -63,7 +63,7 @@ export default function AccreditationPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="bg-white p-10 lg:p-14 rounded-3xl shadow-xl shadow-brand-navy-900/5 border border-gray-100 relative overflow-hidden">
+              <div className="bg-white p-10 lg:p-14 rounded-3xl shadow-xl shadow-brand-navy-900/5 border border-navy-100 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10"></div>
                 <h3 className="font-display text-2xl font-bold text-brand-navy-800 mb-10">How we hold our standard</h3>
                 
@@ -79,7 +79,7 @@ export default function AccreditationPage() {
                         {item.icon}
                       </div>
                       <div className="pt-2.5">
-                        <span className="font-body text-lg text-gray-700 group-hover:text-brand-navy-900 transition-colors">{item.text}</span>
+                        <span className="font-body text-lg text-navy-700 group-hover:text-brand-navy-900 transition-colors">{item.text}</span>
                       </div>
                     </div>
                   ))}

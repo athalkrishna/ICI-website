@@ -43,9 +43,9 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <div className="bg-green-50/10 border border-green-500/20 p-8 rounded-2xl text-center space-y-4">
-        <h3 className="text-xl font-display font-bold text-green-400">Message Sent!</h3>
-        <p className="text-blue-100 font-body">Thank you. An advisor will be in touch within 2 working days.</p>
+      <div className="bg-green-50/10 border border-green-600/20 p-8 rounded-2xl text-center space-y-4">
+        <h3 className="text-xl font-display font-bold text-green-600">Message Sent!</h3>
+        <p className="text-navy-100 font-body">Thank you. An advisor will be in touch within 2 working days.</p>
       </div>
     );
   }
@@ -92,7 +92,7 @@ export default function ContactForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="phone" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
-            Phone <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
+            Phone <span className="text-navy-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
             type="tel" 
@@ -150,7 +150,7 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="gdprConsent" className="font-body text-sm text-blue-100/90 cursor-pointer">
+            <label htmlFor="gdprConsent" className="font-body text-sm text-navy-100/90 cursor-pointer">
               I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
             </label>
           </div>
@@ -158,7 +158,7 @@ export default function ContactForm() {
       </div>
 
       {error && (
-        <div className="text-red-400 font-sans text-sm p-3 border border-red-500/30 bg-red-500/10 rounded-lg">
+        <div className="text-red-600 font-sans text-sm p-3 border border-red-600/30 bg-red-600/10 rounded-lg">
           Something went wrong. Please email info@internationalcoachinginstitute.org.
         </div>
       )}

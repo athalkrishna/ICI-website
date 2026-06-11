@@ -32,7 +32,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
 
   return (
     <div className="bg-cream-50 min-h-screen pb-24 font-sans selection:bg-brand-gold-500/30">
-      <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-40 lg:pb-24 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl text-center mx-auto">
@@ -44,13 +44,13 @@ export default async function CheckoutPage({ params }: { params: { level: string
             </p>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       <Section spacing="compact" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-white border border-gray-100 p-8 md:p-12 rounded-[32px] shadow-xl">
-              <div className="mb-8 pb-8 border-b border-gray-100">
+            <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl">
+              <div className="mb-8 pb-8 border-b border-navy-100">
                 <h2 className="font-display text-2xl font-bold text-brand-navy-900 mb-4">Order Summary</h2>
                 <div className="flex flex-wrap justify-between gap-x-4 text-muted mb-2">
                   <span>{levelInfo.title}</span>
@@ -60,7 +60,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
                   <span>GST (18%)</span>
                   <span>₹{(levelInfo.price * 0.18).toLocaleString()}</span>
                 </div>
-                <div className="flex flex-wrap justify-between gap-x-4 text-brand-navy-900 font-bold text-lg pt-4 border-t border-gray-100 mt-4">
+                <div className="flex flex-wrap justify-between gap-x-4 text-brand-navy-900 font-bold text-lg pt-4 border-t border-navy-100 mt-4">
                   <span>Total Due Today</span>
                   <span>₹{(levelInfo.price * 1.18).toLocaleString()}</span>
                 </div>

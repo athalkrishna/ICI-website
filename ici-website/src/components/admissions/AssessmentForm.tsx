@@ -37,9 +37,9 @@ export default function AssessmentForm() {
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex gap-2 mb-2">
-          <div className={`h-1.5 flex-1 rounded-full ${step >= 1 ? 'bg-brand-gold-500' : 'bg-gray-100'}`} />
-          <div className={`h-1.5 flex-1 rounded-full ${step >= 2 ? 'bg-brand-gold-500' : 'bg-gray-100'}`} />
-          <div className={`h-1.5 flex-1 rounded-full ${step >= 3 ? 'bg-brand-gold-500' : 'bg-gray-100'}`} />
+          <div className={`h-1.5 flex-1 rounded-full ${step >= 1 ? 'bg-brand-gold-500' : 'bg-cream-100'}`} />
+          <div className={`h-1.5 flex-1 rounded-full ${step >= 2 ? 'bg-brand-gold-500' : 'bg-cream-100'}`} />
+          <div className={`h-1.5 flex-1 rounded-full ${step >= 3 ? 'bg-brand-gold-500' : 'bg-cream-100'}`} />
         </div>
         <p className="text-xs text-muted font-sans uppercase tracking-widest text-center mt-4">
           {step === 3 ? 'Your Result' : `Step ${step} of 2`}
@@ -54,7 +54,7 @@ export default function AssessmentForm() {
               <button
                 key={opt}
                 onClick={() => { setGoal(opt); handleNext(); }}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${goal === opt ? 'border-brand-gold-500 bg-brand-gold-50/50' : 'border-gray-100 hover:border-brand-gold-300 hover:bg-gray-50'}`}
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${goal === opt ? 'border-brand-gold-500 bg-brand-gold-50/50' : 'border-navy-100 hover:border-brand-gold-300 hover:bg-cream-50'}`}
               >
                 <span className="font-sans font-medium text-brand-navy-900">{opt}</span>
               </button>
@@ -84,7 +84,7 @@ export default function AssessmentForm() {
                     }
                   }
                 }}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${experience === opt ? 'border-brand-gold-500 bg-brand-gold-50/50' : 'border-gray-100 hover:border-brand-gold-300 hover:bg-gray-50'}`}
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${experience === opt ? 'border-brand-gold-500 bg-brand-gold-50/50' : 'border-navy-100 hover:border-brand-gold-300 hover:bg-cream-50'}`}
               >
                 <span className="font-sans font-medium text-brand-navy-900">{opt}</span>
               </button>

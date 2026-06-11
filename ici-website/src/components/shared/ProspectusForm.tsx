@@ -48,8 +48,8 @@ export default function ProspectusForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 relative z-10" id="prospectus-form">
       {status === 'error' && (
-        <div className="bg-red-900/30 border border-red-500/50 p-4 rounded-xl text-center mb-6">
-          <p className="text-red-400 font-body">Something went wrong. Please email info@internationalcoachinginstitute.org</p>
+        <div className="bg-red-600/30 border border-red-600/50 p-4 rounded-xl text-center mb-6">
+          <p className="text-red-600 font-body">Something went wrong. Please email info@internationalcoachinginstitute.org</p>
         </div>
       )}
 
@@ -57,7 +57,7 @@ export default function ProspectusForm() {
       <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="space-y-2">
-        <label htmlFor="name" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-100/90 uppercase tracking-wider">
           Name <span className="text-brand-gold-500">*</span>
         </label>
         <input 
@@ -65,13 +65,13 @@ export default function ProspectusForm() {
           id="name" 
           name="name"
           required 
-          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
           placeholder="Your name"
         />
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="email" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <label htmlFor="email" className="block font-sans text-sm font-bold text-navy-100/90 uppercase tracking-wider">
           Email <span className="text-brand-gold-500">*</span>
         </label>
         <input 
@@ -79,13 +79,13 @@ export default function ProspectusForm() {
           id="email" 
           name="email"
           required 
-          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
           placeholder="you@example.com"
         />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="country" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
+        <label htmlFor="country" className="block font-sans text-sm font-bold text-navy-100/90 uppercase tracking-wider">
           Country <span className="text-brand-gold-500">*</span>
         </label>
         <select 
@@ -93,7 +93,7 @@ export default function ProspectusForm() {
           name="country"
           required
           defaultValue=""
-          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none"
         >
           <option value="" disabled>Select your country</option>
           <option value="UK">United Kingdom</option>
@@ -105,14 +105,14 @@ export default function ProspectusForm() {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="interest" className="block font-sans text-sm font-bold text-blue-100/90 uppercase tracking-wider">
-          Level or specialism of interest <span className="text-blue-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
+        <label htmlFor="interest" className="block font-sans text-sm font-bold text-navy-100/90 uppercase tracking-wider">
+          Level or specialism of interest <span className="text-navy-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
         </label>
         <select 
           id="interest" 
           name="interest"
           defaultValue=""
-          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-blue-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none"
+          className="w-full bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none"
         >
           <option value="" disabled>Select a specialism</option>
           <option value="Catalyst">Catalyst</option>
@@ -126,7 +126,7 @@ export default function ProspectusForm() {
         <button type="submit" disabled={status === 'loading'} className="btn-primary w-full justify-center py-4 text-base mb-4">
           {status === 'loading' ? 'Sending...' : 'Send me the prospectus'}
         </button>
-        <p className="font-body text-sm text-blue-100/50 leading-relaxed">
+        <p className="font-body text-sm text-navy-100/50 leading-relaxed">
           We will email you the prospectus as soon as it is released, within the next few weeks.
         </p>
       </div>

@@ -64,7 +64,7 @@ export default function EventsForm() {
         </button>
       </div>
       {status === 'error' && (
-        <p className="text-red-400 mt-4 text-sm">Something went wrong. Please try again.</p>
+        <p className="text-red-600 mt-4 text-sm">Something went wrong. Please try again.</p>
       )}
     </form>
   )

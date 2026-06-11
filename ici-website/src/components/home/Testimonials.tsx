@@ -171,7 +171,7 @@ export default function Testimonials() {
               >
                 <div className="bg-brand-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-subtle shadow-2xl relative h-full flex flex-col hover:border-brand-gold-500/30 transition-colors duration-300">
                   <div className="text-brand-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
-                  <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
+                  <p className="font-body text-navy-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-4 border-t border-subtle pt-6 mt-auto">
@@ -195,7 +195,7 @@ export default function Testimonials() {
                       <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
                       <div className="font-sans text-xs text-brand-gold-400 mt-0.5">{testimonial.title}</div>
                       {testimonial.location && (
-                        <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
+                        <div className="font-sans text-xs text-navy-400 mt-0.5">{testimonial.location}</div>
                       )}
                     </div>
                   </div>
@@ -213,7 +213,7 @@ export default function Testimonials() {
               >
                 <div className="bg-brand-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-subtle shadow-2xl relative h-full flex flex-col hover:border-brand-gold-500/30 transition-colors duration-300">
                   <div className="text-brand-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
-                  <p className="font-body text-blue-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
+                  <p className="font-body text-navy-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-4 border-t border-subtle pt-6 mt-auto">
@@ -237,7 +237,7 @@ export default function Testimonials() {
                       <div className="font-sans font-bold text-white text-sm">{testimonial.name}</div>
                       <div className="font-sans text-xs text-brand-gold-400 mt-0.5">{testimonial.title}</div>
                       {testimonial.location && (
-                        <div className="font-sans text-[10px] text-gray-400 mt-0.5">{testimonial.location}</div>
+                        <div className="font-sans text-xs text-navy-400 mt-0.5">{testimonial.location}</div>
                       )}
                     </div>
                   </div>

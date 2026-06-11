@@ -80,13 +80,13 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
       <h2 className="text-2xl font-bold mb-6 capitalize">Editing: {slug.replace('-', ' ')}</h2>
       <form onSubmit={handleSave} className="space-y-6 max-w-4xl">
         {content.map((item, index) => (
-          <div key={item.section_key} className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
+          <div key={item.section_key} className="bg-white p-4 border border-navy-200 rounded-lg shadow-sm">
             <div className="flex justify-between mb-2">
-              <label className="block text-sm font-medium text-gray-700">
-                {item.label || item.section_key} {item.required ? <span className="text-red-500">*</span> : ''}
+              <label className="block text-sm font-medium text-navy-700">
+                {item.label || item.section_key} {item.required ? <span className="text-red-600">*</span> : ''}
               </label>
               {item.previous_value !== null && item.previous_value !== item.content_value && (
-                <button type="button" onClick={() => handleUndo(index)} className="text-xs text-blue-600 hover:underline">
+                <button type="button" onClick={() => handleUndo(index)} className="text-xs text-navy-600 hover:underline">
                   Undo changes
                 </button>
               )}
@@ -95,7 +95,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
             {item.content_type === 'text' || item.content_type === 'url' ? (
               <input 
                 type="text"
-                className="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:border-brand-navy-900 focus:ring-brand-navy-900"
+                className="w-full border-navy-300 rounded-md shadow-sm p-2 border focus:border-brand-navy-900 focus:ring-brand-navy-900"
                 value={item.content_value || ''}
                 onChange={e => {
                   const newContent = [...content];
@@ -105,7 +105,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
               />
             ) : item.content_type === 'richtext' ? (
               <textarea
-                className="w-full border-gray-300 rounded-md shadow-sm p-2 border h-32 focus:border-brand-navy-900 focus:ring-brand-navy-900"
+                className="w-full border-navy-300 rounded-md shadow-sm p-2 border h-32 focus:border-brand-navy-900 focus:ring-brand-navy-900"
                 value={item.content_value || ''}
                 onChange={e => {
                   const newContent = [...content];
@@ -119,7 +119,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
           </div>
         ))}
 
-        <div className="pt-4 sticky bottom-0 bg-gray-50 p-4 border-t border-gray-200 flex justify-end">
+        <div className="pt-4 sticky bottom-0 bg-cream-50 p-4 border-t border-navy-200 flex justify-end">
           <button type="submit" className="bg-brand-navy-900 text-white px-6 py-2 rounded-md hover:bg-brand-navy-800 transition">
             Save Page Content
           </button>

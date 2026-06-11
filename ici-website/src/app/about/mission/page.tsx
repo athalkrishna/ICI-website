@@ -72,7 +72,7 @@ export default function MissionPage() {
                 { title: "Practice, not theory", desc: "Every concept is tied to what happens in a real session.", num: "03" },
                 { title: "Self-mastery first", desc: "A coach can only take a client as far as they have gone themselves.", num: "04" }
               ].map((val, i) => (
-                <div key={i} className="group relative bg-white rounded-3xl p-10 lg:p-12 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                <div key={i} className="group relative bg-white rounded-3xl p-10 lg:p-12 shadow-sm border border-navy-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-cream-50 rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110"></div>
                   <div className="text-brand-gold-200 font-display text-6xl md:text-7xl font-bold italic mb-6 leading-none">{val.num}</div>
                   <h4 className="font-display font-bold text-brand-navy-800 text-2xl mb-4 group-hover:text-brand-gold-600 transition-colors">{val.title}.</h4>

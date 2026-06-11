@@ -13,7 +13,7 @@ export default function GlobalPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 text-white lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -21,7 +21,7 @@ export default function GlobalPage() {
 
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-navy-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
         </div>
         <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
@@ -34,7 +34,7 @@ export default function GlobalPage() {
             </h1>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Main Content ── */}
       <Section spacing="standard">
@@ -42,10 +42,10 @@ export default function GlobalPage() {
           
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <AnimatedSection className="space-y-8">
-              <p className="font-body text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+              <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
                 We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
               </p>
-              <p className="font-body text-lg text-gray-700 leading-relaxed">
+              <p className="font-body text-lg text-navy-700 leading-relaxed">
                 Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
               </p>
               
@@ -61,11 +61,11 @@ export default function GlobalPage() {
 
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-navy-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
                   <div className="font-display text-5xl font-bold text-brand-navy-800 mb-2">60+</div>
                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Countries</div>
                 </div>
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
+                <div className="bg-white p-8 rounded-3xl shadow-sm border border-navy-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
                   <div className="font-display text-5xl font-bold text-brand-navy-800 mb-2">1,000+</div>
                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Coaches</div>
                 </div>

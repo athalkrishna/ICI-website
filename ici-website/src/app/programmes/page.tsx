@@ -15,7 +15,7 @@ export default function ProgrammesOverviewPage() {
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -24,11 +24,11 @@ export default function ProgrammesOverviewPage() {
         {/* Ambient Lights */}
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[150px] -translate-x-1/3 translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-navy-500 rounded-full blur-[150px] -translate-x-1/3 translate-y-1/3" />
         </div>
 
         {/* Abstract typography watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[400px] font-display font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter mix-blend-overlay">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl font-display font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter mix-blend-overlay">
           ICI
         </div>
 
@@ -47,7 +47,7 @@ export default function ProgrammesOverviewPage() {
             </p>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── The Core: Mastery Pathway ── */}
       <Section spacing="standard" className="relative z-20">
@@ -75,8 +75,8 @@ export default function ProgrammesOverviewPage() {
                 { level: "Level 4", title: "Luminary", desc: "The highest distinction. Master the craft and develop others.", icon: <Sparkles /> }
               ].map((item, i) => (
                 <AnimatedSection key={i} delay={i * 0.15} className={`relative ${i % 2 === 0 ? 'lg:mt-0' : 'lg:mt-24'}`}>
-                  <div className="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 hover:border-brand-gold-300 transition-all duration-500 group shadow-xl hover:shadow-2xl relative overflow-hidden">
-                    <div className="absolute -top-20 -right-20 text-[150px] font-display font-bold text-gray-50 select-none transition-colors">
+                  <div className="bg-white p-8 md:p-10 rounded-[32px] border border-navy-100 hover:border-brand-gold-300 transition-all duration-500 group shadow-xl hover:shadow-2xl relative overflow-hidden">
+                    <div className="absolute -top-20 -right-20 text-9xl font-display font-bold text-navy-50 select-none transition-colors">
                       0{i+1}
                     </div>
                     <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-8 group-hover:scale-110 group-hover:bg-brand-gold-500 group-hover:text-white transition-all duration-500 shadow-sm">
@@ -164,8 +164,8 @@ export default function ProgrammesOverviewPage() {
               { title: "Assessed on real coaching.", desc: "Your credential reflects what you can actually do." }
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-white p-10 md:p-14 rounded-[40px] border border-gray-100 shadow-xl relative overflow-hidden group hover:border-brand-gold-200 transition-colors duration-500 h-full">
-                  <div className="absolute -right-8 -bottom-16 text-[180px] font-display font-bold text-gray-50 select-none transition-colors leading-none pointer-events-none">
+                <div className="bg-white p-10 md:p-14 rounded-[40px] border border-navy-100 shadow-xl relative overflow-hidden group hover:border-brand-gold-200 transition-colors duration-500 h-full">
+                  <div className="absolute -right-8 -bottom-16 text-9xl font-display font-bold text-navy-50 select-none transition-colors leading-none pointer-events-none">
                     0{i+1}
                   </div>
                   <div className="relative z-10">

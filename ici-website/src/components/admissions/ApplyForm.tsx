@@ -88,10 +88,10 @@ export default function ApplyForm() {
             type="text" 
             id="name" 
             {...register('name')}
-            className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="Your full name"
           />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+          {errors.name && <p className="text-red-600 text-sm">{errors.name.message}</p>}
         </div>
         
         <div className="space-y-2">
@@ -102,10 +102,10 @@ export default function ApplyForm() {
             type="email" 
             id="email" 
             {...register('email')}
-            className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="you@example.com"
           />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+          {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
         </div>
       </div>
 
@@ -118,7 +118,7 @@ export default function ApplyForm() {
             type="tel" 
             id="phone" 
             {...register('phone')}
-            className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
+            className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -131,7 +131,7 @@ export default function ApplyForm() {
             id="country" 
             defaultValue=""
             {...register('country')}
-            className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
+            className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
           >
             <option value="" disabled>Select your country</option>
             <option value="UK">United Kingdom</option>
@@ -140,7 +140,7 @@ export default function ApplyForm() {
             <option value="AU">Australia</option>
             <option value="Other">Other</option>
           </select>
-          {errors.country && <p className="text-red-500 text-sm">{errors.country.message}</p>}
+          {errors.country && <p className="text-red-600 text-sm">{errors.country.message}</p>}
         </div>
       </div>
 
@@ -150,13 +150,13 @@ export default function ApplyForm() {
         </label>
         <div className="grid sm:grid-cols-2 gap-4">
           {['Catalyst', 'Architect', 'Sage', 'Luminary', 'Not sure yet'].map((level) => (
-            <label key={level} className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 bg-cream-50 cursor-pointer hover:border-brand-gold-500 transition-colors">
-              <input type="radio" value={level} {...register('level')} className="w-4 h-4 text-brand-gold-700 bg-white border-gray-300 focus:ring-brand-gold-500/70 min-h-[44px]" />
+            <label key={level} className="flex items-center gap-3 p-4 rounded-xl border border-navy-200 bg-cream-50 cursor-pointer hover:border-brand-gold-500 transition-colors">
+              <input type="radio" value={level} {...register('level')} className="w-4 h-4 text-brand-gold-700 bg-white border-navy-300 focus:ring-brand-gold-500/70 min-h-[44px]" />
               <span className="font-body text-brand-navy-900">{level}</span>
             </label>
           ))}
         </div>
-        {errors.level && <p className="text-red-500 text-sm">{errors.level.message}</p>}
+        {errors.level && <p className="text-red-600 text-sm">{errors.level.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -167,7 +167,7 @@ export default function ApplyForm() {
           type="text" 
           id="specialism" 
           {...register('specialism')}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
+          className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
           placeholder="e.g. Executive Coaching, Health & Wellness"
         />
       </div>
@@ -180,10 +180,10 @@ export default function ApplyForm() {
           id="experience" 
           rows={3}
           {...register('experience')}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body resize-none"
+          className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body resize-none"
           placeholder="Briefly describe your background..."
         ></textarea>
-        {errors.experience && <p className="text-red-500 text-sm">{errors.experience.message}</p>}
+        {errors.experience && <p className="text-red-600 text-sm">{errors.experience.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -194,10 +194,10 @@ export default function ApplyForm() {
           id="goals" 
           rows={3}
           {...register('goals')}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body resize-none"
+          className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body resize-none"
           placeholder="What are your goals for taking this programme?"
         ></textarea>
-        {errors.goals && <p className="text-red-500 text-sm">{errors.goals.message}</p>}
+        {errors.goals && <p className="text-red-600 text-sm">{errors.goals.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -208,7 +208,7 @@ export default function ApplyForm() {
           type="text" 
           id="source" 
           {...register('source')}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
+          className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
           placeholder="e.g. LinkedIn, a colleague, Google search"
         />
       </div>
@@ -224,7 +224,7 @@ export default function ApplyForm() {
       )}
 
       {status === 'error' && (
-        <div className="bg-red-50 text-red-500 p-4 rounded-xl text-sm">
+        <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">
           There was an error submitting your application. Please try again later.
         </div>
       )}

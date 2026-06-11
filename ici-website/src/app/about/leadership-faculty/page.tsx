@@ -39,10 +39,10 @@ export default function LeadershipFacultyPage() {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center mb-16 lg:mb-32">
             <AnimatedSection className="lg:col-span-7 space-y-8">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
-              <p className="font-body text-lg md:text-xl text-gray-700 leading-relaxed">
+              <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
                 ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests.
               </p>
-              <p className="font-body text-lg md:text-xl text-gray-700 leading-relaxed">
+              <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
                 The blend of leadership thinking, applied psychology, neuroscience and reflective practice means you come to understand both the person in front of you and yourself.
               </p>
               
@@ -76,9 +76,9 @@ export default function LeadershipFacultyPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="group cursor-pointer">
-                  <div className="aspect-[3/4] bg-gray-200 rounded-2xl mb-6 overflow-hidden relative">
+                  <div className="aspect-[3/4] bg-cream-200 rounded-2xl mb-6 overflow-hidden relative">
                     <div className="absolute inset-0 bg-brand-navy-900/10 group-hover:bg-transparent transition-colors z-10"></div>
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-sans text-xs uppercase tracking-wider">
+                    <div className="absolute inset-0 flex items-center justify-center text-navy-400 font-sans text-xs uppercase tracking-wider">
                       Portrait {i}
                     </div>
                   </div>

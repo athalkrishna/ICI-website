@@ -15,7 +15,7 @@ export default function ExecutiveCoachingPage() {
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -27,7 +27,7 @@ export default function ExecutiveCoachingPage() {
         </div>
 
         {/* Abstract typography watermark */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 text-[600px] font-display font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter mix-blend-overlay">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 text-9xl font-display font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter mix-blend-overlay">
           E
         </div>
 
@@ -45,7 +45,7 @@ export default function ExecutiveCoachingPage() {
             </p>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Split Layout Content ── */}
       <Section spacing="large" className="max-w-[1440px] mx-auto px-4 lg:px-8 lg:py-48 mt-8 relative z-20">
@@ -65,11 +65,11 @@ export default function ExecutiveCoachingPage() {
                   { text: "Coach through high-stakes decisions and organisational pressure", icon: <TrendingUp size={24} /> },
                   { text: "Measure impact in terms an organisation respects", icon: <BarChart size={24} /> }
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-100 shadow-xl hover:shadow-2xl hover:border-brand-gold-200 transition-all duration-300 group">
+                  <div key={i} className="bg-white p-8 rounded-[32px] border border-navy-100 shadow-xl hover:shadow-2xl hover:border-brand-gold-200 transition-all duration-300 group">
                     <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors shadow-sm">
                       {item.icon}
                     </div>
-                    <p className="font-body text-gray-700 text-lg leading-relaxed">{item.text}</p>
+                    <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -81,7 +81,7 @@ export default function ExecutiveCoachingPage() {
             <div className="sticky top-32 space-y-8">
               
               <AnimatedSection delay={0.2}>
-                <div className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-2xl relative overflow-hidden">
+                <div className="bg-white p-10 rounded-[40px] border border-navy-100 shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-cream-50 rounded-full blur-[40px] opacity-50"></div>
                   <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
                     <UserPlus size={24} className="text-brand-gold-700" />
@@ -139,7 +139,7 @@ export default function ExecutiveCoachingPage() {
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
               <Container size="narrow" className="relative z-10">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
-                <p className="font-body text-xl md:text-2xl text-blue-100/90 leading-relaxed font-light mb-12">
+                <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
                   An executive focus suits coaches at the Architect level and above, where you work with greater complexity. Your credential and investment follow the level.
                 </p>
                 <div className="flex flex-col md:flex-row items-center gap-4 w-full">

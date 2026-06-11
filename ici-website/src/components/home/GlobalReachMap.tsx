@@ -45,7 +45,7 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
             ].map((stat) => (
               <div key={stat.label} className="bg-brand-navy-800/50 backdrop-blur-md border border-brand-navy-700/50 rounded-2xl p-6 shadow-xl transition-transform hover:-translate-y-1">
                 <div className="text-3xl lg:text-4xl font-display font-bold text-brand-gold-400 mb-2">{stat.value}</div>
-                <div className="text-[11px] lg:text-xs font-sans font-bold text-brand-navy-200 uppercase tracking-widest">{stat.label}</div>
+                <div className="text-xs lg:text-xs font-sans font-bold text-brand-navy-200 uppercase tracking-widest">{stat.label}</div>
               </div>
             ))}
           </div>

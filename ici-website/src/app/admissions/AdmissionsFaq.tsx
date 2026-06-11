@@ -27,10 +27,10 @@ export default function AdmissionsFaq() {
     <div className="space-y-4">
       {faqs.map((faq, i) => (
         <AnimatedSection key={i} delay={i * 0.1}>
-          <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div className="bg-white border border-navy-100 rounded-2xl overflow-hidden shadow-sm">
             <button
               onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+              className="w-full flex items-center justify-between p-6 text-left hover:bg-cream-50 transition-colors"
             >
               <span className="font-sans font-bold text-lg text-brand-navy-900 pr-8">{faq.q}</span>
               <ChevronDown 
@@ -45,7 +45,7 @@ export default function AdmissionsFaq() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-gray-100">
+                  <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-navy-100">
                     {faq.a}
                   </div>
                 </motion.div>

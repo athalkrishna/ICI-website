@@ -62,7 +62,7 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
       <Section spacing="standard">
         <Container>
           <AnimatedSection className="max-w-3xl">
-            <p className="font-body text-xl text-gray-700 leading-relaxed mb-10">
+            <p className="font-body text-xl text-navy-700 leading-relaxed mb-10">
               {content.body || 'Details about this coaching credential level.'}
             </p>
             <Link href="/apply" className="btn-primary text-base px-8 py-4 inline-flex">

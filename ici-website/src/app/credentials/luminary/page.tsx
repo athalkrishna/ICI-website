@@ -70,7 +70,7 @@ export default function LuminaryPage() {
       <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-500 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-navy-500 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
         <Container className="relative z-20">
@@ -164,7 +164,7 @@ export default function LuminaryPage() {
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:border-brand-gold-300 transition-colors">
+                    <div key={i} className="bg-white p-8 rounded-2xl border border-navy-100 shadow-xl hover:border-brand-gold-300 transition-colors">
                       <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
                       <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
@@ -204,23 +204,23 @@ export default function LuminaryPage() {
                     <ul className="space-y-6">
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Level</div>
-                        <div className="text-blue-50 font-sans">4 of 4 (Highest distinction)</div>
+                        <div className="text-navy-50 font-sans">4 of 4 (Highest distinction)</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Format</div>
-                        <div className="text-blue-50 font-sans">online, one-to-one with senior faculty</div>
+                        <div className="text-navy-50 font-sans">online, one-to-one with senior faculty</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Hours</div>
-                        <div className="text-blue-50 font-sans">120 total (40 live, 80 self-work and capstone)</div>
+                        <div className="text-navy-50 font-sans">120 total (40 live, 80 self-work and capstone)</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Suggested duration</div>
-                        <div className="text-blue-50 font-sans">up to 12 months</div>
+                        <div className="text-navy-50 font-sans">up to 12 months</div>
                       </li>
                       <li>
                         <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Investment</div>
-                        <div className="text-blue-50 font-sans">INR 6,95,000, exclusive of GST</div>
+                        <div className="text-navy-50 font-sans">INR 6,95,000, exclusive of GST</div>
                       </li>
                     </ul>
 

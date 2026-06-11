@@ -42,7 +42,7 @@ export default function CredentialsPage() {
       subline: 'Level 4',
       href: '/credentials/luminary',
       desc: "The institute's highest distinction. You master the craft, mentor others and contribute to the field. 120 hours, one-to-one.",
-      badge: 'bg-purple-50 text-purple-600',
+      badge: 'bg-brand-gold-50 text-brand-gold-600',
       cta: 'Explore Luminary'
     }
   ]
@@ -109,7 +109,7 @@ export default function CredentialsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {reasons.map((reason, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-gold-300 shadow-xl hover:shadow-2xl transition-all h-full">
+                <div className="bg-white p-8 rounded-2xl border border-navy-100 hover:border-brand-gold-300 shadow-xl hover:shadow-2xl transition-all h-full">
                   <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center border border-brand-gold-100 mb-6 text-brand-gold-700">
                     <CheckCircle2 size={24} />
                   </div>
@@ -133,7 +133,7 @@ export default function CredentialsPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {pathways.map((path, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <Link href={path.href} className="group block bg-white border border-gray-100 hover:border-brand-gold-300 rounded-3xl p-8 lg:p-12 transition-all duration-300 h-full relative overflow-hidden shadow-xl hover:shadow-2xl">
+                <Link href={path.href} className="group block bg-white border border-navy-100 hover:border-brand-gold-300 rounded-3xl p-8 lg:p-12 transition-all duration-300 h-full relative overflow-hidden shadow-xl hover:shadow-2xl">
                   {/* Subtle hover glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-gold-500/0 to-brand-gold-500/0 group-hover:from-brand-gold-500/5 group-hover:to-transparent transition-colors duration-500" />
                   

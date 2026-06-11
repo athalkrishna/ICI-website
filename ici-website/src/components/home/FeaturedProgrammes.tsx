@@ -49,7 +49,7 @@ export default function FeaturedProgrammes() {
           {programmes.map((prog, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <div className="ici-card flex flex-col h-full bg-white group">
-                <div className="h-56 relative overflow-hidden border-b border-gray-100">
+                <div className="h-56 relative overflow-hidden border-b border-navy-100">
                   <Image 
                     src={prog.image}
                     alt={prog.altText}
@@ -58,7 +58,7 @@ export default function FeaturedProgrammes() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-brand-navy-900/10 group-hover:bg-transparent transition-colors duration-500" />
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider text-brand-navy-700 shadow-sm">
+                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-sans font-bold uppercase tracking-wider text-brand-navy-700 shadow-sm">
                     {prog.type}
                   </div>
                 </div>

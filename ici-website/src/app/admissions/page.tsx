@@ -72,7 +72,7 @@ export default function AdmissionsPage() {
                 <p className="text-muted font-body leading-relaxed text-lg mb-8">
                   Catalyst is open to anyone serious about learning to coach, with no prior qualification required. Higher levels require the level below or equivalent experience, which we confirm with you.
                 </p>
-                <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl">
+                <div className="bg-white p-8 rounded-2xl border border-navy-100 shadow-xl">
                   <h4 className="font-sans font-bold text-lg text-brand-navy-900 mb-3 flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-brand-gold-500"></div>
                     Free assessment: which level is right for me?

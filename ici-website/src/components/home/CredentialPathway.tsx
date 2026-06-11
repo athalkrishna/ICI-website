@@ -50,7 +50,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       level:   'Master',
       hours:   '120 Hours',
       desc:    content.cred_luminary_body || 'The institute\'s highest distinction. You master the craft, mentor others and contribute to the field. 120 hours, one-to-one.',
-      badge:   'bg-purple-500/20 text-purple-300',
+      badge:   'bg-navy-500/20 text-brand-gold-600',
       href:    '/credentials/luminary',
       popular: false,
       bullets: ['40 hours with senior faculty', '80 hours self-work & capstone', 'Conferral of the Luminary distinction']
@@ -60,7 +60,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
     <Section spacing="large" className="bg-brand-navy-900 relative overflow-hidden">
       {/* Premium Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-brand-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-navy-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
 
@@ -84,7 +84,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
               >
                 {/* Most popular badge */}
                 {cred.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-gold-400 to-brand-gold-600 text-brand-navy-900 text-[10px] font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-brand-gold-500/30">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-gold-400 to-brand-gold-600 text-brand-navy-900 text-xs font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-brand-gold-500/30">
                     Most Popular
                   </div>
                 )}
@@ -105,14 +105,14 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                 <div className="font-sans text-xs text-brand-gold-400 font-semibold tracking-widest uppercase mb-2">
                   {cred.level}
                 </div>
-                <div className="font-mono text-sm text-blue-300 mb-6">{cred.hours}</div>
-                <p className="font-body text-base text-blue-100/70 leading-relaxed flex-1 mb-8">
+                <div className="font-mono text-sm text-navy-300 mb-6">{cred.hours}</div>
+                <p className="font-body text-base text-navy-100/70 leading-relaxed flex-1 mb-8">
                   {cred.desc}
                 </p>
 
                 {/* Divider */}
                 <div className="border-t border-subtle pt-8 mt-auto">
-                  <ul className="space-y-4 text-sm text-blue-100/90 font-sans mb-8">
+                  <ul className="space-y-4 text-sm text-navy-100/90 font-sans mb-8">
                     {cred.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <CheckCircle2 size={18} className="text-brand-gold-400 shrink-0 mt-0.5" /> 

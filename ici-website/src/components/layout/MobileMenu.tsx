@@ -20,9 +20,9 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           className="fixed inset-0 z-[60] bg-white overflow-y-auto flex flex-col xl:hidden"
         >
-          <div className="flex items-center justify-between p-4 border-b border-gray-100">
+          <div className="flex items-center justify-between p-4 border-b border-navy-100">
             <span className="font-display font-bold text-xl text-brand-navy-700">ICI Menu</span>
-            <button onClick={onClose} className="p-2 text-brand-navy-600 hover:bg-gray-100 rounded-lg">
+            <button onClick={onClose} className="p-2 text-brand-navy-600 hover:bg-cream-100 rounded-lg">
               <X size={24} />
             </button>
           </div>
@@ -59,7 +59,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
               ))}
             </ul>
           </div>
-          <div className="p-4 border-t border-gray-100 bg-gray-50">
+          <div className="p-4 border-t border-navy-100 bg-cream-50">
             <Link href="/apply" className="btn-primary w-full justify-center" onClick={onClose}>
               Apply Now
             </Link>

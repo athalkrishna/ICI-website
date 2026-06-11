@@ -28,7 +28,7 @@ export default function Error({
         >
           Try again
         </button>
-        <Link href="/" className="bg-gray-100 text-brand-navy-900 px-6 py-2 rounded hover:bg-gray-200 transition">
+        <Link href="/" className="bg-cream-100 text-brand-navy-900 px-6 py-2 rounded hover:bg-cream-200 transition">
           Return Home
         </Link>
       </div>

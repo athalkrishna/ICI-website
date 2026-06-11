@@ -31,7 +31,7 @@ export default function Navbar() {
         className={`sticky top-0 z-50 transition-all duration-300 ${ scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm' }`}
       >
         {/* ── Top Bar ── */}
-        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-gray-300 border-b border-brand-navy-800'}`}>
+        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-300 border-b border-brand-navy-800'}`}>
           <Container className="flex gap-6 items-center w-full px-0">
             <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
               <Mail size={14} /> info@internationalcoachinginstitute.org
@@ -79,7 +79,7 @@ export default function Navbar() {
                         e.preventDefault()
                         setActiveMenu(activeMenu === item.label ? null : item.label)
                       }}
-                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-[13px] 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-600') : ''}`}
+                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-600') : ''}`}
                     >
                       {item.label}
                       <ChevronDown size={14} className={`transition-transform duration-200 ${activeMenu === item.label ? 'rotate-180' : ''}`} />
@@ -87,7 +87,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-[13px] 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-700') : ''}`}
+                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-700') : ''}`}
                     >
                       {item.label}
                     </Link>
@@ -106,7 +106,7 @@ export default function Navbar() {
                         {item.children.map((group) => (
                           <div key={group.heading} className={isLargeMenu ? 'col-span-2' : ''}>
                             {group.heading && (
-                              <p className="text-[11px] font-sans font-bold tracking-[0.2em] uppercase text-brand-navy-400 mb-4 pb-3 border-b border-gray-100/60">
+                              <p className="text-xs font-sans font-bold tracking-[0.2em] uppercase text-brand-navy-400 mb-4 pb-3 border-b border-navy-100/60">
                                 {group.heading}
                               </p>
                             )}
@@ -119,11 +119,11 @@ export default function Navbar() {
                                   >
                                     <span className="text-brand-gold-400 mt-0.5 shrink-0 transition-transform group-hover:translate-x-0.5">✦</span>
                                     <div>
-                                      <div className="text-[13px] font-sans font-semibold text-brand-navy-800 group-hover:text-brand-gold-600 transition-colors">
+                                      <div className="text-sm font-sans font-semibold text-brand-navy-800 group-hover:text-brand-gold-600 transition-colors">
                                         {link.label}
                                       </div>
                                       {link.desc && (
-                                        <div className="text-[12px] text-muted font-sans mt-1 line-clamp-1 group-hover:text-muted-dark transition-colors">{link.desc}</div>
+                                        <div className="text-xs text-muted font-sans mt-1 line-clamp-1 group-hover:text-muted-dark transition-colors">{link.desc}</div>
                                       )}
                                     </div>
                                   </Link>
@@ -184,17 +184,17 @@ export default function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="border-t border-gray-100 bg-white overflow-hidden"
+              className="border-t border-navy-100 bg-white overflow-hidden"
             >
               <div className="max-w-2xl mx-auto px-4 py-4 flex gap-3">
                 <input
                   type="search"
                   placeholder="Search programmes, resources, faculty..."
                   autoFocus
-                  className="flex-1 px-4 py-2.5 rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
+                  className="flex-1 px-4 py-2.5 rounded-lg border border-navy-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
                 />
                 <button className="btn-primary py-2.5">Search</button>
-                <button onClick={() => setSearchOpen(false)} className="p-2.5 hover:bg-gray-100 rounded-lg">
+                <button onClick={() => setSearchOpen(false)} className="p-2.5 hover:bg-cream-100 rounded-lg">
                   <X size={18} />
                 </button>
               </div>

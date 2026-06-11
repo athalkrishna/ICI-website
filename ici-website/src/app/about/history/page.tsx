@@ -18,7 +18,7 @@ export default function HistoryPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-700 text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-700 text-white lg: lg: relative overflow-hidden">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
@@ -38,7 +38,7 @@ export default function HistoryPage() {
             </h1>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Main Content ── */}
       <Section spacing="standard" className="lg:py-32">
@@ -54,8 +54,8 @@ export default function HistoryPage() {
                   <div className="hidden md:flex flex-col items-center mt-2 relative z-10 shrink-0 w-16">
                     <div className="w-4 h-4 rounded-full bg-brand-gold-400 border-[4px] border-cream-50 shadow-sm"></div>
                   </div>
-                  <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative">
-                    <p className="font-body text-xl text-gray-700 leading-relaxed">
+                  <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-navy-100 relative">
+                    <p className="font-body text-xl text-navy-700 leading-relaxed">
                       {text}
                     </p>
                   </div>

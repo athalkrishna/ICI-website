@@ -20,10 +20,10 @@ export default function CurrentStudentsPage() {
   ]
 
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-blue-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
       
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-800 pt-32 pb-24 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
+      <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
@@ -40,7 +40,7 @@ export default function CurrentStudentsPage() {
             </p>
           </AnimatedSection>
         </Container>
-      </section>
+      </Section>
 
       {/* ── Hub Section ── */}
       <Section spacing="standard" className="relative z-20">
@@ -49,7 +49,7 @@ export default function CurrentStudentsPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Your student hub</h2>
-              <p className="font-body text-lg text-blue-100/70 leading-relaxed mb-8">
+              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
                 Log in to access your complete learning environment, including upcoming sessions and submitted assessments.
               </p>
               <Link href="/login" className="btn-primary inline-flex items-center gap-2">
@@ -75,7 +75,7 @@ export default function CurrentStudentsPage() {
                           {item.label}
                         </span>
                       </div>
-                      <ArrowRight size={20} className="text-blue-100/30 group-hover:text-brand-gold-400 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight size={20} className="text-navy-100/30 group-hover:text-brand-gold-400 group-hover:translate-x-1 transition-all" />
                     </Link>
                   )
                 })}

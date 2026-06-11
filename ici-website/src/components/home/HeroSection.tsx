@@ -71,7 +71,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-body-lg text-blue-100 mb-8 max-w-xl"
+              className="text-body-lg text-navy-100 mb-8 max-w-xl"
             >
               {content.hero_body || 'The International Coaching Institute is the world\'s leading provider of professional coaching education, certification, and continuing development, trusted by coaches in over 60 countries.'}
             </motion.p>
@@ -93,7 +93,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                         <CountUpNumber end={stat.value as number} suffix={stat.suffix as string} />
                       )}
                     </div>
-                    <div className="font-sans text-xs text-blue-200 tracking-wide mt-0.5">
+                    <div className="font-sans text-xs text-navy-200 tracking-wide mt-0.5">
                       {stat.label}
                     </div>
                   </div>
@@ -183,16 +183,16 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                   name="name"
                   required
                   placeholder="Full Name"
-                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
+                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-navy-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
                 />
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
+                  className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-navy-200 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-brand-gold-400"
                 />
-                <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-gray-200 text-sm font-sans text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-400">
+                <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-navy-200 text-sm font-sans text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-400">
                   <option value="">Programme Interest</option>
                   <option value="catalyst">Catalyst (Level 1)</option>
                   <option value="architect">Architect (Level 2)</option>
@@ -206,10 +206,10 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               </form>
 
               {/* Trust badges */}
-              <div className="mt-5 pt-5 border-t border-gray-100 flex items-center justify-between gap-2 flex-wrap">
+              <div className="mt-5 pt-5 border-t border-navy-100 flex items-center justify-between gap-2 flex-wrap">
                 {['One-to-one, never group classes', 'Online, delivered worldwide', 'Assessed on real coaching'].map((badge) => (
-                  <div key={badge} className="flex items-center gap-1.5 text-xs font-sans text-green-700 font-medium whitespace-nowrap">
-                    <span className="text-green-500">✓</span>
+                  <div key={badge} className="flex items-center gap-1.5 text-xs font-sans text-green-600 font-medium whitespace-nowrap">
+                    <span className="text-green-600">✓</span>
                     {badge}
                   </div>
                 ))}
