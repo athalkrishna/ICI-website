@@ -20,7 +20,7 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             {/* Subtle gradient overlay to make it look premium */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/40 to-transparent mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy-900/40 to-transparent mix-blend-multiply" />
           </div>
         </AnimatedSection>
         <AnimatedSection className="flex-1" direction="right">
