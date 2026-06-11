@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Calendar, Video, Users, FileCheck, Phone, ArrowRight } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Current Students | International Coaching Institute',
@@ -27,7 +29,7 @@ export default function CurrentStudentsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">For Current Students</div>
             <h1 className="text-h1 text-white mb-8">
@@ -37,12 +39,12 @@ export default function CurrentStudentsPage() {
               You are in the middle of the work, and this is your home base for it. Here you will find your schedule, your materials, your supervision and the people who can help. Coaching is learned by doing, and you are doing it. Use this hub to stay on track and get the most from your one-to-one sessions.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Hub Section ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
@@ -81,12 +83,12 @@ export default function CurrentStudentsPage() {
             </AnimatedSection>
             
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Need Help Section ── */}
-      <section className="py-24 bg-brand-navy-800/30 border-t border-faint relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
+        <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Need help?</h2>
             <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
@@ -98,8 +100,8 @@ export default function CurrentStudentsPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

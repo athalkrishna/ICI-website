@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Award, ChevronRight, CheckCircle2 } from 'lucide-react'
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import Section from '@/components/layout/Section'
 
 interface CredentialPathwayProps {
   content?: Record<string, string>;
@@ -56,7 +57,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
     },
   ];
   return (
-    <section className="bg-brand-navy-900 py-32 relative overflow-hidden">
+    <Section spacing="large" className="bg-brand-navy-900 relative overflow-hidden">
       {/* Premium Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-brand-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -142,6 +143,6 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
         </AnimatedSection>
 
       </div>
-    </section>
+    </Section>
   )
 }

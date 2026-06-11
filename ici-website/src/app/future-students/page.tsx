@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Compass, Target, ClipboardCheck, CreditCard, MessageSquare } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Future Students | International Coaching Institute',
@@ -27,7 +29,7 @@ export default function FutureStudentsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">For Future Students</div>
             <h1 className="text-h1 text-white mb-8">
@@ -37,12 +39,12 @@ export default function FutureStudentsPage() {
               If you have ever been the person others come to, and wondered whether you could do it properly, this is where to start. Becoming a coach is a serious decision and a deeply rewarding one. This page brings together everything you need to decide: what we teach, what you will hold at the end, and how to begin.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Start Here Section ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
@@ -78,12 +80,12 @@ export default function FutureStudentsPage() {
             </AnimatedSection>
             
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── What Kind of Coach Section ── */}
-      <section className="py-24 bg-brand-navy-800/30 border-t border-faint relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
+        <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">What kind of coach could you become?</h2>
             <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
@@ -98,8 +100,8 @@ export default function FutureStudentsPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

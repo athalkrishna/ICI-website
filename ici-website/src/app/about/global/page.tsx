@@ -1,6 +1,8 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Global Presence | International Coaching Institute',
@@ -21,7 +23,7 @@ export default function GlobalPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
         </div>
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
@@ -31,12 +33,12 @@ export default function GlobalPage() {
               Online, and genuinely global
             </h1>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Main Content ── */}
-      <section className="py-24">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard">
+        <Container>
           
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <AnimatedSection className="space-y-8">
@@ -105,7 +107,7 @@ export default function GlobalPage() {
               <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
             </div>
             
-            <div className="relative z-20 w-full max-w-5xl mx-auto aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-faint bg-brand-navy-800/30">
+            <Container size="mid" className="relative z-20 w-full aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-faint bg-brand-navy-800/30">
               {/* Abstract decorative map dots */}
               <div className="absolute inset-0 opacity-[0.15]" style={{
                 backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)',
@@ -135,10 +137,10 @@ export default function GlobalPage() {
                   <div className="absolute inset-0 bg-brand-gold-400 rounded-full animate-ping opacity-75" style={{ animationDelay: pos.delay }}></div>
                 </div>
               ))}
-            </div>
+            </Container>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   )
 }

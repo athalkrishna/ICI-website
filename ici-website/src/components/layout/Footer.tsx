@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import Container from '@/components/layout/Container'
 
 export default function Footer() {
   return (
     <footer className="bg-brand-navy-900 text-white pt-16 pb-8 border-t-4 border-brand-gold-500">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
           
           <div className="md:col-span-2 lg:col-span-2">
@@ -64,7 +65,7 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-brand-gold-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

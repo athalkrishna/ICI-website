@@ -1,6 +1,8 @@
 'use client'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Image from 'next/image'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 // IMPORTANT DEVELOPER NOTE: These are invented sample testimonials for design and layout purposes only. 
 // None may be published as real customer testimonials before being replaced with genuine, consented graduate quotes.
@@ -129,18 +131,18 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-brand-navy-900 text-white relative overflow-hidden">
+    <Section spacing="standard" className="bg-brand-navy-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-hero-pattern opacity-5" />
       
       {/* Decorative background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-gold-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10 mb-16">
+      <Container className="relative z-10 mb-16">
         <AnimatedSection className="text-center">
           <div className="text-eyebrow flex items-center gap-3 mb-4 justify-center">Alumni Success</div>
           <h2 className="text-h2 text-white">Hear From Our Graduates</h2>
         </AnimatedSection>
-      </div>
+      </Container>
 
       {/* Infinite Auto-Scroller */}
       <div className="relative z-10 w-full overflow-hidden">
@@ -246,6 +248,6 @@ export default function Testimonials() {
 
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

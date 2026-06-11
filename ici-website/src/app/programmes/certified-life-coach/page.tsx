@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Heart, Ear, BrainCircuit, Target, CheckCircle2, UserPlus, Compass } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Life Coaching Specialisation | ICI',
@@ -29,7 +31,7 @@ export default function LifeCoachingPage() {
           L
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
@@ -42,11 +44,11 @@ export default function LifeCoachingPage() {
               Life coaching done well is not advice with enthusiasm. It is the skilled, patient work of helping a person see themselves clearly and move towards the life they actually want. As a life coaching focus within the Mastery Pathway, this is where most coaches begin, learning the craft that everything else builds on.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Split Layout Content ── */}
-      <section className="max-w-[1440px] mx-auto px-4 lg:px-8 py-32 lg:py-48 mt-8 relative z-20">
+      <Section spacing="large" className="max-w-[1440px] mx-auto px-4 lg:px-8 lg:py-48 mt-8 relative z-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Column: What you will learn */}
@@ -126,16 +128,16 @@ export default function LifeCoachingPage() {
           </div>
           
         </div>
-      </section>
+      </Section>
 
       {/* ── Banner: How it fits the Pathway ── */}
       <section className="mt-24 lg:mt-32">
         <AnimatedSection>
-          <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+          <Container>
             <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-brand-gold-500/20 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
-              <div className="relative z-10 max-w-3xl">
+              <Container size="narrow" className="relative z-10">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
                 <p className="font-body text-xl md:text-2xl text-blue-100/90 leading-relaxed font-light mb-12">
                   You can begin a life coaching focus at the Catalyst level and carry it through the Pathway. Your credential and investment follow the level you are working towards, not the specialism.
@@ -148,9 +150,9 @@ export default function LifeCoachingPage() {
                     Speak to an Advisor
                   </Link>
                 </div>
-              </div>
+              </Container>
             </div>
-          </div>
+          </Container>
         </AnimatedSection>
       </section>
 

@@ -2,6 +2,8 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Link from 'next/link'
 import Image from 'next/image'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 const programmes = [
   {
@@ -32,8 +34,8 @@ const programmes = [
 
 export default function FeaturedProgrammes() {
   return (
-    <section className="py-24 bg-cream-50">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+    <Section spacing="standard" className="bg-cream-50">
+      <Container>
         <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
             <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Academics</div>
@@ -71,7 +73,7 @@ export default function FeaturedProgrammes() {
             </AnimatedSection>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

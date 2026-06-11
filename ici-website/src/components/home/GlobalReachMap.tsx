@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 interface GlobalReachMapProps {
   content?: Record<string, string>;
@@ -7,7 +9,7 @@ interface GlobalReachMapProps {
 
 export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
   return (
-    <section className="py-32 bg-brand-navy-900 relative overflow-hidden text-white">
+    <Section spacing="large" className="bg-brand-navy-900 relative overflow-hidden text-white">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -22,7 +24,7 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 via-transparent to-brand-navy-900/50" />
       </div>
       
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         
         {/* Content */}
         <AnimatedSection className="max-w-3xl">
@@ -67,7 +69,7 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
           </div>
         </AnimatedSection>
         
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

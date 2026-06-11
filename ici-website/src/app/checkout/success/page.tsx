@@ -4,6 +4,7 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import SuccessTracker from '@/components/checkout/SuccessTracker';
 import { Suspense } from 'react';
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: {
@@ -20,7 +21,7 @@ export default function CheckoutSuccessPage() {
       </Suspense>
       <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-40 lg:pb-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl text-center mx-auto">
             <div className="w-20 h-20 bg-brand-gold-500/20 text-brand-gold-400 rounded-full flex items-center justify-center mx-auto mb-8">
               <CheckCircle2 size={40} />
@@ -32,7 +33,7 @@ export default function CheckoutSuccessPage() {
               Your payment was successful and your place is secure. Welcome to the International Coaching Institute.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       <section className="-mt-12 relative z-20">

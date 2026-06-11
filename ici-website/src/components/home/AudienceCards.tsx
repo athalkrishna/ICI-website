@@ -1,6 +1,7 @@
 'use client'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Image from 'next/image'
+import Section from '@/components/layout/Section'
 
 interface AudienceCardsProps {
   content?: Record<string, string>;
@@ -28,7 +29,7 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
     }
   ]
   return (
-    <section className="py-24 bg-cream-100">
+    <Section spacing="standard" className="bg-cream-100">
       <div className="max-w-7xl mx-auto px-4">
         <AnimatedSection className="text-center mb-16">
           <div className="text-eyebrow flex items-center gap-3 justify-center mb-4">Discover Your Path</div>
@@ -60,6 +61,6 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

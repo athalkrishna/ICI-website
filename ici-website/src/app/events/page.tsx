@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import EventsForm from '@/components/shared/EventsForm'
 import { getUpcomingEvents } from '@/lib/queries'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Coaching Events, Summits & Masterclasses | ICI',
@@ -30,7 +32,7 @@ export default async function EventsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Events</div>
             <h1 className="text-h1 text-white mb-8">
@@ -40,22 +42,22 @@ export default async function EventsPage() {
               Some things only happen when people gather, even online. ICI events bring together coaches, leaders and the people we teach for masterclasses, summits and live sessions that go deeper than any recording can. Below are the events coming up. Each one is a chance to learn something real and meet people worth knowing.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Upcoming Events ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <AnimatedSection>
             <h2 className="text-h2 text-white mb-12">Upcoming events</h2>
             
             {events.length === 0 ? (
-              <div className="bg-brand-navy-800/50 border border-faint rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
+              <Container size="narrow" className="bg-brand-navy-800/50 border border-faint rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center">
                 <p className="font-body text-2xl text-muted-dark leading-relaxed font-light mb-8">
                   Our first public events are being scheduled. Register your interest and we will tell you first.
                 </p>
                 <EventsForm />
-              </div>
+              </Container>
             ) : (
               <div className="grid gap-8 max-w-4xl mx-auto">
                 {events.map((event: any) => (
@@ -79,12 +81,12 @@ export default async function EventsPage() {
               </div>
             )}
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Masterclasses ── */}
-      <section className="py-24 bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
+        <Container>
           <AnimatedSection className="max-w-3xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Masterclasses</h2>
             <p className="font-body text-lg text-muted-dark leading-relaxed mb-12">
@@ -96,8 +98,8 @@ export default async function EventsPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

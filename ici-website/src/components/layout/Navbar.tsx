@@ -7,6 +7,7 @@ import { ChevronDown, Search, Menu, X, Mail, Phone } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { navItems } from '@/data/navigation'
 import MobileMenu from './MobileMenu'
+import Container from '@/components/layout/Container'
 
 export default function Navbar() {
   const [scrolled, setScrolled]         = useState(false)
@@ -31,17 +32,17 @@ export default function Navbar() {
       >
         {/* ── Top Bar ── */}
         <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-gray-300 border-b border-brand-navy-800'}`}>
-          <div className="flex gap-6 items-center max-w-[1440px] mx-auto w-full px-0">
+          <Container className="flex gap-6 items-center w-full px-0">
             <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
               <Mail size={14} /> info@internationalcoachinginstitute.org
             </a>
             <a href="tel:+919819984575" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
               <Phone size={14} /> +91 98199 84575
             </a>
-          </div>
+          </Container>
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+        <Container>
           <div className="flex items-center justify-between h-20">
 
             {/* ── Logo ── */}
@@ -174,7 +175,7 @@ export default function Navbar() {
             </div>
 
           </div>
-        </div>
+        </Container>
 
         {/* Search Bar */}
         <AnimatePresence>

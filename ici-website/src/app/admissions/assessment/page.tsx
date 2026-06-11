@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import AssessmentForm from '@/components/admissions/AssessmentForm';
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: {
@@ -13,20 +14,20 @@ export default function AssessmentPage() {
     <div className="bg-cream-50 min-h-screen pb-24 font-sans">
       <section className="bg-brand-navy-800 pt-28 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20 text-center">
+        <Container className="relative z-20 text-center">
           <h1 className="text-h1 text-white mb-4">Free Admissions Assessment</h1>
           <p className="font-body text-xl text-muted-dark max-w-2xl mx-auto">
             Answer a few quick questions to discover which coaching credential level aligns with your experience and goals.
           </p>
-        </div>
+        </Container>
       </section>
 
       <section className="-mt-8 relative z-20">
-        <div className="max-w-3xl mx-auto px-4 lg:px-8">
+        <Container size="narrow">
           <div className="bg-white border border-gray-100 p-8 md:p-12 rounded-[32px] shadow-xl">
             <AssessmentForm />
           </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { UploadCloud, Image as ImageIcon, Link as LinkIcon, CheckCircle2 } from 'lucide-react'
+import Container from '@/components/layout/Container'
 
 export default function AdminMediaPage() {
   const [file, setFile] = useState<File | null>(null)
@@ -42,9 +43,9 @@ export default function AdminMediaPage() {
   }
 
   return (
-    <div className="max-w-3xl">
+    <Container size="narrow">
       <div className="mb-8">
-        <h1 <h1 className="text-2xl font-bold text-gray-900 mb-1">Media Library</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">Media Library</h1>
         <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 
@@ -141,6 +142,6 @@ export default function AdminMediaPage() {
           </div>
         )}
       </div>
-    </div>
+    </Container>
   )
 }

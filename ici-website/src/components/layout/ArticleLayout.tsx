@@ -1,6 +1,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import PageHeader from '@/components/shared/PageHeader'
 import { ReactNode } from 'react'
+import Section from '@/components/layout/Section'
 
 interface ArticleLayoutProps {
   title: string
@@ -30,7 +31,7 @@ export default function ArticleLayout({
         image={image} 
       />
       
-      <section className="bg-white py-24 font-sans text-brand-navy-800 selection:bg-brand-gold-500/30 selection:text-brand-navy-900">
+      <Section spacing="standard" className="bg-white font-sans text-brand-navy-800 selection:bg-brand-gold-500/30 selection:text-brand-navy-900">
         <div className="max-w-[1024px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection>
             <p className="font-body text-sm text-brand-gold-600 uppercase tracking-wider font-bold mb-16">
@@ -42,7 +43,7 @@ export default function ArticleLayout({
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </Section>
     </div>
   )
 }

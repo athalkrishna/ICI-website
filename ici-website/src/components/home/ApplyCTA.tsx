@@ -2,6 +2,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import Section from '@/components/layout/Section'
 
 interface ApplyCTAProps {
   content?: Record<string, string>;
@@ -9,7 +10,7 @@ interface ApplyCTAProps {
 
 export default function ApplyCTA({ content = {} }: ApplyCTAProps) {
   return (
-    <section className="py-24 bg-brand-gold-gradient text-brand-navy-900 relative overflow-hidden">
+    <Section spacing="standard" className="bg-brand-gold-gradient text-brand-navy-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-hero-pattern opacity-10 mix-blend-overlay" />
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <AnimatedSection>
@@ -28,6 +29,6 @@ export default function ApplyCTA({ content = {} }: ApplyCTAProps) {
           </div>
         </AnimatedSection>
       </div>
-    </section>
+    </Section>
   )
 }

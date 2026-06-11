@@ -1,6 +1,7 @@
 'use client'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Image from 'next/image'
+import Section from '@/components/layout/Section'
 
 interface ICIDifferenceProps {
   content?: Record<string, string>;
@@ -8,7 +9,7 @@ interface ICIDifferenceProps {
 
 export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
   return (
-    <section className="py-24 bg-white">
+    <Section spacing="standard" className="bg-white">
       <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 items-center">
         <AnimatedSection className="flex-1 w-full" direction="left">
           <div className="w-full aspect-square md:aspect-[4/3] bg-brand-navy-50 rounded-2xl relative overflow-hidden shadow-2xl">
@@ -54,6 +55,6 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
           </ul>
         </AnimatedSection>
       </div>
-    </section>
+    </Section>
   )
 }

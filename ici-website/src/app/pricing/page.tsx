@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { ChevronRight, CheckCircle2, ChevronDown, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocalCurrency } from '@/hooks/useLocalCurrency'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 const pricingData = [
   {
@@ -70,7 +72,7 @@ export default function PricingPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Pricing</div>
             <h1 className="text-h1 text-white mb-8">
@@ -88,12 +90,12 @@ export default function PricingPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Pricing Table ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <AnimatedSection className="mb-12">
             <h2 className="text-h2 text-white mb-4">The Mastery Pathway</h2>
             <div className="w-24 h-1 bg-brand-gold-500" />
@@ -177,12 +179,12 @@ export default function PricingPage() {
               </p>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Content Grid ── */}
-      <section className="py-24 bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
+        <Container>
           <div className="grid lg:grid-cols-3 gap-16">
             
             <AnimatedSection>
@@ -247,11 +249,11 @@ export default function PricingPage() {
             </AnimatedSection>
 
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── FAQs ── */}
-      <section className="py-24 relative z-20">
+      <Section spacing="standard" className="relative z-20">
         <div className="max-w-[800px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-h2 text-white mb-4">Frequently asked questions</h2>
@@ -302,7 +304,7 @@ export default function PricingPage() {
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </Section>
 
     </div>
   )

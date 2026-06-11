@@ -1,9 +1,10 @@
 'use client'
 import AnimatedSection from '@/components/shared/AnimatedSection'
+import Section from '@/components/layout/Section'
 
 export default function NewsEvents() {
   return (
-    <section className="py-24 bg-white">
+    <Section spacing="standard" className="bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <AnimatedSection className="text-center mb-12">
           <div className="text-eyebrow flex items-center gap-3 justify-center mb-4">Latest Updates</div>
@@ -44,6 +45,6 @@ export default function NewsEvents() {
           </AnimatedSection>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

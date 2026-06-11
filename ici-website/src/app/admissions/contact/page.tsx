@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import ContactForm from '@/components/admissions/ContactForm'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Speak to an Advisor | ICI Admissions',
@@ -19,7 +21,7 @@ export default function ContactAdmissionsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-center">Speak to an Advisor</div>
             <h1 className="text-h1 text-white mb-8">
@@ -29,11 +31,11 @@ export default function ContactAdmissionsPage() {
               Choosing how to train as a coach is a real decision, and sometimes you simply want to talk it through with someone who knows. That is what our advisors are for. Ask anything: about levels, timing, cost, or whether coaching is right for you at all. No script, no pressure.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Form Section ── */}
-      <section className="py-24 relative z-20" id="book">
+      <Section spacing="standard" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
             <div className="bg-brand-navy-900 border border-brand-navy-700 p-8 md:p-12 rounded-[32px] shadow-2xl relative overflow-hidden">
@@ -54,7 +56,7 @@ export default function ContactAdmissionsPage() {
           </AnimatedSection>
 
         </div>
-      </section>
+      </Section>
 
     </div>
   )

@@ -6,7 +6,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen bg-gray-50 text-gray-900 font-sans">
       <aside className="w-64 bg-brand-navy-900 text-white flex-shrink-0">
         <div className="p-6">
-          <h1 <h1 className="text-xl font-bold font-display tracking-wide text-brand-gold-400">ICI Admin</h1>
+          <h1 className="text-xl font-bold font-display tracking-wide text-brand-gold-400">ICI Admin</h1>
         </div>
         <nav className="mt-6">
           <ul className="space-y-2 px-4">

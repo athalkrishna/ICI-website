@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import Link from 'next/link'
 import { Award, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { Metadata } from 'next'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'ICI Architect Coach (Level 2) | Professional Certification',
@@ -65,13 +67,13 @@ export default function ArchitectPage() {
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-48 lg:pb-32 relative overflow-hidden border-b border-faint">
+      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Level 2 | Professional</div>
             <h1 className="text-h1 text-white mb-6">
@@ -92,12 +94,12 @@ export default function ArchitectPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Content ── */}
-      <section className="py-16 lg:py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="compact" className="lg:py-24 relative z-20">
+        <Container>
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column */}
@@ -236,8 +238,8 @@ export default function ArchitectPage() {
             </div>
 
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Users, GraduationCap, Building2, ArrowRight } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Partnerships & Alliances | International Coaching Institute',
@@ -21,7 +23,7 @@ export default function PartnershipsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
         </div>
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
@@ -31,12 +33,12 @@ export default function PartnershipsPage() {
               Partnerships & Alliances
             </h1>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Main Content ── */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="lg:py-32">
+        <Container>
           
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-h2 text-brand-navy-800 mb-8">Partnerships & Alliances</h2>
@@ -46,7 +48,7 @@ export default function PartnershipsPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2} className="mb-32">
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <Container size="mid" className="grid md:grid-cols-2 gap-8">
               {[
                 { 
                   icon: <Building2 className="w-8 h-8" />, 
@@ -74,7 +76,7 @@ export default function PartnershipsPage() {
                   </p>
                 </div>
               ))}
-            </div>
+            </Container>
           </AnimatedSection>
 
           {/* ── CTA Card ── */}
@@ -95,8 +97,8 @@ export default function PartnershipsPage() {
             </div>
           </AnimatedSection>
 
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   )
 }

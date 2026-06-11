@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Coaching Resources, Insights & Prospectus | ICI',
@@ -19,7 +21,7 @@ export default function ResourcesPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Resources</div>
             <h1 className="text-h1 text-white mb-8">
@@ -29,12 +31,12 @@ export default function ResourcesPage() {
               Good coaching rests on good thinking. Here we share articles, guides and tools on leadership, psychology, neuroscience and the real work of change, written to be useful rather than impressive. Whether you are deciding whether to train, sharpening an established practice, or simply trying to understand yourself a little better, start here.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Insights and articles ── */}
-      <section className="py-24 relative z-20" id="insights">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <AnimatedSection>
             <h2 className="text-h2 text-white mb-6">Insights and articles</h2>
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
@@ -47,12 +49,12 @@ export default function ResourcesPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Download the prospectus & Guides ── */}
-      <section className="py-24 bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
+        <Container>
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             
             <AnimatedSection>
@@ -80,8 +82,8 @@ export default function ResourcesPage() {
             </AnimatedSection>
 
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

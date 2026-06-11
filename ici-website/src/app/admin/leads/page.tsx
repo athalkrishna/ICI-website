@@ -13,7 +13,7 @@ export default async function AdminLeadsPage() {
     <div>
       <div className="flex justify-between items-end mb-8">
         <div>
-          <h1 <h1 className="text-2xl font-bold text-gray-900 mb-1">Leads & Applications</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-1">Leads & Applications</h1>
           <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
         </div>
         <div className="text-sm text-muted font-medium bg-white px-4 py-2 border border-gray-200 rounded-lg shadow-sm">

@@ -2,6 +2,7 @@ import PageHeader from '@/components/shared/PageHeader'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { navItems } from '@/data/navigation'
 import { notFound } from 'next/navigation'
+import Section from '@/components/layout/Section'
 
 interface PageProps {
   params: Promise<{
@@ -56,7 +57,7 @@ export default async function DynamicPage({ params }: PageProps) {
         subtitle={pageData.subtitle} 
         image={heroImage} 
       />
-      <section className="py-24 bg-white">
+      <Section spacing="standard" className="bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <AnimatedSection>
             <h2 className="text-h2 text-brand-navy-700 mb-6">
@@ -70,7 +71,7 @@ export default async function DynamicPage({ params }: PageProps) {
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </Section>
     </div>
   )
 }

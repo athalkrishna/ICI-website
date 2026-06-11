@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import CheckoutForm from '@/components/checkout/CheckoutForm';
 import AnimatedSection from '@/components/shared/AnimatedSection';
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: {
@@ -32,7 +34,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
     <div className="bg-cream-50 min-h-screen pb-24 font-sans selection:bg-brand-gold-500/30">
       <section className="bg-brand-navy-800 pt-28 pb-16 lg:pt-40 lg:pb-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h1 className="text-h1 text-white mb-6">
               Enrol in {levelInfo.title}
@@ -41,10 +43,10 @@ export default async function CheckoutPage({ params }: { params: { level: string
               Secure your place and begin your coaching journey.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
-      <section className="py-16 relative z-20">
+      <Section spacing="compact" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
             <div className="bg-white border border-gray-100 p-8 md:p-12 rounded-[32px] shadow-xl">
@@ -68,7 +70,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

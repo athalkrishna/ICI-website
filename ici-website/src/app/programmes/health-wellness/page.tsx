@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { FlaskConical, Moon, HeartPulse, Stethoscope, CheckCircle2, UserPlus, Compass } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Health & Wellness Coaching | ICI',
@@ -29,7 +31,7 @@ export default function HealthWellnessPage() {
           H
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
@@ -42,11 +44,11 @@ export default function HealthWellnessPage() {
               Most people already know what they should do for their health. What they lack is not information but the ability to change, and to keep changing when motivation fades. Health and wellness coaching is the skill of supporting that change so it lasts. As a focus within the Pathway, it pairs behavioural science with the coaching craft.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Split Layout Content ── */}
-      <section className="max-w-[1440px] mx-auto px-4 lg:px-8 py-32 lg:py-48 mt-8 relative z-20">
+      <Section spacing="large" className="max-w-[1440px] mx-auto px-4 lg:px-8 lg:py-48 mt-8 relative z-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Column: What you will learn */}
@@ -126,16 +128,16 @@ export default function HealthWellnessPage() {
           </div>
           
         </div>
-      </section>
+      </Section>
 
       {/* ── Banner: How it fits the Pathway ── */}
       <section className="mt-24 lg:mt-32">
         <AnimatedSection>
-          <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+          <Container>
             <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-brand-gold-500/20 shadow-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
-              <div className="relative z-10 max-w-3xl">
+              <Container size="narrow" className="relative z-10">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
                 <p className="font-body text-xl md:text-2xl text-blue-100/90 leading-relaxed font-light mb-12">
                   A wellness focus can begin at Catalyst and deepen through the Pathway. Your credential and investment follow the level.
@@ -148,9 +150,9 @@ export default function HealthWellnessPage() {
                     Speak to an Advisor
                   </Link>
                 </div>
-              </div>
+              </Container>
             </div>
-          </div>
+          </Container>
         </AnimatedSection>
       </section>
 

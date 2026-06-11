@@ -1,6 +1,8 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import ProspectusForm from '@/components/shared/ProspectusForm'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Download the ICI Prospectus',
@@ -18,7 +20,7 @@ export default function BrochurePage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h1 className="text-h1 text-white mb-8">
               Everything in one place
@@ -27,11 +29,11 @@ export default function BrochurePage() {
               If you would rather read at your own pace, the prospectus brings together the whole picture: the Mastery Pathway and its four levels, the specialisations you can pursue, pricing, and how admissions work. Tell us where to send it and it is yours.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Form Section ── */}
-      <section className="py-24 relative z-20">
+      <Section spacing="standard" className="relative z-20">
         <div className="max-w-xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
             <div className="bg-brand-navy-800/50 backdrop-blur-sm border border-subtle p-8 md:p-12 rounded-[32px] shadow-2xl relative overflow-hidden">
@@ -46,7 +48,7 @@ export default function BrochurePage() {
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </Section>
 
     </div>
   )

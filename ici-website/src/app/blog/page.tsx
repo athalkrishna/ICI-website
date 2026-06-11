@@ -1,6 +1,8 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import { Mail } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Coaching Insights & Articles | ICI Blog',
@@ -18,7 +20,7 @@ export default function BlogPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <h1 className="text-h1 text-white mb-8">
               Insights from the field
@@ -27,12 +29,12 @@ export default function BlogPage() {
               Coaching changes when practitioners keep questioning it. This is where ICI faculty share their thinking: on leadership, the psychology of high achievers, how change really happens, and the craft of coaching itself. Come back often. The best ideas tend to arrive slowly.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Empty State / Coming Soon ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center py-16">
@@ -63,8 +65,8 @@ export default function BlogPage() {
           
           {/* Blog posts to be pulled from CMS/feed when published. Do not add dummy content. */}
 
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

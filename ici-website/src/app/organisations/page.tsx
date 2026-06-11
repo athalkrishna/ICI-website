@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Briefcase, Building, Users, Target, BarChart, ArrowRight } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Coaching for Organisations | ICI',
@@ -27,7 +29,7 @@ export default function OrganizationsPage() {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">For Organisations</div>
             <h1 className="text-h1 text-white mb-8">
@@ -37,12 +39,12 @@ export default function OrganizationsPage() {
               Most leadership training is forgotten within a month because it teaches ideas, not habits. Coaching is different. When managers learn to coach, the change shows up in everyday conversations: clearer feedback, real accountability, people who grow instead of stall. ICI helps organisations build that capability from the inside, one-to-one, and own it.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── How we work Section ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
@@ -79,12 +81,12 @@ export default function OrganizationsPage() {
             </AnimatedSection>
             
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Why it works Section ── */}
-      <section className="py-24 bg-brand-navy-800/30 border-t border-faint relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
+        <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Why it works</h2>
             <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
@@ -96,8 +98,8 @@ export default function OrganizationsPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

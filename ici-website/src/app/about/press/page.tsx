@@ -1,6 +1,8 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import { Download, FileText, Image as ImageIcon, Mail } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Press & Media | International Coaching Institute',
@@ -19,7 +21,7 @@ export default function PressPage() {
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
         </div>
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
@@ -29,12 +31,12 @@ export default function PressPage() {
               Information for journalists and editors
             </h1>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Main Content ── */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="lg:py-32">
+        <Container>
           
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-h2 text-brand-navy-800 mb-8">Press & Media</h2>
@@ -107,8 +109,8 @@ export default function PressPage() {
              </a>
           </AnimatedSection>
 
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   )
 }

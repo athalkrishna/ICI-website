@@ -2,6 +2,8 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Sparkles, BookOpen, Layers, Award } from 'lucide-react'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Coaching Programmes & Specialisations | ICI',
@@ -30,7 +32,7 @@ export default function ProgrammesOverviewPage() {
           ICI
         </div>
 
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
@@ -44,12 +46,12 @@ export default function ProgrammesOverviewPage() {
               Everything we teach is built around the same promise: you will leave able to coach well, not just talk about coaching. The core of ICI is the Mastery Pathway, a four-level certification journey taught one-to-one and online. Within it, you can focus on the kind of coaching that calls you, from life and executive work to business, wellness and teams. Here is how the two fit together.
             </p>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── The Core: Mastery Pathway ── */}
-      <section className="py-24 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="relative z-20">
+        <Container>
           <AnimatedSection className="mb-16">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-navy-800 mb-6 flex items-center gap-4">
               <Sparkles className="text-brand-gold-500" size={40} />
@@ -97,12 +99,12 @@ export default function ProgrammesOverviewPage() {
               </Link>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Specialisations ── */}
-      <section className="py-24 bg-brand-navy-900 text-white relative overflow-hidden border-y border-brand-navy-800">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10">
+      <Section spacing="standard" className="bg-brand-navy-900 text-white relative overflow-hidden border-y border-brand-navy-800">
+        <Container className="relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             
             <AnimatedSection className="lg:col-span-5">
@@ -144,12 +146,12 @@ export default function ProgrammesOverviewPage() {
             </div>
 
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── How it works ── */}
-      <section className="py-32 relative z-20">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="large" className="relative z-20">
+        <Container>
           <AnimatedSection className="text-center mb-20">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-navy-900">How our programmes work</h2>
           </AnimatedSection>
@@ -186,8 +188,8 @@ export default function ProgrammesOverviewPage() {
               </Link>
             </div>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )

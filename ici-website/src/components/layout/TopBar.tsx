@@ -1,6 +1,7 @@
 'use client'
 import { Phone, Mail, Globe, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
+import Container from '@/components/layout/Container'
 
 const audiences = [
   { label: 'Future Students', href: '/future-students' },
@@ -13,7 +14,7 @@ const audiences = [
 export default function TopBar({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   return (
     <div className="bg-brand-navy-700 text-white text-xs font-sans">
-      <div className="max-w-[1440px] mx-auto px-4 lg:px-8 h-8 md:h-9 flex items-center justify-between">
+      <Container className="h-8 md:h-9 flex items-center justify-between">
 
         {/* Left: contact info */}
         <div className="hidden md:flex items-center gap-5">
@@ -46,7 +47,7 @@ export default function TopBar({ isLoggedIn = false }: { isLoggedIn?: boolean })
           )}
         </div>
 
-      </div>
+      </Container>
     </div>
   )
 }

@@ -1,5 +1,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
   title: 'History & Heritage | International Coaching Institute',
@@ -25,7 +27,7 @@ export default function HistoryPage() {
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
         </div>
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
@@ -35,12 +37,12 @@ export default function HistoryPage() {
               History & Heritage
             </h1>
           </AnimatedSection>
-        </div>
+        </Container>
       </section>
 
       {/* ── Main Content ── */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard" className="lg:py-32">
+        <Container>
           <div className="max-w-4xl mx-auto relative">
             
             {/* Timeline Track */}
@@ -77,8 +79,8 @@ export default function HistoryPage() {
             </div>
 
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   )
 }

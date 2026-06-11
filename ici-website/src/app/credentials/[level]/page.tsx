@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { ChevronRight, Award } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import Section from '@/components/layout/Section'
+import Container from '@/components/layout/Container'
 
 export const revalidate = 60;
 
@@ -30,7 +32,7 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
     <div className="bg-white min-h-screen pt-20">
       
       {/* ── Hero Section ── */}
-      <section className="bg-brand-navy-900 text-white py-24 lg:py-32 relative overflow-hidden">
+      <Section spacing="standard" className="bg-brand-navy-900 text-white lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <Image 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80" 
@@ -41,7 +43,7 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900 via-brand-navy-900/95 to-brand-navy-900/40 z-10" />
         
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
+        <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-brand-gold-500/20 text-brand-gold-400 text-sm font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8">
               <Award size={16} /> {content.label || 'Level'}
@@ -53,12 +55,12 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
               {content.credential || 'ICI Coach'}
             </p>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* ── Details ── */}
-      <section className="py-24">
-        <div className="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <Section spacing="standard">
+        <Container>
           <AnimatedSection className="max-w-3xl">
             <p className="font-body text-xl text-gray-700 leading-relaxed mb-10">
               {content.body || 'Details about this coaching credential level.'}
@@ -68,8 +70,8 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
               <ChevronRight size={18} />
             </Link>
           </AnimatedSection>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
     </div>
   )
