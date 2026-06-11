@@ -63,7 +63,7 @@ export default function ProgrammesOverviewPage() {
           {/* Stepped Timeline */}
           <div className="relative mt-24">
             {/* The horizontal connecting line */}
-            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-gray-200 via-gold-400 to-gray-200 hidden lg:block -translate-y-1/2"></div>
+            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-gray-200 via-brand-gold-400 to-gray-200 hidden lg:block -translate-y-1/2"></div>
             
             <div className="grid lg:grid-cols-4 gap-8 lg:gap-12 relative z-10">
               {[
@@ -129,7 +129,7 @@ export default function ProgrammesOverviewPage() {
                   <AnimatedSection key={i} delay={i * 0.1} className={spec.full ? "sm:col-span-2" : ""}>
                     <Link href={spec.href} className="block group">
                       <div className="bg-brand-navy-800 p-8 md:p-10 rounded-[32px] border border-faint hover:border-brand-gold-500/50 transition-all duration-300 relative overflow-hidden h-full flex flex-col justify-between min-h-[200px]">
-                        <div className="absolute inset-0 bg-gradient-to-br from-gold-500/0 via-gold-500/0 to-gold-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-brand-gold-500/0 via-brand-gold-500/0 to-brand-gold-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <h3 className="text-h3 text-white group-hover:text-brand-gold-400 transition-colors relative z-10 pr-12">{spec.name}</h3>
                         <div className="mt-8 flex justify-end relative z-10">
                           <div className="w-12 h-12 rounded-full border border-subtle flex items-center justify-center text-white/50 group-hover:bg-brand-gold-500 group-hover:text-brand-navy-900 group-hover:border-brand-gold-500 transition-all duration-300 transform group-hover:translate-x-2">
