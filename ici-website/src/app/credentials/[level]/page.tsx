@@ -39,7 +39,7 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
             className="object-cover mix-blend-overlay" 
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/95 to-navy-900/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900 via-brand-navy-900/95 to-brand-navy-900/40 z-10" />
         
         <div className="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-20">
           <AnimatedSection className="max-w-3xl">
