@@ -34,7 +34,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
 
       {/* Animated gold gradient line */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent"
+        className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent"
         animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
         aria-hidden
