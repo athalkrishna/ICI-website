@@ -175,7 +175,7 @@ export default function ContactForm() {
               id="gdprConsent"
               type="checkbox"
               {...register('gdprConsent')}
-              className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-brand-gold-500/50 focus:ring-2 transition-all cursor-pointer mt-0.5"
+              className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-brand-gold-500/70 focus:ring-2 transition-all cursor-pointer mt-0.5"
             />
           </div>
           <div className="flex flex-col">

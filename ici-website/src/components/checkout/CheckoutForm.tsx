@@ -99,7 +99,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
+          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70"
           placeholder="Your full name"
         />
       </div>
@@ -114,7 +114,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
+          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70"
           placeholder="you@example.com"
         />
       </div>
@@ -129,7 +129,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           required
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
+          className="w-full bg-cream-50 border border-gray-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70"
           placeholder="+91 00000 00000"
         />
       </div>
