@@ -1,0 +1,394 @@
+{
+  "hardcodedColors": [],
+  "nonStandardTypography": [
+    {
+      "file": "src\\app\\about\\global\\page.tsx",
+      "issues": [
+        "text-5xl",
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\about\\leadership-faculty\\page.tsx",
+      "issues": [
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\about\\mission\\page.tsx",
+      "issues": [
+        "text-6xl",
+        "md:text-4xl",
+        "text-4xl",
+        "md:text-5xl",
+        "md:text-7xl"
+      ]
+    },
+    {
+      "file": "src\\app\\admin\\page.tsx",
+      "issues": [
+        "text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\admissions\\page.tsx",
+      "issues": [
+        "text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\credentials\\page.tsx",
+      "issues": [
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\programmes\\business-coach\\page.tsx",
+      "issues": [
+        "text-9xl",
+        "text-4xl",
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\programmes\\certified-life-coach\\page.tsx",
+      "issues": [
+        "text-9xl",
+        "text-4xl",
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\programmes\\executive-coaching\\page.tsx",
+      "issues": [
+        "text-9xl",
+        "text-4xl",
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\programmes\\health-wellness\\page.tsx",
+      "issues": [
+        "text-9xl",
+        "text-4xl",
+        "md:text-4xl"
+      ]
+    },
+    {
+      "file": "src\\app\\programmes\\page.tsx",
+      "issues": [
+        "text-9xl",
+        "text-4xl",
+        "md:text-5xl"
+      ]
+    },
+    {
+      "file": "src\\app\\programmes\\team-coaching\\page.tsx",
+      "issues": [
+        "text-9xl",
+        "text-4xl",
+        "md:text-4xl"
+      ]
+    }
+  ],
+  "nonStandardButtons": [
+    {
+      "file": "src\\app\\admin\\leads\\page.tsx",
+      "count": 11,
+      "example": "<th className=\"px-6 py-4 font-medium\">"
+    },
+    {
+      "file": "src\\app\\admin\\pages\\[slug]\\page.tsx",
+      "count": 1,
+      "example": "<button type=\"submit\" className=\"bg-brand-navy-900 text-white px-6 py-2 rounded-md hover:bg-brand-na"
+    },
+    {
+      "file": "src\\app\\pricing\\page.tsx",
+      "count": 10,
+      "example": "<th className=\"py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w"
+    }
+  ],
+  "cardStyles": [
+    {
+      "file": "src\\app\\about\\accreditation\\page.tsx",
+      "style": "shadow-xl rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\annual-reports\\page.tsx",
+      "style": "shadow-xl rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\global\\page.tsx",
+      "style": "shadow-sm rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\global\\page.tsx",
+      "style": "shadow-sm rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\global\\page.tsx",
+      "style": "shadow-sm rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\global\\page.tsx",
+      "style": "shadow-[0_0_15px_rgba(201,168,76,0.8)] rounded-full no-border"
+    },
+    {
+      "file": "src\\app\\about\\history\\page.tsx",
+      "style": "shadow-sm rounded-full border-[4px]"
+    },
+    {
+      "file": "src\\app\\about\\history\\page.tsx",
+      "style": "shadow-sm rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\history\\page.tsx",
+      "style": "shadow-sm rounded-full border-[4px]"
+    },
+    {
+      "file": "src\\app\\about\\history\\page.tsx",
+      "style": "shadow-xl rounded-3xl no-border"
+    },
+    {
+      "file": "src\\app\\about\\leadership-faculty\\page.tsx",
+      "style": "shadow-2xl rounded-3xl no-border"
+    },
+    {
+      "file": "src\\app\\about\\mission\\page.tsx",
+      "style": "shadow-sm rounded-3xl border"
+    },
+    {
+      "file": "src\\app\\about\\partnerships\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] no-border"
+    },
+    {
+      "file": "src\\app\\about\\press\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\about\\press\\page.tsx",
+      "style": "shadow-sm rounded-full no-border"
+    },
+    {
+      "file": "src\\app\\admin\\leads\\page.tsx",
+      "style": "shadow-sm rounded-lg border"
+    },
+    {
+      "file": "src\\app\\admin\\leads\\page.tsx",
+      "style": "shadow-sm rounded-xl border"
+    },
+    {
+      "file": "src\\app\\admin\\media\\page.tsx",
+      "style": "shadow-sm rounded-xl border"
+    },
+    {
+      "file": "src\\app\\admin\\media\\page.tsx",
+      "style": "shadow-sm rounded-md no-border"
+    },
+    {
+      "file": "src\\app\\admin\\page.tsx",
+      "style": "shadow-sm rounded-lg border"
+    },
+    {
+      "file": "src\\app\\admin\\page.tsx",
+      "style": "shadow-sm rounded-lg border"
+    },
+    {
+      "file": "src\\app\\admin\\pages\\[slug]\\page.tsx",
+      "style": "shadow-sm rounded-lg border"
+    },
+    {
+      "file": "src\\app\\admissions\\AdmissionsFaq.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\admissions\\assessment\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\admissions\\contact\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\admissions\\page.tsx",
+      "style": "shadow-xl rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\apply\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\checkout\\success\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\checkout\\[level]\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\contact\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\credentials\\architect\\page.tsx",
+      "style": "shadow-xl rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\credentials\\architect\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\credentials\\catalyst\\page.tsx",
+      "style": "shadow-xl rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\credentials\\catalyst\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\credentials\\luminary\\page.tsx",
+      "style": "shadow-xl rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\credentials\\luminary\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\credentials\\page.tsx",
+      "style": "shadow-xl rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\credentials\\sage\\page.tsx",
+      "style": "shadow-xl rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\credentials\\sage\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\find-a-coach\\page.tsx",
+      "style": "shadow-[0_8px_32px_rgba(0,0,0,0.4)] rounded-[24px] border"
+    },
+    {
+      "file": "src\\app\\login\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\business-coach\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\business-coach\\page.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\programmes\\business-coach\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\business-coach\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\business-coach\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\certified-life-coach\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\certified-life-coach\\page.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\programmes\\certified-life-coach\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\certified-life-coach\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\certified-life-coach\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\executive-coaching\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\executive-coaching\\page.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\programmes\\executive-coaching\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\executive-coaching\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\executive-coaching\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\health-wellness\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\health-wellness\\page.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\programmes\\health-wellness\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\health-wellness\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\health-wellness\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\page.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\programmes\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\team-coaching\\page.tsx",
+      "style": "shadow-xl rounded-[32px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\team-coaching\\page.tsx",
+      "style": "shadow-sm rounded-2xl border"
+    },
+    {
+      "file": "src\\app\\programmes\\team-coaching\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\team-coaching\\page.tsx",
+      "style": "shadow-xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\programmes\\team-coaching\\page.tsx",
+      "style": "shadow-2xl rounded-[40px] border"
+    },
+    {
+      "file": "src\\app\\resources\\brochure\\page.tsx",
+      "style": "shadow-2xl rounded-[32px] border"
+    }
+  ],
+  "legacyLayouts": []
+}
