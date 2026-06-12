@@ -95,7 +95,7 @@ export default function OrganizationsPage() {
             <p className="text-muted-dark mb-12 text-body">
               Because it changes habits, not just knowledge. Our programmes are live, one-to-one and grounded in how leaders actually behave under pressure, drawing on deep experience inside demanding organisations.
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
+            <div className="flex flex-wrap justify-start items-center gap-4">
               <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
                 Speak to our team <ArrowRight size={18} />
               </Link>
