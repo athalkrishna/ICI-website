@@ -79,7 +79,7 @@ export default function Navbar() {
                         e.preventDefault()
                         setActiveMenu(activeMenu === item.label ? null : item.label)
                       }}
-                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-600') : ''}`}
+                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? 'text-brand-gold-500' : ''}`}
                     >
                       {item.label}
                       <ChevronDown size={14} className={`transition-transform duration-200 ${activeMenu === item.label ? 'rotate-180' : ''}`} />
@@ -87,7 +87,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-700') : ''}`}
+                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? 'text-brand-gold-500' : ''}`}
                     >
                       {item.label}
                     </Link>
