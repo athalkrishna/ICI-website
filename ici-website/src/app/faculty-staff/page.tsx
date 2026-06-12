@@ -31,7 +31,10 @@ export default function FacultyStaffPage() {
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
-            <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 mb-8 justify-start">For Faculty & Staff</div>
+            <div className="flex items-center gap-6 mb-8">
+              <div className="w-16 h-[1px] gradient-accent-gold"></div>
+              <div className="text-eyebrow text-brand-gold-400">For Faculty & Staff</div>
+            </div>
             <h1 className="text-h1 text-white mb-8">
               For the people who make ICI work
             </h1>
