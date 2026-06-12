@@ -65,7 +65,7 @@ export default function FeaturedProgrammes() {
                 <div className="p-8 flex-1 flex flex-col">
                   <h3 className="text-h3 text-brand-navy-700 mb-3 group-hover:text-brand-gold-600 transition-colors">{prog.title}</h3>
                   <p className="text-muted mb-8 flex-1 text-body">{prog.desc}</p>
-                  <Link href={prog.href} className="btn-outline w-full justify-center">
+                  <Link href={prog.href} className="btn-secondary-light w-full justify-center">
                     Learn More
                   </Link>
                 </div>
