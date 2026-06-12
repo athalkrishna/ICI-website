@@ -40,11 +40,9 @@ export default function TopBar({ isLoggedIn = false }: { isLoggedIn?: boolean })
             </Link>
           ))}
           <span className="text-brand-gold-500 mx-1">|</span>
-          {isLoggedIn ? (
-            <Link href="/account" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">My Account</Link>
-          ) : (
-            <Link href="/login" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">Log In</Link>
-          )}
+          <Link href="/login" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">Log In</Link>
+          <span className="text-brand-gold-500 mx-1">|</span>
+          <Link href="/account" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">My Account</Link>
         </div>
 
       </Container>
