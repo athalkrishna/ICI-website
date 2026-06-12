@@ -25,7 +25,7 @@ export const navItems: NavItem[] = [
         links: [
           { label: 'Mission, Vision & Values', href: '/about/mission', desc: 'Our core philosophy and approach' },
           { label: 'History & Heritage', href: '/about/history', desc: 'The origins and traditions we draw upon' },
-          { label: 'Leadership & Faculty', href: '/faculty', desc: 'Meet our practising coaches' },
+          { label: 'Leadership & Faculty', href: '/about/leadership-faculty', desc: 'Meet our practising coaches' },
           { label: 'Global Presence', href: '/about/global', desc: 'Our international network of coaches' },
           { label: 'Recognition & Accreditation', href: '/about/accreditation', desc: 'Built to international coaching standards' },
           { label: 'Partnerships & Alliances', href: '/about/partnerships', desc: 'Collaborations with aligned organisations' },
@@ -96,6 +96,7 @@ export const navItems: NavItem[] = [
         links: [
           { label: 'Resources Library', href: '/resources', desc: 'Guides, tools and articles' },
           { label: 'The Blog', href: '/blog', desc: 'Latest insights from the field' },
+          { label: 'Faculty & Research', href: '/faculty', desc: 'Meet our practising coaches' },
           { label: 'Prospectus', href: '/resources/brochure', desc: 'Download the full guide' },
         ]
       }

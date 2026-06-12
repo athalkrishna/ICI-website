@@ -5,17 +5,17 @@ import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
-  title: 'Leadership & Faculty | International Coaching Institute',
-  description: 'Our faculty are practicing coaches who deliver live, online, one-to-one programmes.'
+  title: 'Faculty & Research | International Coaching Institute',
+  description: 'Meet the ICI faculty: practising coaches who teach what they do. Explore our thinking on coaching, leadership and behavioural change.'
 }
 
-export default function FacultyPage() {
+export default function FacultyResearchPage() {
   return (
-    <div className="bg-cream-50 min-h-screen">
+    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+      
       {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
+      <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
         </div>
@@ -24,37 +24,77 @@ export default function FacultyPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">About ICI</div>
+              <div className="text-eyebrow text-brand-gold-400">Faculty & Research</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Leadership & Faculty
+              Taught by people who still do the work
             </h1>
-            <p className="text-muted-dark text-body max-w-3xl">
-              Taught by coaches, for coaches.
+            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+              A coaching school is only as good as the people who teach in it. At ICI you learn from practising coaches, not career lecturers, people who carry real client work into the room with them. Alongside our teaching, we share thinking on coaching, leadership and the psychology of change, because the field only advances when practitioners keep questioning it.
             </p>
           </AnimatedSection>
         </Container>
       </Section>
 
-      {/* ── Main Content ── */}
-      <Section spacing="compact" className="lg:py-24">
+      {/* ── Our Faculty ── */}
+      <Section spacing="standard" className="relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl space-y-8">
-            <p className="text-navy-700 text-body">
-              ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests. The blend of leadership thinking, applied psychology, neuroscience and reflective practice means you come to understand both the person in front of you and yourself.
+          <AnimatedSection>
+            <h2 className="text-h2 text-white mb-6">Our faculty</h2>
+            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+              ICI faculty combine deep coaching experience with grounding in leadership, psychology, neuroscience and human behaviour. Many continue to coach senior leaders while they teach, so what you learn reflects how coaching actually works today. Because we teach one-to-one, you work closely with a coach matched to your level and focus.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 pt-8">
-              <Link href="/credentials" className="btn-primary text-center">
-                Explore the Mastery Pathway
-              </Link>
-              <Link href="/contact" className="btn-secondary-light text-center">
-                Speak to an advisor
-              </Link>
-            </div>
           </AnimatedSection>
+          
+          {/* Faculty Profiles will be injected here once supplied */}
         </Container>
       </Section>
+
+      {/* ── Research & Thinking ── */}
+      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            <AnimatedSection>
+              <h2 className="text-h2 text-white mb-6">Our approach to research and thinking</h2>
+              <p className="text-muted-dark mb-8 text-body">
+                Coaching deserves rigour. We draw on coaching psychology, behavioural science and neuroscience, test ideas against real practice, and share what we learn through articles and teaching. The aim is not theory for its own sake, but better coaching for the people our graduates serve.
+              </p>
+              <div className="mt-8">
+                <Link href="/resources" className="btn-primary">
+                  Read our latest insights
+                </Link>
+              </div>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={0.2} className="bg-brand-navy-900/50 p-8 md:p-10 rounded-3xl border border-subtle">
+              <h3 className="text-h3 text-white mb-6">Themes we explore</h3>
+              <ul className="space-y-4 text-brand-navy-200 text-body">
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold-400 mt-2 shrink-0"></div>
+                  <span>The inner life of high achievers, including the loneliness of success</span>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold-400 mt-2 shrink-0"></div>
+                  <span>How change really happens in the brain and the nervous system</span>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold-400 mt-2 shrink-0"></div>
+                  <span>Leadership as a practice of self-mastery</span>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold-400 mt-2 shrink-0"></div>
+                  <span>Defence mechanisms, projection and the patterns that shape behaviour</span>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold-400 mt-2 shrink-0"></div>
+                  <span>Contemplative traditions and modern behavioural science in dialogue</span>
+                </li>
+              </ul>
+            </AnimatedSection>
+          </div>
+        </Container>
+      </Section>
+
     </div>
   )
 }
