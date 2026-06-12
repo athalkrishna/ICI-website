@@ -25,7 +25,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
   if (!levelInfo) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-cream-50">
-        <p className="text-brand-navy-900 font-sans font-bold">Invalid level selected.</p>
+        <p className="text-brand-navy-900 font-bold text-body">Invalid level selected.</p>
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
             <h1 className="text-h1 text-white mb-6">
               Enrol in {levelInfo.title}
             </h1>
-            <p className="font-body text-xl text-muted-dark">
+            <p className="text-muted-dark text-body">
               Secure your place and begin your coaching journey.
             </p>
           </AnimatedSection>

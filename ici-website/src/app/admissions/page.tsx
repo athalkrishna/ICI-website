@@ -69,7 +69,7 @@ export default function AdmissionsPage() {
                 <h3 className="text-h3 text-brand-navy-900 mb-6 pb-4 border-b border-brand-navy-200">
                   Entry requirements
                 </h3>
-                <p className="text-muted font-body leading-relaxed text-lg mb-8">
+                <p className="text-muted mb-8 text-body">
                   Catalyst is open to anyone serious about learning to coach, with no prior qualification required. Higher levels require the level below or equivalent experience, which we confirm with you.
                 </p>
                 <div className="bg-white p-8 rounded-2xl shadow-md border border-navy-100">
@@ -77,7 +77,7 @@ export default function AdmissionsPage() {
                     <div className="w-2 h-2 rounded-full bg-brand-gold-500"></div>
                     Free assessment: which level is right for me?
                   </h4>
-                  <p className="text-muted font-body leading-relaxed mb-6">
+                  <p className="text-muted mb-6 text-body">
                     Not sure whether to start at Catalyst or higher? Our short, free assessment asks about your experience and goals and points you to the right starting place. No email wall, no pressure.
                   </p>
                   <Link href="/admissions/contact" className="text-brand-gold-700 font-sans font-bold hover:text-brand-gold-800 transition-colors inline-flex items-center gap-1">
@@ -90,7 +90,7 @@ export default function AdmissionsPage() {
                 <h3 className="text-h3 text-brand-navy-900 mb-6 pb-4 border-b border-brand-navy-200">
                   Tuition and pricing
                 </h3>
-                <p className="text-muted font-body leading-relaxed text-lg mb-6">
+                <p className="text-muted mb-6 text-body">
                   Every price is complete and set out plainly on our Pricing page, with instalment options available.
                 </p>
                 <Link href="/pricing" className="text-brand-gold-400 font-sans font-bold hover:text-brand-gold-300 transition-colors inline-flex items-center gap-1">

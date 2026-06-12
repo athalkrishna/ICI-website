@@ -62,7 +62,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
               <CheckCircle2 size={40} className="text-green-600" />
             </div>
             <h1 className="text-h1 text-brand-navy-900 mb-4">Application Received</h1>
-            <p className="font-body text-muted text-lg mb-8 max-w-lg mx-auto">
+            <p className="text-muted mb-8 max-w-lg mx-auto text-body">
               Thank you for taking the first step. Our admissions team will review your application and be in touch within 24-48 hours.
             </p>
             <button 
@@ -79,7 +79,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
               <AnimatedSection>
                 <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Admissions</div>
                 <h1 className="text-h1 text-brand-navy-900 mb-6">{heading}</h1>
-                <p className="font-body text-muted mb-10 text-lg">
+                <p className="text-muted mb-10 text-body">
                   {body}
                 </p>
 

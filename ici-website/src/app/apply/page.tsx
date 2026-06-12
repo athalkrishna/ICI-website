@@ -48,7 +48,7 @@ export default function ApplyPage() {
           
           <AnimatedSection delay={0.2} className="mt-16 text-center">
             <h2 className="text-h2 text-brand-navy-900 mb-4">After you apply</h2>
-            <p className="font-body text-muted leading-relaxed max-w-lg mx-auto">
+            <p className="text-muted max-w-lg mx-auto text-body">
               We review your application and arrange a short conversation to confirm the right level and answer your questions. Then, if it is a fit, we help you enrol and begin.
             </p>
           </AnimatedSection>

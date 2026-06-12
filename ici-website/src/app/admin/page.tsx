@@ -40,7 +40,7 @@ export default async function AdminDashboard() {
 
       <div className="bg-navy-50 border border-navy-100 rounded-lg p-6">
         <h3 className="text-h3 text-navy-900 mb-2">Writing Guidelines</h3>
-        <p className="text-navy-800 text-sm">
+        <p className="text-navy-800 text-body">
           British English (programme, organisation, behaviour). No em dashes (use commas, colons or brackets).
           Warm, clear, intellectually authoritative. No motivational clichés. Short paragraphs. 
           ICI is the institution: do not name individuals as founders or owners.

@@ -50,7 +50,7 @@ export default function ContactAdmissionsPage() {
           </AnimatedSection>
           
           <AnimatedSection delay={0.2} className="mt-16 text-center">
-            <p className="font-body text-muted text-lg">
+            <p className="text-muted text-body">
               Or reach us directly at <a href="tel:+919819984575" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">(+91) 98199 84575</a> and <a href="mailto:info@internationalcoachinginstitute.org" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">info@internationalcoachinginstitute.org</a>
             </p>
           </AnimatedSection>

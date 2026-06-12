@@ -81,7 +81,7 @@ export default async function AccountPage() {
                   <Book size={24} />
                 </div>
                 <h2 className="text-h3 text-white mb-4">No active enrolment</h2>
-                <p className="font-body text-navy-100/70 leading-relaxed mb-8">
+                <p className="text-navy-100/70 mb-8 text-body">
                   You have not enrolled on a level yet. Explore the Mastery Pathway or speak to an advisor to begin your journey.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">

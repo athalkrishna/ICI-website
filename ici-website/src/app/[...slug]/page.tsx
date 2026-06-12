@@ -63,7 +63,7 @@ export default async function DynamicPage({ params }: PageProps) {
             <h2 className="text-h2 text-brand-navy-700 mb-6">
               {pageData.title}
             </h2>
-            <p className="font-body text-muted leading-relaxed text-lg mb-12">
+            <p className="text-muted mb-12 text-body">
               {pageData.desc ? pageData.desc : `Welcome to the ${pageData.title} page. This section provides detailed information regarding ${pageData.subtitle.toLowerCase()} at the International Coaching Institute.`}
             </p>
             <div className="p-16 border border-dashed border-navy-200 rounded-3xl bg-cream-50">

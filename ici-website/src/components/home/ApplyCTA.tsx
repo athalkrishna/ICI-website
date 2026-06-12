@@ -15,7 +15,7 @@ export default function ApplyCTA({ content = {} }: ApplyCTAProps) {
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <AnimatedSection>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">{content.cta_heading || 'Ready to Transform Lives?'}</h2>
-          <p className="font-body text-lg text-brand-navy-800 mb-8 max-w-2xl mx-auto">
+          <p className="text-brand-navy-800 mb-8 max-w-2xl mx-auto text-body">
             {content.cta_body || 'Take the first step towards a rewarding career. Applications are now open for the upcoming cohort.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

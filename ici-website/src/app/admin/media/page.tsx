@@ -46,7 +46,7 @@ export default function AdminMediaPage() {
     <Container size="narrow">
       <div className="mb-8">
         <h1 className="text-h1 text-navy-900 mb-1">Media Library</h1>
-        <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
+        <p className="text-muted text-body">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 
       <div className="bg-white overflow-hidden rounded-2xl shadow-md border border-navy-100">
@@ -56,8 +56,8 @@ export default function AdminMediaPage() {
             
             <div className="border-2 border-dashed border-navy-200 rounded-2xl p-12 text-center hover:bg-cream-50 transition-colors">
               <UploadCloud size={40} className="mx-auto text-navy-400 mb-4" />
-              <p className="text-sm font-medium text-navy-900 mb-1">Drag and drop your file here</p>
-              <p className="text-xs text-muted mb-6">PNG, JPG, WEBP, or PDF up to 5MB</p>
+              <p className="font-medium text-navy-900 mb-1 text-body">Drag and drop your file here</p>
+              <p className="text-muted mb-6 text-body">PNG, JPG, WEBP, or PDF up to 5MB</p>
               
               <div className="relative">
                 <input
@@ -81,8 +81,8 @@ export default function AdminMediaPage() {
                 <div className="flex items-center gap-3">
                   <ImageIcon size={20} className="text-navy-500" />
                   <div>
-                    <p className="text-sm font-medium text-brand-navy-900">{file.name}</p>
-                    <p className="text-xs text-muted">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                    <p className="font-medium text-brand-navy-900 text-body">{file.name}</p>
+                    <p className="text-muted text-body">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                   </div>
                 </div>
                 <button
@@ -120,7 +120,7 @@ export default function AdminMediaPage() {
               <CheckCircle2 className="text-green-600 shrink-0 mt-0.5" />
               <div className="flex-1">
                 <h3 className="text-sm font-bold text-green-900 mb-1 font-display">Upload Successful!</h3>
-                <p className="text-xs text-green-600 mb-4">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
+                <p className="text-green-600 mb-4 text-body">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
                 
                 <div className="flex rounded-2xl shadow-md border border-navy-100">
                   <input

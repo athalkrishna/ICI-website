@@ -41,7 +41,7 @@ export default function AssessmentForm() {
           <div className={`h-1.5 flex-1 rounded-full ${step >= 2 ? 'bg-brand-gold-500' : 'bg-cream-100'}`} />
           <div className={`h-1.5 flex-1 rounded-full ${step >= 3 ? 'bg-brand-gold-500' : 'bg-cream-100'}`} />
         </div>
-        <p className="text-xs text-muted font-sans uppercase tracking-widest text-center mt-4">
+        <p className="text-muted uppercase tracking-widest text-center mt-4 text-body">
           {step === 3 ? 'Your Result' : `Step ${step} of 2`}
         </p>
       </div>
@@ -105,7 +105,7 @@ export default function AssessmentForm() {
           
           <div className="bg-brand-navy-50 p-8 rounded-2xl border border-brand-navy-100 my-8">
             <h3 className="text-2xl font-bold font-sans text-brand-navy-900 mb-2">{getRecommendation().level}</h3>
-            <p className="text-brand-navy-700 font-body mb-6">{getRecommendation().desc}</p>
+            <p className="text-brand-navy-700 mb-6 text-body">{getRecommendation().desc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={getRecommendation().href} className="btn-secondary">
                 Learn More

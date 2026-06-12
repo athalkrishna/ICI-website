@@ -23,7 +23,7 @@ export default function NewsEvents() {
                      </div>
                      <div>
                        <h4 className="font-sans font-bold text-brand-navy-700 text-sm">Global Summit 2026</h4>
-                       <p className="font-body text-xs text-muted mt-1">Join thousands of coaches worldwide for our annual summit.</p>
+                       <p className="text-muted mt-1 text-body">Join thousands of coaches worldwide for our annual summit.</p>
                      </div>
                    </li>
                  ))}

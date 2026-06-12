@@ -27,7 +27,7 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
         <AnimatedSection className="flex-1" direction="right">
           <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Why ICI</div>
           <h2 className="text-h2 text-brand-navy-700 mb-6">{content.diff_heading || 'The ICI Difference'}</h2>
-          <p className="font-body text-muted mb-8 leading-relaxed text-lg">
+          <p className="text-muted mb-8 text-body">
             Our evidence-based curriculum, world-class faculty, and supportive community provide an unmatched environment for aspiring and established coaches to thrive.
           </p>
           <ul className="space-y-6 font-sans text-brand-navy-600">

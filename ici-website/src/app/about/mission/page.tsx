@@ -43,7 +43,7 @@ export default function MissionPage() {
               <div className="pl-6 border-l-2 border-brand-gold-400 relative">
                 <span className="absolute -left-[3px] top-0 text-brand-gold-400 text-6xl leading-none font-display opacity-20">"</span>
                 <h2 className="text-h3 text-brand-navy-800 mb-6">Our mission</h2>
-                <p className="font-body text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
+                <p className="text-brand-navy-600 text-body">
                   To raise the standard of coaching by training and certifying coaches who combine genuine skill with genuine self-awareness.
                 </p>
               </div>
@@ -53,7 +53,7 @@ export default function MissionPage() {
               <div className="pl-6 border-l-2 border-brand-navy-200 relative">
                 <span className="absolute -left-[3px] top-0 text-brand-navy-200 text-6xl leading-none font-display opacity-20">"</span>
                 <h2 className="text-h3 text-brand-navy-800 mb-6">Our vision</h2>
-                <p className="font-body text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
+                <p className="text-brand-navy-600 text-body">
                   A world where good coaching is widely available and widely trusted, and where leaders are measured by how well they help others grow.
                 </p>
               </div>
@@ -77,7 +77,7 @@ export default function MissionPage() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-cream-50 rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110"></div>
                   <div className="text-brand-gold-200 font-display text-6xl md:text-7xl font-bold italic mb-6 leading-none">{val.num}</div>
                   <h4 className="font-display font-bold text-brand-navy-800 text-h4 mb-4 group-hover:text-brand-gold-600 transition-colors">{val.title}.</h4>
-                  <p className="font-body text-lg text-muted leading-relaxed">{val.desc}</p>
+                  <p className="text-muted text-body">{val.desc}</p>
                 </div>
               ))}
             </div>

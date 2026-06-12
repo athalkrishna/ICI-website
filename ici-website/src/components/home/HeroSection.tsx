@@ -134,7 +134,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               <h2 className="font-display text-xl font-bold text-brand-navy-700 mb-1">
                 {content.lead_form_heading || 'Start Your Coaching Journey'}
               </h2>
-              <p className="font-sans text-sm text-muted mb-5">
+              <p className="text-muted mb-5 text-body">
                 {content.lead_form_subtext || 'Free application · No commitment'}
               </p>
 

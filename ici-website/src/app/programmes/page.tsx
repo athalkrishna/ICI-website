@@ -55,7 +55,7 @@ export default function ProgrammesOverviewPage() {
               <Sparkles className="text-brand-gold-500" size={40} />
               The core: the ICI Mastery Pathway
             </h2>
-            <p className="font-body text-xl text-muted leading-relaxed max-w-3xl">
+            <p className="text-muted max-w-3xl text-body">
               Your certification is earned through four progressive levels. Each is a complete credential in its own right, and each builds on the one before.
             </p>
           </AnimatedSection>
@@ -111,7 +111,7 @@ export default function ProgrammesOverviewPage() {
                   Specialisations:<br/>
                   <span className="text-brand-gold-500">where you focus</span>
                 </h2>
-                <p className="font-body text-xl text-muted-dark leading-relaxed mb-10">
+                <p className="text-muted-dark mb-10 text-body">
                   As you progress, you can shape your training around a specialism. These are not separate courses with separate fees; they are the focus you bring to your pathway, supported by faculty experienced in that area. Your investment follows the Pathway, set out on the Pricing page.
                 </p>
               </div>

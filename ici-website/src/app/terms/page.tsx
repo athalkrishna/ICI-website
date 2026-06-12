@@ -14,7 +14,7 @@ export default function TermsPage() {
       image="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=1920&q=80"
       lastUpdated={new Date('2024-01-01')}
     >
-      <p className="lead text-xl text-brand-navy-800">
+      <p className="lead text-brand-navy-800 text-body">
         These terms govern your use of the International Coaching Institute website and your enrolment in our programmes. By using this site or enrolling, you agree to them.
       </p>
 

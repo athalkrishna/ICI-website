@@ -17,7 +17,7 @@ export default function AssessmentPage() {
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <Container className="relative z-20 text-center">
           <h1 className="text-h1 text-white mb-4">Free Admissions Assessment</h1>
-          <p className="font-body text-xl text-muted-dark max-w-2xl mx-auto">
+          <p className="text-muted-dark max-w-2xl mx-auto text-body">
             Answer a few quick questions to discover which coaching credential level aligns with your experience and goals.
           </p>
         </Container>

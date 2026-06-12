@@ -30,7 +30,7 @@ export default function CheckoutSuccessPage() {
             <h1 className="text-h1 text-white mb-6">
               Enrolment Confirmed
             </h1>
-            <p className="font-body text-xl text-muted-dark mb-12 leading-relaxed">
+            <p className="text-muted-dark mb-12 text-body">
               Your payment was successful and your place is secure. Welcome to the International Coaching Institute.
             </p>
           </AnimatedSection>
@@ -48,7 +48,7 @@ export default function CheckoutSuccessPage() {
                   <div className="w-8 h-8 rounded-full bg-brand-navy-50 text-brand-navy-900 flex items-center justify-center font-bold font-sans text-sm shrink-0">1</div>
                   <div>
                     <h3 className="font-bold text-brand-navy-900 font-sans mb-1">Look out for our email</h3>
-                    <p className="text-muted font-body leading-relaxed">We will send a receipt and a welcome pack to the email address you provided.</p>
+                    <p className="text-muted text-body">We will send a receipt and a welcome pack to the email address you provided.</p>
                   </div>
                 </div>
 
@@ -56,7 +56,7 @@ export default function CheckoutSuccessPage() {
                   <div className="w-8 h-8 rounded-full bg-brand-navy-50 text-brand-navy-900 flex items-center justify-center font-bold font-sans text-sm shrink-0">2</div>
                   <div>
                     <h3 className="font-bold text-brand-navy-900 font-sans mb-1">Advisor contact</h3>
-                    <p className="text-muted font-body leading-relaxed">An advisor will contact you within 24 hours to arrange an introduction and schedule your first session.</p>
+                    <p className="text-muted text-body">An advisor will contact you within 24 hours to arrange an introduction and schedule your first session.</p>
                   </div>
                 </div>
 
@@ -64,7 +64,7 @@ export default function CheckoutSuccessPage() {
                   <div className="w-8 h-8 rounded-full bg-brand-navy-50 text-brand-navy-900 flex items-center justify-center font-bold font-sans text-sm shrink-0">3</div>
                   <div>
                     <h3 className="font-bold text-brand-navy-900 font-sans mb-1">Meet your coach</h3>
-                    <p className="text-muted font-body leading-relaxed">You will be matched with a faculty member and gain access to your pre-reading materials.</p>
+                    <p className="text-muted text-body">You will be matched with a faculty member and gain access to your pre-reading materials.</p>
                   </div>
                 </div>
               </div>

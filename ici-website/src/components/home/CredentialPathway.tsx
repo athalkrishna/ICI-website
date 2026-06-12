@@ -70,7 +70,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {content.credential_heading || 'Your path to mastery'}
           </h2>
-          <p className="font-body text-lg text-muted-dark max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-dark max-w-2xl mx-auto text-body">
             {content.credential_subtext || 'Four progressive levels, each a credential you carry for life, taught one-to-one and online.'}
           </p>
         </AnimatedSection>
@@ -106,7 +106,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                   {cred.level}
                 </div>
                 <div className="font-mono text-sm text-navy-300 mb-6">{cred.hours}</div>
-                <p className="font-body text-base text-navy-100/70 leading-relaxed flex-1 mb-8">
+                <p className="text-navy-100/70 flex-1 mb-8 text-body">
                   {cred.desc}
                 </p>
 
@@ -135,7 +135,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
 
         {/* CTA bar */}
         <AnimatedSection className="text-center">
-          <p className="font-body text-muted-dark mb-6 text-lg">Not sure which level is right for you?</p>
+          <p className="text-muted-dark mb-6 text-body">Not sure which level is right for you?</p>
           <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4">
             Not sure where to start? Speak to an advisor
             <ChevronRight size={18} />

@@ -14,7 +14,7 @@ export default function ComplaintsPage() {
       image="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=1920&q=80"
       lastUpdated={new Date('2024-01-01')}
     >
-      <p className="lead text-xl text-brand-navy-800">
+      <p className="lead text-brand-navy-800 text-body">
         The International Coaching Institute is committed to providing a high-quality service to all our students and clients. If you are unhappy with any aspect of our service, we want to know about it so we can put it right.
       </p>
 

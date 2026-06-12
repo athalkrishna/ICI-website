@@ -171,7 +171,7 @@ export default function Testimonials() {
               >
                 <div className="bg-brand-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-subtle shadow-2xl relative h-full flex flex-col hover:border-brand-gold-500/30 transition-colors duration-300">
                   <div className="text-brand-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
-                  <p className="font-body text-navy-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
+                  <p className="text-navy-50 mb-10 relative z-10 italic flex-1 pt-6 text-body">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-4 border-t border-subtle pt-6 mt-auto">
@@ -213,7 +213,7 @@ export default function Testimonials() {
               >
                 <div className="bg-brand-navy-800/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-subtle shadow-2xl relative h-full flex flex-col hover:border-brand-gold-500/30 transition-colors duration-300">
                   <div className="text-brand-gold-500 font-display text-6xl absolute top-4 left-6 opacity-20 transition-opacity duration-300">"</div>
-                  <p className="font-body text-navy-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
+                  <p className="text-navy-50 mb-10 relative z-10 italic flex-1 pt-6 text-body">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-4 border-t border-subtle pt-6 mt-auto">

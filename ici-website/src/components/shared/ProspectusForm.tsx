@@ -40,7 +40,7 @@ export default function ProspectusForm() {
   if (status === 'success') {
     return (
       <div className="bg-brand-navy-900/80 border border-brand-gold-500/30 p-8 rounded-2xl text-center relative z-10">
-        <p className="font-body text-xl text-brand-gold-400">Thank you. We will email you the prospectus shortly.</p>
+        <p className="text-brand-gold-400 text-body">Thank you. We will email you the prospectus shortly.</p>
       </div>
     )
   }
@@ -126,7 +126,7 @@ export default function ProspectusForm() {
         <button type="submit" disabled={status === 'loading'} className="btn-primary w-full justify-center py-4 text-base mb-4">
           {status === 'loading' ? 'Sending...' : 'Send me the prospectus'}
         </button>
-        <p className="font-body text-sm text-navy-100/50 leading-relaxed">
+        <p className="text-navy-100/50 text-body">
           We will email you the prospectus as soon as it is released, within the next few weeks.
         </p>
       </div>

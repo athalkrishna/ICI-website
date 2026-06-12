@@ -53,7 +53,7 @@ export default async function EventsPage() {
             
             {events.length === 0 ? (
               <Container size="narrow" className="bg-brand-navy-800/50 border border-faint rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center">
-                <p className="font-body text-2xl text-muted-dark leading-relaxed font-light mb-8">
+                <p className="text-muted-dark mb-8 text-body">
                   Our first public events are being scheduled. Register your interest and we will tell you first.
                 </p>
                 <EventsForm />
@@ -69,7 +69,7 @@ export default async function EventsPage() {
                       <span>{event.format || 'Online'}</span>
                     </div>
                     {event.description && (
-                      <p className="font-body text-muted-dark leading-relaxed mb-8">{event.description}</p>
+                      <p className="text-muted-dark mb-8 text-body">{event.description}</p>
                     )}
                     {event.registerLink && (
                       <Link href={event.registerLink} target="_blank" className="btn-primary inline-flex">
@@ -89,7 +89,7 @@ export default async function EventsPage() {
         <Container>
           <AnimatedSection className="max-w-3xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Masterclasses</h2>
-            <p className="font-body text-lg text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">

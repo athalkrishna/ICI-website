@@ -165,12 +165,12 @@ export default function PricingPage() {
                 </tbody>
               </table>
             </div>
-            <p className="text-sm text-navy-100/50 mt-4 md:hidden">
+            <p className="text-navy-100/50 mt-4 md:hidden text-body">
               Scroll horizontally to see full table →
             </p>
             
             <div className="mt-6 text-right">
-              <p className="font-body text-sm text-navy-100/50">
+              <p className="text-navy-100/50 text-body">
                 {currencyCode !== 'INR' && !loading ? (
                   <>Prices shown are converted to {currencyCode} using live exchange rates. Final billing is processed in INR.</>
                 ) : (
@@ -233,7 +233,7 @@ export default function PricingPage() {
                 <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
                   Payment options
                 </h3>
-                <p className="text-muted-dark font-body leading-relaxed">
+                <p className="text-muted-dark text-body">
                   Pay in full at checkout, or choose an instalment option where available. Card EMI is offered by most major banks at checkout; if you would prefer an institute instalment plan, speak to an advisor and we will agree a schedule before you enrol.
                 </p>
               </div>
@@ -242,7 +242,7 @@ export default function PricingPage() {
                 <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
                   GST and international clients
                 </h3>
-                <p className="text-muted-dark font-body leading-relaxed">
+                <p className="text-muted-dark text-body">
                   All prices are exclusive of GST. Applicable GST is added at checkout for clients billed in India. International clients see the price they will be charged in their own currency at checkout.
                 </p>
               </div>
@@ -293,7 +293,7 @@ export default function PricingPage() {
           </div>
 
           <AnimatedSection delay={0.4} className="mt-16 text-center">
-            <p className="font-body text-muted-dark mb-8">Ready to begin your journey?</p>
+            <p className="text-muted-dark mb-8 text-body">Ready to begin your journey?</p>
             <div className="flex flex-wrap justify-center items-center gap-4">
               <Link href="/credentials" className="btn-primary">
                 Choose your level <ChevronRight size={18} />

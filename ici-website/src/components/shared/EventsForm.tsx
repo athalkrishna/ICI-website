@@ -37,7 +37,7 @@ export default function EventsForm() {
   if (status === 'success') {
     return (
       <div className="bg-brand-navy-800/50 border border-brand-gold-500/30 p-8 rounded-2xl text-center">
-        <p className="font-body text-xl text-brand-gold-400">Thank you — we will be in touch.</p>
+        <p className="text-brand-gold-400 text-body">Thank you — we will be in touch.</p>
       </div>
     )
   }

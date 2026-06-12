@@ -39,10 +39,10 @@ export default function LeadershipFacultyPage() {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center mb-16 lg:mb-32">
             <AnimatedSection className="lg:col-span-7 space-y-8">
               <h2 className="text-h3 text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
-              <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
+              <p className="text-navy-700 text-body">
                 ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests.
               </p>
-              <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
+              <p className="text-navy-700 text-body">
                 The blend of leadership thinking, applied psychology, neuroscience and reflective practice means you come to understand both the person in front of you and yourself.
               </p>
               

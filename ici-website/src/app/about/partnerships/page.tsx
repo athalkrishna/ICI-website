@@ -69,7 +69,7 @@ export default function PartnershipsPage() {
                   <div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center text-brand-gold-700 shrink-0 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
                     {card.icon}
                   </div>
-                  <p className="font-body text-brand-navy-800 leading-relaxed text-lg font-medium">
+                  <p className="text-brand-navy-800 font-medium text-body">
                     {card.desc}
                   </p>
                 </div>
@@ -84,7 +84,7 @@ export default function PartnershipsPage() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-500 rounded-full blur-[80px] opacity-20 -translate-x-1/3 translate-y-1/3"></div>
               
               <div className="relative z-10">
-                <p className="font-body text-2xl text-white mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                <p className="text-white mb-10 max-w-2xl mx-auto text-body">
                   If your organisation develops people, or serves a community we could serve better together, we would like to hear from you.
                 </p>
                 <Link href="/contact" className="btn-primary">

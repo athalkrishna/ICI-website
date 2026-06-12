@@ -43,7 +43,7 @@ export default function GlobalPage() {
               <p className="text-navy-700 text-body">
                 We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
               </p>
-              <p className="font-body text-lg text-navy-700 leading-relaxed">
+              <p className="text-navy-700 text-body">
                 Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
               </p>
               
@@ -94,7 +94,7 @@ export default function GlobalPage() {
                 <div key={i} className="bg-brand-navy-800/50 backdrop-blur-sm p-8 rounded-3xl border border-subtle hover:bg-brand-navy-800 transition-colors">
                   <div className="text-brand-gold-400 font-display text-3xl mb-4 italic leading-none">0{i+1}</div>
                   <h4 className="font-sans font-bold text-white text-h4 mb-3">{item.title}</h4>
-                  <p className="font-body text-brand-navy-200 leading-relaxed text-sm">{item.desc}</p>
+                  <p className="text-brand-navy-200 text-body">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -102,7 +102,7 @@ export default function GlobalPage() {
             {/* Glowing Map Component */}
             <div className="mt-24 text-center">
               <h2 className="text-h3 text-white mb-6">Where our coaches are</h2>
-              <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
+              <p className="text-brand-navy-200 mb-10 text-body">Our coaches train from 60+ countries and counting.</p>
             </div>
             
             <Container size="mid" className="relative z-20 w-full aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-faint bg-brand-navy-800/30">

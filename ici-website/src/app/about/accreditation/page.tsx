@@ -43,10 +43,10 @@ export default function AccreditationPage() {
                 <ShieldCheck className="w-10 h-10 text-brand-gold-500" />
               </div>
               <h2 className="text-h2 text-brand-navy-800">A credential is only worth what it can be trusted to mean.</h2>
-              <p className="font-body text-xl text-navy-700 leading-relaxed font-light">
+              <p className="text-navy-700 text-body">
                 This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned.
               </p>
-              <p className="font-body text-lg text-navy-700 leading-relaxed">
+              <p className="text-navy-700 text-body">
                 We would rather say less and be believed than claim more and be doubted.
               </p>
               

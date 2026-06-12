@@ -64,7 +64,7 @@ export default function ContactForm() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
         <h3 className="text-h3 text-white mb-4">Request received</h3>
-        <p className="font-body text-muted-dark leading-relaxed mb-8">
+        <p className="text-muted-dark mb-8 text-body">
           Thank you. An advisor will review your request and get back to you shortly to confirm a time for your conversation.
         </p>
         <button onClick={() => setStatus('idle')} className="btn-outline text-white border-white hover:bg-white hover:text-brand-navy-900">

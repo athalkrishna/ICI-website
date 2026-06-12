@@ -32,7 +32,7 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-[1.1]">
             {content.global_network_heading || 'Connecting Coaches Worldwide'}
           </h2>
-          <p className="font-body text-brand-navy-200 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl">
+          <p className="text-brand-navy-200 mb-12 max-w-2xl text-body">
             {content.global_network_body || 'With graduates in over 60 countries, the ICI community is a diverse, dynamic network of professionals advancing the field of coaching. Connect, learn, and grow with the best in the industry.'}
           </p>
           

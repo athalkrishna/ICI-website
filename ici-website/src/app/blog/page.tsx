@@ -45,7 +45,7 @@ export default function BlogPage() {
               <h2 className="text-h3 text-white mb-6">
                 The first articles are on their way
               </h2>
-              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-12">
+              <p className="text-navy-100/70 mb-12 text-body">
                 We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.
               </p>
               

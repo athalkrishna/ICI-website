@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       image="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80"
       lastUpdated={new Date('2024-01-01')}
     >
-      <p className="lead text-xl text-brand-navy-800">
+      <p className="lead text-brand-navy-800 text-body">
         The International Coaching Institute ([legal entity name], we, us, our) respects your privacy and is committed to protecting your personal data. This policy explains what we collect, why, how we use it, and the rights you have.
       </p>
 

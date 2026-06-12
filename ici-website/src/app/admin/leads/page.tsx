@@ -14,7 +14,7 @@ export default async function AdminLeadsPage() {
       <div className="flex justify-between items-end mb-8">
         <div>
           <h1 className="text-h1 text-navy-900 mb-1">Leads & Applications</h1>
-          <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
+          <p className="text-muted text-body">View and manage form submissions from the public website.</p>
         </div>
         <div className="text-sm text-muted font-medium bg-white px-4 py-2 rounded-2xl shadow-md border border-navy-100">
           Total: {leads.length} leads

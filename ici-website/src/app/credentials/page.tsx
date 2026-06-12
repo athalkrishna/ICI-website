@@ -147,7 +147,7 @@ export default function CredentialsPage() {
                         {path.subline}
                       </span>
                     </h3>
-                    <p className="font-body text-xl text-muted mb-12 flex-1 leading-relaxed">
+                    <p className="text-muted mb-12 flex-1 text-body">
                       {path.desc}
                     </p>
                     

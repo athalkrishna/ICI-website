@@ -120,7 +120,7 @@ export default function FindACoachPage() {
         <Container>
           <AnimatedSection className="max-w-3xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Why choose an ICI coach</h2>
-            <p className="font-body text-lg text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Every coach in this directory holds a credential that was earned, not bought. They have been trained in coaching craft, psychology, neuroscience and human behaviour, and are held to a professional standard of ethics and practice.
             </p>
           </AnimatedSection>

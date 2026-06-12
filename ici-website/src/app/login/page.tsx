@@ -24,7 +24,7 @@ export default function LoginPage() {
           <div className="text-center mb-10">
             <div className="text-eyebrow flex items-center gap-3 mb-6 justify-center">Log In</div>
             <h1 className="text-h1 text-white mb-4">Welcome back</h1>
-            <p className="font-body text-navy-100/70">
+            <p className="text-navy-100/70 text-body">
               Log in to access your sessions, materials and account.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-8 text-center relative z-10">
-              <p className="font-body text-sm text-navy-100/60">
+              <p className="text-navy-100/60 text-body">
                 New to ICI? <Link href="/apply" className="text-brand-gold-400 hover:text-brand-gold-300 transition-colors font-medium">Apply here.</Link>
               </p>
             </div>

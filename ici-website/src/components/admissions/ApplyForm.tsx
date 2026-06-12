@@ -65,7 +65,7 @@ export default function ApplyForm() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
         <h3 className="font-display text-2xl font-bold text-brand-navy-900 mb-4">Application received</h3>
-        <p className="font-body text-muted leading-relaxed mb-8">
+        <p className="text-muted mb-8 text-body">
           Thank you for applying to the International Coaching Institute. We will review your application and an advisor will be in touch within 2 working days.
         </p>
       </div>
@@ -237,7 +237,7 @@ export default function ApplyForm() {
         >
           {status === 'submitting' ? 'Submitting...' : 'Submit application'}
         </button>
-        <p className="font-body text-sm text-muted">
+        <p className="text-muted text-body">
           Free to apply. No commitment. An advisor will be in touch within 2 working days.
         </p>
       </div>
