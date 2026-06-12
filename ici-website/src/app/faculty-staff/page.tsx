@@ -97,7 +97,7 @@ export default function FacultyStaffPage() {
             <p className="text-muted-dark mb-12 text-body">
               We are always interested in practising coaches who can teach with rigour and humanity. If that is you, we would like to hear from you.
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
+            <div className="flex flex-wrap justify-start items-center gap-4">
               <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
                 Express interest in teaching <ArrowRight size={18} />
               </Link>
