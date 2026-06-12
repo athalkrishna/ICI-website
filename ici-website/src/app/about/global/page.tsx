@@ -51,7 +51,7 @@ export default function GlobalPage() {
                 <Link href="/community" className="btn-primary text-center">
                   Join a global community of coaches
                 </Link>
-                <Link href="/credentials" className="btn-secondary text-center">
+                <Link href="/credentials" className="btn-secondary-light text-center">
                   See the pathway
                 </Link>
               </div>
