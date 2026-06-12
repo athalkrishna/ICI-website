@@ -23,13 +23,13 @@ export default function AssessmentPage() {
         </Container>
       </Section>
 
-      <section className="-mt-8 relative z-20">
+      <Section spacing="none" className="-mt-8 relative z-20">
         <Container size="narrow">
           <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl">
             <AssessmentForm />
           </div>
         </Container>
-      </section>
+      </Section>
     </div>
   );
 }

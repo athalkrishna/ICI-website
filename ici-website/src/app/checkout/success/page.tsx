@@ -37,7 +37,7 @@ export default function CheckoutSuccessPage() {
         </Container>
       </Section>
 
-      <section className="-mt-12 relative z-20">
+      <Section spacing="none" className="-mt-12 relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection delay={0.1}>
             <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl">
@@ -77,7 +77,7 @@ export default function CheckoutSuccessPage() {
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

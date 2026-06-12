@@ -123,7 +123,7 @@ export default function CredentialsPage() {
       </Section>
 
       {/* ── The 4 Levels ── */}
-      <section id="levels" className="py-16 lg:py-24 relative z-20">
+      <Section id="levels" spacing="compact" className="relative z-20">
         <Container>
           <AnimatedSection className="mb-12 lg:mb-16">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-4">The four levels</h2>
@@ -160,7 +160,7 @@ export default function CredentialsPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
     </div>
   )

@@ -130,8 +130,7 @@ export default function ExecutiveCoachingPage() {
         </div>
       </Section>
 
-      {/* ── Banner: How it fits the Pathway ── */}
-      <section className="mt-24 lg:mt-32">
+      <Section spacing="none" className="mt-24 lg:mt-32">
         <AnimatedSection>
           <Container>
             <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-brand-gold-500/20 shadow-2xl relative overflow-hidden">
@@ -154,7 +153,7 @@ export default function ExecutiveCoachingPage() {
             </div>
           </Container>
         </AnimatedSection>
-      </section>
+      </Section>
 
     </div>
   )
