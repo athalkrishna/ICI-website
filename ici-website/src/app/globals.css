@@ -63,7 +63,7 @@
   .text-body-lg { @apply font-body text-lg leading-relaxed; }
   .text-body-base { @apply font-body text-base leading-relaxed; }
   
-  .text-eyebrow { @apply font-body text-xs font-semibold tracking-widest uppercase text-gold-400; }
+  .text-eyebrow { @apply font-sans text-sm font-bold tracking-widest uppercase text-gold-400; }
   .text-btn { @apply font-sans font-semibold text-sm; }
   .text-nav { @apply font-sans font-medium text-sm; }
   .text-muted { @apply text-gray-600; }
