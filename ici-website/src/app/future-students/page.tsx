@@ -95,8 +95,8 @@ export default function FutureStudentsPage() {
               Life coach, executive coach, business coach, wellness coach, or a coach inside an organisation. Whatever draws you, there is a path here that starts where you are and takes you somewhere real.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
-                Not sure where to start? Speak to an advisor
+              <Link href="/admissions" className="btn-secondary w-full md:w-auto justify-center">
+                Take the free assessment
               </Link>
               <Link href="/credentials" className="btn-secondary inline-flex items-center gap-2">
                 Explore the pathway <ArrowRight size={18} />
