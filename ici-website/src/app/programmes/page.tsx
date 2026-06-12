@@ -93,7 +93,7 @@ export default function ProgrammesOverviewPage() {
 
           <div className="pt-24 lg:pt-32 pb-10 text-center relative z-20">
             <AnimatedSection delay={0.6}>
-              <Link href="/credentials" className="btn-primary inline-flex items-center gap-3 px-10 py-5 rounded-full font-sans font-bold text-sm uppercase tracking-widest transition-colors shadow-lg">
+              <Link href="/credentials" className="btn-primary">
                 Explore credentials and pricing
                 <ArrowRight size={18} />
               </Link>

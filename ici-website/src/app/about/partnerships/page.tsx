@@ -89,7 +89,7 @@ export default function PartnershipsPage() {
                 <p className="font-body text-2xl text-white mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                   If your organisation develops people, or serves a community we could serve better together, we would like to hear from you.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-brand-navy-900 px-8 py-4 rounded-full font-sans font-bold text-sm tracking-wide uppercase hover:bg-brand-gold-50 transition-colors">
+                <Link href="/contact" className="btn-primary">
                   Discuss a partnership
                   <ArrowRight size={18} />
                 </Link>

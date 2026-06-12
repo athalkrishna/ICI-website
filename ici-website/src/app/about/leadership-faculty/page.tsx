@@ -93,7 +93,7 @@ export default function LeadershipFacultyPage() {
             </div>
             
             <div className="mt-16 text-center">
-               <button className="btn-secondary-light px-8 py-3 rounded-full text-sm">View Full Directory</button>
+               <button className="btn-secondary-light">View Full Directory</button>
             </div>
           </AnimatedSection>
 
