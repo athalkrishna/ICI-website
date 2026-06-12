@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
       { source: '/programs/:path*', destination: '/programmes/:path*', permanent: true },
       { source: '/organizations', destination: '/organisations', permanent: true },
       { source: '/organizations/:path*', destination: '/organisations/:path*', permanent: true },
-      { source: '/find-a-coach', destination: '/admissions/contact', permanent: false }, // temporary redirect until built
+
     ];
   },
 };

@@ -15,17 +15,20 @@ export default function MissionPage() {
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
+        {/* Diagonal grid texture overlay */}
+        <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
+        {/* Gold gradient line */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />
+
+        <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
         </div>
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">About ICI</div>
+              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">About ICI</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
               A New Standard for Coaching
