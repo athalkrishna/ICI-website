@@ -84,7 +84,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
                 </p>
 
                 <div className="bg-brand-navy-900 text-white p-8 rounded-2xl">
-                  <h3 className="font-sans font-bold mb-4 text-brand-gold-400 tracking-widest uppercase text-sm">Next Steps</h3>
+                  <h3 className="mb-4 text-brand-gold-400 text-eyebrow">Next Steps</h3>
                   <ul className="space-y-4 font-body text-sm text-navy-100">
                     <li className="flex gap-3"><span className="text-brand-gold-500">01</span> We review your background</li>
                     <li className="flex gap-3"><span className="text-brand-gold-500">02</span> Brief interview with a faculty member</li>
@@ -101,28 +101,28 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
                     
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Full Name *</label>
+                        <label className="text-brand-navy-700 text-eyebrow">Full Name *</label>
                         <input required name="name" type="text" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Email Address *</label>
+                        <label className="text-brand-navy-700 text-eyebrow">Email Address *</label>
                         <input required name="email" type="email" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Phone Number *</label>
+                        <label className="text-brand-navy-700 text-eyebrow">Phone Number *</label>
                         <input required name="phone" type="tel" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Country of Residence *</label>
+                        <label className="text-brand-navy-700 text-eyebrow">Country of Residence *</label>
                         <input required name="country" type="text" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Programme Interest *</label>
+                      <label className="text-brand-navy-700 text-eyebrow">Programme Interest *</label>
                       <select required name="programme_interest" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow">
                         <option value="">Select a pathway</option>
                         <option value="Catalyst (Level 1)">Catalyst (Level 1)</option>
@@ -134,7 +134,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Brief Background / Goal</label>
+                      <label className="text-brand-navy-700 text-eyebrow">Brief Background / Goal</label>
                       <textarea name="message" rows={4} className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow placeholder:text-navy-400" placeholder="Tell us briefly why you want to become a coach..." />
                     </div>
 

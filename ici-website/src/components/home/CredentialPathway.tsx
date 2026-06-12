@@ -102,7 +102,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
 
                 {/* Content */}
                 <h3 className="text-h3 text-white mb-2">{cred.name}</h3>
-                <div className="font-sans text-xs text-brand-gold-400 font-semibold tracking-widest uppercase mb-2">
+                <div className="text-brand-gold-400 mb-2 text-eyebrow">
                   {cred.level}
                 </div>
                 <div className="font-mono text-sm text-navy-300 mb-6">{cred.hours}</div>

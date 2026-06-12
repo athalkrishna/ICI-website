@@ -227,7 +227,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
         transition={{ duration: 1.8, repeat: Infinity }}
         aria-hidden
       >
-        <span className="text-xs font-sans tracking-widest uppercase">Scroll</span>
+        <span className="text-eyebrow">Scroll</span>
         <ChevronDown size={18} />
       </motion.div>
 

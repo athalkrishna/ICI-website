@@ -83,7 +83,7 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="name" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+          <label htmlFor="name" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
             Name <span className="text-brand-gold-500">*</span>
           </label>
           <input 
@@ -97,7 +97,7 @@ export default function ContactForm() {
         </div>
         
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="email" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+          <label htmlFor="email" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
             Email <span className="text-brand-gold-500">*</span>
           </label>
           <input 
@@ -113,7 +113,7 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="phone" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+          <label htmlFor="phone" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
             Phone <span className="text-navy-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
@@ -126,7 +126,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="country" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+          <label htmlFor="country" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
             Country and time zone <span className="text-brand-gold-500">*</span>
           </label>
           <input 
@@ -141,7 +141,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col justify-end h-full relative">
-        <label htmlFor="discuss" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+        <label htmlFor="discuss" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
           What would you like to discuss? <span className="text-brand-gold-500">*</span>
         </label>
         <textarea 
@@ -155,7 +155,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col justify-end h-full relative">
-        <label htmlFor="times" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+        <label htmlFor="times" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
           Preferred times <span className="text-brand-gold-500">*</span>
         </label>
         <input 
