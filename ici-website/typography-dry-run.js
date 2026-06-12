@@ -1,64 +1,91 @@
 const fs = require('fs');
+const path = require('path');
 
-const filesToPatch = [
-  'src/app/about/global/page.tsx',
-  'src/app/about/leadership-faculty/page.tsx',
-  'src/app/about/mission/page.tsx',
-  'src/app/credentials/page.tsx',
-  'src/app/programmes/page.tsx',
-  'src/app/programmes/business-coach/page.tsx',
-  'src/app/programmes/certified-life-coach/page.tsx',
-  'src/app/programmes/executive-coaching/page.tsx',
-  'src/app/programmes/health-wellness/page.tsx',
-  'src/app/programmes/team-coaching/page.tsx'
-];
+function walkDir(dir, callback) {
+  fs.readdirSync(dir).forEach(f => {
+    let dirPath = path.join(dir, f);
+    if (fs.statSync(dirPath).isDirectory()) {
+      walkDir(dirPath, callback);
+    } else {
+      callback(path.join(dir, f));
+    }
+  });
+}
 
-filesToPatch.forEach(file => {
-  if (fs.existsSync(file)) {
-    let content = fs.readFileSync(file, 'utf8');
-    let originalContent = content;
+const diffs = [];
 
-    // We replace instances of md:text-5xl, text-5xl, md:text-4xl, text-4xl
-    // Only if they are inside className=""
-    // We do NOT touch text-9xl, text-6xl, md:text-7xl
+walkDir('src/app', function(filePath) {
+  if (!filePath.endsWith('.tsx')) return;
+  const originalContent = fs.readFileSync(filePath, 'utf8');
+  let content = originalContent;
 
-    // Helper to safely replace within className
-    content = content.replace(/className="([^"]+)"/g, (match, classes) => {
-      let classArr = classes.split(' ');
-      let changed = false;
-      for (let i=0; i<classArr.length; i++) {
-        const c = classArr[i];
-        if (c === 'text-4xl' || c === 'md:text-4xl' || c === 'text-5xl' || c === 'md:text-5xl') {
-           // We'll replace them all with text-h2 for top level headings or text-h3 for subheadings
-           // A simple heuristic: if it has font-display, it's a heading. We can just replace with text-h2 or text-h3.
-           // Actually, let's just strip the sizing classes and append text-h3 if it's 4xl, text-h2 if it's 5xl.
-           if (c.includes('5xl')) {
-             classArr[i] = 'text-h2';
-           } else {
-             classArr[i] = 'text-h3';
-           }
-           changed = true;
-        }
+  // 1. H1 Migration & Redundant Stripping (H1/H2/H3)
+  content = content.replace(/<(h[1-3])([^>]*)className=["']([^"']*)["']([^>]*)>/g, (match, tag, before, classesStr, after) => {
+    let classArr = classesStr.split(/\s+/);
+    let original = classArr.join(' ');
+    
+    // Assign correct token for H1 if missing
+    if (tag === 'h1' && !classArr.includes('text-h1')) {
+      classArr.push('text-h1');
+    }
+
+    // Identify if it has a semantic class
+    const semanticClasses = classArr.filter(c => c.match(/^text-h[1-6]$/));
+    const isSemantic = semanticClasses.length > 0;
+
+    if (semanticClasses.length > 1) {
+      // It has multiple semantic classes (e.g. text-h3 and text-h2)
+      // Keep the most important one (lowest number)
+      semanticClasses.sort(); // text-h1, text-h2...
+      const toKeep = semanticClasses[0];
+      classArr = classArr.filter(c => !c.match(/^text-h[1-6]$/) || c === toKeep);
+    }
+
+    if (isSemantic) {
+      // Strip redundant font-display and font-bold
+      classArr = classArr.filter(c => c !== 'font-display' && c !== 'font-bold' && !c.match(/^text-[2-9]xl$/) && !c.match(/^md:text-[2-9]xl$/) && !c.match(/^lg:text-[2-9]xl$/) && c !== 'text-xl' && c !== 'text-lg');
+    }
+    
+    const finalClasses = [...new Set(classArr)].join(' ');
+    if (original !== finalClasses) {
+      return '<' + tag + before + 'className="' + finalClasses + '"' + after + '>';
+    }
+    return match;
+  });
+
+  // 2. Button Cleanup
+  // Strip redundant text classes from btn-primary and btn-secondary
+  content = content.replace(/className=["']([^"']*)["']/g, (match, classesStr) => {
+    if (classesStr.includes('btn-primary') || classesStr.includes('btn-secondary')) {
+      let classArr = classesStr.split(/\s+/);
+      let original = classArr.join(' ');
+      
+      classArr = classArr.filter(c => {
+        if (c.match(/^text-(xs|sm|base|lg|xl|2xl|3xl)$/)) return false;
+        if (c === 'font-sans' || c === 'font-semibold' || c === 'font-bold' || c === 'font-medium') return false;
+        if (c.startsWith('tracking-') || c.startsWith('leading-')) return false;
+        return true;
+      });
+      
+      const finalClasses = [...new Set(classArr)].join(' ');
+      if (original !== finalClasses) {
+        return 'className="' + finalClasses + '"';
       }
-      // Deduplicate classes
-      if (changed) {
-        return 'className="' + [...new Set(classArr)].join(' ') + '"';
-      }
-      return match;
-    });
+    }
+    return match;
+  });
 
-    if (content !== originalContent) {
-      // It's a dry run, we just print the diff
-      console.log('--- ' + file + ' ---');
-      const origLines = originalContent.split('\n');
-      const newLines = content.split('\n');
-      for (let i = 0; i < origLines.length; i++) {
-        if (origLines[i] !== newLines[i]) {
-          console.log('- ' + origLines[i].trim());
-          console.log('+ ' + newLines[i].trim());
-        }
+  if (content !== originalContent) {
+    // Generate diff
+    const origLines = originalContent.split('\n');
+    const newLines = content.split('\n');
+    for (let i = 0; i < origLines.length; i++) {
+      if (origLines[i] !== newLines[i]) {
+        diffs.push(`--- ${filePath} ---\n- ${origLines[i].trim()}\n+ ${newLines[i].trim()}\n`);
       }
-      console.log('');
     }
   }
 });
+
+fs.writeFileSync('typography-dry-run-output.txt', diffs.join('\n'));
+console.log('Dry run complete. Found ' + diffs.length + ' changed lines.');
