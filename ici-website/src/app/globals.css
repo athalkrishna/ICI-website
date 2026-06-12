@@ -102,22 +102,22 @@
   /* Button variants */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600
-           text-navy-700 font-sans font-semibold text-sm rounded-lg
+           text-navy-700 text-btn rounded-lg
            transition-all duration-200 active:scale-95 shadow-gold;
   }
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-white
-           text-white hover:bg-white hover:text-navy-700 font-sans font-semibold
-           text-sm rounded-lg transition-all duration-200 active:scale-95;
+           text-white hover:bg-white hover:text-navy-700 text-btn
+           rounded-lg transition-all duration-200 active:scale-95;
   }
   .btn-secondary-light {
     @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-navy-700
-           text-navy-700 hover:bg-navy-700 hover:text-white font-sans font-semibold
-           text-sm rounded-lg transition-all duration-200 active:scale-95;
+           text-navy-700 hover:bg-navy-700 hover:text-white text-btn
+           rounded-lg transition-all duration-200 active:scale-95;
   }
   .btn-outline {
     @apply inline-flex items-center gap-2 px-6 py-3 border border-white/20
-           text-blue-50 hover:bg-white/5 hover:border-white/40 font-sans font-semibold
-           text-sm rounded-lg transition-all duration-200 active:scale-95;
+           text-blue-50 hover:bg-white/5 hover:border-white/40 text-btn
+           rounded-lg transition-all duration-200 active:scale-95;
   }
 }
