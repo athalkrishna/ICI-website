@@ -32,13 +32,20 @@ export default function Navbar() {
       >
         {/* ── Top Bar ── */}
         <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>
-          <Container className="flex gap-6 items-center w-full px-0">
-            <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
-              <Mail size={14} /> info@internationalcoachinginstitute.org
-            </a>
-            <a href="tel:+919819984575" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
-              <Phone size={14} /> +91 98199 84575
-            </a>
+          <Container className="flex justify-between items-center w-full px-0">
+            <div className="flex gap-6 items-center">
+              <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
+                <Mail size={14} /> info@internationalcoachinginstitute.org
+              </a>
+              <a href="tel:+919819984575" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
+                <Phone size={14} /> +91 98199 84575
+              </a>
+            </div>
+            <div className="flex items-center gap-4 text-brand-gold-100">
+              <Link href="/login" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">Log In</Link>
+              <span className="text-brand-gold-500/50">|</span>
+              <Link href="/account" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">My Account</Link>
+            </div>
           </Container>
         </div>
 
