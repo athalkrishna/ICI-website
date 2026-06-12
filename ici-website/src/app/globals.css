@@ -54,18 +54,13 @@
 
 @layer components {
   /* Typography Tokens */
-  .text-h1 { @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]; }
-  .text-h1-accent { @apply font-display italic text-gold-400 leading-[1.1]; }
-  .text-h2 { @apply font-display text-4xl md:text-5xl font-bold tracking-tight leading-[1.15]; }
+  .text-h1 { @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight; }
+  .text-h2 { @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight; }
   .text-h3 { @apply font-display text-2xl md:text-3xl font-bold leading-[1.2]; }
-  
-  .text-body-hero { @apply font-body text-xl md:text-2xl font-light leading-relaxed; }
-  .text-body-lg { @apply font-body text-lg leading-relaxed; }
-  .text-body-base { @apply font-body text-base leading-relaxed; }
-  
-  .text-eyebrow { @apply font-sans text-sm font-bold tracking-widest uppercase text-gold-400; }
-  .text-btn { @apply font-sans font-semibold text-sm; }
-  .text-nav { @apply font-sans font-medium text-sm; }
+  .text-body { @apply font-body text-base md:text-lg font-normal leading-relaxed; }
+  .text-btn { @apply font-sans text-sm md:text-base font-semibold leading-none tracking-wide; }
+  .text-eyebrow { @apply font-sans text-xs font-semibold uppercase tracking-widest; }
+
   .text-muted { @apply text-gray-600; }
   .text-muted-dark { @apply text-blue-100/80; }
   .border-subtle { @apply border-white/10; }
