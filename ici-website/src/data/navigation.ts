@@ -81,6 +81,7 @@ export const navItems: NavItem[] = [
           { label: 'Admissions Overview', href: '/admissions', desc: 'How to become an ICI Coach' },
           { label: 'Apply Now', href: '/apply', desc: 'Submit your application' },
           { label: 'Tuition & Pricing', href: '/pricing', desc: 'Programme fees and options' },
+          { label: 'Speak to an Advisor', href: '/admissions/contact', desc: 'Book a conversation with our team' },
         ],
       }
     ],

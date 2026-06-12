@@ -203,14 +203,17 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="pt-4">
+      <div className="pt-4 flex flex-col sm:flex-row gap-4">
         <button 
           type="submit" 
           disabled={status === 'submitting'}
-          className="btn-primary w-full justify-center py-4 text-base disabled:opacity-50 min-h-[44px]"
+          className="btn-primary flex-1 justify-center py-4 text-base disabled:opacity-50 min-h-[44px]"
         >
           {status === 'submitting' ? 'Submitting...' : 'Request a call'}
         </button>
+        <Link href="/admissions" className="btn-outline text-white border-white hover:bg-white hover:text-brand-navy-900 flex-1 justify-center py-4 text-base text-center flex items-center">
+          Take the free assessment
+        </Link>
       </div>
     </form>
   );
