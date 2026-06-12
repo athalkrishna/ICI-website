@@ -95,7 +95,7 @@ export default async function EventsPage() {
             <p className="text-muted-dark mb-12 text-body">
               Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
+            <div className="flex flex-wrap justify-start items-center gap-4">
               <Link href="#events-form" className="btn-primary">
                 Register your interest
               </Link>
