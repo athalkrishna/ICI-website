@@ -59,7 +59,7 @@
   .text-h3 { @apply font-display text-2xl md:text-3xl font-bold leading-[1.2]; }
   .text-body { @apply font-body text-base md:text-lg font-normal leading-relaxed; }
   .text-btn { @apply font-sans text-sm md:text-base font-semibold leading-none tracking-wide; }
-  .text-eyebrow { @apply font-sans text-xs font-semibold uppercase tracking-widest; }
+  .text-eyebrow { @apply font-sans text-sm font-semibold uppercase tracking-widest; }
 
   .text-muted { @apply text-gray-600; }
   .text-muted-dark { @apply text-blue-100/80; }
@@ -102,22 +102,22 @@
   /* Button variants */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600
-           text-navy-700 text-btn rounded-lg
+           text-navy-700 font-sans text-sm md:text-base font-semibold leading-none tracking-wide rounded-lg
            transition-all duration-200 active:scale-95 shadow-gold;
   }
   .btn-secondary {
     @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-white
-           text-white hover:bg-white hover:text-navy-700 text-btn
+           text-white hover:bg-white hover:text-navy-700 font-sans text-sm md:text-base font-semibold leading-none tracking-wide
            rounded-lg transition-all duration-200 active:scale-95;
   }
   .btn-secondary-light {
     @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-navy-700
-           text-navy-700 hover:bg-navy-700 hover:text-white text-btn
+           text-navy-700 hover:bg-navy-700 hover:text-white font-sans text-sm md:text-base font-semibold leading-none tracking-wide
            rounded-lg transition-all duration-200 active:scale-95;
   }
   .btn-outline {
     @apply inline-flex items-center gap-2 px-6 py-3 border border-white/20
-           text-blue-50 hover:bg-white/5 hover:border-white/40 text-btn
+           text-blue-50 hover:bg-white/5 hover:border-white/40 font-sans text-sm md:text-base font-semibold leading-none tracking-wide
            rounded-lg transition-all duration-200 active:scale-95;
   }
 }
