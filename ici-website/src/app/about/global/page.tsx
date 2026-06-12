@@ -48,10 +48,10 @@ export default function GlobalPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <Link href="/community" className="btn-primary text-base px-8 py-4 text-center">
+                <Link href="/community" className="btn-primary text-center">
                   Join a global community of coaches
                 </Link>
-                <Link href="/credentials" className="btn-secondary text-base px-8 py-4 text-center">
+                <Link href="/credentials" className="btn-secondary text-center">
                   See the pathway
                 </Link>
               </div>
@@ -61,16 +61,16 @@ export default function GlobalPage() {
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
                   <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">60+</div>
-                  <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Countries</div>
+                  <div className="text-eyebrow">Countries</div>
                 </div>
                 <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
                   <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">1,000+</div>
-                  <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Coaches</div>
+                  <div className="text-eyebrow">Coaches</div>
                 </div>
                 <div className="bg-brand-navy-800 p-8 border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold-500 rounded-full blur-[50px] opacity-20"></div>
                    <div className="text-h3 text-white mb-2">100%</div>
-                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-400">Online & One-to-One</div>
+                   <div className="text-eyebrow">Online & One-to-One</div>
                 </div>
               </div>
             </AnimatedSection>
@@ -80,7 +80,7 @@ export default function GlobalPage() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
             
             <div className="relative z-20 text-center mb-16">
-              <h2 className="font-display text-3xl text-h3 font-bold text-white mb-6">How global delivery works</h2>
+              <h2 className="font-display text-h3 font-bold text-white mb-6">How global delivery works</h2>
               <div className="w-16 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
 
@@ -93,7 +93,7 @@ export default function GlobalPage() {
               ].map((item, i) => (
                 <div key={i} className="bg-brand-navy-800/50 backdrop-blur-sm p-8 rounded-3xl border border-subtle hover:bg-brand-navy-800 transition-colors">
                   <div className="text-brand-gold-400 font-display text-3xl mb-4 italic leading-none">0{i+1}</div>
-                  <h4 className="font-sans font-bold text-white text-lg mb-3">{item.title}</h4>
+                  <h4 className="font-sans font-bold text-white text-h4 mb-3">{item.title}</h4>
                   <p className="font-body text-brand-navy-200 leading-relaxed text-sm">{item.desc}</p>
                 </div>
               ))}
@@ -101,7 +101,7 @@ export default function GlobalPage() {
 
             {/* Glowing Map Component */}
             <div className="mt-24 text-center">
-              <h2 className="font-display text-3xl text-h3 font-bold text-white mb-6">Where our coaches are</h2>
+              <h2 className="font-display text-h3 font-bold text-white mb-6">Where our coaches are</h2>
               <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
             </div>
             

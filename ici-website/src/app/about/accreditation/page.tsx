@@ -51,10 +51,10 @@ export default function AccreditationPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <Link href="/credentials" className="btn-primary text-base px-8 py-4 text-center">
+                <Link href="/credentials" className="btn-primary text-center">
                   See the Mastery Pathway
                 </Link>
-                <Link href="/admissions/contact" className="btn-secondary text-base px-8 py-4 text-center">
+                <Link href="/admissions/contact" className="btn-secondary text-center">
                   Contact Us
                 </Link>
               </div>
@@ -63,7 +63,7 @@ export default function AccreditationPage() {
             <AnimatedSection delay={0.2}>
               <div className="bg-white p-10 lg:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10"></div>
-                <h3 className="font-display text-2xl font-bold text-brand-navy-800 mb-10">How we hold our standard</h3>
+                <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-10">How we hold our standard</h3>
                 
                 <div className="space-y-8">
                   {[

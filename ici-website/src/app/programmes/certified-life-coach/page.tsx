@@ -81,7 +81,7 @@ export default function LifeCoachingPage() {
               <AnimatedSection delay={0.2}>
                 <div className="bg-white p-10 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-cream-50 rounded-full blur-[40px] opacity-50"></div>
-                  <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+                  <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
                     <UserPlus size={24} className="text-brand-gold-700" />
                     Who this suits
                   </h2>
@@ -102,7 +102,7 @@ export default function LifeCoachingPage() {
 
               <AnimatedSection delay={0.3}>
                 <div className="bg-cream-100 p-10 border-brand-gold-200/50 rounded-[32px] shadow-2xl border border-navy-100">
-                  <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
+                  <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
                     <Compass size={24} className="text-brand-gold-700" />
                     At a glance
                   </h2>
@@ -114,7 +114,7 @@ export default function LifeCoachingPage() {
                       { label: "Cost", value: "Follows the Pathway, see Pricing" }
                     ].map((item, i) => (
                       <li key={i} className="border-b border-brand-navy-200/30 pb-4 last:border-0 last:pb-0">
-                        <div className="font-sans text-xs font-bold uppercase tracking-widest text-brand-navy-400 mb-1">{item.label}</div>
+                        <div className="text-brand-navy-400 mb-1 text-eyebrow">{item.label}</div>
                         <div className="font-body text-brand-navy-900">{item.value}</div>
                       </li>
                     ))}
@@ -135,15 +135,15 @@ export default function LifeCoachingPage() {
               <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
               <Container size="narrow" className="relative z-10">
-                <h2 className="font-display text-3xl text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
+                <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
                 <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
                   You can begin a life coaching focus at the Catalyst level and carry it through the Pathway. Your credential and investment follow the level you are working towards, not the specialism.
                 </p>
                 <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-                  <Link href="/credentials/catalyst" className="btn-primary w-full md:w-auto justify-center px-8 py-4 text-sm tracking-widest">
+                  <Link href="/credentials/catalyst" className="btn-primary w-full md:w-auto justify-center">
                     Start at Catalyst
                   </Link>
-                  <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center px-8 py-4 text-sm tracking-widest border-white/20 hover:border-white text-white">
+                  <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center border-white/20 hover:border-white text-white">
                     Speak to an Advisor
                   </Link>
                 </div>

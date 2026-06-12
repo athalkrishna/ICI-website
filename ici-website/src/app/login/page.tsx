@@ -65,7 +65,7 @@ export default function LoginPage() {
               </div>
 
               <div className="pt-4">
-                <button type="submit" className="btn-primary w-full justify-center py-4 text-base">
+                <button type="submit" className="btn-primary w-full justify-center">
                   Log in
                 </button>
               </div>

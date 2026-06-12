@@ -165,7 +165,7 @@ export default function LuminaryPage() {
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
                     <div key={i} className="bg-white p-8 hover:border-brand-gold-300 transition-colors rounded-2xl shadow-md border border-navy-100">
-                      <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
+                      <h4 className="font-sans font-bold text-brand-navy-900 text-h4 mb-3">{mod.title}</h4>
                       <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
                   ))}
@@ -203,23 +203,23 @@ export default function LuminaryPage() {
                     </h3>
                     <ul className="space-y-6">
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Level</div>
+                        <div className="mb-1 text-eyebrow">Level</div>
                         <div className="text-navy-50 font-sans">4 of 4 (Highest distinction)</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Format</div>
+                        <div className="mb-1 text-eyebrow">Format</div>
                         <div className="text-navy-50 font-sans">online, one-to-one with senior faculty</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Hours</div>
+                        <div className="mb-1 text-eyebrow">Hours</div>
                         <div className="text-navy-50 font-sans">120 total (40 live, 80 self-work and capstone)</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Suggested duration</div>
+                        <div className="mb-1 text-eyebrow">Suggested duration</div>
                         <div className="text-navy-50 font-sans">up to 12 months</div>
                       </li>
                       <li>
-                        <div className="text-xs font-sans font-bold tracking-widest text-brand-gold-400 uppercase mb-1">Investment</div>
+                        <div className="mb-1 text-eyebrow">Investment</div>
                         <div className="text-navy-50 font-sans">INR 6,95,000, exclusive of GST</div>
                       </li>
                     </ul>

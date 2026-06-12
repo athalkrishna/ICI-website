@@ -77,7 +77,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6 capitalize">Editing: {slug.replace('-', ' ')}</h2>
+      <h2 className="text-h2 font-bold mb-6 capitalize font-display">Editing: {slug.replace('-', ' ')}</h2>
       <form onSubmit={handleSave} className="space-y-6 max-w-4xl">
         {content.map((item, index) => (
           <div key={item.section_key} className="bg-white p-4 rounded-2xl shadow-md border border-navy-100">

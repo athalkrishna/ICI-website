@@ -44,12 +44,12 @@ export default function FindACoachPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-subtle relative z-10">
                 <SlidersHorizontal size={20} className="text-brand-gold-400" />
-                <h2 className="font-sans font-bold text-lg text-white">Search and filter</h2>
+                <h2 className="font-sans font-bold text-h2 text-white">Search and filter</h2>
               </div>
               
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+                  <label className="block mb-2 relative z-10 text-eyebrow">
                     By specialism
                   </label>
                   <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
@@ -63,7 +63,7 @@ export default function FindACoachPage() {
                 </div>
                 
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+                  <label className="block mb-2 relative z-10 text-eyebrow">
                     By level
                   </label>
                   <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
@@ -76,7 +76,7 @@ export default function FindACoachPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+                  <label className="block mb-2 relative z-10 text-eyebrow">
                     By language
                   </label>
                   <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
@@ -88,7 +88,7 @@ export default function FindACoachPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
+                  <label className="block mb-2 relative z-10 text-eyebrow">
                     By availability
                   </label>
                   <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
@@ -100,7 +100,7 @@ export default function FindACoachPage() {
               </div>
               
               <div className="mt-8 flex justify-end">
-                <Link href="/contact" className="btn-primary inline-flex items-center gap-2 py-3 px-6">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
                   <Search size={18} /> Browse coaches
                 </Link>
               </div>

@@ -68,7 +68,7 @@ export default function HistoryPage() {
                 </div>
                 <div className="bg-brand-navy-800 text-white p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                   <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-gold-500 rounded-full blur-[60px] opacity-20"></div>
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">The Next Chapter</h3>
+                  <h3 className="font-display text-h3 font-bold text-white mb-4">The Next Chapter</h3>
                   <p className="font-body text-xl text-brand-navy-100 leading-relaxed font-light">
                     The institute's own history begins now. Every coach we train, and everyone they go on to help, adds to a history we are only beginning to write.
                   </p>

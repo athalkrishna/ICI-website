@@ -51,7 +51,7 @@ export default function CommunityPage() {
                   <div className="w-12 h-12 bg-brand-navy-900 border border-subtle rounded-xl flex items-center justify-center text-brand-gold-400 mb-6">
                     {item.icon}
                   </div>
-                  <h3 className="font-sans font-bold text-lg text-white leading-snug">{item.title}</h3>
+                  <h3 className="font-sans font-bold text-h3 text-white leading-snug">{item.title}</h3>
                 </div>
               ))}
             </div>

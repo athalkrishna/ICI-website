@@ -38,7 +38,7 @@ export default function LeadershipFacultyPage() {
           
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center mb-16 lg:mb-32">
             <AnimatedSection className="lg:col-span-7 space-y-8">
-              <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
+              <h2 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
               <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
                 ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests.
               </p>
@@ -47,10 +47,10 @@ export default function LeadershipFacultyPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <Link href="/credentials" className="btn-primary text-base px-8 py-4 text-center">
+                <Link href="/credentials" className="btn-primary text-center">
                   Explore the Mastery Pathway
                 </Link>
-                <Link href="/admissions/contact" className="btn-secondary-light text-base px-8 py-4 text-center">
+                <Link href="/admissions/contact" className="btn-secondary-light text-center">
                   Speak to an Advisor
                 </Link>
               </div>
@@ -59,7 +59,7 @@ export default function LeadershipFacultyPage() {
             <AnimatedSection delay={0.2} className="lg:col-span-5 relative hidden lg:block">
               <div className="aspect-[4/5] bg-brand-navy-100 overflow-hidden relative rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900/50 to-transparent z-10"></div>
-                <div className="absolute inset-0 flex items-center justify-center text-brand-navy-300 font-sans tracking-widest uppercase text-sm z-0">
+                <div className="absolute inset-0 flex items-center justify-center text-brand-navy-300 z-0 text-eyebrow">
                   [ Faculty Meeting Image ]
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function LeadershipFacultyPage() {
                       Portrait {i}
                     </div>
                   </div>
-                  <h3 className="font-display text-xl font-bold text-brand-navy-800 mb-1 group-hover:text-brand-gold-600 transition-colors">
+                  <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-1 group-hover:text-brand-gold-600 transition-colors">
                     Faculty Member
                   </h3>
                   <p className="font-sans text-sm text-brand-gold-600 font-semibold tracking-wide uppercase">

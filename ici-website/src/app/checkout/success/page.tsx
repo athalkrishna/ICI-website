@@ -41,7 +41,7 @@ export default function CheckoutSuccessPage() {
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection delay={0.1}>
             <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-navy-100">
-              <h2 className="font-display text-2xl font-bold text-brand-navy-900 mb-6">What happens next?</h2>
+              <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-6">What happens next?</h2>
               
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">

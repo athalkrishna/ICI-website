@@ -80,7 +80,7 @@ export default function ProgrammesOverviewPage() {
                     <div className="w-14 h-14 bg-cream-50 border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-8 group-hover:scale-110 group-hover:bg-brand-gold-500 group-hover:text-white transition-all duration-500 rounded-2xl shadow-md border border-navy-100">
                       {item.icon}
                     </div>
-                    <div className="font-sans text-xs font-bold uppercase tracking-widest text-brand-gold-700 mb-3">{item.level}</div>
+                    <div className="mb-3 text-eyebrow">{item.level}</div>
                     <h3 className="text-h3 text-brand-navy-900 mb-4">{item.title}</h3>
                     <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
                   </div>
@@ -168,7 +168,7 @@ export default function ProgrammesOverviewPage() {
                   </div>
                   <div className="relative z-10">
                     <span className="text-brand-gold-700 font-display text-2xl mb-6 block italic">0{i+1}</span>
-                    <h3 className="font-sans font-bold text-brand-navy-800 text-2xl mb-4">{item.title}</h3>
+                    <h3 className="font-sans font-bold text-brand-navy-800 text-h3 mb-4">{item.title}</h3>
                     <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
@@ -178,10 +178,10 @@ export default function ProgrammesOverviewPage() {
 
           <AnimatedSection delay={0.4}>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-              <Link href="/credentials" className="btn-primary w-full sm:w-auto justify-center px-10 py-5 text-sm tracking-widest">
+              <Link href="/credentials" className="btn-primary w-full sm:w-auto justify-center">
                 Find your level
               </Link>
-              <Link href="/pricing" className="btn-secondary w-full sm:w-auto justify-center px-10 py-5 text-sm tracking-widest border-brand-navy-200 hover:border-brand-navy-900 text-brand-navy-700 hover:text-brand-navy-900 hover:bg-brand-navy-50">
+              <Link href="/pricing" className="btn-secondary w-full sm:w-auto justify-center border-brand-navy-200 hover:border-brand-navy-900 text-brand-navy-700 hover:text-brand-navy-900 hover:bg-brand-navy-50">
                 See pricing
               </Link>
             </div>

@@ -106,10 +106,10 @@ export default function PricingPage() {
               <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
                   <tr className="border-b-2 border-brand-gold-500/50">
-                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w-1/4">Level & Credential</th>
-                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm w-1/3">Format & Hours</th>
-                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm">Duration</th>
-                    <th className="py-6 px-6 font-sans font-bold text-brand-gold-400 uppercase tracking-widest text-sm text-right">
+                    <th className="py-6 px-6 w-1/4 text-eyebrow">Level & Credential</th>
+                    <th className="py-6 px-6 w-1/3 text-eyebrow">Format & Hours</th>
+                    <th className="py-6 px-6 text-eyebrow">Duration</th>
+                    <th className="py-6 px-6 text-right text-eyebrow">
                       Price ({currencyCode}, excl. GST)
                     </th>
                     <th className="py-6 px-6"></th>
@@ -148,7 +148,7 @@ export default function PricingPage() {
                       <td className="py-8 px-6 text-right">
                         <Link 
                           href={`/apply`} 
-                          className="btn-primary py-2 px-6 text-sm"
+                          className="btn-primary"
                           onClick={() => {
                             if (typeof window !== 'undefined' && (window as any).fbq) {
                               (window as any).fbq('track', 'InitiateCheckout', {

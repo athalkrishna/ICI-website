@@ -102,7 +102,7 @@ export default function CredentialsPage() {
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <Container>
           <AnimatedSection className="mb-12 lg:mb-16">
-            <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-900 mb-4">Why this pathway is different</h2>
+            <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-4">Why this pathway is different</h2>
             <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
           
@@ -113,7 +113,7 @@ export default function CredentialsPage() {
                   <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center border border-brand-gold-100 mb-6 text-brand-gold-700">
                     <CheckCircle2 size={24} />
                   </div>
-                  <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{reason.title}.</h4>
+                  <h4 className="font-sans font-bold text-brand-navy-900 text-h4 mb-3">{reason.title}.</h4>
                   <p className="font-body text-muted leading-relaxed">{reason.text}</p>
                 </div>
               </AnimatedSection>
@@ -126,7 +126,7 @@ export default function CredentialsPage() {
       <Section id="levels" spacing="compact" className="relative z-20">
         <Container>
           <AnimatedSection className="mb-12 lg:mb-16">
-            <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-900 mb-4">The four levels</h2>
+            <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-4">The four levels</h2>
             <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
 
@@ -141,7 +141,7 @@ export default function CredentialsPage() {
                     <div className={`inline-flex items-center gap-2 ${path.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8 self-start`}>
                       <Award size={14} /> Level {i + 1}
                     </div>
-                    <h3 className="font-display text-3xl text-h3 font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
+                    <h3 className="font-display text-h3 font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
                       {path.title}
                       <span className="block text-lg font-sans font-normal text-muted mt-2">
                         {path.subline}
@@ -151,7 +151,7 @@ export default function CredentialsPage() {
                       {path.desc}
                     </p>
                     
-                    <div className="flex items-center gap-3 text-brand-gold-700 font-sans font-bold uppercase tracking-widest text-sm group-hover:translate-x-2 transition-transform">
+                    <div className="flex items-center gap-3 group-hover:translate-x-2 transition-transform text-eyebrow">
                       {path.cta} <ChevronRight size={18} />
                     </div>
                   </div>

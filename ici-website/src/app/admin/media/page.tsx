@@ -45,7 +45,7 @@ export default function AdminMediaPage() {
   return (
     <Container size="narrow">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-navy-900 mb-1">Media Library</h1>
+        <h1 className="text-h1 font-bold text-navy-900 mb-1 font-display">Media Library</h1>
         <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 
@@ -119,7 +119,7 @@ export default function AdminMediaPage() {
             <div className="flex items-start gap-4">
               <CheckCircle2 className="text-green-600 shrink-0 mt-0.5" />
               <div className="flex-1">
-                <h3 className="text-sm font-bold text-green-900 mb-1">Upload Successful!</h3>
+                <h3 className="text-sm font-bold text-green-900 mb-1 font-display">Upload Successful!</h3>
                 <p className="text-xs text-green-600 mb-4">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
                 
                 <div className="flex rounded-2xl shadow-md border border-navy-100">
