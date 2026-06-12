@@ -24,7 +24,7 @@ export default function BrochurePage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-6 lg:mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Resources</div>
+              <div className="text-eyebrow text-brand-gold-400">Prospectus</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
               Everything in one place
