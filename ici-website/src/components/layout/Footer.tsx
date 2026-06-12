@@ -12,14 +12,14 @@ export default function Footer() {
              <Link href="/" className="inline-block -mt-4 md:-mt-8 -ml-4 md:-ml-6 mb-2 md:-mb-6">
                <Image src="/logo-white.png" alt="International Coaching Institute logo" width={300} height={90} className="w-[180px] md:w-[240px] h-auto object-contain" />
              </Link>
-             <p className="text-navy-400 text-body">
+             <p className="text-navy-100/80 text-body">
                The International Coaching Institute trains and certifies coaches one-to-one, online, blending coaching craft with leadership, psychology, neuroscience and human behaviour. Become the coach people trust.
              </p>
           </div>
 
           <div>
              <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Information For</h4>
-             <ul className="space-y-4 text-sm text-navy-400">
+             <ul className="space-y-4 text-sm text-navy-100/80">
               <li><Link href="/future-students" className="hover:text-brand-gold-400 transition-colors">Future Students</Link></li>
               <li><Link href="/current-students" className="hover:text-brand-gold-400 transition-colors">Current Students</Link></li>
               <li><Link href="/organisations" className="hover:text-brand-gold-400 transition-colors">Organisations</Link></li>
@@ -30,7 +30,7 @@ export default function Footer() {
 
           <div>
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Programmes & Credentials</h4>
-            <ul className="space-y-4 text-sm text-navy-400">
+            <ul className="space-y-4 text-sm text-navy-100/80">
               <li><Link href="/programmes" className="hover:text-brand-gold-400 transition-colors">Programmes</Link></li>
               <li><Link href="/credentials" className="hover:text-brand-gold-400 transition-colors">Credentials</Link></li>
               <li><Link href="/admissions" className="hover:text-brand-gold-400 transition-colors">Assessment</Link></li>
@@ -39,7 +39,7 @@ export default function Footer() {
 
           <div>
              <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">About</h4>
-             <ul className="space-y-4 text-sm text-navy-400">
+             <ul className="space-y-4 text-sm text-navy-100/80">
               <li><Link href="/faculty" className="hover:text-brand-gold-400 transition-colors">Faculty</Link></li>
               <li><Link href="/about/global" className="hover:text-brand-gold-400 transition-colors">Global Network</Link></li>
               <li><Link href="/about/accreditation" className="hover:text-brand-gold-400 transition-colors">Accreditation</Link></li>
@@ -49,7 +49,7 @@ export default function Footer() {
 
           <div>
             <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-6 text-white">Legal</h4>
-            <ul className="space-y-4 text-sm text-navy-400">
+            <ul className="space-y-4 text-sm text-navy-100/80">
               <li><Link href="/terms" className="hover:text-brand-gold-400 transition-colors">Terms of Service</Link></li>
               <li><Link href="/privacy" className="hover:text-brand-gold-400 transition-colors">Privacy Policy</Link></li>
               <li><Link href="/complaints" className="hover:text-brand-gold-400 transition-colors">Complaints</Link></li>
