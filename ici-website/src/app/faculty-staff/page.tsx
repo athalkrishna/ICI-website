@@ -56,7 +56,7 @@ export default function FacultyStaffPage() {
                 Log in to access your dashboard, secure documents, and scheduling systems.
               </p>
               <Link href="/login" className="btn-primary inline-flex items-center gap-2">
-                Log in <ArrowRight size={18} />
+                Log in to your account <ArrowRight size={18} />
               </Link>
             </AnimatedSection>
 
