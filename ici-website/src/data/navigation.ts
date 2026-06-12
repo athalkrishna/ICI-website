@@ -18,11 +18,12 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     label: 'About ICI',
-    href:  '/about/mission',
+    href:  '/about',
     children: [
       {
         heading: 'Institute',
         links: [
+          { label: 'About the Institute', href: '/about', desc: 'Who we are and what we stand for' },
           { label: 'Mission, Vision & Values', href: '/about/mission', desc: 'Our core philosophy and approach' },
           { label: 'History & Heritage', href: '/about/history', desc: 'The origins and traditions we draw upon' },
           { label: 'Leadership & Faculty', href: '/about/leadership-faculty', desc: 'Meet our practising coaches' },
