@@ -32,6 +32,7 @@ export const navItems: NavItem[] = [
           { label: 'Partnerships & Alliances', href: '/about/partnerships', desc: 'Collaborations with aligned organisations' },
           { label: 'Press & Media', href: '/about/press', desc: 'Information for journalists and editors' },
           { label: 'Annual Reports', href: '/about/annual-reports', desc: 'Our yearly transparency and progress' },
+          { label: 'Events', href: '/events', desc: 'Masterclasses, summits and live sessions' },
         ],
       }
     ],
