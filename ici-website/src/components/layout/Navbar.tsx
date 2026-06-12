@@ -31,7 +31,7 @@ export default function Navbar() {
         className={`sticky top-0 z-50 transition-all duration-300 ${ scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm' }`}
       >
         {/* ── Top Bar ── */}
-        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-300 border-b border-brand-navy-800'}`}>
+        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>
           <Container className="flex gap-6 items-center w-full px-0">
             <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
               <Mail size={14} /> info@internationalcoachinginstitute.org
@@ -152,7 +152,7 @@ export default function Navbar() {
 
               <Link
                 href="/apply"
-                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-sans font-medium border transition-colors whitespace-nowrap ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-brand-navy-200 text-brand-navy-600 hover:bg-brand-navy-50'}`}
+                className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-btn border transition-colors whitespace-nowrap ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-brand-navy-200 text-brand-navy-600 hover:bg-brand-navy-50'}`}
               >
                 Apply Now
               </Link>
