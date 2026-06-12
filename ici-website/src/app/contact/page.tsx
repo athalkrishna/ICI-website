@@ -24,7 +24,7 @@ export default function ContactPage() {
         </div>
 
         <Container className="relative z-20">
-          <AnimatedSection className="max-w-4xl text-center mx-auto">
+          <AnimatedSection className="max-w-4xl">
             <h1 className="text-h1 text-white mb-8">
               Talk to a human
             </h1>

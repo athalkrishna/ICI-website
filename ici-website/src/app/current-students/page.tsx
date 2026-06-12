@@ -92,7 +92,7 @@ export default function CurrentStudentsPage() {
       {/* ── Need Help Section ── */}
       <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl text-center mx-auto">
+          <AnimatedSection className="max-w-4xl">
             <h2 className="text-h2 text-white mb-6">Need help?</h2>
             <p className="text-muted-dark mb-12 text-body">
               If anything is unclear or part of the work feels hard, that is normal, and we are here. Reach out to your coach or the student support team rather than struggling alone.

@@ -90,7 +90,7 @@ export default function OrganizationsPage() {
       {/* ── Why it works Section ── */}
       <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl text-center mx-auto">
+          <AnimatedSection className="max-w-4xl">
             <h2 className="text-h2 text-white mb-6">Why it works</h2>
             <p className="text-muted-dark mb-12 text-body">
               Because it changes habits, not just knowledge. Our programmes are live, one-to-one and grounded in how leaders actually behave under pressure, drawing on deep experience inside demanding organisations.

@@ -90,7 +90,7 @@ export default async function EventsPage() {
       {/* ── Masterclasses ── */}
       <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
         <Container>
-          <AnimatedSection className="max-w-3xl text-center mx-auto">
+          <AnimatedSection className="max-w-3xl">
             <h2 className="text-h2 text-white mb-6">Masterclasses</h2>
             <p className="text-muted-dark mb-12 text-body">
               Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.

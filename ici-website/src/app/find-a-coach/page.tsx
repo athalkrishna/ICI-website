@@ -121,7 +121,7 @@ export default function FindACoachPage() {
       {/* ── Why choose an ICI coach ── */}
       <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
         <Container>
-          <AnimatedSection className="max-w-3xl text-center mx-auto">
+          <AnimatedSection className="max-w-3xl">
             <h2 className="text-h2 text-white mb-6">Why choose an ICI coach</h2>
             <p className="text-muted-dark mb-12 text-body">
               Every coach in this directory holds a credential that was earned, not bought. They have been trained in coaching craft, psychology, neuroscience and human behaviour, and are held to a professional standard of ethics and practice.

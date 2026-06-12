@@ -23,7 +23,7 @@ export default function CheckoutSuccessPage() {
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <Container className="relative z-20">
-          <AnimatedSection className="max-w-3xl text-center mx-auto">
+          <AnimatedSection className="max-w-3xl">
             <div className="w-20 h-20 bg-brand-gold-500/20 text-brand-gold-400 rounded-full flex items-center justify-center mx-auto mb-8">
               <CheckCircle2 size={40} />
             </div>

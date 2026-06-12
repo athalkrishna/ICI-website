@@ -92,7 +92,7 @@ export default function FacultyStaffPage() {
       {/* ── Join the faculty Section ── */}
       <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl text-center mx-auto">
+          <AnimatedSection className="max-w-4xl">
             <h2 className="text-h2 text-white mb-6">Join the faculty</h2>
             <p className="text-muted-dark mb-12 text-body">
               We are always interested in practising coaches who can teach with rigour and humanity. If that is you, we would like to hear from you.
