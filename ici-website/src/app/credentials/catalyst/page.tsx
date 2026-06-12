@@ -202,23 +202,23 @@ export default function CatalystPage() {
                     </h3>
                     <ul className="space-y-6">
                       <li>
-                        <div className="mb-1 text-eyebrow">Level</div>
+                        <div className="mb-1 text-eyebrow text-brand-gold-400">Level</div>
                         <div className="text-navy-50 font-sans">1 of 4 (Foundation)</div>
                       </li>
                       <li>
-                        <div className="mb-1 text-eyebrow">Format</div>
+                        <div className="mb-1 text-eyebrow text-brand-gold-400">Format</div>
                         <div className="text-navy-50 font-sans">online, one-to-one</div>
                       </li>
                       <li>
-                        <div className="mb-1 text-eyebrow">Hours</div>
+                        <div className="mb-1 text-eyebrow text-brand-gold-400">Hours</div>
                         <div className="text-navy-50 font-sans">36 total (12 coaching, 24 self-work)</div>
                       </li>
                       <li>
-                        <div className="mb-1 text-eyebrow">Suggested duration</div>
+                        <div className="mb-1 text-eyebrow text-brand-gold-400">Suggested duration</div>
                         <div className="text-navy-50 font-sans">up to 3 months</div>
                       </li>
                       <li>
-                        <div className="mb-1 text-eyebrow">Investment</div>
+                        <div className="mb-1 text-eyebrow text-brand-gold-400">Investment</div>
                         <div className="text-navy-50 font-sans">INR 2,15,000, exclusive of GST</div>
                       </li>
                     </ul>

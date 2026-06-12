@@ -51,7 +51,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-eyebrow flex items-center gap-3 justify-center mb-6"
+              className="text-eyebrow text-brand-gold-400 flex items-center gap-3 justify-center mb-6"
             >
               {content.hero_eyebrow || 'Globally Accredited Coaching Education'}
             </motion.div>
