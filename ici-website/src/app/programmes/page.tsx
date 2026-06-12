@@ -34,7 +34,7 @@ export default function ProgrammesOverviewPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-brand-gold-400">Programmes</div>
+              <div className="text-eyebrow text-brand-gold-400">Programmes</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
               One pathway, <br/>

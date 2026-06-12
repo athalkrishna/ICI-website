@@ -23,7 +23,7 @@ export default function LeadershipFacultyPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">About ICI</div>
+              <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 mb-8 justify-start">About ICI</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
               Leadership & Faculty

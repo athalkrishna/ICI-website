@@ -22,7 +22,7 @@ export default function LoginPage() {
         <AnimatedSection className="w-full max-w-md">
           
           <div className="text-center mb-10">
-            <div className="text-eyebrow flex items-center gap-3 mb-6 justify-center">Log In</div>
+            <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 mb-6 justify-center">Log In</div>
             <h1 className="text-h1 text-white mb-4">Welcome back</h1>
             <p className="text-navy-100/70 text-body">
               Log in to access your sessions, materials and account.

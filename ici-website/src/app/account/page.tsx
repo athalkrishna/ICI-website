@@ -38,7 +38,7 @@ export default async function AccountPage() {
         <AnimatedSection>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <div className="text-eyebrow flex items-center gap-3 mb-6 justify-start">My Account</div>
+              <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 mb-6 justify-start">My Account</div>
               <h1 className="text-h1 text-white">
                 Your account
               </h1>

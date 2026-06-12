@@ -26,7 +26,7 @@ export default async function ProspectusPage() {
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl text-center mx-auto">
-            <div className="text-eyebrow flex items-center gap-3 mb-8 justify-center">Resources</div>
+            <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 mb-8 justify-center">Resources</div>
             <h1 className="text-h1 text-white mb-8">
               Request Prospectus
             </h1>

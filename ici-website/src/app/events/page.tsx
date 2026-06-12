@@ -34,7 +34,7 @@ export default async function EventsPage() {
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
-            <div className="text-eyebrow flex items-center gap-3 mb-8 justify-start">Events</div>
+            <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 mb-8 justify-start">Events</div>
             <h1 className="text-h1 text-white mb-8">
               Where the community comes together
             </h1>
