@@ -25,7 +25,7 @@ export default function BrochurePage() {
             <h1 className="text-h1 text-white mb-8">
               Everything in one place
             </h1>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               If you would rather read at your own pace, the prospectus brings together the whole picture: the Mastery Pathway and its four levels, the specialisations you can pursue, pricing, and how admissions work. Tell us where to send it and it is yours.
             </p>
           </AnimatedSection>

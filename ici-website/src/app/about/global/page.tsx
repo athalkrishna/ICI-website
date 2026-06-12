@@ -40,7 +40,7 @@ export default function GlobalPage() {
           
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <AnimatedSection className="space-y-8">
-              <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
+              <p className="text-navy-700 text-body">
                 We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
               </p>
               <p className="font-body text-lg text-navy-700 leading-relaxed">

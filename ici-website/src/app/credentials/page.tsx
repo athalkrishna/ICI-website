@@ -114,7 +114,7 @@ export default function CredentialsPage() {
                     <CheckCircle2 size={24} />
                   </div>
                   <h4 className="font-sans font-bold text-brand-navy-900 text-h4 mb-3">{reason.title}.</h4>
-                  <p className="font-body text-muted leading-relaxed">{reason.text}</p>
+                  <p className="text-muted text-body">{reason.text}</p>
                 </div>
               </AnimatedSection>
             ))}

@@ -82,7 +82,7 @@ export default function ProgrammesOverviewPage() {
                     </div>
                     <div className="mb-3 text-eyebrow">{item.level}</div>
                     <h3 className="text-h3 text-brand-navy-900 mb-4">{item.title}</h3>
-                    <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
+                    <p className="text-muted text-body">{item.desc}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -169,7 +169,7 @@ export default function ProgrammesOverviewPage() {
                   <div className="relative z-10">
                     <span className="text-brand-gold-700 font-display text-2xl mb-6 block italic">0{i+1}</span>
                     <h3 className="font-sans text-brand-navy-800 text-h3 mb-4">{item.title}</h3>
-                    <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
+                    <p className="text-muted text-body">{item.desc}</p>
                   </div>
                 </div>
               </AnimatedSection>

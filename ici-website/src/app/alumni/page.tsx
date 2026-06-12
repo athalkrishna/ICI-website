@@ -49,7 +49,7 @@ export default function AlumniPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Your alumni benefits</h2>
-              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
+              <p className="text-navy-100/70 mb-8 text-body">
                 As a credentialed member of the ICI network, you have ongoing access to resources designed to support and elevate your practice.
               </p>
             </AnimatedSection>
@@ -86,7 +86,7 @@ export default function AlumniPage() {
         <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Stay involved</h2>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Keep your details current, join the next event, and tell us when something good happens in your practice. Your story may be exactly what a future student needs to read.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">

@@ -67,7 +67,7 @@ export default function HealthWellnessPage() {
                     <div className="w-14 h-14 bg-cream-50 border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors rounded-2xl shadow-md border border-navy-100">
                       {item.icon}
                     </div>
-                    <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
+                    <p className="text-navy-700 text-body">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -136,7 +136,7 @@ export default function HealthWellnessPage() {
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
               <Container size="narrow" className="relative z-10">
                 <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>
-                <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
+                <p className="text-navy-100/90 mb-12 text-body">
                   A wellness focus can begin at Catalyst and deepen through the Pathway. Your credential and investment follow the level.
                 </p>
                 <div className="flex flex-col md:flex-row items-center gap-4 w-full">

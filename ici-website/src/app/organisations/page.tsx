@@ -49,7 +49,7 @@ export default function OrganizationsPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">How we work with organisations</h2>
-              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
+              <p className="text-navy-100/70 mb-8 text-body">
                 We do not do off-the-shelf theory. We partner with you to embed coaching behaviours directly into your operational rhythm.
               </p>
               <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
@@ -89,7 +89,7 @@ export default function OrganizationsPage() {
         <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Why it works</h2>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Because it changes habits, not just knowledge. Our programmes are live, one-to-one and grounded in how leaders actually behave under pressure, drawing on deep experience inside demanding organisations.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">

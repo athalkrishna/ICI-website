@@ -59,7 +59,7 @@ export default function ResourcesPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Download the prospectus</h2>
-              <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
+              <p className="text-muted-dark mb-8 text-body">
                 Everything about our programmes, credentials and admissions in one place.
               </p>
               <Link href="/resources/brochure" className="btn-primary inline-flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function ResourcesPage() {
 
             <AnimatedSection delay={0.1}>
               <h2 className="text-h2 text-white mb-6">Guides and tools</h2>
-              <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
+              <p className="text-muted-dark mb-8 text-body">
                 Practical resources for coaches and curious clients.
               </p>
               {/* Additional guides and tools to be added as published */}

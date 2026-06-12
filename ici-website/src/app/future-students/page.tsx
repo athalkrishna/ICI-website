@@ -49,7 +49,7 @@ export default function FutureStudentsPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Start here</h2>
-              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
+              <p className="text-navy-100/70 mb-8 text-body">
                 Your journey to becoming an ICI credentialed coach begins with understanding the path ahead. Explore these resources to find where you fit.
               </p>
             </AnimatedSection>
@@ -88,7 +88,7 @@ export default function FutureStudentsPage() {
         <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">What kind of coach could you become?</h2>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Life coach, executive coach, business coach, wellness coach, or a coach inside an organisation. Whatever draws you, there is a path here that starts where you are and takes you somewhere real.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">

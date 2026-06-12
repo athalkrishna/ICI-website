@@ -38,7 +38,7 @@ export default function AnnualReportsPage() {
           
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-h2 text-brand-navy-800 mb-8">Annual Reports</h2>
-            <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
+            <p className="text-navy-700 text-body">
               We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
             </p>
           </AnimatedSection>

@@ -28,7 +28,7 @@ export default function ApplyPage() {
             <h1 className="text-h1 text-white mb-8">
               Apply to ICI
             </h1>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               This is where intention becomes action. The application is short, free and carries no obligation. Tell us a little about you and where you want to go, and we will make sure you land on the right level with someone to guide you. Most people say the hardest part was deciding to begin. You are already here.
             </p>
           </AnimatedSection>

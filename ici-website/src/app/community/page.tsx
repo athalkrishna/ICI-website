@@ -66,14 +66,14 @@ export default function CommunityPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Alumni network</h2>
-              <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
+              <p className="text-muted-dark mb-8 text-body">
                 Qualifying is a beginning. ICI coaches stay connected for supervision, collaboration and friendship, and have access to ongoing learning. The longer you are in the field, the more this network is worth.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
               <h2 className="text-h2 text-white mb-6">Membership and continuing development</h2>
-              <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
+              <p className="text-muted-dark mb-8 text-body">
                 Coaching is a practice, which means it is never finished.
               </p>
               {/* <!-- Confirm membership offer, what it includes, and any cost, then replace this section --> */}

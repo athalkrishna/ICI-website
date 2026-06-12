@@ -28,7 +28,7 @@ export default function ContactPage() {
             <h1 className="text-h1 text-white mb-8">
               Talk to a human
             </h1>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Whatever brought you here, there is a person at ICI happy to help. Ask about programmes, credentials, timing, cost, or training a team. No script and no pressure, just a straight conversation.
             </p>
           </AnimatedSection>

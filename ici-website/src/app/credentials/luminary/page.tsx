@@ -119,14 +119,14 @@ export default function LuminaryPage() {
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-6">Entry requirements</h2>
-                <p className="font-body text-muted text-lg leading-relaxed">
+                <p className="text-muted text-body">
                   Hold the ICI Sage credential and demonstrate extensive, sustained coaching experience. Admission is by application and review.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-6">Format and hours</h2>
-                <p className="font-body text-muted text-lg leading-relaxed mb-6">
+                <p className="text-muted mb-6 text-body">
                   Delivered entirely online and one-to-one with our most senior faculty. Your 120 hours are structured as:
                 </p>
                 <ul className="space-y-4">
@@ -159,14 +159,14 @@ export default function LuminaryPage() {
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-8">Syllabus</h2>
-                <p className="font-body text-muted text-lg leading-relaxed mb-8">
+                <p className="text-muted mb-8 text-body">
                   Part mastery, part contribution. The syllabus is a structured journey towards an original body of work conferred as the Luminary distinction.
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
                     <div key={i} className="bg-white p-8 hover:border-brand-gold-300 transition-colors rounded-2xl shadow-md border border-navy-100">
                       <h4 className="font-sans font-bold text-brand-navy-900 text-h4 mb-3">{mod.title}</h4>
-                      <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
+                      <p className="text-muted text-body">{mod.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -174,7 +174,7 @@ export default function LuminaryPage() {
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-6">Assessment</h2>
-                <p className="font-body text-muted text-lg leading-relaxed">
+                <p className="text-muted text-body">
                   Conferral is by review of a substantial original body of work, a demonstration of mentoring or teaching, and evidence of contribution to the field. The distinction is awarded, not simply completed.
                 </p>
               </AnimatedSection>

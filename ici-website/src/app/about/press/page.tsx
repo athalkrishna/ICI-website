@@ -38,7 +38,7 @@ export default function PressPage() {
           
           <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-h2 text-brand-navy-800 mb-8">Press & Media</h2>
-            <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
+            <p className="text-navy-700 text-body">
               For journalists, editors and event producers: ICI faculty speak and write on coaching, leadership, the inner life of high achievers, and how people actually change. We are glad to provide commentary, contributed articles and interviews on these themes.
             </p>
           </AnimatedSection>

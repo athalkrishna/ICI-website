@@ -30,7 +30,7 @@ export default async function ProspectusPage() {
             <h1 className="text-h1 text-white mb-8">
               Request Prospectus
             </h1>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               {content.body || 'If you would rather read at your own pace, the prospectus brings together the whole picture, from philosophy to practicalities, in a single document.'}
             </p>
           </AnimatedSection>

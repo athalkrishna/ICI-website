@@ -59,7 +59,7 @@ export default function FacultyPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Our approach to research and thinking</h2>
-              <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
+              <p className="text-muted-dark mb-8 text-body">
                 Coaching deserves rigour. We draw on coaching psychology, behavioural science and neuroscience, test ideas against real practice, and share what we learn through articles and teaching. The aim is not theory for its own sake, but better coaching for the people our graduates serve.
               </p>
               <Link href="/resources" className="btn-primary inline-flex items-center gap-2">

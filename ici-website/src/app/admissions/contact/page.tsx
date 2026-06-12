@@ -27,7 +27,7 @@ export default function ContactAdmissionsPage() {
             <h1 className="text-h1 text-white mb-8">
               Not sure? Talk it through
             </h1>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               Choosing how to train as a coach is a real decision, and sometimes you simply want to talk it through with someone who knows. That is what our advisors are for. Ask anything: about levels, timing, cost, or whether coaching is right for you at all. No script, no pressure.
             </p>
           </AnimatedSection>

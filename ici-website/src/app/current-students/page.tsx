@@ -49,7 +49,7 @@ export default function CurrentStudentsPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Your student hub</h2>
-              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
+              <p className="text-navy-100/70 mb-8 text-body">
                 Log in to access your complete learning environment, including upcoming sessions and submitted assessments.
               </p>
               <Link href="/login" className="btn-primary inline-flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function CurrentStudentsPage() {
         <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Need help?</h2>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               If anything is unclear or part of the work feels hard, that is normal, and we are here. Reach out to your coach or the student support team rather than struggling alone.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">

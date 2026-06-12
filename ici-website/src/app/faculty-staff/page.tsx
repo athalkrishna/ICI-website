@@ -49,7 +49,7 @@ export default function FacultyStaffPage() {
             
             <AnimatedSection>
               <h2 className="text-h2 text-white mb-6">Quick access</h2>
-              <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
+              <p className="text-navy-100/70 mb-8 text-body">
                 Log in to access your dashboard, secure documents, and scheduling systems.
               </p>
               <Link href="/login" className="btn-primary inline-flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function FacultyStaffPage() {
         <Container>
           <AnimatedSection className="max-w-4xl text-center mx-auto">
             <h2 className="text-h2 text-white mb-6">Join the faculty</h2>
-            <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
+            <p className="text-muted-dark mb-12 text-body">
               We are always interested in practising coaches who can teach with rigour and humanity. If that is you, we would like to hear from you.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">

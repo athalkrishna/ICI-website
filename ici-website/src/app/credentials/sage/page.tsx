@@ -123,14 +123,14 @@ export default function SagePage() {
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-6">Entry requirements</h2>
-                <p className="font-body text-muted text-lg leading-relaxed">
+                <p className="text-muted text-body">
                   Hold the ICI Architect credential and demonstrate a substantial body of coaching practice.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-6">Format and hours</h2>
-                <p className="font-body text-muted text-lg leading-relaxed mb-6">
+                <p className="text-muted mb-6 text-body">
                   Delivered entirely online and one-to-one with a master coach. Your 90 hours are structured as:
                 </p>
                 <ul className="space-y-4">
@@ -163,14 +163,14 @@ export default function SagePage() {
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-8">Syllabus</h2>
-                <p className="font-body text-muted text-lg leading-relaxed mb-8">
+                <p className="text-muted mb-8 text-body">
                   The syllabus integrates the deeper psychology, leadership application and contemplative grounding that distinguish a senior coach.
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
                     <div key={i} className="bg-white p-8 hover:border-brand-gold-300 transition-colors rounded-2xl shadow-md border border-navy-100">
                       <h4 className="font-sans font-bold text-brand-navy-900 text-h4 mb-3">{mod.title}</h4>
-                      <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
+                      <p className="text-muted text-body">{mod.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -178,7 +178,7 @@ export default function SagePage() {
 
               <AnimatedSection>
                 <h2 className="text-h3 text-brand-navy-900 mb-6">Assessment</h2>
-                <p className="font-body text-muted text-lg leading-relaxed">
+                <p className="text-muted text-body">
                   Assessment combines advanced coaching demonstrations, written case studies, and a specialism portfolio that shows depth in a chosen area of practice.
                 </p>
               </AnimatedSection>
