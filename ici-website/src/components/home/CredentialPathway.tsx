@@ -13,7 +13,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
   const credentials = [
     {
       code:    'L1',
-      name:    content.cred_catalyst_title || 'Catalyst (Level 1)',
+      name:    content.cred_catalyst_title || 'Catalyst',
       level:   'Foundation',
       hours:   '36 Hours',
       desc:    content.cred_catalyst_body || 'Foundation. You learn to spark and hold change, and become a competent, confident, ethical coach. 36 hours, one-to-one.',
@@ -24,7 +24,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
     },
     {
       code:    'L2',
-      name:    content.cred_architect_title || 'Architect (Level 2)',
+      name:    content.cred_architect_title || 'Architect',
       level:   'Professional',
       hours:   '60 Hours',
       desc:    content.cred_architect_body || 'Professional. You learn to design and build change with clients and to build a thriving practice. 60 hours, one-to-one.',
@@ -35,7 +35,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
     },
     {
       code:    'L3',
-      name:    content.cred_sage_title || 'Sage (Level 3)',
+      name:    content.cred_sage_title || 'Sage',
       level:   'Senior',
       hours:   '90 Hours',
       desc:    content.cred_sage_body || 'Senior. You coach with depth, range and presence, and work with the most complex clients. 90 hours, one-to-one.',
@@ -46,7 +46,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
     },
     {
       code:    'L4',
-      name:    content.cred_luminary_title || 'Luminary (Level 4)',
+      name:    content.cred_luminary_title || 'Luminary',
       level:   'Master',
       hours:   '120 Hours',
       desc:    content.cred_luminary_body || 'The institute\'s highest distinction. You master the craft, mentor others and contribute to the field. 120 hours, one-to-one.',
