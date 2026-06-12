@@ -52,7 +52,9 @@ export function useLocalCurrency() {
           })
         }
       } catch (err) {
-        console.error('Currency conversion error:', err)
+        // Log as a warning instead of error to prevent Next.js dev server overlay
+        // since this is a non-fatal enhancement that falls back to INR gracefully
+        console.warn('Currency conversion failed, falling back to INR. Reason:', err instanceof Error ? err.message : String(err))
         if (mounted) {
           setState(prev => ({ ...prev, loading: false, error: err instanceof Error ? err.message : 'Unknown error' }))
         }
