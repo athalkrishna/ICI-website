@@ -60,11 +60,11 @@ export default function GlobalPage() {
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-navy-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
-                  <div className="font-display text-5xl font-bold text-brand-navy-800 mb-2">60+</div>
+                  <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">60+</div>
                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Countries</div>
                 </div>
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-navy-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
-                  <div className="font-display text-5xl font-bold text-brand-navy-800 mb-2">1,000+</div>
+                  <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">1,000+</div>
                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Coaches</div>
                 </div>
                 <div className="bg-brand-navy-800 p-8 rounded-3xl shadow-sm border border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden">
@@ -80,7 +80,7 @@ export default function GlobalPage() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
             
             <div className="relative z-20 text-center mb-16">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How global delivery works</h2>
+              <h2 className="font-display text-3xl text-h3 font-bold text-white mb-6">How global delivery works</h2>
               <div className="w-16 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
 
@@ -101,7 +101,7 @@ export default function GlobalPage() {
 
             {/* Glowing Map Component */}
             <div className="mt-24 text-center">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">Where our coaches are</h2>
+              <h2 className="font-display text-3xl text-h3 font-bold text-white mb-6">Where our coaches are</h2>
               <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
             </div>
             

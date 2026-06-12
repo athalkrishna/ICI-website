@@ -42,7 +42,7 @@ export default function MissionPage() {
             <AnimatedSection>
               <div className="pl-6 border-l-2 border-brand-gold-400 relative">
                 <span className="absolute -left-[3px] top-0 text-brand-gold-400 text-6xl leading-none font-display opacity-20">"</span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-800 mb-6">Our mission</h2>
+                <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-800 mb-6">Our mission</h2>
                 <p className="font-body text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
                   To raise the standard of coaching by training and certifying coaches who combine genuine skill with genuine self-awareness.
                 </p>
@@ -52,7 +52,7 @@ export default function MissionPage() {
             <AnimatedSection delay={0.2}>
               <div className="pl-6 border-l-2 border-brand-navy-200 relative">
                 <span className="absolute -left-[3px] top-0 text-brand-navy-200 text-6xl leading-none font-display opacity-20">"</span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-800 mb-6">Our vision</h2>
+                <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-800 mb-6">Our vision</h2>
                 <p className="font-body text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
                   A world where good coaching is widely available and widely trusted, and where leaders are measured by how well they help others grow.
                 </p>
@@ -62,7 +62,7 @@ export default function MissionPage() {
 
           <AnimatedSection delay={0.3}>
             <div className="text-center mb-16">
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-navy-800 mb-6">What we value</h2>
+              <h2 className="font-display text-h3 text-h2 font-bold text-brand-navy-800 mb-6">What we value</h2>
               <div className="w-24 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
 

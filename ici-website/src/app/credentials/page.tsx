@@ -102,7 +102,7 @@ export default function CredentialsPage() {
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <Container>
           <AnimatedSection className="mb-12 lg:mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-4">Why this pathway is different</h2>
+            <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-900 mb-4">Why this pathway is different</h2>
             <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
           
@@ -126,7 +126,7 @@ export default function CredentialsPage() {
       <Section id="levels" spacing="compact" className="relative z-20">
         <Container>
           <AnimatedSection className="mb-12 lg:mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-4">The four levels</h2>
+            <h2 className="font-display text-3xl text-h3 font-bold text-brand-navy-900 mb-4">The four levels</h2>
             <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
 
@@ -141,7 +141,7 @@ export default function CredentialsPage() {
                     <div className={`inline-flex items-center gap-2 ${path.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase mb-8 self-start`}>
                       <Award size={14} /> Level {i + 1}
                     </div>
-                    <h3 className="font-display text-3xl md:text-4xl font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
+                    <h3 className="font-display text-3xl text-h3 font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
                       {path.title}
                       <span className="block text-lg font-sans font-normal text-muted mt-2">
                         {path.subline}

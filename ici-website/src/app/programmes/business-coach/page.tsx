@@ -52,7 +52,7 @@ export default function BusinessCoachingPage() {
           {/* Left Column: What you will learn */}
           <div className="lg:col-span-7 space-y-12">
             <AnimatedSection>
-              <h2 className="font-display text-4xl font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
+              <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
                 What you will learn to do
               </h2>
               
@@ -135,7 +135,7 @@ export default function BusinessCoachingPage() {
               <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
               <Container size="narrow" className="relative z-10">
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
+                <h2 className="font-display text-3xl text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
                 <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
                   A business focus suits the Architect level and above. Your credential and investment follow the level you pursue.
                 </p>
