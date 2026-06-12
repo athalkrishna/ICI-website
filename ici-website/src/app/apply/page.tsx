@@ -26,13 +26,13 @@ export default function ApplyPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Admissions</div>
+              <div className="text-eyebrow text-brand-gold-400">SPEAK TO AN ADVISOR</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Apply to ICI
+              Not sure? Talk it through
             </h1>
             <p className="text-muted-dark mb-12 text-body">
-              This is where intention becomes action. The application is short, free and carries no obligation. Tell us a little about you and where you want to go, and we will make sure you land on the right level with someone to guide you. Most people say the hardest part was deciding to begin. You are already here.
+              Choosing how to train as a coach is a real decision, and sometimes you simply want to talk it through with someone who knows. That is what our advisors are for. Ask anything: about levels, timing, cost, or whether coaching is right for you at all. No script, no pressure.
             </p>
           </AnimatedSection>
         </Container>
