@@ -14,10 +14,8 @@ export default function GlobalPage() {
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        {/* Diagonal grid texture overlay */}
-        <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
-        {/* Gold gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80" aria-hidden />
+        
+        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
 
         <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
