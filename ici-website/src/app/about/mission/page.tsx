@@ -26,7 +26,7 @@ export default function MissionPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">About ICI</div>
+              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">Mission, vision and values</div>
             </div>
             <h1 className="text-h1 text-white mb-8">
               A New Standard for Coaching
