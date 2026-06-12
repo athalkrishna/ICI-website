@@ -126,8 +126,8 @@ export default function ProgrammesOverviewPage() {
                   { name: "Health & Wellness Coaching", href: "/programmes/health-wellness" },
                   { name: "Team & Organisational Coaching", href: "/programmes/team-coaching", full: true }
                 ].map((spec, i) => (
-                  <AnimatedSection key={i} delay={i * 0.1} className={spec.full ? "sm:col-span-2" : ""}>
-                    <Link href={spec.href} className="block group">
+                  <AnimatedSection key={i} delay={i * 0.1} className={spec.full ? "sm:col-span-2 h-full" : "h-full"}>
+                    <Link href={spec.href} className="block group h-full">
                       <div className="bg-brand-navy-800 p-8 md:p-10 rounded-[32px] border border-faint hover:border-brand-gold-500/50 transition-all duration-300 relative overflow-hidden h-full flex flex-col justify-between min-h-[200px]">
                         <div className="absolute inset-0 bg-gradient-to-br from-brand-gold-500/0 via-brand-gold-500/0 to-brand-gold-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <h3 className="text-h3 text-white group-hover:text-brand-gold-400 transition-colors relative z-10 pr-12">{spec.name}</h3>
