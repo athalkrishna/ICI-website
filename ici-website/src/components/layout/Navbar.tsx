@@ -48,7 +48,7 @@ export default function Navbar() {
             {/* ── Logo ── */}
             <Link 
               href="/" 
-              className="flex items-center shrink-0 -ml-4 -mt-2 transition-all duration-300"
+              className="flex items-center shrink-0 -ml-4 transition-all duration-300"
             >
               <Image 
                 src={scrolled ? "/logo-white.png" : "/logo-transparent.png"}
