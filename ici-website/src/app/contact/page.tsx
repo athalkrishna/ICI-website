@@ -25,6 +25,10 @@ export default function ContactPage() {
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
+            <div className="flex items-center gap-6 mb-6 lg:mb-8">
+              <div className="w-16 h-[1px] gradient-accent-gold"></div>
+              <div className="text-eyebrow text-brand-gold-400">Contact</div>
+            </div>
             <h1 className="text-h1 text-white mb-8">
               Talk to a human
             </h1>
