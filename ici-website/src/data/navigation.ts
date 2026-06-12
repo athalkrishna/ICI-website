@@ -25,7 +25,7 @@ export const navItems: NavItem[] = [
         links: [
           { label: 'Mission, Vision & Values', href: '/about/mission', desc: 'Our core philosophy and approach' },
           { label: 'History & Heritage', href: '/about/history', desc: 'The origins and traditions we draw upon' },
-          { label: 'Faculty & Research', href: '/faculty', desc: 'Meet our practising coaches' },
+          { label: 'Leadership & Faculty', href: '/faculty', desc: 'Meet our practising coaches' },
           { label: 'Global Presence', href: '/about/global', desc: 'Our international network of coaches' },
           { label: 'Recognition & Accreditation', href: '/about/accreditation', desc: 'Built to international coaching standards' },
           { label: 'Partnerships & Alliances', href: '/about/partnerships', desc: 'Collaborations with aligned organisations' },

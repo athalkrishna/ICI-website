@@ -5,7 +5,7 @@ import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 
 export const metadata: Metadata = {
-  title: 'Faculty & Research | International Coaching Institute',
+  title: 'Leadership & Faculty | International Coaching Institute',
   description: 'Our faculty are practicing coaches who deliver live, online, one-to-one programmes.'
 }
 
