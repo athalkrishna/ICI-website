@@ -31,15 +31,17 @@ export default function AccountPage() {
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-20">
-          <AnimatedSection className="max-w-4xl">
-            <div className="flex items-center gap-6 mb-8">
-              <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">MY ACCOUNT</div>
-            </div>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <AnimatedSection className="w-full flex flex-col md:flex-row justify-between md:items-end gap-8">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-6 mb-8">
+                <div className="w-16 h-[1px] gradient-accent-gold"></div>
+                <div className="text-eyebrow text-brand-gold-400">MY ACCOUNT</div>
+              </div>
               <h1 className="text-h1 text-white">
                 Your account
               </h1>
+            </div>
+            <div className="pb-2">
               <Link href="/login" className="btn-secondary-light bg-transparent text-white border-white/30 hover:border-white hover:bg-white/5 transition-all text-sm py-2 px-6">
                 Log out
               </Link>
