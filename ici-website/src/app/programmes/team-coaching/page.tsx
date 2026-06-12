@@ -15,7 +15,7 @@ export default function TeamCoachingPage() {
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-700 lg: lg: relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}

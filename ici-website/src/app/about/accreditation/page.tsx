@@ -13,7 +13,7 @@ export default function AccreditationPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-700 text-white lg: lg: relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
         {/* Diagonal grid texture overlay */}
         <div className="absolute inset-0 bg-hero-pattern opacity-30" aria-hidden />
         {/* Gold gradient line */}
