@@ -60,6 +60,7 @@ export const navItems: NavItem[] = [
       {
         heading: 'The Levels',
         links: [
+          { label: 'The Mastery Pathway', href: '/credentials', desc: 'Overview of our four coaching levels' },
           { label: 'Catalyst (Level 1)', href: '/credentials/catalyst', desc: 'Foundational one-to-one certification' },
           { label: 'Architect (Level 2)', href: '/credentials/architect', desc: 'Advanced methodology and framing' },
           { label: 'Sage (Level 3)', href: '/credentials/sage', desc: 'Mastery in coaching presence' },
