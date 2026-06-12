@@ -52,7 +52,7 @@ export default function BusinessCoachingPage() {
           {/* Left Column: What you will learn */}
           <div className="lg:col-span-7 space-y-12">
             <AnimatedSection>
-              <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
+              <h2 className="text-h3 text-brand-navy-900 mb-10 flex items-center gap-4">
                 What you will learn to do
               </h2>
               
@@ -81,7 +81,7 @@ export default function BusinessCoachingPage() {
               <AnimatedSection delay={0.2}>
                 <div className="bg-white p-10 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-cream-50 rounded-full blur-[40px] opacity-50"></div>
-                  <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+                  <h2 className="text-h2 text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
                     <UserPlus size={24} className="text-brand-gold-700" />
                     Who this suits
                   </h2>
@@ -102,7 +102,7 @@ export default function BusinessCoachingPage() {
 
               <AnimatedSection delay={0.3}>
                 <div className="bg-cream-100 p-10 border-brand-gold-200/50 rounded-[32px] shadow-2xl border border-navy-100">
-                  <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
+                  <h2 className="text-h2 text-brand-navy-800 mb-8 flex items-center gap-3">
                     <Compass size={24} className="text-brand-gold-700" />
                     At a glance
                   </h2>
@@ -135,7 +135,7 @@ export default function BusinessCoachingPage() {
               <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
               <Container size="narrow" className="relative z-10">
-                <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
+                <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>
                 <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
                   A business focus suits the Architect level and above. Your credential and investment follow the level you pursue.
                 </p>

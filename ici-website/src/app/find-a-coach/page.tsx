@@ -44,7 +44,7 @@ export default function FindACoachPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
               <div className="flex items-center gap-3 mb-6 pb-6 border-b border-subtle relative z-10">
                 <SlidersHorizontal size={20} className="text-brand-gold-400" />
-                <h2 className="font-sans font-bold text-h2 text-white">Search and filter</h2>
+                <h2 className="font-sans text-h2 text-white">Search and filter</h2>
               </div>
               
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

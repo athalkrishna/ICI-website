@@ -45,7 +45,7 @@ export default function AdminMediaPage() {
   return (
     <Container size="narrow">
       <div className="mb-8">
-        <h1 className="text-h1 font-bold text-navy-900 mb-1 font-display">Media Library</h1>
+        <h1 className="text-h1 text-navy-900 mb-1">Media Library</h1>
         <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 

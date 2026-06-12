@@ -80,7 +80,7 @@ export default function GlobalPage() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
             
             <div className="relative z-20 text-center mb-16">
-              <h2 className="font-display text-h3 font-bold text-white mb-6">How global delivery works</h2>
+              <h2 className="text-h3 text-white mb-6">How global delivery works</h2>
               <div className="w-16 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
 
@@ -101,7 +101,7 @@ export default function GlobalPage() {
 
             {/* Glowing Map Component */}
             <div className="mt-24 text-center">
-              <h2 className="font-display text-h3 font-bold text-white mb-6">Where our coaches are</h2>
+              <h2 className="text-h3 text-white mb-6">Where our coaches are</h2>
               <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
             </div>
             

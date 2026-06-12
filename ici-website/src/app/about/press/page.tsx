@@ -46,7 +46,7 @@ export default function PressPage() {
           <div className="grid lg:grid-cols-12 gap-16">
             <AnimatedSection className="lg:col-span-6 space-y-12">
               <div>
-                <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Media Enquiries</h3>
+                <h3 className="text-h3 text-brand-navy-800 mb-6">Media Enquiries</h3>
                 <p className="font-body text-xl text-navy-700 leading-relaxed font-light mb-8">
                   All enquiries will be answered within 2 working days.
                 </p>
@@ -63,7 +63,7 @@ export default function PressPage() {
               </div>
 
               <div className="bg-cream-100 p-10 rounded-3xl border border-brand-gold-200/50">
-                <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-4">Topics our faculty can speak to</h3>
+                <h3 className="text-h3 text-brand-navy-800 mb-4">Topics our faculty can speak to</h3>
                 <p className="font-body text-lg text-navy-700 leading-relaxed">
                   Coaching, leadership, the psychology of high achievers, and how people actually change.
                 </p>
@@ -72,7 +72,7 @@ export default function PressPage() {
 
             <AnimatedSection delay={0.2} className="lg:col-span-6">
               <div className="bg-white p-10 md:p-14 h-full rounded-[32px] shadow-2xl border border-navy-100">
-                <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-2">Press Kit</h3>
+                <h3 className="text-h3 text-brand-navy-800 mb-2">Press Kit</h3>
                 <p className="font-body text-lg text-muted mb-10">Download official ICI brand assets and background information.</p>
                 
                 <div className="space-y-4">

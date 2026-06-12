@@ -44,7 +44,7 @@ export default function AdmissionsPage() {
             
             {/* Left Column: How to apply */}
             <AnimatedSection>
-              <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-12">How to apply</h2>
+              <h2 className="text-h2 text-brand-navy-900 mb-12">How to apply</h2>
               <ol className="space-y-8">
                 {[
                   'Choose your level, or speak to an advisor if you are unsure.',
@@ -107,7 +107,7 @@ export default function AdmissionsPage() {
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <div className="max-w-[800px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-4">Frequently asked questions</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-4">Frequently asked questions</h2>
             <div className="w-24 h-1 bg-brand-gold-500 mx-auto" />
           </AnimatedSection>
 

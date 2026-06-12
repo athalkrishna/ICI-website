@@ -38,7 +38,7 @@ export default function LeadershipFacultyPage() {
           
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center mb-16 lg:mb-32">
             <AnimatedSection className="lg:col-span-7 space-y-8">
-              <h2 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
+              <h2 className="text-h3 text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
               <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
                 ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests.
               </p>
@@ -82,7 +82,7 @@ export default function LeadershipFacultyPage() {
                       Portrait {i}
                     </div>
                   </div>
-                  <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-1 group-hover:text-brand-gold-600 transition-colors">
+                  <h3 className="text-h3 text-brand-navy-800 mb-1 group-hover:text-brand-gold-600 transition-colors">
                     Faculty Member
                   </h3>
                   <p className="font-sans text-sm text-brand-gold-600 font-semibold tracking-wide uppercase">

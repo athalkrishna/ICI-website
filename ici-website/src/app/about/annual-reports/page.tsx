@@ -48,7 +48,7 @@ export default function AnnualReportsPage() {
               <div className="absolute -right-8 -top-8 text-brand-navy-50 opacity-50 transform rotate-12">
                 <FileBarChart2 size={200} strokeWidth={1} />
               </div>
-              <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-8 relative z-10">
+              <h3 className="text-h3 text-brand-navy-800 mb-8 relative z-10">
                 Until this year is fully complete, this is what we commit to reporting on, openly and without spin:
               </h3>
               

@@ -51,7 +51,7 @@ export default function ProgrammesOverviewPage() {
       <Section spacing="standard" className="relative z-20">
         <Container>
           <AnimatedSection className="mb-16">
-            <h2 className="font-display text-h3 text-h2 font-bold text-brand-navy-800 mb-6 flex items-center gap-4">
+            <h2 className="text-h2 text-brand-navy-800 mb-6 flex items-center gap-4">
               <Sparkles className="text-brand-gold-500" size={40} />
               The core: the ICI Mastery Pathway
             </h2>
@@ -151,7 +151,7 @@ export default function ProgrammesOverviewPage() {
       <Section spacing="large" className="relative z-20">
         <Container>
           <AnimatedSection className="text-center mb-20">
-            <h2 className="font-display text-h3 text-h2 font-bold text-brand-navy-900">How our programmes work</h2>
+            <h2 className="text-h2 text-brand-navy-900">How our programmes work</h2>
           </AnimatedSection>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-24">
@@ -168,7 +168,7 @@ export default function ProgrammesOverviewPage() {
                   </div>
                   <div className="relative z-10">
                     <span className="text-brand-gold-700 font-display text-2xl mb-6 block italic">0{i+1}</span>
-                    <h3 className="font-sans font-bold text-brand-navy-800 text-h3 mb-4">{item.title}</h3>
+                    <h3 className="font-sans text-brand-navy-800 text-h3 mb-4">{item.title}</h3>
                     <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
