@@ -57,7 +57,7 @@ export default function LeadershipFacultyPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} className="lg:col-span-5 relative hidden lg:block">
-              <div className="aspect-[4/5] bg-brand-navy-100 rounded-3xl overflow-hidden relative shadow-2xl">
+              <div className="aspect-[4/5] bg-brand-navy-100 overflow-hidden relative rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900/50 to-transparent z-10"></div>
                 <div className="absolute inset-0 flex items-center justify-center text-brand-navy-300 font-sans tracking-widest uppercase text-sm z-0">
                   [ Faculty Meeting Image ]

@@ -61,7 +61,7 @@ export default function AccreditationPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="bg-white p-10 lg:p-14 rounded-3xl shadow-xl shadow-brand-navy-900/5 border border-navy-100 relative overflow-hidden">
+              <div className="bg-white p-10 lg:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10"></div>
                 <h3 className="font-display text-2xl font-bold text-brand-navy-800 mb-10">How we hold our standard</h3>
                 

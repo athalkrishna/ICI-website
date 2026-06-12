@@ -59,15 +59,15 @@ export default function GlobalPage() {
 
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-navy-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
+                <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
                   <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">60+</div>
                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Countries</div>
                 </div>
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-navy-100 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow">
+                <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
                   <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">1,000+</div>
                   <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-600">Coaches</div>
                 </div>
-                <div className="bg-brand-navy-800 p-8 rounded-3xl shadow-sm border border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden">
+                <div className="bg-brand-navy-800 p-8 border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold-500 rounded-full blur-[50px] opacity-20"></div>
                    <div className="text-h3 text-white mb-2">100%</div>
                    <div className="font-sans text-sm font-bold uppercase tracking-widest text-brand-gold-400">Online & One-to-One</div>
@@ -76,7 +76,7 @@ export default function GlobalPage() {
             </AnimatedSection>
           </div>
 
-          <AnimatedSection delay={0.3} className="bg-brand-navy-900 rounded-[40px] p-8 md:p-16 relative overflow-hidden shadow-2xl">
+          <AnimatedSection delay={0.3} className="bg-brand-navy-900 p-8 md:p-16 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
             
             <div className="relative z-20 text-center mb-16">

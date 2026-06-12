@@ -49,7 +49,7 @@ export default function AdminMediaPage() {
         <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
       </div>
 
-      <div className="bg-white border border-navy-200 rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white overflow-hidden rounded-2xl shadow-md border border-navy-100">
         <div className="p-8">
           
           <form onSubmit={handleUpload} className="space-y-6">
@@ -69,7 +69,7 @@ export default function AdminMediaPage() {
                 />
                 <label
                   htmlFor="file-upload"
-                  className="cursor-pointer inline-flex items-center justify-center px-4 py-2 border border-navy-300 shadow-sm text-sm font-medium rounded-md text-navy-700 bg-white hover:bg-cream-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-gold-500"
+                  className="cursor-pointer inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-navy-700 bg-white hover:bg-cream-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-gold-500 rounded-2xl shadow-md border border-navy-100"
                 >
                   Select File
                 </label>
@@ -99,7 +99,7 @@ export default function AdminMediaPage() {
               <button
                 type="submit"
                 disabled={!file || status === 'uploading'}
-                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-brand-navy-900 hover:bg-brand-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-navy-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-2.5 px-4 border-transparent text-sm font-medium text-white bg-brand-navy-900 hover:bg-brand-navy-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-navy-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-2xl shadow-md border border-navy-100"
               >
                 {status === 'uploading' ? 'Uploading to CDN...' : 'Upload File'}
               </button>
@@ -122,7 +122,7 @@ export default function AdminMediaPage() {
                 <h3 className="text-sm font-bold text-green-900 mb-1">Upload Successful!</h3>
                 <p className="text-xs text-green-600 mb-4">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
                 
-                <div className="flex rounded-md shadow-sm">
+                <div className="flex rounded-2xl shadow-md border border-navy-100">
                   <input
                     type="text"
                     readOnly

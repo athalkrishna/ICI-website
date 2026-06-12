@@ -160,7 +160,7 @@ export default function CatalystPage() {
                 </p>
                 <div className="space-y-6">
                   {syllabus.map((mod, i) => (
-                    <div key={i} className="bg-white p-8 rounded-2xl border border-navy-100 shadow-xl hover:border-brand-gold-300 transition-colors">
+                    <div key={i} className="bg-white p-8 hover:border-brand-gold-300 transition-colors rounded-2xl shadow-md border border-navy-100">
                       <h4 className="font-sans font-bold text-brand-navy-900 text-lg mb-3">{mod.title}</h4>
                       <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
                     </div>
@@ -193,7 +193,7 @@ export default function CatalystPage() {
             <div className="lg:col-span-4 relative">
               <div className="sticky top-32">
                 <AnimatedSection delay={0.2}>
-                  <div className="bg-brand-navy-800 p-8 lg:p-10 rounded-[32px] border border-subtle shadow-2xl">
+                  <div className="bg-brand-navy-800 p-8 lg:p-10 border-subtle rounded-3xl shadow-xl border border-navy-100">
                     <h3 className="text-h3 text-white mb-8 pb-6 border-b border-subtle">
                       Details at a glance
                     </h3>

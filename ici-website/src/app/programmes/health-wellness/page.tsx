@@ -63,8 +63,8 @@ export default function HealthWellnessPage() {
                   { text: "Work with shame, relapse and the all-or-nothing trap", icon: <HeartPulse size={24} /> },
                   { text: "Hold scope and know when to refer to clinical care", icon: <Stethoscope size={24} /> }
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-8 rounded-[32px] border border-navy-100 shadow-xl hover:shadow-2xl hover:border-brand-gold-200 transition-all duration-300 group">
-                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors shadow-sm">
+                  <div key={i} className="bg-white p-8 hover:shadow-2xl hover:border-brand-gold-200 transition-all duration-300 group rounded-3xl shadow-xl border border-navy-100">
+                    <div className="w-14 h-14 bg-cream-50 border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors rounded-2xl shadow-md border border-navy-100">
                       {item.icon}
                     </div>
                     <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
@@ -79,7 +79,7 @@ export default function HealthWellnessPage() {
             <div className="sticky top-32 space-y-8">
               
               <AnimatedSection delay={0.2}>
-                <div className="bg-white p-10 rounded-[40px] border border-navy-100 shadow-2xl relative overflow-hidden">
+                <div className="bg-white p-10 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-cream-50 rounded-full blur-[40px] opacity-50"></div>
                   <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
                     <UserPlus size={24} className="text-brand-gold-700" />
@@ -101,7 +101,7 @@ export default function HealthWellnessPage() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.3}>
-                <div className="bg-cream-100 p-10 rounded-[40px] border border-brand-gold-200/50 shadow-xl">
+                <div className="bg-cream-100 p-10 border-brand-gold-200/50 rounded-[32px] shadow-2xl border border-navy-100">
                   <h2 className="font-display text-2xl font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
                     <Compass size={24} className="text-brand-gold-700" />
                     At a glance
@@ -131,7 +131,7 @@ export default function HealthWellnessPage() {
       <Section spacing="none" className="mt-24 lg:mt-32">
         <AnimatedSection>
           <Container>
-            <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 rounded-[40px] border border-brand-gold-500/20 shadow-2xl relative overflow-hidden">
+            <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 border-brand-gold-500/20 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
               <div className="absolute inset-0 bg-hero-pattern opacity-[0.05] mix-blend-overlay"></div>
               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold-500 rounded-full blur-[120px] opacity-20 translate-x-1/3 -translate-y-1/3" />
               <Container size="narrow" className="relative z-10">

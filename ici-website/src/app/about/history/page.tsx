@@ -52,7 +52,7 @@ export default function HistoryPage() {
                   <div className="hidden md:flex flex-col items-center mt-2 relative z-10 shrink-0 w-16">
                     <div className="w-4 h-4 rounded-full bg-brand-gold-400 border-[4px] border-cream-50 shadow-sm"></div>
                   </div>
-                  <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-navy-100 relative">
+                  <div className="bg-white p-8 md:p-10 relative rounded-3xl shadow-xl border border-navy-100">
                     <p className="font-body text-xl text-navy-700 leading-relaxed">
                       {text}
                     </p>
@@ -66,7 +66,7 @@ export default function HistoryPage() {
                     <div className="w-2 h-2 bg-brand-gold-400 rounded-full animate-pulse"></div>
                   </div>
                 </div>
-                <div className="bg-brand-navy-800 text-white p-8 md:p-12 rounded-3xl shadow-xl relative overflow-hidden">
+                <div className="bg-brand-navy-800 text-white p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                   <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-gold-500 rounded-full blur-[60px] opacity-20"></div>
                   <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">The Next Chapter</h3>
                   <p className="font-body text-xl text-brand-navy-100 leading-relaxed font-light">

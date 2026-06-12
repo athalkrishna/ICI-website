@@ -49,7 +49,7 @@ export default async function CheckoutPage({ params }: { params: { level: string
       <Section spacing="compact" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl">
+            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-navy-100">
               <div className="mb-8 pb-8 border-b border-navy-100">
                 <h2 className="font-display text-2xl font-bold text-brand-navy-900 mb-4">Order Summary</h2>
                 <div className="flex flex-wrap justify-between gap-x-4 text-muted mb-2">

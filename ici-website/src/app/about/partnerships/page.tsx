@@ -79,7 +79,7 @@ export default function PartnershipsPage() {
 
           {/* ── CTA Card ── */}
           <AnimatedSection delay={0.3}>
-            <div className="max-w-4xl mx-auto bg-brand-navy-800 rounded-[40px] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="max-w-4xl mx-auto bg-brand-navy-800 p-10 md:p-16 text-center text-white relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[80px] opacity-20 translate-x-1/3 -translate-y-1/3"></div>
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-500 rounded-full blur-[80px] opacity-20 -translate-x-1/3 translate-y-1/3"></div>
               

@@ -40,7 +40,7 @@ export default function CheckoutSuccessPage() {
       <Section spacing="none" className="-mt-12 relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection delay={0.1}>
-            <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl">
+            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-navy-100">
               <h2 className="font-display text-2xl font-bold text-brand-navy-900 mb-6">What happens next?</h2>
               
               <div className="space-y-6">

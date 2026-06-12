@@ -43,7 +43,7 @@ export default function ContactPage() {
             
             {/* Form */}
             <AnimatedSection>
-              <div className="bg-brand-navy-800/50 backdrop-blur-sm border border-subtle p-8 md:p-10 rounded-[32px] shadow-2xl relative overflow-hidden">
+              <div className="bg-brand-navy-800/50 backdrop-blur-sm border-subtle p-8 md:p-10 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
                 
                 <ContactForm />

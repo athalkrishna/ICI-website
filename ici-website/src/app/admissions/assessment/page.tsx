@@ -25,7 +25,7 @@ export default function AssessmentPage() {
 
       <Section spacing="none" className="-mt-8 relative z-20">
         <Container size="narrow">
-          <div className="bg-white border border-navy-100 p-8 md:p-12 rounded-[32px] shadow-xl">
+          <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-navy-100">
             <AssessmentForm />
           </div>
         </Container>

@@ -73,11 +73,11 @@ export default function ProgrammesOverviewPage() {
                 { level: "Level 4", title: "Luminary", desc: "The highest distinction. Master the craft and develop others.", icon: <Sparkles /> }
               ].map((item, i) => (
                 <AnimatedSection key={i} delay={i * 0.15} className={`relative ${i % 2 === 0 ? 'lg:mt-0' : 'lg:mt-24'}`}>
-                  <div className="bg-white p-8 md:p-10 rounded-[32px] border border-navy-100 hover:border-brand-gold-300 transition-all duration-500 group shadow-xl hover:shadow-2xl relative overflow-hidden">
+                  <div className="bg-white p-8 md:p-10 hover:border-brand-gold-300 transition-all duration-500 group hover:shadow-2xl relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                     <div className="absolute -top-20 -right-20 text-9xl font-display font-bold text-navy-50 select-none transition-colors">
                       0{i+1}
                     </div>
-                    <div className="w-14 h-14 bg-cream-50 rounded-2xl border border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-8 group-hover:scale-110 group-hover:bg-brand-gold-500 group-hover:text-white transition-all duration-500 shadow-sm">
+                    <div className="w-14 h-14 bg-cream-50 border-brand-gold-100 flex items-center justify-center text-brand-gold-700 mb-8 group-hover:scale-110 group-hover:bg-brand-gold-500 group-hover:text-white transition-all duration-500 rounded-2xl shadow-md border border-navy-100">
                       {item.icon}
                     </div>
                     <div className="font-sans text-xs font-bold uppercase tracking-widest text-brand-gold-700 mb-3">{item.level}</div>
@@ -162,7 +162,7 @@ export default function ProgrammesOverviewPage() {
               { title: "Assessed on real coaching.", desc: "Your credential reflects what you can actually do." }
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-white p-10 md:p-14 rounded-[40px] border border-navy-100 shadow-xl relative overflow-hidden group hover:border-brand-gold-200 transition-colors duration-500 h-full">
+                <div className="bg-white p-10 md:p-14 relative overflow-hidden group hover:border-brand-gold-200 transition-colors duration-500 h-full rounded-[32px] shadow-2xl border border-navy-100">
                   <div className="absolute -right-8 -bottom-16 text-9xl font-display font-bold text-navy-50 select-none transition-colors leading-none pointer-events-none">
                     0{i+1}
                   </div>

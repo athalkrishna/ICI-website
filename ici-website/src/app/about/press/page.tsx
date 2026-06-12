@@ -51,7 +51,7 @@ export default function PressPage() {
                   All enquiries will be answered within 2 working days.
                 </p>
                 
-                <a href="mailto:info@internationalcoachinginstitute.org" className="inline-flex items-center gap-4 p-6 bg-white rounded-2xl border border-navy-100 shadow-sm hover:shadow-md transition-shadow group w-full">
+                <a href="mailto:info@internationalcoachinginstitute.org" className="inline-flex items-center gap-4 p-6 bg-white hover:shadow-md transition-shadow group w-full rounded-2xl shadow-md border border-navy-100">
                   <div className="w-12 h-12 bg-brand-navy-50 rounded-full flex items-center justify-center text-brand-navy-600 group-hover:bg-brand-navy-800 group-hover:text-white transition-colors">
                     <Mail size={20} />
                   </div>
@@ -71,7 +71,7 @@ export default function PressPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} className="lg:col-span-6">
-              <div className="bg-white p-10 md:p-14 rounded-[40px] border border-navy-100 shadow-xl shadow-brand-navy-900/5 h-full">
+              <div className="bg-white p-10 md:p-14 h-full rounded-[32px] shadow-2xl border border-navy-100">
                 <h3 className="font-display text-3xl font-bold text-brand-navy-800 mb-2">Press Kit</h3>
                 <p className="font-body text-lg text-muted mb-10">Download official ICI brand assets and background information.</p>
                 

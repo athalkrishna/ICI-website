@@ -44,7 +44,7 @@ export default function AnnualReportsPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 md:p-14 border border-navy-100 shadow-xl shadow-brand-navy-900/5 relative overflow-hidden">
+            <div className="max-w-4xl mx-auto bg-white p-10 md:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
               <div className="absolute -right-8 -top-8 text-brand-navy-50 opacity-50 transform rotate-12">
                 <FileBarChart2 size={200} strokeWidth={1} />
               </div>

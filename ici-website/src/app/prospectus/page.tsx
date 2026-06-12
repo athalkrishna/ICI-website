@@ -40,7 +40,7 @@ export default async function ProspectusPage() {
       {/* ── Form Section ── */}
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <Container>
-          <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-8 md:p-16 text-center rounded-[32px] shadow-xl border border-navy-100">
+          <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-8 md:p-16 text-center rounded-3xl shadow-xl border border-navy-100">
             <h2 className="text-h3 text-brand-navy-900 mb-6">Download the ICI Prospectus</h2>
             <p className="font-body text-muted mb-8 max-w-xl mx-auto">Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.</p>
             <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">

@@ -80,7 +80,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
       <h2 className="text-2xl font-bold mb-6 capitalize">Editing: {slug.replace('-', ' ')}</h2>
       <form onSubmit={handleSave} className="space-y-6 max-w-4xl">
         {content.map((item, index) => (
-          <div key={item.section_key} className="bg-white p-4 border border-navy-200 rounded-lg shadow-sm">
+          <div key={item.section_key} className="bg-white p-4 rounded-2xl shadow-md border border-navy-100">
             <div className="flex justify-between mb-2">
               <label className="block text-sm font-medium text-navy-700">
                 {item.label || item.section_key} {item.required ? <span className="text-red-600">*</span> : ''}
@@ -95,7 +95,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
             {item.content_type === 'text' || item.content_type === 'url' ? (
               <input 
                 type="text"
-                className="w-full border-navy-300 rounded-md shadow-sm p-2 border focus:border-brand-navy-900 focus:ring-brand-navy-900"
+                className="w-full p-2 focus:border-brand-navy-900 focus:ring-brand-navy-900 rounded-2xl shadow-md border border-navy-100"
                 value={item.content_value || ''}
                 onChange={e => {
                   const newContent = [...content];
@@ -105,7 +105,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
               />
             ) : item.content_type === 'richtext' ? (
               <textarea
-                className="w-full border-navy-300 rounded-md shadow-sm p-2 border h-32 focus:border-brand-navy-900 focus:ring-brand-navy-900"
+                className="w-full p-2 h-32 focus:border-brand-navy-900 focus:ring-brand-navy-900 rounded-2xl shadow-md border border-navy-100"
                 value={item.content_value || ''}
                 onChange={e => {
                   const newContent = [...content];

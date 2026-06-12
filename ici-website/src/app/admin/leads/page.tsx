@@ -16,12 +16,12 @@ export default async function AdminLeadsPage() {
           <h1 className="text-2xl font-bold text-navy-900 mb-1">Leads & Applications</h1>
           <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
         </div>
-        <div className="text-sm text-muted font-medium bg-white px-4 py-2 border border-navy-200 rounded-lg shadow-sm">
+        <div className="text-sm text-muted font-medium bg-white px-4 py-2 rounded-2xl shadow-md border border-navy-100">
           Total: {leads.length} leads
         </div>
       </div>
 
-      <div className="bg-white border border-navy-200 rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white overflow-hidden rounded-2xl shadow-md border border-navy-100">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm whitespace-nowrap">
             <thead className="bg-cream-50 border-b border-navy-200 text-muted">

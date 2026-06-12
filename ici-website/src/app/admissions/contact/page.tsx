@@ -38,7 +38,7 @@ export default function ContactAdmissionsPage() {
       <Section spacing="standard" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-brand-navy-900 border border-brand-navy-700 p-8 md:p-12 rounded-[32px] shadow-2xl relative overflow-hidden">
+            <div className="bg-brand-navy-900 border-brand-navy-700 p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
               
               <h2 className="text-h3 text-white mb-8 relative z-10">

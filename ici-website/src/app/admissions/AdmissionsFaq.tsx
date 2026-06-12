@@ -27,7 +27,7 @@ export default function AdmissionsFaq() {
     <div className="space-y-4">
       {faqs.map((faq, i) => (
         <AnimatedSection key={i} delay={i * 0.1}>
-          <div className="bg-white border border-navy-100 rounded-2xl overflow-hidden shadow-sm">
+          <div className="bg-white overflow-hidden rounded-2xl shadow-md border border-navy-100">
             <button
               onClick={() => setOpenFaq(openFaq === i ? null : i)}
               className="w-full flex items-center justify-between p-6 text-left hover:bg-cream-50 transition-colors"
