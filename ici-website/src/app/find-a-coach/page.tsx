@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function FindACoachPage() {
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -30,7 +30,7 @@ export default function FindACoachPage() {
             <h1 className="text-h1 text-white mb-8">
               Find a coach you can trust
             </h1>
-            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+            <p className="text-navy-100 text-base max-w-2xl mb-12">
               Anyone can call themselves a coach. The coaches listed here have earned an ICI credential through real training, one-to-one, and assessment on real coaching, which means you can approach them with confidence. Tell us what you are looking for and we will help you find someone who fits.
             </p>
           </AnimatedSection>
@@ -43,19 +43,18 @@ export default function FindACoachPage() {
           
           <AnimatedSection>
             {/* Filter UI Shell */}
-            <div className="bg-gradient-to-br from-brand-navy-800/90 to-brand-navy-900/95 backdrop-blur-xl border border-subtle shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-6 md:p-8 rounded-[24px] mb-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-subtle relative z-10">
-                <SlidersHorizontal size={20} className="text-brand-gold-400" />
-                <h2 className="font-sans text-h2 text-white">Search and filter</h2>
+            <div className="bg-white border border-navy-100 shadow-xl p-6 md:p-8 rounded-[24px] mb-12 relative overflow-hidden">
+              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-navy-100 relative z-10">
+                <SlidersHorizontal size={20} className="text-brand-gold-600" />
+                <h2 className="font-sans text-h2 text-brand-navy-900">Search and filter</h2>
               </div>
               
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="space-y-2">
-                  <label className="block mb-2 relative z-10 text-eyebrow">
+                  <label className="block mb-2 relative z-10 text-eyebrow text-brand-navy-700">
                     By specialism
                   </label>
-                  <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
+                  <select className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 focus:border-brand-gold-400 transition-all font-body appearance-none relative z-10">
                     <option value="">All Specialisms</option>
                     <option value="Life">Life</option>
                     <option value="Executive">Executive</option>
@@ -66,10 +65,10 @@ export default function FindACoachPage() {
                 </div>
                 
                 <div className="space-y-2">
-                  <label className="block mb-2 relative z-10 text-eyebrow">
+                  <label className="block mb-2 relative z-10 text-eyebrow text-brand-navy-700">
                     By level
                   </label>
-                  <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
+                  <select className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 focus:border-brand-gold-400 transition-all font-body appearance-none relative z-10">
                     <option value="">All Levels</option>
                     <option value="Catalyst">Catalyst</option>
                     <option value="Architect">Architect</option>
@@ -79,10 +78,10 @@ export default function FindACoachPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block mb-2 relative z-10 text-eyebrow">
+                  <label className="block mb-2 relative z-10 text-eyebrow text-brand-navy-700">
                     By language
                   </label>
-                  <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
+                  <select className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 focus:border-brand-gold-400 transition-all font-body appearance-none relative z-10">
                     <option value="">All Languages</option>
                     <option value="English">English</option>
                     <option value="Spanish">Spanish</option>
@@ -91,10 +90,10 @@ export default function FindACoachPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="block mb-2 relative z-10 text-eyebrow">
+                  <label className="block mb-2 relative z-10 text-eyebrow text-brand-navy-700">
                     By availability
                   </label>
-                  <select className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-3.5 text-white focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none relative z-10">
+                  <select className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 focus:border-brand-gold-400 transition-all font-body appearance-none relative z-10">
                     <option value="">Any Availability</option>
                     <option value="Taking clients">Taking clients</option>
                     <option value="Waitlist">Waitlist</option>
@@ -119,11 +118,11 @@ export default function FindACoachPage() {
       </Section>
 
       {/* ── Why choose an ICI coach ── */}
-      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
+      <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-3xl">
-            <h2 className="text-h2 text-white mb-6">Why choose an ICI coach</h2>
-            <p className="text-muted-dark mb-12 text-body">
+            <h2 className="text-h2 text-brand-navy-900 mb-6">Why choose an ICI coach</h2>
+            <p className="text-muted mb-12 text-body">
               Every coach in this directory holds a credential that was earned, not bought. They have been trained in coaching craft, psychology, neuroscience and human behaviour, and are held to a professional standard of ethics and practice.
             </p>
           </AnimatedSection>
