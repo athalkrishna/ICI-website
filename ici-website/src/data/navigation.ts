@@ -49,7 +49,6 @@ export const navItems: NavItem[] = [
           { label: 'Business Coaching', href: '/programmes/business-coach', desc: 'Scale and support entrepreneurs' },
           { label: 'Health & Wellness', href: '/programmes/health-wellness', desc: 'Guide clients to physical wellbeing' },
           { label: 'Team & Organisational', href: '/programmes/team-coaching', desc: 'Drive systemic team performance' },
-          { label: 'Events', href: '/events', desc: 'Masterclasses, summits and live sessions' },
         ],
       }
     ],
