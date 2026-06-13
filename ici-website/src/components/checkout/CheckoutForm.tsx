@@ -16,6 +16,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
     name: '',
     email: '',
     phone: '',
+    country: '',
   });
 
   const loadRazorpayScript = () => {
@@ -131,6 +132,21 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70"
           placeholder="+91 00000 00000"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label htmlFor="country" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
+          Country <span className="text-brand-gold-500">*</span>
+        </label>
+        <input
+          type="text"
+          id="country"
+          required
+          value={formData.country}
+          onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+          className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70"
+          placeholder="Your country"
         />
       </div>
 

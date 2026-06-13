@@ -140,8 +140,8 @@ export default function LifeCoachingPage() {
                   You can begin a life coaching focus at the Catalyst level and carry it through the Pathway. Your credential and investment follow the level you are working towards, not the specialism.
                 </p>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
-                  <Link href="/credentials/catalyst" className="btn-primary w-full md:w-auto justify-center">
-                    Start at Catalyst
+                  <Link href="/checkout/catalyst" className="btn-primary w-full md:w-auto justify-center">
+                    Apply for Catalyst
                   </Link>
                   <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center border-white/20 hover:border-white text-white">
                     Speak to an Advisor

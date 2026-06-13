@@ -140,8 +140,8 @@ export default function BusinessCoachingPage() {
                   A business focus suits the Architect level and above. Your credential and investment follow the level you pursue.
                 </p>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
-                  <Link href="/credentials/architect" className="btn-primary w-full md:w-auto justify-center">
-                    Advance to Architect
+                  <Link href="/checkout/architect" className="btn-primary w-full md:w-auto justify-center">
+                    Apply for Architect
                   </Link>
                   <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center border-white/20 hover:border-white text-white">
                     Speak to an Advisor
