@@ -23,7 +23,7 @@ export default async function EventsPage() {
   }
 
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -41,7 +41,7 @@ export default async function EventsPage() {
             <h1 className="text-h1 text-white mb-8">
               Where the community comes together
             </h1>
-            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+            <p className="text-navy-100 text-base max-w-2xl mb-12">
               Some things only happen when people gather, even online. ICI events bring together coaches, leaders and the people we teach for masterclasses, summits and live sessions that go deeper than any recording can. Below are the events coming up. Each one is a chance to learn something real and meet people worth knowing.
             </p>
           </AnimatedSection>
@@ -52,11 +52,11 @@ export default async function EventsPage() {
       <Section spacing="standard" className="relative z-20">
         <Container>
           <AnimatedSection>
-            <h2 className="text-h2 text-white mb-12">Upcoming events</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-12">Upcoming events</h2>
             
             {events.length === 0 ? (
-              <Container size="narrow" className="bg-brand-navy-800/50 border border-faint rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center">
-                <p className="text-muted-dark mb-8 text-body">
+              <Container size="narrow" className="bg-white border border-navy-100 shadow-xl rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center">
+                <p className="text-muted mb-8 text-body">
                   Our first public events are being scheduled. Register your interest and we will tell you first.
                 </p>
                 <EventsForm />
@@ -64,15 +64,15 @@ export default async function EventsPage() {
             ) : (
               <div className="grid gap-8 max-w-4xl mx-auto">
                 {events.map((event: any) => (
-                  <div key={event._id} className="bg-brand-navy-800/50 border border-faint rounded-[24px] overflow-hidden p-8 md:p-10">
-                    <h3 className="text-h3 text-white mb-2">{event.title}</h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm font-sans text-brand-gold-400 mb-6 uppercase tracking-wider">
+                  <div key={event._id} className="bg-white border border-navy-100 shadow-xl rounded-[24px] overflow-hidden p-8 md:p-10">
+                    <h3 className="text-h3 text-brand-navy-900 mb-2">{event.title}</h3>
+                    <div className="flex flex-wrap items-center gap-4 text-sm font-sans text-brand-gold-700 mb-6 uppercase tracking-wider">
                       <span>{new Date(event.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                      <span className="w-1.5 h-1.5 bg-brand-gold-400/50 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-brand-gold-500/50 rounded-full"></span>
                       <span>{event.format || 'Online'}</span>
                     </div>
                     {event.description && (
-                      <p className="text-muted-dark mb-8 text-body">{event.description}</p>
+                      <p className="text-muted mb-8 text-body">{event.description}</p>
                     )}
                     {event.registerLink && (
                       <Link href={event.registerLink} target="_blank" className="btn-primary inline-flex">
@@ -88,11 +88,11 @@ export default async function EventsPage() {
       </Section>
 
       {/* ── Masterclasses ── */}
-      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
+      <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-3xl">
-            <h2 className="text-h2 text-white mb-6">Masterclasses</h2>
-            <p className="text-muted-dark mb-12 text-body">
+            <h2 className="text-h2 text-brand-navy-900 mb-6">Masterclasses</h2>
+            <p className="text-muted mb-12 text-body">
               Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.
             </p>
             <div className="flex flex-wrap justify-start items-center gap-4">
