@@ -30,6 +30,22 @@ export default function GlobalPage() {
             <h1 className="text-h1 text-white mb-8">
               Online, and genuinely global
             </h1>
+            <div className="space-y-4 mb-8">
+              <p className="text-navy-100 text-body max-w-2xl">
+                We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
+              </p>
+              <p className="text-navy-100 text-body max-w-2xl">
+                Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link href="/community" className="btn-primary text-center">
+                Join a global community of coaches
+              </Link>
+              <Link href="/credentials" className="btn-secondary-light text-center">
+                See the pathway
+              </Link>
+            </div>
           </AnimatedSection>
         </Container>
       </Section>
@@ -38,25 +54,7 @@ export default function GlobalPage() {
       <Section spacing="standard">
         <Container>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-            <AnimatedSection className="space-y-8">
-              <p className="text-navy-700 text-body">
-                We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
-              </p>
-              <p className="text-navy-700 text-body">
-                Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <Link href="/community" className="btn-primary text-center">
-                  Join a global community of coaches
-                </Link>
-                <Link href="/credentials" className="btn-secondary-light text-center">
-                  See the pathway
-                </Link>
-              </div>
-            </AnimatedSection>
-
+          <div className="max-w-3xl mx-auto mb-24">
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
