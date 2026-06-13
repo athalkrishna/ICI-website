@@ -1,0 +1,227 @@
+--- src\app\about\annual-reports\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\global\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\partnerships\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\press\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-700 leading-relaxed font-light">
++ <p className="text-navy-700 text-body">
+
+--- src\app\admissions\contact\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\alumni\page.tsx ---
+- <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
++ <p className="text-navy-100/70 mb-8 text-body">
+
+--- src\app\alumni\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\apply\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\community\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
++ <p className="text-muted-dark mb-8 text-body">
+
+--- src\app\community\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
++ <p className="text-muted-dark mb-8 text-body">
+
+--- src\app\contact\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\credentials\architect\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\architect\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-6">
++ <p className="text-muted mb-6 text-body">
+
+--- src\app\credentials\architect\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-8">
++ <p className="text-muted mb-8 text-body">
+
+--- src\app\credentials\architect\page.tsx ---
+- <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
++ <p className="text-muted text-body">{mod.desc}</p>
+
+--- src\app\credentials\architect\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\catalyst\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\catalyst\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-6">
++ <p className="text-muted mb-6 text-body">
+
+--- src\app\credentials\catalyst\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-8">
++ <p className="text-muted mb-8 text-body">
+
+--- src\app\credentials\catalyst\page.tsx ---
+- <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
++ <p className="text-muted text-body">{mod.desc}</p>
+
+--- src\app\credentials\catalyst\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\luminary\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\luminary\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-6">
++ <p className="text-muted mb-6 text-body">
+
+--- src\app\credentials\luminary\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-8">
++ <p className="text-muted mb-8 text-body">
+
+--- src\app\credentials\luminary\page.tsx ---
+- <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
++ <p className="text-muted text-body">{mod.desc}</p>
+
+--- src\app\credentials\luminary\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\page.tsx ---
+- <p className="font-body text-muted leading-relaxed">{reason.text}</p>
++ <p className="text-muted text-body">{reason.text}</p>
+
+--- src\app\credentials\sage\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\credentials\sage\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-6">
++ <p className="text-muted mb-6 text-body">
+
+--- src\app\credentials\sage\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed mb-8">
++ <p className="text-muted mb-8 text-body">
+
+--- src\app\credentials\sage\page.tsx ---
+- <p className="font-body text-muted leading-relaxed">{mod.desc}</p>
++ <p className="text-muted text-body">{mod.desc}</p>
+
+--- src\app\credentials\sage\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">
++ <p className="text-muted text-body">
+
+--- src\app\current-students\page.tsx ---
+- <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
++ <p className="text-navy-100/70 mb-8 text-body">
+
+--- src\app\current-students\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\faculty\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
++ <p className="text-muted-dark mb-8 text-body">
+
+--- src\app\faculty-staff\page.tsx ---
+- <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
++ <p className="text-navy-100/70 mb-8 text-body">
+
+--- src\app\faculty-staff\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\future-students\page.tsx ---
+- <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
++ <p className="text-navy-100/70 mb-8 text-body">
+
+--- src\app\future-students\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\organisations\page.tsx ---
+- <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-8">
++ <p className="text-navy-100/70 mb-8 text-body">
+
+--- src\app\organisations\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\programmes\business-coach\page.tsx ---
+- <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
++ <p className="text-navy-700 text-body">{item.text}</p>
+
+--- src\app\programmes\business-coach\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
++ <p className="text-navy-100/90 mb-12 text-body">
+
+--- src\app\programmes\certified-life-coach\page.tsx ---
+- <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
++ <p className="text-navy-700 text-body">{item.text}</p>
+
+--- src\app\programmes\certified-life-coach\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
++ <p className="text-navy-100/90 mb-12 text-body">
+
+--- src\app\programmes\executive-coaching\page.tsx ---
+- <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
++ <p className="text-navy-700 text-body">{item.text}</p>
+
+--- src\app\programmes\executive-coaching\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
++ <p className="text-navy-100/90 mb-12 text-body">
+
+--- src\app\programmes\health-wellness\page.tsx ---
+- <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
++ <p className="text-navy-700 text-body">{item.text}</p>
+
+--- src\app\programmes\health-wellness\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
++ <p className="text-navy-100/90 mb-12 text-body">
+
+--- src\app\programmes\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
++ <p className="text-muted text-body">{item.desc}</p>
+
+--- src\app\programmes\page.tsx ---
+- <p className="font-body text-muted text-lg leading-relaxed">{item.desc}</p>
++ <p className="text-muted text-body">{item.desc}</p>
+
+--- src\app\programmes\team-coaching\page.tsx ---
+- <p className="font-body text-navy-700 text-lg leading-relaxed">{item.text}</p>
++ <p className="text-navy-700 text-body">{item.text}</p>
+
+--- src\app\programmes\team-coaching\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-navy-100/90 leading-relaxed font-light mb-12">
++ <p className="text-navy-100/90 mb-12 text-body">
+
+--- src\app\prospectus\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\resources\brochure\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\resources\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
++ <p className="text-muted-dark mb-8 text-body">
+
+--- src\app\resources\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-8">
++ <p className="text-muted-dark mb-8 text-body">

@@ -1,0 +1,215 @@
+--- src\app\about\accreditation\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-10">How we hold our standard</h3>
++ <h3 className="text-h3 text-brand-navy-800 mb-10">How we hold our standard</h3>
+
+--- src\app\about\annual-reports\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-8 relative z-10">
++ <h3 className="text-h3 text-brand-navy-800 mb-8 relative z-10">
+
+--- src\app\about\global\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">How global delivery works</h2>
++ <h2 className="text-h3 text-white mb-6">How global delivery works</h2>
+
+--- src\app\about\global\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">Where our coaches are</h2>
++ <h2 className="text-h3 text-white mb-6">Where our coaches are</h2>
+
+--- src\app\about\history\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-white mb-4">The Next Chapter</h3>
++ <h3 className="text-h3 text-white mb-4">The Next Chapter</h3>
+
+--- src\app\about\leadership-faculty\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
++ <h2 className="text-h3 text-brand-navy-800 mb-6">Taught by coaches, for coaches.</h2>
+
+--- src\app\about\leadership-faculty\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-1 group-hover:text-brand-gold-600 transition-colors">
++ <h3 className="text-h3 text-brand-navy-800 mb-1 group-hover:text-brand-gold-600 transition-colors">
+
+--- src\app\about\mission\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Our mission</h2>
++ <h2 className="text-h3 text-brand-navy-800 mb-6">Our mission</h2>
+
+--- src\app\about\mission\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Our vision</h2>
++ <h2 className="text-h3 text-brand-navy-800 mb-6">Our vision</h2>
+
+--- src\app\about\mission\page.tsx ---
+- <h2 className="font-display text-h3 text-h2 font-bold text-brand-navy-800 mb-6">What we value</h2>
++ <h2 className="text-h2 text-brand-navy-800 mb-6">What we value</h2>
+
+--- src\app\about\press\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-6">Media Enquiries</h3>
++ <h3 className="text-h3 text-brand-navy-800 mb-6">Media Enquiries</h3>
+
+--- src\app\about\press\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-4">Topics our faculty can speak to</h3>
++ <h3 className="text-h3 text-brand-navy-800 mb-4">Topics our faculty can speak to</h3>
+
+--- src\app\about\press\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-800 mb-2">Press Kit</h3>
++ <h3 className="text-h3 text-brand-navy-800 mb-2">Press Kit</h3>
+
+--- src\app\admin\layout.tsx ---
+- <h1 className="text-h1 font-bold font-display tracking-wide text-brand-gold-400">ICI Admin</h1>
++ <h1 className="text-h1 tracking-wide text-brand-gold-400">ICI Admin</h1>
+
+--- src\app\admin\leads\page.tsx ---
+- <h1 className="text-h1 font-bold text-navy-900 mb-1 font-display">Leads & Applications</h1>
++ <h1 className="text-h1 text-navy-900 mb-1">Leads & Applications</h1>
+
+--- src\app\admin\media\page.tsx ---
+- <h1 className="text-h1 font-bold text-navy-900 mb-1 font-display">Media Library</h1>
++ <h1 className="text-h1 text-navy-900 mb-1">Media Library</h1>
+
+--- src\app\admin\page.tsx ---
+- <h2 className="text-h2 font-bold font-display mb-8">Dashboard Overview</h2>
++ <h2 className="text-h2 mb-8">Dashboard Overview</h2>
+
+--- src\app\admin\page.tsx ---
+- <h3 className="text-h3 font-bold text-navy-900 mb-2 font-display">Writing Guidelines</h3>
++ <h3 className="text-h3 text-navy-900 mb-2">Writing Guidelines</h3>
+
+--- src\app\admin\pages\[slug]\page.tsx ---
+- <h2 className="text-h2 font-bold mb-6 capitalize font-display">Editing: {slug.replace('-', ' ')}</h2>
++ <h2 className="text-h2 mb-6 capitalize">Editing: {slug.replace('-', ' ')}</h2>
+
+--- src\app\admissions\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-12">How to apply</h2>
++ <h2 className="text-h2 text-brand-navy-900 mb-12">How to apply</h2>
+
+--- src\app\admissions\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-4">Frequently asked questions</h2>
++ <h2 className="text-h2 text-brand-navy-900 mb-4">Frequently asked questions</h2>
+
+--- src\app\apply\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-4">After you apply</h2>
++ <h2 className="text-h2 text-brand-navy-900 mb-4">After you apply</h2>
+
+--- src\app\checkout\success\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-6">What happens next?</h2>
++ <h2 className="text-h2 text-brand-navy-900 mb-6">What happens next?</h2>
+
+--- src\app\checkout\[level]\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-900 mb-4">Order Summary</h2>
++ <h2 className="text-h2 text-brand-navy-900 mb-4">Order Summary</h2>
+
+--- src\app\community\page.tsx ---
+- <h3 className="font-sans font-bold text-h3 text-white leading-snug">{item.title}</h3>
++ <h3 className="font-sans text-h3 text-white leading-snug">{item.title}</h3>
+
+--- src\app\credentials\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-4">Why this pathway is different</h2>
++ <h2 className="text-h3 text-brand-navy-900 mb-4">Why this pathway is different</h2>
+
+--- src\app\credentials\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-4">The four levels</h2>
++ <h2 className="text-h3 text-brand-navy-900 mb-4">The four levels</h2>
+
+--- src\app\credentials\page.tsx ---
+- <h3 className="font-display text-h3 font-bold text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
++ <h3 className="text-h3 text-brand-navy-900 mb-6 group-hover:text-brand-gold-700 transition-colors">
+
+--- src\app\error.tsx ---
+- <h2 className="text-h2 font-display font-bold text-brand-navy-900 mb-4">Something went wrong</h2>
++ <h2 className="text-h2 text-brand-navy-900 mb-4">Something went wrong</h2>
+
+--- src\app\find-a-coach\page.tsx ---
+- <h2 className="font-sans font-bold text-h2 text-white">Search and filter</h2>
++ <h2 className="font-sans text-h2 text-white">Search and filter</h2>
+
+--- src\app\not-found.tsx ---
+- <h2 className="text-h2 font-bold text-navy-800 mb-4 font-display">Page not found</h2>
++ <h2 className="text-h2 text-navy-800 mb-4">Page not found</h2>
+
+--- src\app\programmes\business-coach\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
++ <h2 className="text-h3 text-brand-navy-900 mb-10 flex items-center gap-4">
+
+--- src\app\programmes\business-coach\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+
+--- src\app\programmes\business-coach\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 flex items-center gap-3">
+
+--- src\app\programmes\business-coach\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
++ <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>
+
+--- src\app\programmes\certified-life-coach\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
++ <h2 className="text-h3 text-brand-navy-900 mb-10 flex items-center gap-4">
+
+--- src\app\programmes\certified-life-coach\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+
+--- src\app\programmes\certified-life-coach\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 flex items-center gap-3">
+
+--- src\app\programmes\certified-life-coach\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
++ <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>
+
+--- src\app\programmes\executive-coaching\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
++ <h2 className="text-h3 text-brand-navy-900 mb-10 flex items-center gap-4">
+
+--- src\app\programmes\executive-coaching\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+
+--- src\app\programmes\executive-coaching\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 flex items-center gap-3">
+
+--- src\app\programmes\executive-coaching\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
++ <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>
+
+--- src\app\programmes\health-wellness\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
++ <h2 className="text-h3 text-brand-navy-900 mb-10 flex items-center gap-4">
+
+--- src\app\programmes\health-wellness\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+
+--- src\app\programmes\health-wellness\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 flex items-center gap-3">
+
+--- src\app\programmes\health-wellness\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
++ <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>
+
+--- src\app\programmes\page.tsx ---
+- <h2 className="font-display text-h3 text-h2 font-bold text-brand-navy-800 mb-6 flex items-center gap-4">
++ <h2 className="text-h2 text-brand-navy-800 mb-6 flex items-center gap-4">
+
+--- src\app\programmes\page.tsx ---
+- <h2 className="font-display text-h3 text-h2 font-bold text-brand-navy-900">How our programmes work</h2>
++ <h2 className="text-h2 text-brand-navy-900">How our programmes work</h2>
+
+--- src\app\programmes\page.tsx ---
+- <h3 className="font-sans font-bold text-brand-navy-800 text-h3 mb-4">{item.title}</h3>
++ <h3 className="font-sans text-brand-navy-800 text-h3 mb-4">{item.title}</h3>
+
+--- src\app\programmes\team-coaching\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-brand-navy-900 mb-10 flex items-center gap-4">
++ <h2 className="text-h3 text-brand-navy-900 mb-10 flex items-center gap-4">
+
+--- src\app\programmes\team-coaching\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 relative z-10 flex items-center gap-3">
+
+--- src\app\programmes\team-coaching\page.tsx ---
+- <h2 className="font-display text-h2 font-bold text-brand-navy-800 mb-8 flex items-center gap-3">
++ <h2 className="text-h2 text-brand-navy-800 mb-8 flex items-center gap-3">
+
+--- src\app\programmes\team-coaching\page.tsx ---
+- <h2 className="font-display text-h3 font-bold text-white mb-6">How it fits the Mastery Pathway</h2>
++ <h2 className="text-h3 text-white mb-6">How it fits the Mastery Pathway</h2>

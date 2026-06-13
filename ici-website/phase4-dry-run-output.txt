@@ -1,0 +1,83 @@
+--- src\components\admissions\ContactForm.tsx ---
+- <label htmlFor="name" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="name" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\admissions\ContactForm.tsx ---
+- <label htmlFor="email" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="email" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\admissions\ContactForm.tsx ---
+- <label htmlFor="phone" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="phone" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\admissions\ContactForm.tsx ---
+- <label htmlFor="country" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="country" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\admissions\ContactForm.tsx ---
+- <label htmlFor="discuss" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="discuss" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\admissions\ContactForm.tsx ---
+- <label htmlFor="times" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="times" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\apply\ApplyForm.tsx ---
+- <h3 className="font-sans font-bold mb-4 text-brand-gold-400 tracking-widest uppercase text-sm">Next Steps</h3>
++ <h3 className="mb-4 text-brand-gold-400 text-eyebrow">Next Steps</h3>
+
+--- src\components\apply\ApplyForm.tsx ---
+- <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Full Name *</label>
++ <label className="text-brand-navy-700 text-eyebrow">Full Name *</label>
+
+--- src\components\apply\ApplyForm.tsx ---
+- <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Email Address *</label>
++ <label className="text-brand-navy-700 text-eyebrow">Email Address *</label>
+
+--- src\components\apply\ApplyForm.tsx ---
+- <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Phone Number *</label>
++ <label className="text-brand-navy-700 text-eyebrow">Phone Number *</label>
+
+--- src\components\apply\ApplyForm.tsx ---
+- <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Country of Residence *</label>
++ <label className="text-brand-navy-700 text-eyebrow">Country of Residence *</label>
+
+--- src\components\apply\ApplyForm.tsx ---
+- <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Programme Interest *</label>
++ <label className="text-brand-navy-700 text-eyebrow">Programme Interest *</label>
+
+--- src\components\apply\ApplyForm.tsx ---
+- <label className="text-xs font-sans font-bold uppercase tracking-widest text-brand-navy-700">Brief Background / Goal</label>
++ <label className="text-brand-navy-700 text-eyebrow">Brief Background / Goal</label>
+
+--- src\components\contact\ContactForm.tsx ---
+- <label htmlFor="name" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="name" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\contact\ContactForm.tsx ---
+- <label htmlFor="email" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="email" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\contact\ContactForm.tsx ---
+- <label htmlFor="phone" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="phone" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\contact\ContactForm.tsx ---
+- <label htmlFor="topic" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="topic" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\contact\ContactForm.tsx ---
+- <label htmlFor="message" className="block font-sans text-xs font-bold text-brand-gold-400 uppercase tracking-widest mb-2 relative z-10">
++ <label htmlFor="message" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+
+--- src\components\home\CredentialPathway.tsx ---
+- <div className="font-sans text-xs text-brand-gold-400 font-semibold tracking-widest uppercase mb-2">
++ <div className="text-brand-gold-400 mb-2 text-eyebrow">
+
+--- src\components\home\GlobalReachMap.tsx ---
+- <div className="text-xs lg:text-xs font-sans font-bold text-brand-navy-200 uppercase tracking-widest">{stat.label}</div>
++ <div className="text-brand-navy-200 text-eyebrow">{stat.label}</div>
+
+--- src\components\home\HeroSection.tsx ---
+- <span className="text-xs font-sans tracking-widest uppercase">Scroll</span>
++ <span className="text-eyebrow">Scroll</span>

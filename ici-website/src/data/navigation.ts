@@ -32,7 +32,6 @@ export const navItems: NavItem[] = [
           { label: 'Partnerships & Alliances', href: '/about/partnerships', desc: 'Collaborations with aligned organisations' },
           { label: 'Press & Media', href: '/about/press', desc: 'Information for journalists and editors' },
           { label: 'Annual Reports', href: '/about/annual-reports', desc: 'Our yearly transparency and progress' },
-          { label: 'Events', href: '/events', desc: 'Masterclasses, summits and live sessions' },
         ],
       }
     ],
@@ -50,6 +49,7 @@ export const navItems: NavItem[] = [
           { label: 'Business Coaching', href: '/programmes/business-coach', desc: 'Scale and support entrepreneurs' },
           { label: 'Health & Wellness', href: '/programmes/health-wellness', desc: 'Guide clients to physical wellbeing' },
           { label: 'Team & Organisational', href: '/programmes/team-coaching', desc: 'Drive systemic team performance' },
+          { label: 'Events', href: '/events', desc: 'Masterclasses, summits and live sessions' },
         ],
       }
     ],
@@ -103,6 +103,10 @@ export const navItems: NavItem[] = [
         ]
       }
     ]
+  },
+  {
+    label: 'Events',
+    href: '/events'
   },
   {
     label: 'Contact',

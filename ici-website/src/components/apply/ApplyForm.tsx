@@ -125,11 +125,11 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
                       <label className="text-brand-navy-700 text-eyebrow">Programme Interest *</label>
                       <select required name="programme_interest" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow">
                         <option value="">Select a pathway</option>
-                        <option value="Catalyst (Level 1)">Catalyst (Level 1)</option>
-                        <option value="Architect (Level 2)">Architect (Level 2)</option>
-                        <option value="Sage (Level 3)">Sage (Level 3)</option>
-                        <option value="Luminary (Level 4)">Luminary (Level 4)</option>
-                        <option value="Corporate / Organisation">Corporate / Organisation Team Training</option>
+                        <option value="Life Coaching">Life Coaching</option>
+                        <option value="Executive & Leadership">Executive & Leadership</option>
+                        <option value="Business Coaching">Business Coaching</option>
+                        <option value="Health & Wellness">Health & Wellness</option>
+                        <option value="Team & Organisational">Team & Organisational</option>
                       </select>
                     </div>
 

@@ -1,0 +1,339 @@
+--- src\app\about\accreditation\page.tsx ---
+- <p className="font-body text-xl text-navy-700 leading-relaxed font-light">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\accreditation\page.tsx ---
+- <p className="font-body text-lg text-navy-700 leading-relaxed">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\global\page.tsx ---
+- <p className="font-body text-lg text-navy-700 leading-relaxed">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\global\page.tsx ---
+- <p className="font-body text-brand-navy-200 leading-relaxed text-sm">{item.desc}</p>
++ <p className="text-brand-navy-200 text-body">{item.desc}</p>
+
+--- src\app\about\global\page.tsx ---
+- <p className="font-body text-xl text-brand-navy-200 mb-10 font-light">Our coaches train from 60+ countries and counting.</p>
++ <p className="text-brand-navy-200 mb-10 text-body">Our coaches train from 60+ countries and counting.</p>
+
+--- src\app\about\history\page.tsx ---
+- <p className="font-body text-xl text-navy-700 leading-relaxed">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\history\page.tsx ---
+- <p className="font-body text-xl text-brand-navy-100 leading-relaxed font-light">
++ <p className="text-brand-navy-100 text-body">
+
+--- src\app\about\leadership-faculty\page.tsx ---
+- <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\leadership-faculty\page.tsx ---
+- <p className="font-body text-lg md:text-xl text-navy-700 leading-relaxed">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\mission\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
++ <p className="text-brand-navy-600 text-body">
+
+--- src\app\about\mission\page.tsx ---
+- <p className="font-body text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
++ <p className="text-brand-navy-600 text-body">
+
+--- src\app\about\mission\page.tsx ---
+- <p className="font-body text-lg text-muted leading-relaxed">{val.desc}</p>
++ <p className="text-muted text-body">{val.desc}</p>
+
+--- src\app\about\partnerships\page.tsx ---
+- <p className="font-body text-brand-navy-800 leading-relaxed text-lg font-medium">
++ <p className="text-brand-navy-800 font-medium text-body">
+
+--- src\app\about\partnerships\page.tsx ---
+- <p className="font-body text-2xl text-white mb-10 max-w-2xl mx-auto font-light leading-relaxed">
++ <p className="text-white mb-10 max-w-2xl mx-auto text-body">
+
+--- src\app\about\press\page.tsx ---
+- <p className="font-body text-xl text-navy-700 leading-relaxed font-light mb-8">
++ <p className="text-navy-700 mb-8 text-body">
+
+--- src\app\about\press\page.tsx ---
+- <p className="font-body text-lg text-navy-700 leading-relaxed">
++ <p className="text-navy-700 text-body">
+
+--- src\app\about\press\page.tsx ---
+- <p className="font-body text-lg text-muted mb-10">Download official ICI brand assets and background information.</p>
++ <p className="text-muted mb-10 text-body">Download official ICI brand assets and background information.</p>
+
+--- src\app\account\page.tsx ---
+- <p className="font-body text-navy-100/70 leading-relaxed mb-8">
++ <p className="text-navy-100/70 mb-8 text-body">
+
+--- src\app\admin\leads\page.tsx ---
+- <p className="text-sm text-muted">View and manage form submissions from the public website.</p>
++ <p className="text-muted text-body">View and manage form submissions from the public website.</p>
+
+--- src\app\admin\media\page.tsx ---
+- <p className="text-sm text-muted">Upload images and documents securely to the Bunny.net global CDN.</p>
++ <p className="text-muted text-body">Upload images and documents securely to the Bunny.net global CDN.</p>
+
+--- src\app\admin\media\page.tsx ---
+- <p className="text-sm font-medium text-navy-900 mb-1">Drag and drop your file here</p>
++ <p className="font-medium text-navy-900 mb-1 text-body">Drag and drop your file here</p>
+
+--- src\app\admin\media\page.tsx ---
+- <p className="text-xs text-muted mb-6">PNG, JPG, WEBP, or PDF up to 5MB</p>
++ <p className="text-muted mb-6 text-body">PNG, JPG, WEBP, or PDF up to 5MB</p>
+
+--- src\app\admin\media\page.tsx ---
+- <p className="text-sm font-medium text-brand-navy-900">{file.name}</p>
++ <p className="font-medium text-brand-navy-900 text-body">{file.name}</p>
+
+--- src\app\admin\media\page.tsx ---
+- <p className="text-xs text-muted">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
++ <p className="text-muted text-body">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+
+--- src\app\admin\media\page.tsx ---
+- <p className="text-xs text-green-600 mb-4">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
++ <p className="text-green-600 mb-4 text-body">Your file is now live on the global CDN. Copy the URL below to use it in your CMS pages.</p>
+
+--- src\app\admin\page.tsx ---
+- <p className="text-navy-800 text-sm">
++ <p className="text-navy-800 text-body">
+
+--- src\app\admissions\assessment\page.tsx ---
+- <p className="font-body text-xl text-muted-dark max-w-2xl mx-auto">
++ <p className="text-muted-dark max-w-2xl mx-auto text-body">
+
+--- src\app\admissions\contact\page.tsx ---
+- <p className="font-body text-muted text-lg">
++ <p className="text-muted text-body">
+
+--- src\app\admissions\page.tsx ---
+- <p className="text-muted font-body leading-relaxed text-lg mb-8">
++ <p className="text-muted mb-8 text-body">
+
+--- src\app\admissions\page.tsx ---
+- <p className="text-muted font-body leading-relaxed mb-6">
++ <p className="text-muted mb-6 text-body">
+
+--- src\app\admissions\page.tsx ---
+- <p className="text-muted font-body leading-relaxed text-lg mb-6">
++ <p className="text-muted mb-6 text-body">
+
+--- src\app\apply\page.tsx ---
+- <p className="font-body text-muted leading-relaxed max-w-lg mx-auto">
++ <p className="text-muted max-w-lg mx-auto text-body">
+
+--- src\app\blog\page.tsx ---
+- <p className="font-body text-lg text-navy-100/70 leading-relaxed mb-12">
++ <p className="text-navy-100/70 mb-12 text-body">
+
+--- src\app\checkout\success\page.tsx ---
+- <p className="font-body text-xl text-muted-dark mb-12 leading-relaxed">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\checkout\success\page.tsx ---
+- <p className="text-muted font-body leading-relaxed">We will send a receipt and a welcome pack to the email address you provided.</p>
++ <p className="text-muted text-body">We will send a receipt and a welcome pack to the email address you provided.</p>
+
+--- src\app\checkout\success\page.tsx ---
+- <p className="text-muted font-body leading-relaxed">An advisor will contact you within 24 hours to arrange an introduction and schedule your first session.</p>
++ <p className="text-muted text-body">An advisor will contact you within 24 hours to arrange an introduction and schedule your first session.</p>
+
+--- src\app\checkout\success\page.tsx ---
+- <p className="text-muted font-body leading-relaxed">You will be matched with a faculty member and gain access to your pre-reading materials.</p>
++ <p className="text-muted text-body">You will be matched with a faculty member and gain access to your pre-reading materials.</p>
+
+--- src\app\checkout\[level]\page.tsx ---
+- <p className="text-brand-navy-900 font-sans font-bold">Invalid level selected.</p>
++ <p className="text-brand-navy-900 font-bold text-body">Invalid level selected.</p>
+
+--- src\app\checkout\[level]\page.tsx ---
+- <p className="font-body text-xl text-muted-dark">
++ <p className="text-muted-dark text-body">
+
+--- src\app\complaints\page.tsx ---
+- <p className="lead text-xl text-brand-navy-800">
++ <p className="lead text-brand-navy-800 text-body">
+
+--- src\app\credentials\page.tsx ---
+- <p className="font-body text-xl text-muted mb-12 flex-1 leading-relaxed">
++ <p className="text-muted mb-12 flex-1 text-body">
+
+--- src\app\credentials\[level]\page.tsx ---
+- <p className="font-body text-xl text-navy-700 leading-relaxed mb-10">
++ <p className="text-navy-700 mb-10 text-body">
+
+--- src\app\error.tsx ---
+- <p className="text-muted mb-8 max-w-md">
++ <p className="text-muted mb-8 max-w-md text-body">
+
+--- src\app\events\page.tsx ---
+- <p className="font-body text-2xl text-muted-dark leading-relaxed font-light mb-8">
++ <p className="text-muted-dark mb-8 text-body">
+
+--- src\app\events\page.tsx ---
+- <p className="font-body text-muted-dark leading-relaxed mb-8">{event.description}</p>
++ <p className="text-muted-dark mb-8 text-body">{event.description}</p>
+
+--- src\app\events\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\find-a-coach\page.tsx ---
+- <p className="font-body text-lg text-muted-dark leading-relaxed mb-12">
++ <p className="text-muted-dark mb-12 text-body">
+
+--- src\app\login\page.tsx ---
+- <p className="font-body text-navy-100/70">
++ <p className="text-navy-100/70 text-body">
+
+--- src\app\login\page.tsx ---
+- <p className="font-body text-sm text-navy-100/60">
++ <p className="text-navy-100/60 text-body">
+
+--- src\app\not-found.tsx ---
+- <p className="text-muted mb-8 max-w-md">
++ <p className="text-muted mb-8 max-w-md text-body">
+
+--- src\app\pricing\page.tsx ---
+- <p className="text-sm text-navy-100/50 mt-4 md:hidden">
++ <p className="text-navy-100/50 mt-4 md:hidden text-body">
+
+--- src\app\pricing\page.tsx ---
+- <p className="font-body text-sm text-navy-100/50">
++ <p className="text-navy-100/50 text-body">
+
+--- src\app\pricing\page.tsx ---
+- <p className="text-muted-dark font-body leading-relaxed">
++ <p className="text-muted-dark text-body">
+
+--- src\app\pricing\page.tsx ---
+- <p className="text-muted-dark font-body leading-relaxed">
++ <p className="text-muted-dark text-body">
+
+--- src\app\pricing\page.tsx ---
+- <p className="font-body text-muted-dark mb-8">Ready to begin your journey?</p>
++ <p className="text-muted-dark mb-8 text-body">Ready to begin your journey?</p>
+
+--- src\app\privacy\page.tsx ---
+- <p className="lead text-xl text-brand-navy-800">
++ <p className="lead text-brand-navy-800 text-body">
+
+--- src\app\programmes\page.tsx ---
+- <p className="font-body text-xl text-muted leading-relaxed max-w-3xl">
++ <p className="text-muted max-w-3xl text-body">
+
+--- src\app\programmes\page.tsx ---
+- <p className="font-body text-xl text-muted-dark leading-relaxed mb-10">
++ <p className="text-muted-dark mb-10 text-body">
+
+--- src\app\prospectus\page.tsx ---
+- <p className="font-body text-muted mb-8 max-w-xl mx-auto">Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.</p>
++ <p className="text-muted mb-8 max-w-xl mx-auto text-body">Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.</p>
+
+--- src\app\terms\page.tsx ---
+- <p className="lead text-xl text-brand-navy-800">
++ <p className="lead text-brand-navy-800 text-body">
+
+--- src\app\[...slug]\page.tsx ---
+- <p className="font-body text-muted leading-relaxed text-lg mb-12">
++ <p className="text-muted mb-12 text-body">
+
+--- src\components\admissions\ApplyForm.tsx ---
+- <p className="font-body text-muted leading-relaxed mb-8">
++ <p className="text-muted mb-8 text-body">
+
+--- src\components\admissions\ApplyForm.tsx ---
+- <p className="font-body text-sm text-muted">
++ <p className="text-muted text-body">
+
+--- src\components\admissions\AssessmentForm.tsx ---
+- <p className="text-xs text-muted font-sans uppercase tracking-widest text-center mt-4">
++ <p className="text-muted uppercase tracking-widest text-center mt-4 text-body">
+
+--- src\components\admissions\AssessmentForm.tsx ---
+- <p className="text-brand-navy-700 font-body mb-6">{getRecommendation().desc}</p>
++ <p className="text-brand-navy-700 mb-6 text-body">{getRecommendation().desc}</p>
+
+--- src\components\admissions\ContactForm.tsx ---
+- <p className="font-body text-muted-dark leading-relaxed mb-8">
++ <p className="text-muted-dark mb-8 text-body">
+
+--- src\components\apply\ApplyForm.tsx ---
+- <p className="font-body text-muted text-lg mb-8 max-w-lg mx-auto">
++ <p className="text-muted mb-8 max-w-lg mx-auto text-body">
+
+--- src\components\apply\ApplyForm.tsx ---
+- <p className="font-body text-muted mb-10 text-lg">
++ <p className="text-muted mb-10 text-body">
+
+--- src\components\contact\ContactForm.tsx ---
+- <p className="text-navy-100 font-body">Thank you. An advisor will be in touch within 2 working days.</p>
++ <p className="text-navy-100 text-body">Thank you. An advisor will be in touch within 2 working days.</p>
+
+--- src\components\home\ApplyCTA.tsx ---
+- <p className="font-body text-lg text-brand-navy-800 mb-8 max-w-2xl mx-auto">
++ <p className="text-brand-navy-800 mb-8 max-w-2xl mx-auto text-body">
+
+--- src\components\home\CredentialPathway.tsx ---
+- <p className="font-body text-lg text-muted-dark max-w-2xl mx-auto leading-relaxed">
++ <p className="text-muted-dark max-w-2xl mx-auto text-body">
+
+--- src\components\home\CredentialPathway.tsx ---
+- <p className="font-body text-base text-navy-100/70 leading-relaxed flex-1 mb-8">
++ <p className="text-navy-100/70 flex-1 mb-8 text-body">
+
+--- src\components\home\CredentialPathway.tsx ---
+- <p className="font-body text-muted-dark mb-6 text-lg">Not sure which level is right for you?</p>
++ <p className="text-muted-dark mb-6 text-body">Not sure which level is right for you?</p>
+
+--- src\components\home\FeaturedProgrammes.tsx ---
+- <p className="font-body text-muted mb-8 flex-1 leading-relaxed">{prog.desc}</p>
++ <p className="text-muted mb-8 flex-1 text-body">{prog.desc}</p>
+
+--- src\components\home\GlobalReachMap.tsx ---
+- <p className="font-body text-brand-navy-200 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl">
++ <p className="text-brand-navy-200 mb-12 max-w-2xl text-body">
+
+--- src\components\home\HeroSection.tsx ---
+- <p className="font-sans text-sm text-muted mb-5">
++ <p className="text-muted mb-5 text-body">
+
+--- src\components\home\ICIDifference.tsx ---
+- <p className="font-body text-muted mb-8 leading-relaxed text-lg">
++ <p className="text-muted mb-8 text-body">
+
+--- src\components\home\NewsEvents.tsx ---
+- <p className="font-body text-xs text-muted mt-1">Join thousands of coaches worldwide for our annual summit.</p>
++ <p className="text-muted mt-1 text-body">Join thousands of coaches worldwide for our annual summit.</p>
+
+--- src\components\home\Testimonials.tsx ---
+- <p className="font-body text-navy-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
++ <p className="text-navy-50 mb-10 relative z-10 italic flex-1 pt-6 text-body">
+
+--- src\components\home\Testimonials.tsx ---
+- <p className="font-body text-navy-50 mb-10 relative z-10 italic leading-relaxed flex-1 pt-6 text-lg">
++ <p className="text-navy-50 mb-10 relative z-10 italic flex-1 pt-6 text-body">
+
+--- src\components\layout\Footer.tsx ---
+- <p className="font-body text-sm text-navy-400 leading-relaxed">
++ <p className="text-navy-400 text-body">
+
+--- src\components\shared\CookieNotice.tsx ---
+- <p className="text-muted-dark font-body text-sm leading-relaxed">
++ <p className="text-muted-dark text-body">
+
+--- src\components\shared\EventsForm.tsx ---
+- <p className="font-body text-xl text-brand-gold-400">Thank you — we will be in touch.</p>
++ <p className="text-brand-gold-400 text-body">Thank you — we will be in touch.</p>
+
+--- src\components\shared\ProspectusForm.tsx ---
+- <p className="font-body text-xl text-brand-gold-400">Thank you. We will email you the prospectus shortly.</p>
++ <p className="text-brand-gold-400 text-body">Thank you. We will email you the prospectus shortly.</p>
+
+--- src\components\shared\ProspectusForm.tsx ---
+- <p className="font-body text-sm text-navy-100/50 leading-relaxed">
++ <p className="text-navy-100/50 text-body">

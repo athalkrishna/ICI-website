@@ -66,7 +66,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
 
         {/* Header */}
         <AnimatedSection className="text-center mb-20">
-          <div className="text-eyebrow flex items-center gap-3 justify-center mb-4">{content.credential_eyebrow || 'The ICI Mastery Pathway'}</div>
+          <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 justify-center mb-4">{content.credential_eyebrow || 'The ICI Mastery Pathway'}</div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {content.credential_heading || 'Your path to mastery'}
           </h2>

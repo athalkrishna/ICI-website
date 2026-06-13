@@ -194,10 +194,11 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                 />
                 <select name="programme" required className="w-full px-4 py-3 min-h-[44px] rounded-lg border border-navy-200 text-sm font-sans text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-400">
                   <option value="">Programme Interest</option>
-                  <option value="catalyst">Catalyst (Level 1)</option>
-                  <option value="architect">Architect (Level 2)</option>
-                  <option value="sage">Sage (Level 3)</option>
-                  <option value="luminary">Luminary (Level 4)</option>
+                  <option value="life-coaching">Life Coaching</option>
+                  <option value="executive-leadership">Executive & Leadership</option>
+                  <option value="business-coaching">Business Coaching</option>
+                  <option value="health-wellness">Health & Wellness</option>
+                  <option value="team-organisational">Team & Organisational</option>
                 </select>
                 <button type="submit" className="w-full btn-primary justify-center py-3.5 text-base">
                   {content.lead_form_btn || 'Get Started'}
