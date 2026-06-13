@@ -63,7 +63,7 @@ export default function PricingPage() {
   const { currencyCode, loading, formatPrice } = useLocalCurrency()
 
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -81,7 +81,7 @@ export default function PricingPage() {
             <h1 className="text-h1 text-white mb-8">
               Honest pricing for serious training
             </h1>
-            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+            <p className="text-navy-100 text-base max-w-3xl mb-12">
               Coaching education is an investment in a career, so we will not hide what it costs. Every level of the Mastery Pathway is delivered one-to-one and online, with real coaching hours from a professional coach and substantial guided self-work. You enrol one level at a time, and each price is complete. What you see is what you pay, plus applicable GST.
             </p>
 
@@ -93,7 +93,7 @@ export default function PricingPage() {
       <Section spacing="standard" className="relative z-20">
         <Container>
           <AnimatedSection className="mb-12">
-            <h2 className="text-h2 text-white mb-4">The Mastery Pathway</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-4">The Mastery Pathway</h2>
             <div className="w-24 h-1 bg-brand-gold-500" />
           </AnimatedSection>
 
@@ -101,37 +101,37 @@ export default function PricingPage() {
             <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
               <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
-                  <tr className="border-b-2 border-brand-gold-500/50">
-                    <th className="py-6 px-6 w-1/4 text-eyebrow">Level & Credential</th>
-                    <th className="py-6 px-6 w-1/3 text-eyebrow">Format & Hours</th>
-                    <th className="py-6 px-6 text-eyebrow">Duration</th>
-                    <th className="py-6 px-6 text-right text-eyebrow">
+                  <tr className="border-b-2 border-brand-gold-200">
+                    <th className="py-6 px-6 w-1/4 text-brand-navy-700 text-eyebrow">Level & Credential</th>
+                    <th className="py-6 px-6 w-1/3 text-brand-navy-700 text-eyebrow">Format & Hours</th>
+                    <th className="py-6 px-6 text-brand-navy-700 text-eyebrow">Duration</th>
+                    <th className="py-6 px-6 text-right text-brand-navy-700 text-eyebrow">
                       Price ({currencyCode}, excl. GST)
                     </th>
                     <th className="py-6 px-6"></th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-navy-100">
                   {pricingData.map((row, i) => {
                     const slug = row.level.toLowerCase().includes('catalyst') ? 'catalyst' : 
                                  row.level.toLowerCase().includes('architect') ? 'architect' : 
                                  row.level.toLowerCase().includes('sage') ? 'sage' : 'luminary';
                     return (
-                    <tr key={i} className="hover:bg-white/5 transition-colors group">
+                    <tr key={i} className="hover:bg-cream-100 transition-colors group">
                       <td className="py-8 px-6">
-                        <div className="font-display font-bold text-xl text-white group-hover:text-brand-gold-700 transition-colors">
+                        <div className="font-display font-bold text-xl text-brand-navy-900 group-hover:text-brand-gold-700 transition-colors">
                           {row.level}
                         </div>
-                        <div className="font-mono text-sm text-navy-400 mt-1">{row.credential}</div>
+                        <div className="font-mono text-sm text-muted mt-1">{row.credential}</div>
                       </td>
                       <td className="py-8 px-6">
-                        <div className="font-body text-navy-100/90">{row.format}.</div>
-                        <div className="font-body text-navy-100/70 text-sm mt-1">{row.hours}</div>
+                        <div className="font-body text-brand-navy-700">{row.format}.</div>
+                        <div className="font-body text-muted text-sm mt-1">{row.hours}</div>
                       </td>
-                      <td className="py-8 px-6 font-body text-muted-dark">
+                      <td className="py-8 px-6 font-body text-muted">
                         {row.duration}
                       </td>
-                      <td className="py-8 px-6 text-right font-mono text-xl text-white">
+                      <td className="py-8 px-6 text-right font-mono text-xl text-brand-navy-900">
                         <motion.span
                           key={currencyCode}
                           initial={{ opacity: 0, y: 5 }}
@@ -161,12 +161,12 @@ export default function PricingPage() {
                 </tbody>
               </table>
             </div>
-            <p className="text-navy-100/50 mt-4 md:hidden text-body">
+            <p className="text-muted mt-4 md:hidden text-body">
               Scroll horizontally to see full table →
             </p>
             
             <div className="mt-6 text-right">
-              <p className="text-navy-100/50 text-body">
+              <p className="text-muted text-body">
                 {currencyCode !== 'INR' && !loading ? (
                   <>Prices shown are converted to {currencyCode} using live exchange rates. Final billing is processed in INR.</>
                 ) : (
@@ -179,12 +179,12 @@ export default function PricingPage() {
       </Section>
 
       {/* ── Content Grid ── */}
-      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-y border-faint relative z-20">
+      <Section spacing="standard" className="bg-cream-50 border-t border-y border-navy-100 relative z-20">
         <Container>
           <div className="grid lg:grid-cols-3 gap-16">
             
             <AnimatedSection>
-              <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
+              <h3 className="text-h3 text-brand-navy-900 mb-8 pb-4 border-b border-navy-100">
                 What every price includes
               </h3>
               <ul className="space-y-4">
@@ -195,7 +195,7 @@ export default function PricingPage() {
                   'The right to use the credential and post-nominal letters',
                   'Membership of the ICI coaching community'
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-muted-dark font-body">
+                  <li key={i} className="flex items-start gap-3 text-muted font-body">
                     <div className="w-1.5 h-1.5 bg-brand-gold-500 rounded-full shrink-0 mt-2.5" />
                     {item}
                   </li>
@@ -204,7 +204,7 @@ export default function PricingPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
+              <h3 className="text-h3 text-brand-navy-900 mb-8 pb-4 border-b border-navy-100">
                 How enrolment works
               </h3>
               <ol className="space-y-6">
@@ -214,8 +214,8 @@ export default function PricingPage() {
                   'Pay securely online, in full or by an agreed instalment plan.',
                   'Get matched with your coach and begin, usually within 7 working days.'
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4 text-muted-dark font-body">
-                    <div className="w-6 h-6 rounded-full bg-brand-gold-500/20 text-brand-gold-400 flex items-center justify-center shrink-0 font-sans font-bold text-xs mt-0.5">
+                  <li key={i} className="flex gap-4 text-muted font-body">
+                    <div className="w-6 h-6 rounded-full bg-brand-gold-100 text-brand-gold-700 flex items-center justify-center shrink-0 font-sans font-bold text-xs mt-0.5">
                       {i + 1}
                     </div>
                     {item}
@@ -226,19 +226,19 @@ export default function PricingPage() {
 
             <AnimatedSection delay={0.2} className="space-y-16">
               <div>
-                <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
+                <h3 className="text-h3 text-brand-navy-900 mb-8 pb-4 border-b border-navy-100">
                   Payment options
                 </h3>
-                <p className="text-muted-dark text-body">
+                <p className="text-muted text-body">
                   Pay in full at checkout, or choose an instalment option where available. Card EMI is offered by most major banks at checkout; if you would prefer an institute instalment plan, speak to an advisor and we will agree a schedule before you enrol.
                 </p>
               </div>
               
               <div>
-                <h3 className="text-h3 text-white mb-8 pb-4 border-b border-subtle">
+                <h3 className="text-h3 text-brand-navy-900 mb-8 pb-4 border-b border-navy-100">
                   GST and international clients
                 </h3>
-                <p className="text-muted-dark text-body">
+                <p className="text-muted text-body">
                   All prices are exclusive of GST. Applicable GST is added at checkout for clients billed in India. International clients see the price they will be charged in their own currency at checkout.
                 </p>
               </div>
@@ -252,21 +252,21 @@ export default function PricingPage() {
       <Section spacing="standard" className="relative z-20">
         <div className="max-w-[800px] mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-h2 text-white mb-4">Frequently asked questions</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-4">Frequently asked questions</h2>
             <div className="w-24 h-1 bg-brand-gold-500 mx-auto" />
           </AnimatedSection>
 
           <div className="space-y-4">
             {faqs.map((faq, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-brand-navy-800/50 backdrop-blur-sm border border-subtle rounded-2xl overflow-hidden">
+                <div className="bg-white border border-navy-100 shadow-sm rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-cream-50 transition-colors"
                   >
-                    <span className="font-sans font-bold text-lg text-white pr-8">{faq.q}</span>
+                    <span className="font-sans font-bold text-lg text-brand-navy-900 pr-8">{faq.q}</span>
                     <ChevronDown 
-                      className={`text-brand-gold-400 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
+                      className={`text-brand-gold-600 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
                     />
                   </button>
                   <AnimatePresence>
@@ -277,7 +277,7 @@ export default function PricingPage() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="px-6 pb-6 pt-2 font-body text-muted-dark leading-relaxed border-t border-faint">
+                        <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-navy-100">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -289,7 +289,7 @@ export default function PricingPage() {
           </div>
 
           <AnimatedSection delay={0.4} className="mt-16 text-center">
-            <p className="text-muted-dark mb-8 text-body">Ready to begin your journey?</p>
+            <p className="text-muted mb-8 text-body">Ready to begin your journey?</p>
             <div className="flex flex-wrap justify-center items-center gap-4">
               <Link href="/credentials" className="btn-primary">
                 Choose your level <ChevronRight size={18} />

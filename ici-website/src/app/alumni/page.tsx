@@ -20,7 +20,7 @@ export default function AlumniPage() {
   ]
 
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -38,7 +38,7 @@ export default function AlumniPage() {
             <h1 className="text-h1 text-white mb-8">
               Once an ICI coach, always part of ICI
             </h1>
-            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+            <p className="text-navy-100 text-base max-w-3xl mb-12">
               The credential was a milestone, not an exit. Our alumni stay connected for the things that make a long coaching career sustainable: supervision, referrals, continued learning and the company of people who understand the work. The longer you practise, the more this matters. Welcome back, whenever you need us.
             </p>
           </AnimatedSection>
@@ -51,8 +51,8 @@ export default function AlumniPage() {
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
-              <h2 className="text-h2 text-white mb-6">Your alumni benefits</h2>
-              <p className="text-navy-100/70 mb-8 text-body">
+              <h2 className="text-h2 text-brand-navy-900 mb-6">Your alumni benefits</h2>
+              <p className="text-muted mb-8 text-body">
                 As a credentialed member of the ICI network, you have ongoing access to resources designed to support and elevate your practice.
               </p>
             </AnimatedSection>
@@ -64,13 +64,13 @@ export default function AlumniPage() {
                   return (
                     <div 
                       key={index}
-                      className="group flex items-center justify-between p-6 bg-brand-navy-800/50 backdrop-blur-sm border border-faint hover:border-brand-gold-500/30 rounded-2xl transition-all duration-300"
+                      className="group flex items-center justify-between p-6 bg-white border border-navy-100 shadow-sm hover:border-brand-gold-500 hover:shadow-md rounded-2xl transition-all duration-300"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-brand-navy-900 border border-faint flex items-center justify-center text-brand-gold-400 group-hover:bg-brand-gold-500/10 group-hover:scale-110 transition-all duration-300">
+                        <div className="w-12 h-12 rounded-full bg-cream-50 border border-navy-100 flex items-center justify-center text-brand-gold-600 group-hover:bg-brand-gold-50 group-hover:scale-110 transition-all duration-300">
                           <Icon size={20} />
                         </div>
-                        <span className="font-sans font-medium text-lg text-white group-hover:text-brand-gold-200 transition-colors">
+                        <span className="font-sans font-medium text-lg text-brand-navy-900 group-hover:text-brand-gold-700 transition-colors">
                           {item.label}
                         </span>
                       </div>
@@ -85,11 +85,11 @@ export default function AlumniPage() {
       </Section>
 
       {/* ── Stay Involved Section ── */}
-      <Section spacing="standard" className="bg-brand-navy-800/30 border-t border-faint relative z-20">
+      <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-4xl">
-            <h2 className="text-h2 text-white mb-6">Stay involved</h2>
-            <p className="text-muted-dark mb-12 text-body">
+            <h2 className="text-h2 text-brand-navy-900 mb-6">Stay involved</h2>
+            <p className="text-muted mb-12 text-body">
               Keep your details current, join the next event, and tell us when something good happens in your practice. Your story may be exactly what a future student needs to read.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
