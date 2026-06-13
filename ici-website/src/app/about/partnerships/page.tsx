@@ -30,6 +30,9 @@ export default function PartnershipsPage() {
             <h1 className="text-h1 text-white mb-8">
               Partnerships & Alliances
             </h1>
+            <p className="text-navy-100 text-body">
+              Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.
+            </p>
           </AnimatedSection>
         </Container>
       </Section>
@@ -37,13 +40,6 @@ export default function PartnershipsPage() {
       {/* ── Main Content ── */}
       <Section spacing="standard" className="lg:py-32">
         <Container>
-          
-          <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
-            <h2 className="text-h2 text-brand-navy-800 mb-8">Partnerships & Alliances</h2>
-            <p className="text-navy-700 text-body">
-              Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.
-            </p>
-          </AnimatedSection>
 
           <AnimatedSection delay={0.2} className="mb-32">
             <Container size="mid" className="grid md:grid-cols-2 gap-8">

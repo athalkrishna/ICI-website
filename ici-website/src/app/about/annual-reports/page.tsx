@@ -28,6 +28,9 @@ export default function AnnualReportsPage() {
             <h1 className="text-h1 text-white mb-8">
               Annual Reports
             </h1>
+            <p className="text-navy-100 text-body max-w-2xl">
+              We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
+            </p>
           </AnimatedSection>
         </Container>
       </Section>
@@ -35,13 +38,6 @@ export default function AnnualReportsPage() {
       {/* ── Main Content ── */}
       <Section spacing="standard" className="lg:py-32">
         <Container>
-          
-          <AnimatedSection className="max-w-4xl mx-auto text-center mb-24">
-            <h2 className="text-h2 text-brand-navy-800 mb-8">Annual Reports</h2>
-            <p className="text-navy-700 text-body">
-              We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
-            </p>
-          </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
             <div className="max-w-4xl mx-auto bg-white p-10 md:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">

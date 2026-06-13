@@ -29,6 +29,15 @@ export default function AccreditationPage() {
             <h1 className="text-h1 text-white mb-8">
               Standards you can stand behind
             </h1>
+            <h2 className="text-h3 text-white mb-4">A credential is only worth what it can be trusted to mean.</h2>
+            <div className="space-y-4">
+              <p className="text-navy-100 text-body max-w-2xl">
+                This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned.
+              </p>
+              <p className="text-navy-100 text-body max-w-2xl">
+                We would rather say less and be believed than claim more and be doubted.
+              </p>
+            </div>
           </AnimatedSection>
         </Container>
       </Section>
@@ -42,14 +51,7 @@ export default function AccreditationPage() {
               <div className="w-20 h-20 bg-brand-gold-50 rounded-2xl flex items-center justify-center mb-8 border border-brand-gold-100">
                 <ShieldCheck className="w-10 h-10 text-brand-gold-500" />
               </div>
-              <h2 className="text-h2 text-brand-navy-800">A credential is only worth what it can be trusted to mean.</h2>
-              <p className="text-navy-700 text-body">
-                This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned.
-              </p>
-              <p className="text-navy-700 text-body">
-                We would rather say less and be believed than claim more and be doubted.
-              </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-6 pt-6">
                 <Link href="/credentials" className="btn-primary text-center">
                   See the Mastery Pathway
