@@ -28,7 +28,7 @@ export default function PressPage() {
             <h1 className="text-h1 text-white mb-8">
               Information for journalists and editors
             </h1>
-            <p className="text-navy-100 text-body max-w-2xl">
+            <p className="text-navy-100 text-base max-w-2xl">
               For journalists, editors and event producers: ICI faculty speak and write on coaching, leadership, the inner life of high achievers, and how people actually change. We are glad to provide commentary, contributed articles and interviews on these themes.
             </p>
           </AnimatedSection>

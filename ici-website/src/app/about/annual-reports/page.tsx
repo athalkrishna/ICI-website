@@ -28,7 +28,7 @@ export default function AnnualReportsPage() {
             <h1 className="text-h1 text-white mb-8">
               Annual Reports
             </h1>
-            <p className="text-navy-100 text-body max-w-2xl">
+            <p className="text-navy-100 text-base max-w-2xl">
               We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
             </p>
           </AnimatedSection>

@@ -30,7 +30,7 @@ export default function PartnershipsPage() {
             <h1 className="text-h1 text-white mb-8">
               Partnerships & Alliances
             </h1>
-            <p className="text-navy-100 text-body">
+            <p className="text-navy-100 text-base max-w-2xl">
               Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.
             </p>
           </AnimatedSection>

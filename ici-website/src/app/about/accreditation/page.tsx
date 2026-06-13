@@ -29,12 +29,12 @@ export default function AccreditationPage() {
             <h1 className="text-h1 text-white mb-8">
               Standards you can stand behind
             </h1>
-            <h2 className="text-h3 text-white mb-4">A credential is only worth what it can be trusted to mean.</h2>
+            <h2 className="text-base font-semibold text-white mb-4">A credential is only worth what it can be trusted to mean.</h2>
             <div className="space-y-4">
-              <p className="text-navy-100 text-body max-w-2xl">
+              <p className="text-navy-100 text-base max-w-2xl">
                 This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned.
               </p>
-              <p className="text-navy-100 text-body max-w-2xl">
+              <p className="text-navy-100 text-base max-w-2xl">
                 We would rather say less and be believed than claim more and be doubted.
               </p>
             </div>

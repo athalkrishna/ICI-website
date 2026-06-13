@@ -31,10 +31,10 @@ export default function GlobalPage() {
               Online, and genuinely global
             </h1>
             <div className="space-y-4 mb-8">
-              <p className="text-navy-100 text-body max-w-2xl">
+              <p className="text-navy-100 text-base max-w-2xl">
                 We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
               </p>
-              <p className="text-navy-100 text-body max-w-2xl">
+              <p className="text-navy-100 text-base max-w-2xl">
                 Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
               </p>
             </div>
