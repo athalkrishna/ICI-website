@@ -60,14 +60,14 @@ export default function GlobalPage() {
                 <div className="bg-brand-navy-800 p-8 border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold-500 rounded-full blur-[50px] opacity-20"></div>
                    <div className="text-h3 text-white mb-2">100%</div>
-                   <div className="text-eyebrow">Online & One-to-One</div>
+                   <div className="text-eyebrow text-brand-gold-400">Online & One-to-One</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
                 <Link href="/community" className="btn-primary text-center">
                   Join a global community of coaches
                 </Link>
-                <Link href="/credentials" className="btn-secondary text-center">
+                <Link href="/credentials" className="btn-secondary-light text-center">
                   See the pathway
                 </Link>
               </div>
