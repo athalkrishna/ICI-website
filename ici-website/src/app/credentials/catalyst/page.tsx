@@ -85,8 +85,8 @@ export default function CatalystPage() {
               A catalyst is what makes change happen in others without being consumed by it. That is the work of a coach, and it is where your career begins. Over 36 hours of one-to-one work, you stop being someone who gives good advice and become someone who can genuinely coach: present, trusted, and skilled enough to hold another person's growth. You are coached individually throughout, so the learning is shaped around you. You finish ready to take your first clients with confidence rather than hope.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/admissions" className="btn-primary w-full md:w-auto justify-center">
-                Enrol at Catalyst <ChevronRight size={18} />
+              <Link href="/checkout/catalyst" className="btn-primary w-full md:w-auto justify-center">
+                Apply for Catalyst <ChevronRight size={18} />
               </Link>
               <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
                 Speak to an Advisor
@@ -224,8 +224,8 @@ export default function CatalystPage() {
                     </ul>
 
                     <div className="mt-10 pt-8 border-t border-subtle flex flex-col gap-4">
-                      <Link href="/admissions" className="btn-primary w-full justify-center">
-                        Enrol at Catalyst <ChevronRight size={18} />
+                      <Link href="/checkout/catalyst" className="btn-primary w-full justify-center">
+                        Apply for Catalyst <ChevronRight size={18} />
                       </Link>
                       <Link href="/admissions/contact" className="btn-secondary w-full justify-center text-center">
                         Speak to an Advisor

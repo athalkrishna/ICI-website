@@ -139,7 +139,7 @@ export default function HealthWellnessPage() {
                 <p className="text-navy-100/90 mb-12 text-body">
                   A wellness focus can begin at Catalyst and deepen through the Pathway. Your credential and investment follow the level.
                 </p>
-                <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
                   <Link href="/credentials/catalyst" className="btn-primary w-full md:w-auto justify-center">
                     Start at Catalyst
                   </Link>

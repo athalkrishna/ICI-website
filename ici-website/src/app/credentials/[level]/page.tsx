@@ -65,8 +65,8 @@ export default async function CredentialLevelPage({ params }: { params: Promise<
             <p className="text-navy-700 mb-10 text-body">
               {content.body || 'Details about this coaching credential level.'}
             </p>
-            <Link href="/apply" className="btn-primary inline-flex">
-              Apply for this Pathway
+            <Link href={`/checkout/${level}`} className="btn-primary inline-flex">
+              Apply for {level.charAt(0).toUpperCase() + level.slice(1)}
               <ChevronRight size={18} />
             </Link>
           </AnimatedSection>

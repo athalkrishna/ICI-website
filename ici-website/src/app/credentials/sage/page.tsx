@@ -93,7 +93,7 @@ export default function SagePage() {
               A sage is not someone with all the answers, but someone whose presence helps others find their own. At this level, technique is no longer the point. Depth is. Over 90 hours of one-to-one work with a master coach, you move from doing coaching to being a coach: able to sit with the most complex clients, to work with power and the inner life, and to bring a presence that cannot be faked. This is the level that marks you out among your peers.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/admissions" className="btn-primary w-full md:w-auto justify-center">
+              <Link href="/checkout/sage" className="btn-primary w-full md:w-auto justify-center">
                 Apply for Sage <ChevronRight size={18} />
               </Link>
               <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
@@ -232,7 +232,7 @@ export default function SagePage() {
                     </ul>
 
                     <div className="mt-10 pt-8 border-t border-subtle flex flex-col gap-4">
-                      <Link href="/admissions" className="btn-primary w-full justify-center">
+                      <Link href="/checkout/sage" className="btn-primary w-full justify-center">
                         Apply for Sage <ChevronRight size={18} />
                       </Link>
                       <Link href="/admissions/contact" className="btn-secondary w-full justify-center text-center">

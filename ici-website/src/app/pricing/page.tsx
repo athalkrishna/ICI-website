@@ -150,7 +150,7 @@ export default function PricingPage() {
                       </td>
                       <td className="py-8 px-6 text-right">
                         <Link 
-                          href={`/apply`} 
+                          href={`/checkout/${slug}`} 
                           className="btn-primary"
                           onClick={() => {
                             if (typeof window !== 'undefined' && (window as any).fbq) {

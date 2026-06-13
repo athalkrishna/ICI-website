@@ -89,7 +89,7 @@ export default function LuminaryPage() {
               A luminary does not only practise the craft; they light the way for others in it. This is the highest recognition ICI offers, and it is rare on purpose. Over 120 hours of one-to-one work with our most senior faculty, you define your own coaching model, contribute something original to the field, and learn to develop other coaches. A Luminary is not just an excellent coach but a steward of the craft. This is the work of a coaching career at its summit.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/admissions" className="btn-primary w-full md:w-auto justify-center">
+              <Link href="/checkout/luminary" className="btn-primary w-full md:w-auto justify-center">
                 Apply for Luminary <ChevronRight size={18} />
               </Link>
               <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
@@ -228,7 +228,7 @@ export default function LuminaryPage() {
                     </ul>
 
                     <div className="mt-10 pt-8 border-t border-subtle flex flex-col gap-4">
-                      <Link href="/admissions" className="btn-primary w-full justify-center">
+                      <Link href="/checkout/luminary" className="btn-primary w-full justify-center">
                         Apply for Luminary <ChevronRight size={18} />
                       </Link>
                       <Link href="/admissions/contact" className="btn-secondary w-full justify-center text-center">
