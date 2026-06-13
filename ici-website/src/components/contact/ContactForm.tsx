@@ -43,9 +43,9 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <div className="bg-green-50/10 border border-green-600/20 p-8 rounded-2xl text-center space-y-4">
-        <h3 className="text-xl font-display font-bold text-green-600">Message Sent!</h3>
-        <p className="text-navy-100 text-body">Thank you. An advisor will be in touch within 2 working days.</p>
+      <div className="bg-green-50 border border-green-200 p-8 rounded-2xl text-center space-y-4">
+        <h3 className="text-xl font-display font-bold text-green-700">Message Sent!</h3>
+        <p className="text-brand-navy-900 text-body">Thank you. An advisor will be in touch within 2 working days.</p>
       </div>
     );
   }
@@ -61,7 +61,7 @@ export default function ContactForm() {
       />
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="name" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+          <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             Name <span className="text-brand-gold-500">*</span>
           </label>
           <input 
@@ -69,13 +69,13 @@ export default function ContactForm() {
             name="name"
             id="name" 
             required 
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="Your name"
           />
         </div>
         
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="email" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+          <label htmlFor="email" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             Email <span className="text-brand-gold-500">*</span>
           </label>
           <input 
@@ -83,7 +83,7 @@ export default function ContactForm() {
             name="email"
             id="email" 
             required 
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="you@example.com"
           />
         </div>
@@ -91,20 +91,20 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="phone" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
-            Phone <span className="text-navy-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
+          <label htmlFor="phone" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
+            Phone <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
             type="tel" 
             name="phone"
             id="phone" 
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="+1 (555) 000-0000"
           />
         </div>
 
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="topic" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+          <label htmlFor="topic" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             What can we help with? <span className="text-brand-gold-500">*</span>
           </label>
           <select 
@@ -112,7 +112,7 @@ export default function ContactForm() {
             name="topic"
             required
             defaultValue=""
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body appearance-none"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body appearance-none"
           >
             <option value="" disabled>Select a topic</option>
             <option value="Programmes & admissions">Programmes & admissions</option>
@@ -125,7 +125,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col justify-end h-full relative mb-6">
-        <label htmlFor="message" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+        <label htmlFor="message" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
           Your message <span className="text-brand-gold-500">*</span>
         </label>
         <textarea 
@@ -133,7 +133,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body resize-none"
+          className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body resize-none"
           placeholder="How can we help you?"
         ></textarea>
       </div>
@@ -146,19 +146,19 @@ export default function ContactForm() {
               name="gdprConsent"
               type="checkbox"
               required
-              className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-brand-gold-500/70 focus:ring-2 transition-all cursor-pointer mt-0.5"
+              className="w-5 h-5 rounded border-navy-200 bg-white shadow-sm text-brand-gold-600 focus:ring-brand-gold-500 focus:ring-2 transition-all cursor-pointer mt-0.5"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="gdprConsent" className="font-body text-sm text-navy-100/90 cursor-pointer">
-              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
+            <label htmlFor="gdprConsent" className="font-body text-sm text-navy-700 cursor-pointer">
+              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-600 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
             </label>
           </div>
         </div>
       </div>
 
       {error && (
-        <div className="text-red-600 font-sans text-sm p-3 border border-red-600/30 bg-red-600/10 rounded-lg">
+        <div className="text-red-600 font-sans text-sm p-3 border border-red-200 bg-red-50 rounded-lg">
           Something went wrong. Please email info@internationalcoachinginstitute.org.
         </div>
       )}

@@ -60,14 +60,14 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <div className="text-center py-12 relative z-10">
-        <div className="w-16 h-16 bg-brand-gold-500/10 text-brand-gold-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
-        <h3 className="text-h3 text-white mb-4">Request received</h3>
-        <p className="text-muted-dark mb-8 text-body">
+        <h3 className="text-h3 text-brand-navy-900 mb-4">Request received</h3>
+        <p className="text-muted mb-8 text-body">
           Thank you. An advisor will review your request and get back to you shortly to confirm a time for your conversation.
         </p>
-        <button onClick={() => setStatus('idle')} className="btn-outline text-white border-white hover:bg-white hover:text-brand-navy-900">
+        <button onClick={() => setStatus('idle')} className="btn-outline">
           Send another request
         </button>
       </div>
@@ -83,28 +83,28 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="name" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+          <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             Name <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="text" 
             id="name" 
             {...register('name')}
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="Your full name"
           />
           {errors.name && <p className="text-red-600 text-sm">{errors.name.message}</p>}
         </div>
         
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="email" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+          <label htmlFor="email" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             Email <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="email" 
             id="email" 
             {...register('email')}
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="you@example.com"
           />
           {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
@@ -113,27 +113,27 @@ export default function ContactForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="phone" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
-            Phone <span className="text-navy-100/40 text-xs font-normal lowercase tracking-normal">(Optional)</span>
+          <label htmlFor="phone" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
+            Phone <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
           </label>
           <input 
             type="tel" 
             id="phone" 
             {...register('phone')}
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="+1 (555) 000-0000"
           />
         </div>
 
         <div className="flex flex-col justify-end h-full relative">
-          <label htmlFor="country" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+          <label htmlFor="country" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             Country and time zone <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="text" 
             id="country" 
             {...register('country')}
-            className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+            className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="e.g. India (IST)"
           />
           {errors.country && <p className="text-red-600 text-sm">{errors.country.message}</p>}
@@ -141,28 +141,28 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col justify-end h-full relative">
-        <label htmlFor="discuss" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+        <label htmlFor="discuss" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
           What would you like to discuss? <span className="text-brand-gold-500">*</span>
         </label>
         <textarea 
           id="discuss" 
           rows={4}
           {...register('discuss')}
-          className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body resize-none"
+          className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body resize-none"
           placeholder="Tell us a bit about your background and what you're looking for..."
         ></textarea>
         {errors.discuss && <p className="text-red-600 text-sm">{errors.discuss.message}</p>}
       </div>
 
       <div className="flex flex-col justify-end h-full relative">
-        <label htmlFor="times" className="block text-brand-gold-400 mb-2 relative z-10 text-eyebrow">
+        <label htmlFor="times" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
           Preferred times <span className="text-brand-gold-500">*</span>
         </label>
         <input 
           type="text" 
           id="times" 
           {...register('times')}
-          className="w-full bg-brand-navy-800/50 border-0 border-b-2 border-subtle hover:border-white/30 rounded-t-xl rounded-b-none px-4 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-0 focus:border-brand-gold-400 focus:bg-brand-navy-800 transition-all font-body"
+          className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
           placeholder="e.g. Wednesday afternoons, or tomorrow morning"
         />
         {errors.times && <p className="text-red-600 text-sm">{errors.times.message}</p>}
@@ -175,12 +175,12 @@ export default function ContactForm() {
               id="gdprConsent"
               type="checkbox"
               {...register('gdprConsent')}
-              className="w-5 h-5 rounded border-white/20 bg-brand-navy-800 text-brand-gold-500 focus:ring-brand-gold-500/70 focus:ring-2 transition-all cursor-pointer mt-0.5"
+              className="w-5 h-5 rounded border-navy-200 bg-white shadow-sm text-brand-gold-600 focus:ring-brand-gold-500 focus:ring-2 transition-all cursor-pointer mt-0.5"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="gdprConsent" className="font-body text-sm text-navy-100/90 cursor-pointer">
-              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-400 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
+            <label htmlFor="gdprConsent" className="font-body text-sm text-navy-700 cursor-pointer">
+              I consent to the collection and processing of my personal data in accordance with the <Link href="/privacy" className="text-brand-gold-600 hover:underline">Privacy Policy</Link> for the purpose of handling this inquiry. <span className="text-brand-gold-500">*</span>
             </label>
             {errors.gdprConsent && <p className="text-red-600 text-sm mt-1">{errors.gdprConsent.message}</p>}
           </div>
@@ -192,13 +192,12 @@ export default function ContactForm() {
           <Turnstile 
             siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} 
             onSuccess={(token) => setTurnstileToken(token)}
-            options={{ theme: 'dark' }}
           />
         </div>
       )}
 
       {status === 'error' && (
-        <div className="bg-red-600/10 text-red-600 p-4 rounded-xl text-sm">
+        <div className="bg-red-50 text-red-600 p-4 border border-red-200 rounded-xl text-sm">
           There was an error submitting your request. Please try again later.
         </div>
       )}
@@ -211,7 +210,7 @@ export default function ContactForm() {
         >
           {status === 'submitting' ? 'Submitting...' : 'Request a call'}
         </button>
-        <Link href="/admissions" className="btn-outline text-white border-white hover:bg-white hover:text-brand-navy-900 flex-1 justify-center py-4 text-base text-center flex items-center">
+        <Link href="/admissions" className="btn-secondary flex-1 justify-center py-4 text-base text-center flex items-center">
           Take the free assessment
         </Link>
       </div>

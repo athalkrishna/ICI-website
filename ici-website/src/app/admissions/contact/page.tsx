@@ -30,7 +30,7 @@ export default function ContactAdmissionsPage() {
             <h1 className="text-h1 text-white mb-8">
               Not sure? Talk it through
             </h1>
-            <p className="text-muted-dark mb-12 text-body">
+            <p className="text-navy-100 text-base max-w-2xl mb-12">
               Choosing how to train as a coach is a real decision, and sometimes you simply want to talk it through with someone who knows. That is what our advisors are for. Ask anything: about levels, timing, cost, or whether coaching is right for you at all. No script, no pressure.
             </p>
           </AnimatedSection>
@@ -41,10 +41,8 @@ export default function ContactAdmissionsPage() {
       <Section spacing="standard" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-brand-navy-900 border-brand-navy-700 p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
-              
-              <h2 className="text-h3 text-white mb-8 relative z-10">
+            <div className="bg-white p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
+              <h2 className="text-h3 text-brand-navy-900 mb-8 relative z-10">
                 Book a conversation
               </h2>
               
