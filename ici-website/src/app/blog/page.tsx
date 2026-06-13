@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -29,7 +29,7 @@ export default function BlogPage() {
             <h1 className="text-h1 text-white mb-8">
               Insights from the field
             </h1>
-            <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
+            <p className="text-navy-100 text-base max-w-2xl mb-12">
               Coaching changes when practitioners keep questioning it. This is where ICI faculty share their thinking: on leadership, the psychology of high achievers, how change really happens, and the craft of coaching itself. Come back often. The best ideas tend to arrive slowly.
             </p>
           </AnimatedSection>
@@ -42,14 +42,14 @@ export default function BlogPage() {
           
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center py-16">
-              <div className="w-16 h-16 bg-brand-navy-800 border border-subtle rounded-full flex items-center justify-center text-brand-gold-400 mx-auto mb-8">
+              <div className="w-16 h-16 bg-white border border-navy-100 shadow-sm rounded-full flex items-center justify-center text-brand-gold-600 mx-auto mb-8">
                 <Mail size={24} />
               </div>
               
-              <h2 className="text-h3 text-white mb-6">
+              <h2 className="text-h3 text-brand-navy-900 mb-6">
                 The first articles are on their way
               </h2>
-              <p className="text-navy-100/70 mb-12 text-body">
+              <p className="text-muted mb-12 text-body">
                 We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.
               </p>
               
@@ -57,7 +57,7 @@ export default function BlogPage() {
                 <input 
                   type="email" 
                   required 
-                  className="flex-1 bg-brand-navy-900/80 border border-subtle rounded-xl px-4 py-3.5 text-white placeholder:text-navy-100/30 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body"
+                  className="flex-1 bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
                   placeholder="Enter your email address"
                 />
                 <button type="submit" className="btn-primary">

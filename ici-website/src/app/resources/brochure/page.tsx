@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function BrochurePage() {
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -29,7 +29,7 @@ export default function BrochurePage() {
             <h1 className="text-h1 text-white mb-8">
               Everything in one place
             </h1>
-            <p className="text-muted-dark mb-12 text-body">
+            <p className="text-navy-100 text-base max-w-2xl mb-12">
               If you would rather read at your own pace, the prospectus brings together the whole picture: the Mastery Pathway and its four levels, the specialisations you can pursue, pricing, and how admissions work. Tell us where to send it and it is yours.
             </p>
           </AnimatedSection>
@@ -40,10 +40,8 @@ export default function BrochurePage() {
       <Section spacing="standard" className="relative z-20">
         <div className="max-w-xl mx-auto px-4 lg:px-8">
           <AnimatedSection>
-            <div className="bg-brand-navy-800/50 backdrop-blur-sm border-subtle p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
-              
-              <h2 className="text-h3 text-white mb-8 relative z-10 text-center">
+            <div className="bg-white p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
+              <h2 className="text-h3 text-brand-navy-900 mb-8 relative z-10 text-center">
                 Request the prospectus
               </h2>
               

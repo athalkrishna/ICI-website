@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-brand-navy-900 min-h-screen font-sans text-navy-50 selection:bg-brand-gold-500/30 selection:text-brand-gold-200">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden border-b border-faint">
@@ -32,7 +32,7 @@ export default function ContactPage() {
             <h1 className="text-h1 text-white mb-8">
               Talk to a human
             </h1>
-            <p className="text-muted-dark mb-12 text-body">
+            <p className="text-navy-100 text-base max-w-2xl mb-12">
               Whatever brought you here, there is a person at ICI happy to help. Ask about programmes, credentials, timing, cost, or training a team. No script and no pressure, just a straight conversation.
             </p>
           </AnimatedSection>
@@ -47,8 +47,7 @@ export default function ContactPage() {
             
             {/* Form */}
             <AnimatedSection>
-              <div className="bg-brand-navy-800/50 backdrop-blur-sm border-subtle p-8 md:p-10 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold-500 rounded-full blur-[100px] opacity-10 translate-x-1/3 -translate-y-1/3" />
+              <div className="bg-white p-8 md:p-10 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                 
                 <ContactForm />
               </div>
@@ -58,36 +57,36 @@ export default function ContactPage() {
             <AnimatedSection delay={0.1}>
               <div className="sticky top-32 space-y-8">
                 <div>
-                  <h3 className="text-h3 text-white mb-6">Other ways to reach us</h3>
+                  <h3 className="text-h3 text-brand-navy-900 mb-6">Other ways to reach us</h3>
                   {/* Confirm phone, email, hours and time zone, and registered entity name for footer/legal */}
                   <div className="space-y-6">
                     <div className="flex gap-4">
-                      <div className="w-10 h-10 rounded-full bg-brand-navy-800 border border-faint flex items-center justify-center shrink-0 text-brand-gold-400">
+                      <div className="w-10 h-10 rounded-full bg-white border border-navy-100 shadow-sm flex items-center justify-center shrink-0 text-brand-gold-600">
                         <Phone size={18} />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-navy-100/50 uppercase tracking-wider mb-1">Phone</div>
-                        <div className="font-body text-white">+91 98199 84575</div>
+                        <div className="text-sm font-bold text-navy-700 uppercase tracking-wider mb-1">Phone</div>
+                        <div className="font-body text-brand-navy-900">+91 98199 84575</div>
                       </div>
                     </div>
                     
                     <div className="flex gap-4">
-                      <div className="w-10 h-10 rounded-full bg-brand-navy-800 border border-faint flex items-center justify-center shrink-0 text-brand-gold-400">
+                      <div className="w-10 h-10 rounded-full bg-white border border-navy-100 shadow-sm flex items-center justify-center shrink-0 text-brand-gold-600">
                         <Mail size={18} />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-navy-100/50 uppercase tracking-wider mb-1">Email</div>
-                        <div className="font-body text-white">info@internationalcoachinginstitute.org</div>
+                        <div className="text-sm font-bold text-navy-700 uppercase tracking-wider mb-1">Email</div>
+                        <div className="font-body text-brand-navy-900">info@internationalcoachinginstitute.org</div>
                       </div>
                     </div>
 
                     <div className="flex gap-4">
-                      <div className="w-10 h-10 rounded-full bg-brand-navy-800 border border-faint flex items-center justify-center shrink-0 text-brand-gold-400">
+                      <div className="w-10 h-10 rounded-full bg-white border border-navy-100 shadow-sm flex items-center justify-center shrink-0 text-brand-gold-600">
                         <Clock size={18} />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-navy-100/50 uppercase tracking-wider mb-1">Hours</div>
-                        <div className="font-body text-white text-sm leading-relaxed">
+                        <div className="text-sm font-bold text-navy-700 uppercase tracking-wider mb-1">Hours</div>
+                        <div className="font-body text-brand-navy-900 text-sm leading-relaxed">
                           Mon-Fri, 9:00 AM - 6:00 PM (IST)
                         </div>
                       </div>
