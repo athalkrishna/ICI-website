@@ -46,22 +46,7 @@ export default function AccreditationPage() {
       <Section spacing="standard">
         <Container>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-            <AnimatedSection className="space-y-8">
-              <div className="w-20 h-20 bg-brand-gold-50 rounded-2xl flex items-center justify-center mb-8 border border-brand-gold-100">
-                <ShieldCheck className="w-10 h-10 text-brand-gold-500" />
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                <Link href="/credentials" className="btn-primary text-center">
-                  See the Mastery Pathway
-                </Link>
-                <Link href="/admissions/contact" className="btn-secondary text-center">
-                  Contact Us
-                </Link>
-              </div>
-            </AnimatedSection>
-
+          <div className="max-w-3xl mx-auto mb-32">
             <AnimatedSection delay={0.2}>
               <div className="bg-white p-10 lg:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10"></div>
