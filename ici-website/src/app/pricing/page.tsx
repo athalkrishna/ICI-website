@@ -54,7 +54,19 @@ const faqs = [
   },
   {
     q: 'What is your refund policy?',
-    a: 'Your place is confirmed on payment. If you change your mind before your first scheduled session, tell us in writing and we will refund your fee in full, less any payment-processing charges. Once sessions have begun, fees are not refundable, but you may pause and resume your level within its suggested duration.'
+    a: 'All enrolments and payments are final. Due to the intensive, one-to-one nature of our coaching and the limited availability of our faculty, once a payment has been successfully processed, it is strictly non-refundable under any circumstances.'
+  },
+  {
+    q: 'Can I transfer my enrolment to someone else?',
+    a: 'No. Because each pathway is highly individualised and tailored to the specific coach\'s development, enrolments and payments are strictly non-transferable to another individual.'
+  },
+  {
+    q: 'What happens if I face an emergency and cannot continue?',
+    a: 'While payments remain non-refundable, we understand that unforeseen emergencies arise. You may submit a formal request to pause your current training level. If approved, you can resume your sessions at a later date within the programme\'s suggested duration, subject to faculty availability.'
+  },
+  {
+    q: 'Are there any exceptions to the non-refundable policy?',
+    a: 'No. To maintain the integrity of our scheduling and the deep commitment required for one-to-one professional coaching, the non-refundable policy applies universally without exception. We encourage you to consult with an advisor to ensure the pathway is right for you before enrolling.'
   }
 ]
 
@@ -165,15 +177,7 @@ export default function PricingPage() {
               Scroll horizontally to see full table →
             </p>
             
-            <div className="mt-6 text-right">
-              <p className="text-muted text-body">
-                {currencyCode !== 'INR' && !loading ? (
-                  <>Prices shown are converted to {currencyCode} using live exchange rates. Final billing is processed in INR.</>
-                ) : (
-                  <>Fixed USD equivalents (review periodically): Catalyst ~ USD 2,600 | Architect ~ USD 4,150 | Sage ~ USD 5,950 | Luminary ~ USD 8,350</>
-                )}
-              </p>
-            </div>
+
           </AnimatedSection>
         </Container>
       </Section>

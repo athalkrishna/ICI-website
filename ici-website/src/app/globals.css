@@ -29,8 +29,29 @@
   }
 
   p, li, blockquote {
-    font-family: var(--font-source-serif), Georgia, serif;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
     line-height: 1.75;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  p {
+    margin-bottom: 1.25rem;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Justify only inside wide text containers — avoids ugly gaps in narrow cards */
+  .max-w-xl p,
+  .max-w-2xl p,
+  .max-w-3xl p,
+  .max-w-4xl p,
+  .max-w-5xl p,
+  .max-w-6xl p,
+  .max-w-7xl p,
+  .prose p {
+    text-align: justify;
+    text-align-last: left;
   }
 
   a { text-decoration: none; transition: color 0.2s ease; }
@@ -40,7 +61,6 @@
   ::-webkit-scrollbar-track { background: #F9F6F0; }
   ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
 
-  /* Focus ring */
   /* Focus ring */
   *:focus-visible {
     outline: 2px solid #C9A84C;

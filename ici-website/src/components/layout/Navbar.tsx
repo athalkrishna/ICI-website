@@ -9,7 +9,7 @@ import { navItems } from '@/data/navigation'
 import MobileMenu from './MobileMenu'
 import Container from '@/components/layout/Container'
 
-export default function Navbar() {
+export default function Navbar({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const [scrolled, setScrolled]         = useState(false)
   const [activeMenu, setActiveMenu]     = useState<string | null>(null)
   const [mobileOpen, setMobileOpen]     = useState(false)
@@ -31,7 +31,7 @@ export default function Navbar() {
         className={`sticky top-0 z-50 transition-all duration-300 ${ scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm' }`}
       >
         {/* ── Top Bar ── */}
-        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-xs font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>
+        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-sm font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>
           <Container className="flex justify-between items-center w-full px-0">
             <div className="flex gap-6 items-center text-white">
               <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
@@ -41,14 +41,16 @@ export default function Navbar() {
                 <Phone size={14} /> +91 98199 84575
               </a>
             </div>
-            <div className="flex items-center gap-4 text-brand-gold-100">
+            <div className="flex items-center gap-4 text-brand-gold-100 mr-12">
               <a href="https://www.linkedin.com/company/internationalcoachinginstitute" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold-400 transition-colors flex items-center" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
               <span className="text-brand-gold-500/50">|</span>
-              <Link href="/login" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">Log In</Link>
-              <span className="text-brand-gold-500/50">|</span>
-              <Link href="/account" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">My Account</Link>
+              {isLoggedIn ? (
+                <Link href="/account" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">My Account</Link>
+              ) : (
+                <Link href="/login" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">Log In</Link>
+              )}
             </div>
           </Container>
         </div>
@@ -134,7 +136,7 @@ export default function Navbar() {
                                         {link.label}
                                       </div>
                                       {link.desc && (
-                                        <div className="text-xs text-muted font-sans mt-1 line-clamp-1 group-hover:text-muted-dark transition-colors">{link.desc}</div>
+                                        <div className="text-xs text-muted font-sans mt-1 line-clamp-1 group-hover:text-muted-dark transition-colors text-left">{link.desc}</div>
                                       )}
                                     </div>
                                   </Link>

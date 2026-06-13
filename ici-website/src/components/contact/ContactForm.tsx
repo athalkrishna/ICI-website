@@ -51,7 +51,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
+    <form className="space-y-8 relative z-10" onSubmit={handleSubmit}>
       <input
         type="text"
         name="website"
@@ -59,7 +59,7 @@ export default function ContactForm() {
         tabIndex={-1}
         autoComplete="off"
       />
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
             Name <span className="text-brand-gold-500">*</span>
@@ -89,15 +89,16 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="phone" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
-            Phone <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+            WhatsApp Number <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="tel" 
             name="phone"
             id="phone" 
+            required
             className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-4 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
             placeholder="+1 (555) 000-0000"
           />

@@ -54,7 +54,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
 
   return (
     <div className="bg-cream-100 min-h-screen pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-24">
+      <div className="max-w-5xl mx-auto px-4 lg:px-8 py-24">
         
         {status === 'success' ? (
           <AnimatedSection className="bg-white p-16 rounded-3xl shadow-xl text-center border-t-4 border-brand-gold-500">
@@ -73,9 +73,9 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
             </button>
           </AnimatedSection>
         ) : (
-          <div className="grid md:grid-cols-12 gap-12 items-start">
+          <div className="grid lg:grid-cols-[300px_1fr] gap-12 lg:gap-16 items-start">
             
-            <div className="md:col-span-5">
+            <div className="lg:col-span-1">
               <AnimatedSection>
                 <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Admissions</div>
                 <h1 className="text-h1 text-brand-navy-900 mb-6">{heading}</h1>
@@ -94,7 +94,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
               </AnimatedSection>
             </div>
 
-            <div className="md:col-span-7">
+            <div className="lg:col-span-1">
               <AnimatedSection delay={0.2}>
                 <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-navy-100">
                   <div className="space-y-6">
@@ -112,7 +112,7 @@ export default function ApplyForm({ heading, body }: ApplyFormProps) {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-brand-navy-700 text-eyebrow">Phone Number *</label>
+                        <label className="text-brand-navy-700 text-eyebrow">WhatsApp Number *</label>
                         <input required name="phone" type="tel" className="w-full px-4 py-3 rounded-lg bg-cream-50 border border-navy-200 focus:outline-none focus:ring-2 focus:ring-brand-gold-400 transition-shadow" />
                       </div>
                       <div className="space-y-2">

@@ -78,7 +78,7 @@ export default function ResourcesPage() {
               {/* Additional guides and tools to be added as published */}
               
               <div className="mt-12">
-                <Link href="#insights" className="text-brand-gold-700 font-sans font-bold hover:text-brand-gold-800 transition-colors inline-flex items-center gap-1">
+                <Link href="#insights" className="btn-secondary-light inline-flex items-center gap-2">
                   Browse all resources
                 </Link>
               </div>

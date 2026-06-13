@@ -4,7 +4,7 @@ import Container from '@/components/layout/Container'
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy-900 text-white pt-16 pb-8 border-t-4 border-brand-gold-500">
+    <footer className="bg-brand-navy-900 text-white pt-16 pb-2 border-t-4 border-brand-gold-500">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
           
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-brand-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white font-sans gap-4 text-center md:text-left">
+        <div className="border-t border-brand-navy-700 pt-3 flex flex-col md:flex-row justify-between items-center text-sm text-white font-sans gap-4 text-center md:text-left">
           <p>Copyright © {new Date().getFullYear()} International Coaching Institute. All rights reserved.</p>
           <div className="flex gap-4 md:gap-6 flex-wrap justify-center items-center">
             <a href="https://www.linkedin.com/company/internationalcoachinginstitute" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold-400 transition-colors flex items-center" aria-label="LinkedIn">

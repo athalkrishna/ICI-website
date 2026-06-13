@@ -65,7 +65,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-playfair)', 'Georgia', 'serif'],
         sans:    ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
-        body:    ['var(--font-source-serif)', 'Georgia', 'serif'],
+        body:    ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
         mono:    ['var(--font-jetbrains)', 'monospace'],
       },
       backgroundImage: {

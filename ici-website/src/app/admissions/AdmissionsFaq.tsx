@@ -17,6 +17,18 @@ const faqs = [
   {
     q: 'Can my organisation train a team?',
     a: 'Yes. Speak to us about organisational and team training.'
+  },
+  {
+    q: 'What are the entry requirements?',
+    a: 'Our foundation level, Catalyst, is open to anyone committed to learning to coach. The advanced levels (Architect, Sage, Luminary) require prior certification or equivalent experience, which we will discuss during your admissions conversation.'
+  },
+  {
+    q: 'Is there an interview process?',
+    a: 'Yes. Before your enrolment is finalised, you will have a brief, informal conversation with an advisor. This is simply to ensure the pathway is the right fit for your goals and to answer any questions you have.'
+  },
+  {
+    q: 'When can I start my training?',
+    a: 'Because our coaching is strictly one-to-one, we do not run fixed cohorts or intake dates. You can apply at any time, and you will typically begin your sessions within 7 working days of your enrolment being confirmed.'
   }
 ]
 

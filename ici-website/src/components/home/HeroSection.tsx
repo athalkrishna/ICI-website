@@ -72,7 +72,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-body-lg text-navy-100 mb-8 max-w-xl"
+              className="text-body-lg text-navy-100 mb-8 max-w-xl text-justify"
             >
               {content.hero_body || 'The International Coaching Institute is the world\'s leading provider of professional coaching education, certification, and continuing development, trusted by coaches in over 60 countries.'}
             </motion.p>

@@ -37,7 +37,7 @@ export default function FacultyResearchPage() {
       </Section>
 
       {/* ── Our Faculty ── */}
-      <Section spacing="standard" className="relative z-20">
+      <Section spacing="none" className="relative z-20 pt-24 pb-8">
         <Container>
           <AnimatedSection className="max-w-3xl">
             <h2 className="text-h2 text-brand-navy-900 mb-6">Our faculty</h2>
@@ -51,7 +51,7 @@ export default function FacultyResearchPage() {
       </Section>
 
       {/* ── Research & Thinking ── */}
-      <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
+      <Section spacing="none" className="bg-cream-50 border-t border-navy-100 relative z-20 pt-12 pb-24">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <AnimatedSection>

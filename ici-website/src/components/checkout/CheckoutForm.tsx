@@ -122,7 +122,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
 
       <div className="space-y-2">
         <label htmlFor="phone" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          Phone <span className="text-brand-gold-500">*</span>
+          WhatsApp Number <span className="text-brand-gold-500">*</span>
         </label>
         <input
           type="tel"

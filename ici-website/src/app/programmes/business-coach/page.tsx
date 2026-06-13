@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BusinessCoachingPage() {
   return (
-    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
@@ -46,7 +46,7 @@ export default function BusinessCoachingPage() {
       </Section>
 
       {/* ── Split Layout Content ── */}
-      <Section spacing="large" className="max-w-[1440px] mx-auto px-4 lg:px-8 lg:py-48 mt-8 relative z-20">
+      <Section spacing="standard" className="max-w-[1440px] mx-auto px-4 lg:px-8 lg:py-20 mt-4 relative z-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Column: What you will learn */}
@@ -128,7 +128,7 @@ export default function BusinessCoachingPage() {
         </div>
       </Section>
 
-      <Section spacing="none" className="mt-24 lg:mt-32">
+      <Section spacing="none" className="mt-12 lg:mt-16">
         <AnimatedSection>
           <Container>
             <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 border-brand-gold-500/20 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">

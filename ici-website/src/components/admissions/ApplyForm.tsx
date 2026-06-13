@@ -9,7 +9,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Valid email is required'),
-  phone: z.string().optional(),
+  phone: z.string().min(5, 'WhatsApp number is required'),
   country: z.string().min(2, 'Country is required'),
   level: z.string().min(2, 'Level of interest is required'),
   specialism: z.string().optional(),
@@ -112,7 +112,7 @@ export default function ApplyForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="phone" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-            Phone <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+            WhatsApp Number <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="tel" 
@@ -144,18 +144,21 @@ export default function ApplyForm() {
         </div>
       </div>
 
-      <div className="space-y-4">
-        <label className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
+      <div className="space-y-2">
+        <label htmlFor="level" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
           Level of interest <span className="text-brand-gold-500">*</span>
         </label>
-        <div className="grid sm:grid-cols-2 gap-4">
-          {['Catalyst', 'Architect', 'Sage', 'Luminary', 'Not sure yet'].map((level) => (
-            <label key={level} className="flex items-center gap-3 p-4 rounded-xl border border-navy-200 bg-cream-50 cursor-pointer hover:border-brand-gold-500 transition-colors">
-              <input type="radio" value={level} {...register('level')} className="w-4 h-4 text-brand-gold-700 bg-white border-navy-300 focus:ring-brand-gold-500/70 min-h-[44px]" />
-              <span className="font-body text-brand-navy-900">{level}</span>
-            </label>
+        <select 
+          id="level" 
+          defaultValue=""
+          {...register('level')}
+          className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
+        >
+          <option value="" disabled>Select a level</option>
+          {['Catalyst', 'Architect', 'Sage', 'Luminary'].map((level) => (
+            <option key={level} value={level}>{level}</option>
           ))}
-        </div>
+        </select>
         {errors.level && <p className="text-red-600 text-sm">{errors.level.message}</p>}
       </div>
 

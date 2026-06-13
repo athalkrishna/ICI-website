@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ProgrammesOverviewPage() {
   return (
-    <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
+    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
       <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">

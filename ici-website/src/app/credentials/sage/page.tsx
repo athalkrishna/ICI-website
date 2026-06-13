@@ -216,10 +216,7 @@ export default function SagePage() {
                         <div className="mb-1 text-eyebrow text-brand-gold-400">Suggested duration</div>
                         <div className="text-navy-50 font-sans">up to 6 months</div>
                       </li>
-                      <li>
-                        <div className="mb-1 text-eyebrow text-brand-gold-400">Investment</div>
-                        <div className="text-navy-50 font-sans">INR 4,95,000, exclusive of GST</div>
-                      </li>
+
                     </ul>
 
                     <div className="mt-10 pt-8 border-t border-subtle flex flex-col gap-4">

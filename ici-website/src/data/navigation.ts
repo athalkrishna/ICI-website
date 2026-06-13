@@ -99,13 +99,10 @@ export const navItems: NavItem[] = [
           { label: 'The Blog', href: '/blog', desc: 'Latest insights from the field' },
           { label: 'Faculty & Research', href: '/faculty', desc: 'Meet our practising coaches' },
           { label: 'Prospectus', href: '/resources/brochure', desc: 'Download the full guide' },
+          { label: 'Events', href: '/events', desc: 'Upcoming webinars and workshops' },
         ]
       }
     ]
-  },
-  {
-    label: 'Events',
-    href: '/events'
   },
   {
     label: 'Contact',

@@ -41,7 +41,7 @@ export default function ContactPage() {
 
       {/* ── Form Section ── */}
       <Section spacing="standard" className="relative z-20">
-        <div className="max-w-4xl mx-auto px-4 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 lg:px-8">
           
           <div className="grid lg:grid-cols-[1fr_300px] gap-12 lg:gap-16">
             

@@ -10,7 +10,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Valid email is required'),
-  phone: z.string().optional(),
+  phone: z.string().min(5, 'WhatsApp number is required'),
   country: z.string().min(2, 'Country and time zone are required'),
   discuss: z.string().min(10, 'Please tell us what you would like to discuss'),
   times: z.string().min(2, 'Please let us know your preferred times'),
@@ -114,7 +114,7 @@ export default function ContactForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="phone" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
-            Phone <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+            WhatsApp Number <span className="text-brand-gold-500">*</span>
           </label>
           <input 
             type="tel" 

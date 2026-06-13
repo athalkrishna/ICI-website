@@ -85,7 +85,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
         <MetaPixel />
-        <Navbar />
+        <Navbar isLoggedIn={isLoggedIn} />
         <main id="main-content">{children}</main>
         <Footer />
         <CookieNotice />
