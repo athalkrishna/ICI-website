@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-brand-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted font-sans gap-4 text-center md:text-left">
+        <div className="border-t border-brand-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white font-sans gap-4 text-center md:text-left">
           <p>Copyright © {new Date().getFullYear()} International Coaching Institute. All rights reserved.</p>
           <div className="flex gap-4 md:gap-6 flex-wrap justify-center">
             <Link href="/privacy" className="hover:text-brand-gold-400 transition-colors">Privacy Policy</Link>

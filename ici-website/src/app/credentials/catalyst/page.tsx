@@ -78,20 +78,11 @@ export default function CatalystPage() {
             <h1 className="text-h1 text-white mb-6">
               Catalyst
             </h1>
-            <p className="font-mono text-brand-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-brand-gold-500 pl-4">
-              Credential awarded: ICI Catalyst Coach, post-nominal ICI-C
-            </p>
+
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               A catalyst is what makes change happen in others without being consumed by it. That is the work of a coach, and it is where your career begins. Over 36 hours of one-to-one work, you stop being someone who gives good advice and become someone who can genuinely coach: present, trusted, and skilled enough to hold another person's growth. You are coached individually throughout, so the learning is shaped around you. You finish ready to take your first clients with confidence rather than hope.
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/checkout/catalyst" className="btn-primary w-full md:w-auto justify-center">
-                Apply for Catalyst <ChevronRight size={18} />
-              </Link>
-              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
-                Speak to an Advisor
-              </Link>
-            </div>
+
           </AnimatedSection>
         </Container>
       </Section>

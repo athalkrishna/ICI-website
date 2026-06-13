@@ -82,20 +82,11 @@ export default function LuminaryPage() {
             <h1 className="text-h1 text-white mb-6">
               Luminary
             </h1>
-            <p className="font-mono text-brand-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-brand-gold-500 pl-4">
-              Credential awarded: ICI Luminary, post-nominal ICI-L
-            </p>
+
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               A luminary does not only practise the craft; they light the way for others in it. This is the highest recognition ICI offers, and it is rare on purpose. Over 120 hours of one-to-one work with our most senior faculty, you define your own coaching model, contribute something original to the field, and learn to develop other coaches. A Luminary is not just an excellent coach but a steward of the craft. This is the work of a coaching career at its summit.
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/checkout/luminary" className="btn-primary w-full md:w-auto justify-center">
-                Apply for Luminary <ChevronRight size={18} />
-              </Link>
-              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
-                Speak to an Advisor
-              </Link>
-            </div>
+
           </AnimatedSection>
         </Container>
       </Section>

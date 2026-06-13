@@ -86,20 +86,11 @@ export default function SagePage() {
             <h1 className="text-h1 text-white mb-6">
               Sage
             </h1>
-            <p className="font-mono text-brand-gold-300 text-lg mb-8 uppercase tracking-widest border-l-4 border-brand-gold-500 pl-4">
-              Credential awarded: ICI Sage Coach, post-nominal ICI-S
-            </p>
+
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               A sage is not someone with all the answers, but someone whose presence helps others find their own. At this level, technique is no longer the point. Depth is. Over 90 hours of one-to-one work with a master coach, you move from doing coaching to being a coach: able to sit with the most complex clients, to work with power and the inner life, and to bring a presence that cannot be faked. This is the level that marks you out among your peers.
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/checkout/sage" className="btn-primary w-full md:w-auto justify-center">
-                Apply for Sage <ChevronRight size={18} />
-              </Link>
-              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
-                Speak to an Advisor
-              </Link>
-            </div>
+
           </AnimatedSection>
         </Container>
       </Section>
