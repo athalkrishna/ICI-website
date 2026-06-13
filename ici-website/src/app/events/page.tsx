@@ -83,6 +83,15 @@ export default async function EventsPage() {
                 ))}
               </div>
             )}
+
+            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-16">
+              <Link href="#all-events" className="btn-primary text-center">
+                See all events
+              </Link>
+              <Link href="#events-form" className="btn-secondary-light text-center">
+                Register your interest
+              </Link>
+            </div>
           </AnimatedSection>
         </Container>
       </Section>
