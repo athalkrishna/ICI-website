@@ -11,9 +11,10 @@ interface HeroSectionProps {
 
 export default function HeroSection({ content = {} }: HeroSectionProps) {
   const stats = [
-    { isText: false, value: 4, suffix: '', label: content.stat_1_label || 'Credential Levels' },
-    { isText: false, value: 306, suffix: '', label: content.stat_2_label || 'Hours Across the Full Pathway' },
-    { isText: true, text: '1:1', label: content.stat_3_label || 'Every Session, One-to-One' },
+    { isText: false, value: 60, suffix: '+', label: content.stat_1_label || 'COUNTRIES' },
+    { isText: false, value: 25000, suffix: '+', label: content.stat_2_label || 'ALUMNI' },
+    { isText: false, value: 5, suffix: '', label: content.stat_3_label || 'CAMPUSES' },
+    { isText: false, value: 200, suffix: '+', label: content.stat_4_label || 'PARTNERS' },
   ]
 
   return (
@@ -85,7 +86,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
             >
               {stats.map((stat, i) => (
                 <div key={stat.label} className="flex items-center w-1/2 md:w-auto">
-                  <div className="pr-6 md:px-6 md:first:pl-0">
+                  <div className={`pr-6 ${i === 0 ? 'md:pr-8' : 'md:px-8'}`}>
                     <div className="font-mono text-3xl font-bold text-brand-gold-400">
                       {stat.isText ? (
                         stat.text

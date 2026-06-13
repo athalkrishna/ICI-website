@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { FileBarChart2, Download } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import AnnualReportSubscription from '@/components/about/AnnualReportSubscription'
 
 export const metadata: Metadata = {
   title: 'Annual Reports | International Coaching Institute',
@@ -63,6 +64,7 @@ export default function AnnualReportsPage() {
                   </div>
                 ))}
               </div>
+              <AnnualReportSubscription />
             </div>
           </AnimatedSection>
 

@@ -8,24 +8,24 @@ import Container from '@/components/layout/Container'
 const programmes = [
   {
     title: 'Certified Life Coach',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
-    altText: 'People in a classroom setting collaborating on laptops',
+    image: '/certified-life-coach.png',
+    altText: 'A professional life coach in an attentive coaching session',
     desc: 'Master the foundational competencies of transformational life coaching.',
     type: 'Levels 1–2',
     href: '/programmes/certified-life-coach'
   },
   {
     title: 'Executive Coaching',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
-    altText: 'Two professionals having an engaging one-to-one conversation',
+    image: '/executive-coaching.png',
+    altText: 'Senior executives engaged in a professional leadership coaching meeting',
     desc: 'Drive organisational success through advanced leadership methodologies.',
     type: 'Levels 3–4',
     href: '/programmes/executive-coaching'
   },
   {
     title: 'Health & Wellness',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80',
-    altText: 'Woman doing yoga near a window',
+    image: '/health-wellness-coaching.png',
+    altText: 'A health and wellness coach guiding a client in a calm bright studio',
     desc: 'Empower clients to achieve sustainable physical and mental well-being.',
     type: 'Open entry',
     href: '/programmes/health-wellness'

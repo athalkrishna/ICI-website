@@ -14,8 +14,8 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
         <AnimatedSection className="flex-1 w-full" direction="left">
           <div className="w-full aspect-square md:aspect-[4/3] bg-brand-navy-50 rounded-2xl relative overflow-hidden shadow-2xl">
             <Image 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=85" 
-              alt="Professional coaching session" 
+              src="/ici-difference-coaching.png" 
+              alt="Professional one-on-one coaching session" 
               fill 
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

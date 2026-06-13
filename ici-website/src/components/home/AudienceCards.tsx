@@ -12,20 +12,20 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
     {
       title: content.path1_title || 'Aspiring coaches',
       desc: content.path1_body || 'Begin a new career on solid ground. Foundational certification and real one-to-one coaching, so you graduate ready to take your first paying clients.',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80',
-      altText: 'People in a classroom setting collaborating on laptops'
+      image: '/aspiring-coaches.png',
+      altText: 'Aspiring coaches collaborating in a modern classroom setting'
     },
     {
       title: content.path2_title || 'Experienced practitioners',
       desc: content.path2_body || 'Deepen a practice that already works. Advanced credentialing and supervision that sharpen your judgement and raise your standing.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
-      altText: 'Two professionals having an engaging one-to-one conversation'
+      image: '/experienced-practitioners.png',
+      altText: 'Two professionals in a focused one-on-one coaching conversation'
     },
     {
       title: content.path3_title || 'Organisations and leaders',
       desc: content.path3_body || 'Build a coaching culture from the inside, so feedback, accountability and growth become part of how your people work.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
-      altText: 'A group of executives having a meeting in a modern conference room'
+      image: '/organisations-leaders.png',
+      altText: 'Corporate leadership team in a modern boardroom'
     }
   ]
   return (

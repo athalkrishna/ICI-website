@@ -28,7 +28,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       level:   'Professional',
       hours:   '60 Hours',
       desc:    content.cred_architect_body || 'Professional. You learn to design and build change with clients and to build a thriving practice. 60 hours, one-to-one.',
-      badge:   'bg-gold-500/20 text-gold-400',
+      badge:   'bg-white/10 text-white',
       href:    '/credentials/architect',
       popular: true,
       bullets: ['20 hours one-to-one with a senior coach', '40 hours guided self-work', 'Final assessment & credential']
@@ -80,14 +80,9 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
           {credentials.map((cred, i) => (
             <AnimatedSection key={cred.code} delay={i * 0.1}>
               <div 
-                className={`relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group ${cred.popular ? 'bg-brand-navy-800/80 border border-brand-gold-500/40 shadow-[0_0_40px_rgba(201,168,76,0.15)] transform md:-translate-y-4' : 'bg-white/5 border border-subtle hover:border-white/30 hover:bg-white/10'} backdrop-blur-md`}
+                className={`relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group bg-white/5 border border-subtle hover:border-white/30 hover:bg-white/10 backdrop-blur-md`}
               >
-                {/* Most popular badge */}
-                {cred.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-gold-400 to-brand-gold-600 text-brand-navy-900 text-xs font-sans font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-brand-gold-500/30">
-                    Most Popular
-                  </div>
-                )}
+
 
                 {/* Icon + Code */}
                 <div className="flex items-start justify-between mb-8">
@@ -95,7 +90,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                     <Award size={14} />
                     {cred.code}
                   </div>
-                  <div className={`font-display text-6xl font-bold leading-none ${cred.popular ? 'text-brand-gold-500/20' : 'text-white/10'} group-hover:scale-110 transition-transform duration-500`}>
+                  <div className={`font-display text-6xl font-bold leading-none text-white/10 group-hover:scale-110 transition-transform duration-500`}>
                     0{i + 1}
                   </div>
                 </div>
@@ -122,7 +117,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                   </ul>
                   <Link
                     href={cred.href}
-                    className={`flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit ${cred.popular ? 'text-brand-gold-400 hover:text-brand-gold-300' : 'text-white hover:text-brand-gold-400'}`}
+                    className={`flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit text-white hover:text-brand-gold-400`}
                   >
                     Explore Pathway
                     <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />

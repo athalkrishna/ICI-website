@@ -21,7 +21,7 @@ export const navItems: NavItem[] = [
     href:  '/about',
     children: [
       {
-        heading: 'Institute',
+        heading: 'About International Coaching Institute',
         links: [
           { label: 'About the Institute', href: '/about', desc: 'Who we are and what we stand for' },
           { label: 'Mission, Vision & Values', href: '/about/mission', desc: 'Our core philosophy and approach' },
@@ -41,7 +41,7 @@ export const navItems: NavItem[] = [
     href:  '/programmes',
     children: [
       {
-        heading: 'Our Training',
+        heading: 'Our Training Program',
         links: [
           { label: 'Programmes', href: '/programmes', desc: 'Explore our full range of training' },
           { label: 'Life Coaching', href: '/programmes/certified-life-coach', desc: 'Core skills for personal transformation' },
