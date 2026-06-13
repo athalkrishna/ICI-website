@@ -130,7 +130,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
 
         {/* CTA bar */}
         <AnimatedSection className="text-center">
-          <p className="text-muted-dark mb-6 text-body">Not sure which level is right for you?</p>
+
           <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4">
             Not sure where to start? Speak to an advisor
             <ChevronRight size={18} />
