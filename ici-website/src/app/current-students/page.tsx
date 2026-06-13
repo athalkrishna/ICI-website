@@ -92,13 +92,13 @@ export default function CurrentStudentsPage() {
       {/* ── Need Help Section ── */}
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl">
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
             <h2 className="text-h2 text-brand-navy-900 mb-6">Need help?</h2>
             <p className="text-muted mb-12 text-body">
               If anything is unclear or part of the work feels hard, that is normal, and we are here. Reach out to your coach or the student support team rather than struggling alone.
             </p>
-            <div className="flex flex-wrap justify-start items-center gap-4">
-              <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <Link href="/contact" className="btn-secondary-light">
                 Contact student support <ArrowRight size={18} />
               </Link>
             </div>

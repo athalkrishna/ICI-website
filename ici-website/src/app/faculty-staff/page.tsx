@@ -92,13 +92,13 @@ export default function FacultyStaffPage() {
       {/* ── Join the faculty Section ── */}
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl">
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
             <h2 className="text-h2 text-brand-navy-900 mb-6">Join the faculty</h2>
             <p className="text-muted mb-12 text-body">
               We are always interested in practising coaches who can teach with rigour and humanity. If that is you, we would like to hear from you.
             </p>
-            <div className="flex flex-wrap justify-start items-center gap-4">
-              <Link href="/contact" className="btn-secondary inline-flex items-center gap-2">
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <Link href="/contact" className="btn-secondary-light">
                 Express interest in teaching <ArrowRight size={18} />
               </Link>
             </div>

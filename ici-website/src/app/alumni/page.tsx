@@ -87,7 +87,7 @@ export default function AlumniPage() {
       {/* ── Stay Involved Section ── */}
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl">
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
             <h2 className="text-h2 text-brand-navy-900 mb-6">Stay involved</h2>
             <p className="text-muted mb-12 text-body">
               Keep your details current, join the next event, and tell us when something good happens in your practice. Your story may be exactly what a future student needs to read.
@@ -96,7 +96,7 @@ export default function AlumniPage() {
               <Link href="/account" className="btn-primary">
                 Update your details
               </Link>
-              <Link href="/events" className="btn-secondary inline-flex items-center gap-2">
+              <Link href="/events" className="btn-secondary-light">
                 See upcoming events <ArrowRight size={18} />
               </Link>
             </div>

@@ -89,16 +89,16 @@ export default function FutureStudentsPage() {
       {/* ── What Kind of Coach Section ── */}
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
-          <AnimatedSection className="max-w-4xl">
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
             <h2 className="text-h2 text-brand-navy-900 mb-6">What kind of coach could you become?</h2>
             <p className="text-muted mb-12 text-body">
               Life coach, executive coach, business coach, wellness coach, or a coach inside an organisation. Whatever draws you, there is a path here that starts where you are and takes you somewhere real.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <Link href="/admissions" className="btn-secondary w-full md:w-auto justify-center">
+              <Link href="/admissions" className="btn-primary w-full md:w-auto justify-center">
                 Take the free assessment
               </Link>
-              <Link href="/credentials" className="btn-secondary inline-flex items-center gap-2">
+              <Link href="/credentials" className="btn-secondary-light">
                 Explore the pathway <ArrowRight size={18} />
               </Link>
             </div>

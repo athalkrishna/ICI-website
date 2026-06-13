@@ -294,7 +294,7 @@ export default function PricingPage() {
               <Link href="/credentials" className="btn-primary">
                 Choose your level <ChevronRight size={18} />
               </Link>
-              <Link href="/admissions/contact" className="btn-secondary">
+              <Link href="/admissions/contact" className="btn-secondary-light">
                 Not sure where to start? Speak to an advisor
               </Link>
             </div>
