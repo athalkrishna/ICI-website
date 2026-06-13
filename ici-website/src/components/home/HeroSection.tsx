@@ -88,11 +88,7 @@ export default function HeroSection({ content = {} }: HeroSectionProps) {
                 <div key={stat.label} className="flex items-center w-1/2 md:w-auto">
                   <div className={`pr-6 ${i === 0 ? 'md:pr-8' : 'md:px-8'}`}>
                     <div className="font-mono text-3xl font-bold text-brand-gold-400">
-                      {stat.isText ? (
-                        stat.text
-                      ) : (
-                        <CountUpNumber end={stat.value as number} suffix={stat.suffix as string} />
-                      )}
+                      <CountUpNumber end={stat.value as number} suffix={stat.suffix as string} />
                     </div>
                     <div className="font-sans text-xs text-navy-200 tracking-wide mt-0.5">
                       {stat.label}
