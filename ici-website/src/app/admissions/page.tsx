@@ -96,8 +96,8 @@ export default function AdmissionsPage() {
                 <p className="text-muted mb-6 text-body">
                   Every price is complete and set out plainly on our Pricing page, with instalment options available.
                 </p>
-                <Link href="/pricing" className="text-brand-gold-400 font-sans font-bold hover:text-brand-gold-300 transition-colors inline-flex items-center gap-1">
-                  See pricing <ChevronRight size={16} />
+                <Link href="/pricing" className="btn-primary inline-flex">
+                  See pricing <ChevronRight size={18} />
                 </Link>
               </AnimatedSection>
             </div>
