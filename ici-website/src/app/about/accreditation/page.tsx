@@ -64,6 +64,14 @@ export default function AccreditationPage() {
                   ))}
                 </div>
               </div>
+              <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
+                <Link href="/credentials" className="btn-primary text-center">
+                  See the Mastery Pathway
+                </Link>
+                <Link href="/admissions/contact" className="btn-secondary-light text-center">
+                  Contact us
+                </Link>
+              </div>
             </AnimatedSection>
           </div>
 
