@@ -125,6 +125,8 @@ export default function CredentialsPage() {
         </Container>
       </Section>
 
+
+
       {/* ── The 4 Levels ── */}
       <Section id="levels" spacing="compact" className="relative z-20">
         <Container>
