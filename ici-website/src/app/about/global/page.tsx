@@ -30,21 +30,13 @@ export default function GlobalPage() {
             <h1 className="text-h1 text-white mb-8">
               Online, and genuinely global
             </h1>
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4">
               <p className="text-navy-100 text-base max-w-2xl">
                 We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate.
               </p>
               <p className="text-navy-100 text-base max-w-2xl">
                 Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
               </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Link href="/community" className="btn-primary text-center">
-                Join a global community of coaches
-              </Link>
-              <Link href="/credentials" className="btn-secondary-light text-center">
-                See the pathway
-              </Link>
             </div>
           </AnimatedSection>
         </Container>
@@ -70,6 +62,14 @@ export default function GlobalPage() {
                    <div className="text-h3 text-white mb-2">100%</div>
                    <div className="text-eyebrow">Online & One-to-One</div>
                 </div>
+              </div>
+              <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
+                <Link href="/community" className="btn-primary text-center">
+                  Join a global community of coaches
+                </Link>
+                <Link href="/credentials" className="btn-secondary text-center">
+                  See the pathway
+                </Link>
               </div>
             </AnimatedSection>
           </div>
