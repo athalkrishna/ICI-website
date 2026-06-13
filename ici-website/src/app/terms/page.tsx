@@ -18,10 +18,7 @@ export default function TermsPage() {
         These terms govern your use of the International Coaching Institute website and your enrolment in our programmes. By using this site or enrolling, you agree to them.
       </p>
 
-      {/* Note to Developers/Admins */}
-      <div className="bg-brand-navy-50 border border-brand-gold-500/30 rounded-xl p-6 my-8 text-sm text-muted font-body">
-        <strong className="text-brand-gold-400">Note:</strong> Plain-language starting draft, not legal advice. Have a qualified lawyer review and adapt for ICI&apos;s jurisdictions and actual commercial terms, especially payment, refunds and cancellation.
-      </div>
+
 
       <h2>Who we are</h2>
       <p>

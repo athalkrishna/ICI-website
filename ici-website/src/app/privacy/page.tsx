@@ -18,10 +18,7 @@ export default function PrivacyPage() {
         The International Coaching Institute ([legal entity name], we, us, our) respects your privacy and is committed to protecting your personal data. This policy explains what we collect, why, how we use it, and the rights you have.
       </p>
 
-      {/* Note to Developers/Admins */}
-      <div className="bg-brand-navy-50 border border-brand-gold-500/30 rounded-xl p-6 my-8 text-sm text-muted font-body">
-        <strong className="text-brand-gold-400">Note:</strong> Plain-language starting draft, not legal advice. Have a qualified lawyer review for the jurisdictions ICI operates in, including India&apos;s Digital Personal Data Protection Act 2023 and the GDPR where EU or UK clients are involved. Fill all bracketed fields.
-      </div>
+
 
       <h2>Who we are</h2>
       <p>
