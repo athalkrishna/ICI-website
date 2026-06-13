@@ -84,14 +84,7 @@ export default function PricingPage() {
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
               Coaching education is an investment in a career, so we will not hide what it costs. Every level of the Mastery Pathway is delivered one-to-one and online, with real coaching hours from a professional coach and substantial guided self-work. You enrol one level at a time, and each price is complete. What you see is what you pay, plus applicable GST.
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-4 w-full">
-              <Link href="/credentials" className="btn-primary w-full md:w-auto justify-center">
-                Choose your level <ChevronRight size={18} />
-              </Link>
-              <Link href="/admissions/contact" className="btn-secondary w-full md:w-auto justify-center">
-                Not sure where to start? Speak to an advisor
-              </Link>
-            </div>
+
           </AnimatedSection>
         </Container>
       </Section>
