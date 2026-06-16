@@ -1,7 +1,7 @@
 import { NextAuthOptions, getServerSession } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
-import { prisma } from './prisma';
+import { prisma, hasDatabaseUrl } from './prisma';
 import type { UserRole } from '@prisma/client';
 
 const BCRYPT_ROUNDS = 12;
@@ -45,6 +45,7 @@ declare module 'next-auth/jwt' {
 }
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -54,27 +55,36 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
+        if (!hasDatabaseUrl()) {
+          console.error('[auth] DATABASE_URL is not set');
+          return null;
+        }
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email.toLowerCase().trim() },
-        });
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email: credentials.email.toLowerCase().trim() },
+          });
 
-        if (!user || user.status !== 'ACTIVE') return null;
+          if (!user || user.status !== 'ACTIVE') return null;
 
-        const valid = await verifyPassword(credentials.password, user.password);
-        if (!valid) return null;
+          const valid = await verifyPassword(credentials.password, user.password);
+          if (!valid) return null;
 
-        await prisma.user.update({
-          where: { id: user.id },
-          data: { lastLoginAt: new Date() },
-        });
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { lastLoginAt: new Date() },
+          });
 
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          role: user.role,
-        };
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role,
+          };
+        } catch (error) {
+          console.error('[auth] authorize failed:', error);
+          return null;
+        }
       },
     }),
   ],
@@ -104,6 +114,27 @@ export const authOptions: NextAuthOptions = {
 };
 
 export async function getSession() {
+  return getSafeServerSession();
+}
+
+export function isAuthConfigured() {
+  return Boolean(process.env.NEXTAUTH_SECRET?.trim());
+}
+
+export async function getSafeServerSession() {
+  if (!isAuthConfigured()) {
+    console.warn('[auth] NEXTAUTH_SECRET is not set');
+    return null;
+  }
+  try {
+    return await getServerSession(authOptions);
+  } catch (error) {
+    console.error('[auth] getServerSession failed:', error);
+    return null;
+  }
+}
+
+export async function getSessionStrict() {
   return getServerSession(authOptions);
 }
 

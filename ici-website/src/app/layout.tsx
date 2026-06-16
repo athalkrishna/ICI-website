@@ -59,7 +59,12 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies()
   const isLoggedIn = cookieStore.get('ici_mock_auth')?.value === 'true'
-  const globalContent = await getGlobalContent()
+  let globalContent = {}
+  try {
+    globalContent = await getGlobalContent()
+  } catch (error) {
+    console.warn('[layout] getGlobalContent failed:', error)
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org',

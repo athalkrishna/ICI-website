@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { getSafeServerSession } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { getAdminStats } from '@/lib/data';
 import { getRecentActivity } from '@/lib/activity';
@@ -21,7 +20,7 @@ import PortalCard from '@/components/portal/PortalCard';
 import { portalQuickLinkClass, portalSectionTitleClass } from '@/components/portal/portal-styles';
 
 export default async function AdminDashboard() {
-  const session = await getServerSession(authOptions);
+  const session = await getSafeServerSession();
   if (!session) redirect('/admin/login');
 
   const [stats, activity] = await Promise.all([getAdminStats(), getRecentActivity(10)]);
