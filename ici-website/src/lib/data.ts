@@ -1,29 +1,43 @@
-import { prisma } from './prisma';
+import { prisma, hasDatabaseUrl } from './prisma';
+
+async function safeQuery<T>(label: string, query: () => Promise<T>, fallback: T): Promise<T> {
+  if (!hasDatabaseUrl()) return fallback;
+  try {
+    return await query();
+  } catch (error) {
+    console.warn(`[data] ${label} failed:`, error);
+    return fallback;
+  }
+}
 
 export async function getPublishedTestimonials() {
-  return prisma.testimonial.findMany({
-    where: { isPublished: true },
-    orderBy: { displayOrder: 'asc' },
-  });
+  return safeQuery('getPublishedTestimonials', () =>
+    prisma.testimonial.findMany({
+      where: { isPublished: true },
+      orderBy: { displayOrder: 'asc' },
+    }),
+  []);
 }
 
 export async function getLatestBlogPosts(limit = 3) {
-  return prisma.blogPost.findMany({
-    where: { status: 'PUBLISHED' },
-    orderBy: { publishedAt: 'desc' },
-    take: limit,
-    select: {
-      id: true,
-      title: true,
-      slug: true,
-      excerpt: true,
-      coverImageUrl: true,
-      coverImageAlt: true,
-      category: true,
-      publishedAt: true,
-      authorName: true,
-    },
-  });
+  return safeQuery('getLatestBlogPosts', () =>
+    prisma.blogPost.findMany({
+      where: { status: 'PUBLISHED' },
+      orderBy: { publishedAt: 'desc' },
+      take: limit,
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        excerpt: true,
+        coverImageUrl: true,
+        coverImageAlt: true,
+        category: true,
+        publishedAt: true,
+        authorName: true,
+      },
+    }),
+  []);
 }
 
 export async function getFeaturedBlogPosts(limit = 2) {
@@ -50,9 +64,11 @@ export async function getPublishedBlogPosts() {
 }
 
 export async function getBlogPostBySlug(slug: string) {
-  return prisma.blogPost.findFirst({
-    where: { slug, status: 'PUBLISHED' },
-  });
+  return safeQuery('getBlogPostBySlug', () =>
+    prisma.blogPost.findFirst({
+      where: { slug, status: 'PUBLISHED' },
+    }),
+  null);
 }
 
 export async function getEvents() {

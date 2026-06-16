@@ -1,18 +1,30 @@
-import { prisma } from './prisma';
+import { prisma, hasDatabaseUrl } from './prisma';
 import type { PageStatus } from '@prisma/client';
 
 export type ContentMap = Record<string, string>;
+
+async function safeCmsQuery<T>(label: string, query: () => Promise<T>): Promise<T | null> {
+  if (!hasDatabaseUrl()) return null;
+  try {
+    return await query();
+  } catch (error) {
+    console.warn(`[cms] ${label} failed:`, error);
+    return null;
+  }
+}
 
 export async function getPageContent(
   slug: string,
   options?: { draft?: boolean }
 ): Promise<ContentMap | null> {
-  const page = await prisma.page.findUnique({
-    where: { slug },
-    include: {
-      fields: { orderBy: { order: 'asc' } },
-    },
-  });
+  const page = await safeCmsQuery(`getPageContent(${slug})`, () =>
+    prisma.page.findUnique({
+      where: { slug },
+      include: {
+        fields: { orderBy: { order: 'asc' } },
+      },
+    }),
+  );
 
   if (!page) return null;
 
@@ -25,7 +37,6 @@ export async function getPageContent(
     return acc;
   }, {});
 }
-
 export async function getPublishedPageContent(slug: string): Promise<ContentMap> {
   const content = await getPageContent(slug);
   return content ?? {};
