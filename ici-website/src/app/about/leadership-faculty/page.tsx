@@ -3,13 +3,17 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Leadership & Faculty | International Coaching Institute',
   description: 'Our faculty are practicing coaches who deliver live, online, one-to-one programmes.'
 }
 
-export default function LeadershipFacultyPage() {
+export default async function LeadershipFacultyPage() {
+  const content = await getPublishedPageContent('/about/leadership-faculty')
+
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
@@ -24,13 +28,15 @@ export default function LeadershipFacultyPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">About ICI</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'About ICI')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Leadership & Faculty
+              {cmsField(content, 'hero_heading', 'Leadership & Faculty')}
             </h1>
             <p className="text-muted-dark text-base max-w-3xl">
-              Taught by coaches, for coaches.
+              {cmsField(content, 'hero_subheading', 'Taught by coaches, for coaches.')}
             </p>
           </AnimatedSection>
         </Container>
@@ -41,15 +47,15 @@ export default function LeadershipFacultyPage() {
         <Container>
           <AnimatedSection className="max-w-4xl space-y-8">
             <p className="text-navy-700 text-base">
-              ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests. The blend of leadership thinking, applied psychology, neuroscience and reflective practice means you come to understand both the person in front of you and yourself.
+              {stripHtml(cmsHtml(content, 'hero_body', 'ICI programmes are delivered live, online and one-to-one, by faculty who still coach. You practise from early on, receive supervision, and are assessed on real coaching, not multiple-choice tests. The blend of leadership thinking, applied psychology, neuroscience and reflective practice means you come to understand both the person in front of you and yourself.'))}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 pt-8">
               <Link href="/credentials" className="btn-primary text-center">
-                Explore the Mastery Pathway
+                {cmsField(content, 'cta_link_1_text', 'Explore the Mastery Pathway')}
               </Link>
               <Link href="/contact" className="btn-secondary-light text-center">
-                Speak to an advisor
+                {cmsField(content, 'cta_link_2_text', 'Speak to an advisor')}
               </Link>
             </div>
           </AnimatedSection>

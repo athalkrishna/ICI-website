@@ -1,39 +1,30 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
-import AnimatedSection from '@/components/shared/AnimatedSection'
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+import AnimatedSection from '@/components/shared/AnimatedSection';
+import { cmsField, stripHtml } from '@/lib/cms-helpers';
+import type { ContentMap } from '@/lib/content';
+import type { AdmissionsOverviewData } from '@/lib/admissions-overview-defaults';
 
-const faqs = [
-  {
-    q: 'Is the training live or self-paced?',
-    a: 'Live and one-to-one. You are coached individually in real time, with guided self-work between sessions. This is how coaching skill is actually built.'
-  },
-  {
-    q: 'How long does it take?',
-    a: 'It depends on the level, from around three months for Catalyst to up to a year for Luminary. You will have a clear schedule before you enrol.'
-  },
-  {
-    q: 'Can my organisation train a team?',
-    a: 'Yes. Speak to us about organisational and team training.'
-  },
-  {
-    q: 'What are the entry requirements?',
-    a: 'Our foundation level, Catalyst, is open to anyone committed to learning to coach. The advanced levels (Architect, Sage, Luminary) require prior certification or equivalent experience, which we will discuss during your admissions conversation.'
-  },
-  {
-    q: 'Is there an interview process?',
-    a: 'Yes. Before your enrolment is finalised, you will have a brief, informal conversation with an advisor. This is simply to ensure the pathway is the right fit for your goals and to answer any questions you have.'
-  },
-  {
-    q: 'When can I start my training?',
-    a: 'Because our coaching is strictly one-to-one, we do not run fixed cohorts or intake dates. You can apply at any time, and you will typically begin your sessions within 7 working days of your enrolment being confirmed.'
-  }
-]
+type Props = {
+  content?: ContentMap | null;
+  defaults: AdmissionsOverviewData;
+};
 
-export default function AdmissionsFaq() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
+export default function AdmissionsFaq({ content, defaults }: Props) {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqs = defaults.faqs.map((faq, i) => {
+    const n = i + 1;
+    const answerKey = `faq_${n}_answer` as keyof ContentMap;
+    const cmsAnswer = content?.[answerKey];
+    return {
+      q: cmsField(content, `faq_${n}_question`, faq.q),
+      a: cmsAnswer?.trim() ? stripHtml(cmsAnswer) : faq.a,
+    };
+  });
 
   return (
     <div className="space-y-4">
@@ -45,8 +36,8 @@ export default function AdmissionsFaq() {
               className="w-full flex items-center justify-between p-6 text-left hover:bg-cream-50 transition-colors"
             >
               <span className="font-sans font-bold text-lg text-brand-navy-900 pr-8">{faq.q}</span>
-              <ChevronDown 
-                className={`text-brand-gold-700 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} 
+              <ChevronDown
+                className={`text-brand-gold-700 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
               />
             </button>
             <AnimatePresence>
@@ -67,5 +58,5 @@ export default function AdmissionsFaq() {
         </AnimatedSection>
       ))}
     </div>
-  )
+  );
 }

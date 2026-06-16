@@ -3,13 +3,17 @@ import { Metadata } from 'next'
 import ProspectusForm from '@/components/shared/ProspectusForm'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Download the ICI Prospectus',
   description: 'Download the International Coaching Institute prospectus: the Mastery Pathway, specialisations, pricing and admissions, in one clear PDF.'
 }
 
-export default function BrochurePage() {
+export default async function BrochurePage() {
+  const content = await getPublishedPageContent('/resources/brochure')
+
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
@@ -24,13 +28,15 @@ export default function BrochurePage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-6 lg:mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Prospectus</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Prospectus')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Everything in one place
+              {cmsField(content, 'hero_heading', 'Everything in one place')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl mb-12">
-              If you would rather read at your own pace, the prospectus brings together the whole picture: the Mastery Pathway and its four levels, the specialisations you can pursue, pricing, and how admissions work. Tell us where to send it and it is yours.
+              {stripHtml(cmsHtml(content, 'hero_body', 'If you would rather read at your own pace, the prospectus brings together the whole picture: the Mastery Pathway and its four levels, the specialisations you can pursue, pricing, and how admissions work. Tell us where to send it and it is yours.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -42,10 +48,9 @@ export default function BrochurePage() {
           <AnimatedSection>
             <div className="bg-white p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
               <h2 className="text-h3 text-brand-navy-900 mb-8 relative z-10 text-center">
-                Request the prospectus
+                {cmsField(content, 'form_heading', 'Request the prospectus')}
               </h2>
               
-              {/* Confirm whether prospectus is gated (email required) or a direct download, and wire up accordingly */}
               <ProspectusForm />
             </div>
           </AnimatedSection>

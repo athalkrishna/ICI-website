@@ -1,15 +1,26 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
-import { FileBarChart2, Download } from 'lucide-react'
+import { FileBarChart2 } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import AnnualReportSubscription from '@/components/about/AnnualReportSubscription'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Annual Reports | International Coaching Institute',
 }
 
-export default function AnnualReportsPage() {
+export default async function AnnualReportsPage() {
+  const content = await getPublishedPageContent('/about/annual-reports')
+
+  const commitments = cmsIndexedWithFallbacks(content, 'commitment_', [
+    'Coaches trained and credentials awarded',
+    'How we upheld our assessment standard',
+    'Community, alumni and social-impact activity',
+    'What worked, what did not, and what we are changing',
+  ])
+
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
@@ -24,13 +35,15 @@ export default function AnnualReportsPage() {
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">Transparency</div>
+              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Transparency')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Annual Reports
+              {cmsField(content, 'hero_heading', 'Annual Reports')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl">
-              We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.
+              {stripHtml(cmsHtml(content, 'hero_body', 'We believe an institution that asks people to trust it should be willing to show its workings. As ICI completes each year, we will publish a report covering what we set out to do, what we achieved, and what we learned.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -46,16 +59,11 @@ export default function AnnualReportsPage() {
                 <FileBarChart2 size={200} strokeWidth={1} />
               </div>
               <h3 className="text-h3 text-brand-navy-800 mb-8 relative z-10">
-                Until this year is fully complete, this is what we commit to reporting on, openly and without spin:
+                {cmsField(content, 'commitments_heading', 'Until this year is fully complete, this is what we commit to reporting on, openly and without spin:')}
               </h3>
               
               <div className="space-y-6 relative z-10">
-                {[
-                  "Coaches trained and credentials awarded",
-                  "How we upheld our assessment standard",
-                  "Community, alumni and social-impact activity",
-                  "What worked, what did not, and what we are changing"
-                ].map((item, i) => (
+                {commitments.map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-cream-50 flex items-center justify-center shrink-0 mt-0.5 border border-brand-gold-100">
                       <div className="w-2.5 h-2.5 bg-brand-gold-500 rounded-full"></div>

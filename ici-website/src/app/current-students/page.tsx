@@ -4,19 +4,31 @@ import Link from 'next/link'
 import { Calendar, Video, Users, FileCheck, Phone, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Current Students | International Coaching Institute',
   description: 'Your ICI student hub: cohort schedule, session links, materials, supervision and support. Everything you need while you train, in one place.'
 }
 
-export default function CurrentStudentsPage() {
+export default async function CurrentStudentsPage() {
+  const content = await getPublishedPageContent('/current-students')
+
+  const hubLinkLabels = cmsIndexedWithFallbacks(content, 'hub_link_', [
+    'Session schedule and links',
+    'Course materials and recordings',
+    'Mentor coaching and supervision booking',
+    'Assessment guidance and submission',
+    'Student support and contacts',
+  ])
+
   const hubLinks = [
-    { label: 'Session schedule and links', icon: Calendar },
-    { label: 'Course materials and recordings', icon: Video },
-    { label: 'Mentor coaching and supervision booking', icon: Users },
-    { label: 'Assessment guidance and submission', icon: FileCheck },
-    { label: 'Student support and contacts', icon: Phone },
+    { icon: Calendar },
+    { icon: Video },
+    { icon: Users },
+    { icon: FileCheck },
+    { icon: Phone },
   ]
 
   return (
@@ -33,13 +45,15 @@ export default function CurrentStudentsPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">For Current Students</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'For Current Students')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Welcome back
+              {cmsField(content, 'hero_heading', 'Welcome back')}
             </h1>
             <p className="text-navy-100 text-base max-w-3xl mb-12">
-              You are in the middle of the work, and this is your home base for it. Here you will find your schedule, your materials, your supervision and the people who can help. Coaching is learned by doing, and you are doing it. Use this hub to stay on track and get the most from your one-to-one sessions.
+              {stripHtml(cmsHtml(content, 'hero_body', 'You are in the middle of the work, and this is your home base for it. Here you will find your schedule, your materials, your supervision and the people who can help. Coaching is learned by doing, and you are doing it. Use this hub to stay on track and get the most from your one-to-one sessions.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -51,12 +65,14 @@ export default function CurrentStudentsPage() {
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
-              <h2 className="text-h2 text-brand-navy-900 mb-6">Your student hub</h2>
+              <h2 className="text-h2 text-brand-navy-900 mb-6">
+                {cmsField(content, 'hub_heading', 'Your student hub')}
+              </h2>
               <p className="text-muted mb-8 text-body">
-                Log in to access your complete learning environment, including upcoming sessions and submitted assessments.
+                {cmsField(content, 'hub_intro', 'Log in to access your complete learning environment, including upcoming sessions and submitted assessments.')}
               </p>
-              <Link href="/login" className="btn-primary inline-flex items-center gap-2">
-                Log in to your account <ArrowRight size={18} />
+              <Link href={cmsField(content, 'portal_link_url', '/login')} className="btn-primary inline-flex items-center gap-2">
+                {cmsField(content, 'portal_link_text', 'Log in to your account')} <ArrowRight size={18} />
               </Link>
             </AnimatedSection>
 
@@ -75,7 +91,7 @@ export default function CurrentStudentsPage() {
                           <Icon size={20} />
                         </div>
                         <span className="font-sans font-medium text-lg text-brand-navy-900 group-hover:text-brand-gold-700 transition-colors">
-                          {item.label}
+                          {hubLinkLabels[index]}
                         </span>
                       </div>
                       <ArrowRight size={20} className="text-muted group-hover:text-brand-gold-500 group-hover:translate-x-1 transition-all" />
@@ -93,13 +109,15 @@ export default function CurrentStudentsPage() {
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <h2 className="text-h2 text-brand-navy-900 mb-6">Need help?</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-6">
+              {cmsField(content, 'help_heading', 'Need help?')}
+            </h2>
             <p className="text-muted mb-12 text-body">
-              If anything is unclear or part of the work feels hard, that is normal, and we are here. Reach out to your coach or the student support team rather than struggling alone.
+              {cmsField(content, 'help_body', 'If anything is unclear or part of the work feels hard, that is normal, and we are here. Reach out to your coach or the student support team rather than struggling alone.')}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
               <Link href="/contact" className="btn-secondary-light">
-                Contact student support <ArrowRight size={18} />
+                {cmsField(content, 'help_cta_text', 'Contact student support')} <ArrowRight size={18} />
               </Link>
             </div>
           </AnimatedSection>

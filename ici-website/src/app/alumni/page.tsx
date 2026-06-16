@@ -4,19 +4,31 @@ import Link from 'next/link'
 import { Users, GraduationCap, Network, HeartHandshake, BookOpen, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'ICI Alumni | International Coaching Institute',
   description: 'ICI alumni stay connected for supervision, referrals, continued learning and friendship. Qualifying is the beginning of your relationship with the institute.'
 }
 
-export default function AlumniPage() {
+export default async function AlumniPage() {
+  const content = await getPublishedPageContent('/alumni')
+
+  const benefitsLabels = cmsIndexedWithFallbacks(content, 'benefit_', [
+    'Peer supervision and reflective practice groups',
+    'Access to masterclasses and events',
+    'A referral network of practising coaches',
+    'Opportunities to teach, mentor and contribute',
+    'Continued professional development',
+  ])
+
   const benefitsLinks = [
-    { label: 'Peer supervision and reflective practice groups', icon: Users },
-    { label: 'Access to masterclasses and events', icon: GraduationCap },
-    { label: 'A referral network of practising coaches', icon: Network },
-    { label: 'Opportunities to teach, mentor and contribute', icon: HeartHandshake },
-    { label: 'Continued professional development', icon: BookOpen },
+    { icon: Users },
+    { icon: GraduationCap },
+    { icon: Network },
+    { icon: HeartHandshake },
+    { icon: BookOpen },
   ]
 
   return (
@@ -33,13 +45,15 @@ export default function AlumniPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">For Alumni</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'For Alumni')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Once an ICI coach, always part of ICI
+              {cmsField(content, 'hero_heading', 'Once an ICI coach, always part of ICI')}
             </h1>
             <p className="text-navy-100 text-base max-w-3xl mb-12">
-              The credential was a milestone, not an exit. Our alumni stay connected for the things that make a long coaching career sustainable: supervision, referrals, continued learning and the company of people who understand the work. The longer you practise, the more this matters. Welcome back, whenever you need us.
+              {stripHtml(cmsHtml(content, 'hero_body', 'The credential was a milestone, not an exit. Our alumni stay connected for the things that make a long coaching career sustainable: supervision, referrals, continued learning and the company of people who understand the work. The longer you practise, the more this matters. Welcome back, whenever you need us.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -51,9 +65,11 @@ export default function AlumniPage() {
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
-              <h2 className="text-h2 text-brand-navy-900 mb-6">Your alumni benefits</h2>
+              <h2 className="text-h2 text-brand-navy-900 mb-6">
+                {cmsField(content, 'benefits_heading', 'Your alumni benefits')}
+              </h2>
               <p className="text-muted mb-8 text-body">
-                As a credentialed member of the ICI network, you have ongoing access to resources designed to support and elevate your practice.
+                {cmsField(content, 'benefits_intro', 'As a credentialed member of the ICI network, you have ongoing access to resources designed to support and elevate your practice.')}
               </p>
             </AnimatedSection>
 
@@ -71,7 +87,7 @@ export default function AlumniPage() {
                           <Icon size={20} />
                         </div>
                         <span className="font-sans font-medium text-lg text-brand-navy-900 group-hover:text-brand-gold-700 transition-colors">
-                          {item.label}
+                          {benefitsLabels[index]}
                         </span>
                       </div>
                     </div>
@@ -88,16 +104,18 @@ export default function AlumniPage() {
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <h2 className="text-h2 text-brand-navy-900 mb-6">Stay involved</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-6">
+              {cmsField(content, 'stay_involved_heading', 'Stay involved')}
+            </h2>
             <p className="text-muted mb-12 text-body">
-              Keep your details current, join the next event, and tell us when something good happens in your practice. Your story may be exactly what a future student needs to read.
+              {cmsField(content, 'stay_involved_body', 'Keep your details current, join the next event, and tell us when something good happens in your practice. Your story may be exactly what a future student needs to read.')}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
               <Link href="/account" className="btn-primary">
-                Update your details
+                {cmsField(content, 'cta_button_1_text', 'Update your details')}
               </Link>
               <Link href="/events" className="btn-secondary-light">
-                See upcoming events <ArrowRight size={18} />
+                {cmsField(content, 'cta_button_2_text', 'See upcoming events')} <ArrowRight size={18} />
               </Link>
             </div>
           </AnimatedSection>

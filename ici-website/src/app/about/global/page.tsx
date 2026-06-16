@@ -3,13 +3,34 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml, cmsNumber } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Global Presence | International Coaching Institute',
   description: 'Delivered entirely online, ICI trains coaches across many countries and time zones. Our campus is the community, not a building.',
 }
 
-export default function GlobalPage() {
+export default async function GlobalPage() {
+  const content = await getPublishedPageContent('/about/global')
+
+  const stepDescFallbacks = [
+    'Live, one-to-one sessions scheduled around your time zone',
+    'Coaches and faculty drawn from multiple countries',
+    'A single global community rather than separate regional ones',
+    'The same standard and credential wherever you are based',
+  ]
+
+  const steps = stepDescFallbacks.map((desc, i) => ({
+    title: cmsField(content, `step_${i + 1}_heading`, ['Your Time Zone', 'Global Faculty', 'One Network', 'Universal Standard'][i]),
+    desc: cmsField(content, `step_${i + 1}_body`, desc),
+  }))
+
+  const stat1Num = cmsNumber(content, 'stat_1_number', 60)
+  const stat1Suffix = cmsField(content, 'stat_1_suffix', '+')
+  const stat2Num = cmsNumber(content, 'stat_2_number', 1000)
+  const stat2Suffix = cmsField(content, 'stat_2_suffix', '+')
+
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
@@ -25,13 +46,15 @@ export default function GlobalPage() {
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">Global Presence</div>
+              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Global Presence')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Online, and genuinely global
+              {cmsField(content, 'hero_heading', 'Online, and genuinely global')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl">
-              We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate. Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.
+              {stripHtml(cmsHtml(content, 'hero_body', 'We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate. Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -45,25 +68,25 @@ export default function GlobalPage() {
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
-                  <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">60+</div>
-                  <div className="text-eyebrow">Countries</div>
+                  <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">{stat1Num}{stat1Suffix}</div>
+                  <div className="text-eyebrow">{cmsField(content, 'stat_1_label', 'Countries')}</div>
                 </div>
                 <div className="bg-white p-8 flex flex-col justify-center items-center text-center hover:shadow-lg transition-shadow rounded-3xl shadow-xl border border-navy-100">
-                  <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">1,000+</div>
-                  <div className="text-eyebrow">Coaches</div>
+                  <div className="font-display text-h2 font-bold text-brand-navy-800 mb-2">{stat2Num.toLocaleString()}{stat2Suffix}</div>
+                  <div className="text-eyebrow">{cmsField(content, 'stat_2_label', 'Coaches')}</div>
                 </div>
                 <div className="bg-brand-navy-800 p-8 border-brand-navy-700 flex flex-col justify-center items-center text-center col-span-2 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold-500 rounded-full blur-[50px] opacity-20"></div>
-                   <div className="text-h3 text-white mb-2">100%</div>
-                   <div className="text-eyebrow text-brand-gold-400">Online & One-to-One</div>
+                   <div className="text-h3 text-white mb-2">{cmsNumber(content, 'stat_3_number', 100)}{cmsField(content, 'stat_3_suffix', '%')}</div>
+                   <div className="text-eyebrow text-brand-gold-400">{cmsField(content, 'stat_3_label', 'Online & One-to-One')}</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
                 <Link href="/community" className="btn-primary text-center">
-                  Join a global community of coaches
+                  {cmsField(content, 'cta_link_1_text', 'Join a global community of coaches')}
                 </Link>
                 <Link href="/credentials" className="btn-secondary-light text-center">
-                  See the pathway
+                  {cmsField(content, 'cta_link_2_text', 'See the pathway')}
                 </Link>
               </div>
             </AnimatedSection>
@@ -73,17 +96,14 @@ export default function GlobalPage() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
             
             <div className="relative z-20 text-center mb-16">
-              <h2 className="text-h3 text-white mb-6">How global delivery works</h2>
+              <h2 className="text-h3 text-white mb-6">
+                {cmsField(content, 'how_it_works_heading', 'How global delivery works')}
+              </h2>
               <div className="w-16 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
-              {[
-                { title: "Your Time Zone", desc: "Live, one-to-one sessions scheduled around your time zone" },
-                { title: "Global Faculty", desc: "Coaches and faculty drawn from multiple countries" },
-                { title: "One Network", desc: "A single global community rather than separate regional ones" },
-                { title: "Universal Standard", desc: "The same standard and credential wherever you are based" }
-              ].map((item, i) => (
+              {steps.map((item, i) => (
                 <div key={i} className="bg-brand-navy-800/50 backdrop-blur-sm p-8 rounded-3xl border border-subtle hover:bg-brand-navy-800 transition-colors">
                   <div className="text-brand-gold-400 font-display text-3xl mb-4 italic leading-none">0{i+1}</div>
                   <h4 className="font-sans font-bold text-white text-h4 mb-3">{item.title}</h4>
@@ -94,8 +114,12 @@ export default function GlobalPage() {
 
             {/* Glowing Map Component */}
             <div className="mt-24 text-center">
-              <h2 className="text-h3 text-white mb-6">Where our coaches are</h2>
-              <p className="text-brand-navy-200 mb-10 text-body">Our coaches train from 60+ countries and counting.</p>
+              <h2 className="text-h3 text-white mb-6">
+                {cmsField(content, 'where_coaches_are_heading', 'Where our coaches are')}
+              </h2>
+              <p className="text-brand-navy-200 mb-10 text-body">
+                {cmsField(content, 'where_coaches_are_body', 'Our coaches train from 60+ countries and counting.')}
+              </p>
             </div>
             
             <Container size="mid" className="relative z-20 w-full aspect-[2/1] rounded-3xl overflow-hidden flex items-center justify-center border border-faint bg-brand-navy-800/30">

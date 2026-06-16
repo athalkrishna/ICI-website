@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# International Coaching Institute — Website & Backend
 
-## Getting Started
+Next.js 14+ application with a full CMS admin dashboard, student portal, lead management, blog, events, and email system. Content is stored in MySQL via Prisma and files in Bunny.net CDN.
 
-First, run the development server:
+## Stack
+
+- **Framework:** Next.js 16 (App Router) + TypeScript
+- **Database:** MySQL (XAMPP locally, Cloudways in production)
+- **ORM:** Prisma 7 with MariaDB adapter
+- **Auth:** NextAuth.js v4 (credentials)
+- **Storage:** Bunny.net Storage + Pull Zone CDN
+- **Email:** Nodemailer (SMTP)
+- **UI:** Tailwind CSS, TipTap, Monaco Editor
+
+## Local setup (XAMPP)
+
+### 1. Prerequisites
+
+- Node.js 20+
+- XAMPP with MySQL running
+- Create database: `ici_website` (or update `DATABASE_URL`)
+
+### 2. Install & configure
+
+```bash
+cd ici-website
+npm install
+cp .env.example .env.local
+```
+
+Edit `.env.local`:
+
+- `DATABASE_URL` — e.g. `mysql://root:@localhost:3306/ici_website`
+- `NEXTAUTH_SECRET` — generate with `openssl rand -base64 32`
+- Bunny.net and SMTP credentials (optional for local dev; required for uploads/email)
+
+### 3. Database
+
+```bash
+npm run db:generate   # Generate Prisma client
+npm run db:push       # Apply schema to MySQL
+npm run db:seed       # Seed pages, admin users, testimonials
+```
+
+### 4. Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Website:** http://localhost:3000
+- **Admin login:** http://localhost:3000/admin/login
+- **Student login:** http://localhost:3000/login
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Default admin credentials (after seed)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Role | Email | Password |
+|------|-------|----------|
+| Super Admin | admin@internationalcoachinginstitute.org | Admin@ICI2026 |
+| Admin | team@internationalcoachinginstitute.org | Admin@ICI2026 |
 
-## Learn More
+## Production deployment (Cloudways)
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a Node.js application on Cloudways (Node 20+).
+2. Create a MySQL database and set `DATABASE_URL` in Cloudways environment variables.
+3. Set all variables from `.env.example` in the Cloudways panel (never commit secrets).
+4. Deploy the repo; build and start commands:
+   - **Build:** `npm run build`
+   - **Start:** `npm start`
+5. After first deploy, run migrations/seed via SSH:
+   ```bash
+   npm run db:push
+   npm run db:seed
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Bunny.net configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a **Storage Zone** and note the zone name and API key.
+2. Create a **Pull Zone** linked to the storage zone for CDN delivery.
+3. For private course materials, enable **Token Authentication** on the pull zone and set `BUNNY_TOKEN_AUTH_KEY`.
+4. Set in `.env`:
+   - `BUNNY_STORAGE_ZONE_NAME`
+   - `BUNNY_STORAGE_API_KEY`
+   - `BUNNY_CDN_URL`
+   - `BUNNY_TOKEN_AUTH_KEY` (for signed URLs)
 
-## Deploy on Vercel
+All uploads (CMS images, media library, course materials) go to Bunny.net. Only CDN URLs are stored in MySQL.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Admin dashboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Section | Route |
+|---------|-------|
+| Dashboard | `/admin` |
+| Pages (CMS) | `/admin/pages` |
+| Blog | `/admin/blog` |
+| Events | `/admin/events` |
+| Leads | `/admin/leads` |
+| Students | `/admin/students` |
+| Course Materials | `/admin/materials` |
+| Testimonials | `/admin/testimonials` |
+| Media Library | `/admin/media` |
+| Email Logs | `/admin/email-logs` |
+| Site Settings | `/admin/settings` |
+| Users (super admin) | `/admin/users` |
+
+## Student portal
+
+| Section | Route |
+|---------|-------|
+| Dashboard | `/dashboard` |
+| Materials | `/dashboard/materials` |
+| Profile | `/dashboard/profile` |
+| Credential | `/dashboard/credential` |
+
+## CMS content
+
+Public pages read from the `pages` and `content_fields` tables via `getPageContent(slug)`. Home page slug is `/`. Global header/footer content is slug `global`.
+
+Publishing a page triggers ISR revalidation (`revalidate: 60` + on-demand via `/api/revalidate`).
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Production server |
+| `npm run db:generate` | Generate Prisma client |
+| `npm run db:push` | Push schema to database |
+| `npm run db:migrate` | Create/run migrations |
+| `npm run db:seed` | Seed initial data |
+
+## Security notes
+
+- Admin routes require `ADMIN` or `SUPER_ADMIN` role.
+- Student routes require `STUDENT` role.
+- Login rate limit: 5 attempts per IP per 15 minutes.
+- Passwords hashed with bcrypt (12 rounds).
+- Course material access uses Bunny.net signed URLs (15-minute expiry).

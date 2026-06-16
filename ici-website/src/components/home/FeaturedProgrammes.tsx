@@ -4,15 +4,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { cmsField, cmsPlainBody } from '@/lib/cms-helpers'
+import type { ContentMap } from '@/lib/content'
 
-const programmes = [
+const PROGRAMME_DEFAULTS = [
   {
     title: 'Certified Life Coach',
     image: '/certified-life-coach.png',
     altText: 'A professional life coach in an attentive coaching session',
     desc: 'Master the foundational competencies of transformational life coaching.',
     type: 'Levels 1–2',
-    href: '/programmes/certified-life-coach'
+    href: '/programmes/certified-life-coach',
   },
   {
     title: 'Executive Coaching',
@@ -20,7 +22,7 @@ const programmes = [
     altText: 'Senior executives engaged in a professional leadership coaching meeting',
     desc: 'Drive organisational success through advanced leadership methodologies.',
     type: 'Levels 3–4',
-    href: '/programmes/executive-coaching'
+    href: '/programmes/executive-coaching',
   },
   {
     title: 'Health & Wellness',
@@ -28,18 +30,38 @@ const programmes = [
     altText: 'A health and wellness coach guiding a client in a calm bright studio',
     desc: 'Empower clients to achieve sustainable physical and mental well-being.',
     type: 'Open entry',
-    href: '/programmes/health-wellness'
-  }
-]
+    href: '/programmes/health-wellness',
+  },
+];
 
-export default function FeaturedProgrammes() {
+interface FeaturedProgrammesProps {
+  content?: ContentMap;
+}
+
+export default function FeaturedProgrammes({ content = {} }: FeaturedProgrammesProps) {
+  const programmes = PROGRAMME_DEFAULTS.map((def, i) => {
+    const n = i + 1;
+    return {
+      title: cmsField(content, `programme_${n}_title`, def.title),
+      image: cmsField(content, `programme_${n}_image`, def.image) || def.image,
+      altText: def.altText,
+      desc: cmsPlainBody(content, `programme_${n}_description`, def.desc),
+      type: cmsField(content, `programme_${n}_tag`, def.type),
+      href: cmsField(content, `programme_${n}_link`, def.href),
+    };
+  });
+
   return (
     <Section spacing="standard" className="bg-cream-50">
       <Container>
         <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">Academics</div>
-            <h2 className="text-h2 text-brand-navy-700">Featured Programmes</h2>
+            <div className="text-eyebrow flex items-center gap-3 justify-center !justify-start mb-4">
+              {cmsField(content, 'programmes_section_label', 'Academics')}
+            </div>
+            <h2 className="text-h2 text-brand-navy-700">
+              {cmsField(content, 'programmes_section_heading', 'Featured Programmes')}
+            </h2>
           </div>
           <Link href="/programmes" className="text-brand-gold-600 hover:text-brand-gold-700 font-sans font-semibold text-sm underline underline-offset-4">
             View All Programmes

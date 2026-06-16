@@ -5,6 +5,8 @@ import EventsForm from '@/components/shared/EventsForm'
 import { getUpcomingEvents } from '@/lib/queries'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Coaching Events, Summits & Masterclasses | ICI',
@@ -12,6 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default async function EventsPage() {
+  const content = await getPublishedPageContent('/events')
+
   let events: any[] = [];
   try {
     const fetched = await getUpcomingEvents();
@@ -36,13 +40,15 @@ export default async function EventsPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Events</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Events')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Where the community comes together
+              {cmsField(content, 'hero_heading', 'Where the community comes together')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl mb-12">
-              Some things only happen when people gather, even online. ICI events bring together coaches, leaders and the people we teach for masterclasses, summits and live sessions that go deeper than any recording can. Below are the events coming up. Each one is a chance to learn something real and meet people worth knowing.
+              {stripHtml(cmsHtml(content, 'hero_body', 'Some things only happen when people gather, even online. ICI events bring together coaches, leaders and the people we teach for masterclasses, summits and live sessions that go deeper than any recording can. Below are the events coming up. Each one is a chance to learn something real and meet people worth knowing.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -52,12 +58,14 @@ export default async function EventsPage() {
       <Section spacing="standard" className="relative z-20">
         <Container>
           <AnimatedSection>
-            <h2 className="text-h2 text-brand-navy-900 mb-12">Upcoming events</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-12">
+              {cmsField(content, 'upcoming_heading', 'Upcoming events')}
+            </h2>
             
             {events.length === 0 ? (
               <Container size="narrow" className="bg-white border border-navy-100 shadow-xl rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center">
                 <p className="text-muted mb-8 text-body">
-                  Our first public events are being scheduled. Register your interest and we will tell you first.
+                  {cmsField(content, 'empty_state_body', 'Our first public events are being scheduled. Register your interest and we will tell you first.')}
                 </p>
                 <EventsForm />
               </Container>
@@ -76,7 +84,7 @@ export default async function EventsPage() {
                     )}
                     {event.registerLink && (
                       <Link href={event.registerLink} target="_blank" className="btn-primary inline-flex">
-                        Register for event
+                        {cmsField(content, 'register_button_text', 'Register for event')}
                       </Link>
                     )}
                   </div>
@@ -86,10 +94,10 @@ export default async function EventsPage() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-6 mt-16">
               <Link href="#all-events" className="btn-primary text-center">
-                See all events
+                {cmsField(content, 'cta_1_text', 'See all events')}
               </Link>
               <Link href="#events-form" className="btn-secondary-light text-center">
-                Register your interest
+                {cmsField(content, 'cta_2_text', 'Register your interest')}
               </Link>
             </div>
           </AnimatedSection>
@@ -100,13 +108,15 @@ export default async function EventsPage() {
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-3xl">
-            <h2 className="text-h2 text-brand-navy-900 mb-6">Masterclasses</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-6">
+              {cmsField(content, 'masterclasses_heading', 'Masterclasses')}
+            </h2>
             <p className="text-muted mb-12 text-body">
-              Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.
+              {cmsField(content, 'masterclasses_body', 'Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.')}
             </p>
             <div className="flex flex-wrap justify-start items-center gap-4">
               <Link href="#events-form" className="btn-primary">
-                Register your interest
+                {cmsField(content, 'masterclasses_cta_text', 'Register your interest')}
               </Link>
             </div>
           </AnimatedSection>

@@ -1,16 +1,19 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
-import Link from 'next/link'
 import ContactForm from '@/components/admissions/ContactForm'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Speak to an Advisor | ICI Admissions',
   description: 'Talk to an ICI advisor about programmes, levels, timing or cost. No script and no pressure, just a straight conversation to help you decide.'
 }
 
-export default function ContactAdmissionsPage() {
+export default async function ContactAdmissionsPage() {
+  const content = await getPublishedPageContent('/admissions/contact')
+
   return (
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
       
@@ -25,13 +28,15 @@ export default function ContactAdmissionsPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Speak to an Advisor</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Speak to an Advisor')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Not sure? Talk it through
+              {cmsField(content, 'hero_heading', 'Not sure? Talk it through')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl mb-12">
-              Choosing how to train as a coach is a real decision, and sometimes you simply want to talk it through with someone who knows. That is what our advisors are for. Ask anything: about levels, timing, cost, or whether coaching is right for you at all. No script, no pressure.
+              {stripHtml(cmsHtml(content, 'hero_subheading', 'Choosing how to train as a coach is a real decision, and sometimes you simply want to talk it through with someone who knows. That is what our advisors are for. Ask anything: about levels, timing, cost, or whether coaching is right for you at all. No script, no pressure.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -43,7 +48,7 @@ export default function ContactAdmissionsPage() {
           <AnimatedSection>
             <div className="bg-white p-8 md:p-12 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
               <h2 className="text-h3 text-brand-navy-900 mb-8 relative z-10">
-                Book a conversation
+                {cmsField(content, 'booking_heading', 'Book a conversation')}
               </h2>
               
               <ContactForm />
@@ -52,7 +57,14 @@ export default function ContactAdmissionsPage() {
           
           <AnimatedSection delay={0.2} className="mt-16 text-center">
             <p className="text-muted text-body">
-              Or reach us directly at <a href="tel:+919819984575" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">(+91) 98199 84575</a> and <a href="mailto:info@internationalcoachinginstitute.org" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">info@internationalcoachinginstitute.org</a>
+              {cmsField(content, 'direct_contact_prefix', 'Or reach us directly at')}{' '}
+              <a href="tel:+919819984575" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">
+                {cmsField(content, 'phone_display', '(+91) 98199 84575')}
+              </a>{' '}
+              {cmsField(content, 'direct_contact_and', 'and')}{' '}
+              <a href="mailto:info@internationalcoachinginstitute.org" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">
+                {cmsField(content, 'email_display', 'info@internationalcoachinginstitute.org')}
+              </a>
             </p>
           </AnimatedSection>
 

@@ -4,19 +4,31 @@ import Link from 'next/link'
 import { Briefcase, Building, Users, Target, BarChart, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Coaching for Organisations | ICI',
   description: 'Build a coaching culture with ICI. Train managers and internal coaches one-to-one, develop leaders, and make feedback and accountability part of how people work.'
 }
 
-export default function OrganizationsPage() {
+export default async function OrganizationsPage() {
+  const content = await getPublishedPageContent('/organisations')
+
+  const workLinkLabels = cmsIndexedWithFallbacks(content, 'work_link_', [
+    'Train managers and leaders to coach in the flow of work',
+    'Develop internal coaches your organisation owns',
+    'Executive coaching for senior leaders',
+    'Tailored programmes built around your context',
+    'Measurement that speaks the language of the business',
+  ])
+
   const workLinks = [
-    { label: 'Train managers and leaders to coach in the flow of work', icon: Users },
-    { label: 'Develop internal coaches your organisation owns', icon: Building },
-    { label: 'Executive coaching for senior leaders', icon: Briefcase },
-    { label: 'Tailored programmes built around your context', icon: Target },
-    { label: 'Measurement that speaks the language of the business', icon: BarChart },
+    { icon: Users },
+    { icon: Building },
+    { icon: Briefcase },
+    { icon: Target },
+    { icon: BarChart },
   ]
 
   return (
@@ -33,13 +45,15 @@ export default function OrganizationsPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">For Organisations</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'For Organisations')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Build a coaching culture, not just send people on a course
+              {cmsField(content, 'hero_heading', 'Build a coaching culture, not just send people on a course')}
             </h1>
             <p className="text-navy-100 text-base max-w-3xl mb-12">
-              Most leadership training is forgotten within a month because it teaches ideas, not habits. Coaching is different. When managers learn to coach, the change shows up in everyday conversations: clearer feedback, real accountability, people who grow instead of stall. ICI helps organisations build that capability from the inside, one-to-one, and own it.
+              {stripHtml(cmsHtml(content, 'hero_body', 'Most leadership training is forgotten within a month because it teaches ideas, not habits. Coaching is different. When managers learn to coach, the change shows up in everyday conversations: clearer feedback, real accountability, people who grow instead of stall. ICI helps organisations build that capability from the inside, one-to-one, and own it.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -51,12 +65,14 @@ export default function OrganizationsPage() {
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
             
             <AnimatedSection>
-              <h2 className="text-h2 text-brand-navy-900 mb-6">How we work with organisations</h2>
+              <h2 className="text-h2 text-brand-navy-900 mb-6">
+                {cmsField(content, 'how_we_work_heading', 'How we work with organisations')}
+              </h2>
               <p className="text-muted mb-8 text-body">
-                We do not do off-the-shelf theory. We partner with you to embed coaching behaviours directly into your operational rhythm.
+                {cmsField(content, 'how_we_work_body', 'We do not do off-the-shelf theory. We partner with you to embed coaching behaviours directly into your operational rhythm.')}
               </p>
-              <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
-                Request a proposal <ArrowRight size={18} />
+              <Link href={cmsField(content, 'cta_button_link', '/contact')} className="btn-primary inline-flex items-center gap-2">
+                {cmsField(content, 'cta_proposal_text', 'Request a proposal')} <ArrowRight size={18} />
               </Link>
             </AnimatedSection>
 
@@ -74,7 +90,7 @@ export default function OrganizationsPage() {
                           <Icon size={20} />
                         </div>
                         <span className="font-sans font-medium text-lg text-brand-navy-900 group-hover:text-brand-gold-700 transition-colors">
-                          {item.label}
+                          {workLinkLabels[index]}
                         </span>
                       </div>
                     </div>
@@ -91,13 +107,15 @@ export default function OrganizationsPage() {
       <Section spacing="standard" className="bg-cream-50 border-t border-navy-100 relative z-20">
         <Container>
           <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <h2 className="text-h2 text-brand-navy-900 mb-6">Why it works</h2>
+            <h2 className="text-h2 text-brand-navy-900 mb-6">
+              {cmsField(content, 'why_it_works_heading', 'Why it works')}
+            </h2>
             <p className="text-muted mb-12 text-body">
-              Because it changes habits, not just knowledge. Our programmes are live, one-to-one and grounded in how leaders actually behave under pressure, drawing on deep experience inside demanding organisations.
+              {cmsField(content, 'why_it_works_body', 'Because it changes habits, not just knowledge. Our programmes are live, one-to-one and grounded in how leaders actually behave under pressure, drawing on deep experience inside demanding organisations.')}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4">
               <Link href="/contact" className="btn-secondary-light">
-                Speak to our team <ArrowRight size={18} />
+                {cmsField(content, 'cta_team_text', 'Speak to our team')} <ArrowRight size={18} />
               </Link>
             </div>
           </AnimatedSection>

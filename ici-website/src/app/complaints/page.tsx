@@ -1,46 +1,50 @@
 import ArticleLayout from '@/components/layout/ArticleLayout'
 import { Metadata } from 'next'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Complaints Policy | International Coaching Institute',
   description: 'How to file a complaint with the International Coaching Institute and our process for resolving it.'
 }
 
-export default function ComplaintsPage() {
+export default async function ComplaintsPage() {
+  const content = await getPublishedPageContent('/complaints')
+
   return (
     <ArticleLayout
-      title="Complaints Policy"
-      subtitle="Complaints"
+      title={cmsField(content, 'page_heading', 'Complaints Policy')}
+      subtitle={cmsField(content, 'page_subtitle', 'Complaints')}
       image="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=1920&q=80"
       lastUpdated={new Date('2024-01-01')}
     >
       <p className="lead text-brand-navy-800 text-body">
-        The International Coaching Institute is committed to providing a high-quality service to all our students and clients. If you are unhappy with any aspect of our service, we want to know about it so we can put it right.
+        {stripHtml(cmsHtml(content, 'page_body', 'The International Coaching Institute is committed to providing a high-quality service to all our students and clients. If you are unhappy with any aspect of our service, we want to know about it so we can put it right.'))}
       </p>
 
-      <h2>How to make a complaint</h2>
+      <h2>{cmsField(content, 'how_to_heading', 'How to make a complaint')}</h2>
       <p>
-        If you have a complaint, please contact us with the details. You can do this by:
+        {cmsField(content, 'how_to_intro', 'If you have a complaint, please contact us with the details. You can do this by:')}
       </p>
       <ul>
-        <li>Emailing us at: info@internationalcoachinginstitute.org</li>
-        <li>Writing to us at our registered office address</li>
+        <li>{cmsField(content, 'how_to_email', 'Emailing us at: info@internationalcoachinginstitute.org')}</li>
+        <li>{cmsField(content, 'how_to_address', 'Writing to us at our registered office address')}</li>
       </ul>
 
-      <h2>What happens next?</h2>
+      <h2>{cmsField(content, 'next_steps_heading', 'What happens next?')}</h2>
       <p>
-        We will send you a letter or email acknowledging receipt of your complaint within three days of receiving it, enclosing a copy of this procedure.
+        {cmsField(content, 'process_step_1', 'We will send you a letter or email acknowledging receipt of your complaint within three days of receiving it, enclosing a copy of this procedure.')}
       </p>
       <p>
-        We will then investigate your complaint. This will normally involve passing your complaint to our management team, who will review your file and speak to any members of staff who dealt with you.
+        {cmsField(content, 'process_step_2', 'We will then investigate your complaint. This will normally involve passing your complaint to our management team, who will review your file and speak to any members of staff who dealt with you.')}
       </p>
 
-      <h2>Resolution</h2>
+      <h2>{cmsField(content, 'resolution_heading', 'Resolution')}</h2>
       <p>
-        We will invite you to a meeting or arrange a phone call to discuss and hopefully resolve your complaint. We will do this within 14 days of sending you the acknowledgement letter.
+        {cmsField(content, 'resolution_step_1', 'We will invite you to a meeting or arrange a phone call to discuss and hopefully resolve your complaint. We will do this within 14 days of sending you the acknowledgement letter.')}
       </p>
       <p>
-        Within three days of the meeting, we will write to you to confirm what took place and any solutions we have agreed with you.
+        {cmsField(content, 'resolution_step_2', 'Within three days of the meeting, we will write to you to confirm what took place and any solutions we have agreed with you.')}
       </p>
 
     </ArticleLayout>

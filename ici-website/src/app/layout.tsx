@@ -7,6 +7,7 @@ import { cookies } from 'next/headers'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import MetaPixel from '@/components/MetaPixel'
 import CookieNotice from '@/components/shared/CookieNotice'
+import { getGlobalContent } from '@/lib/content'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -58,6 +59,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies()
   const isLoggedIn = cookieStore.get('ici_mock_auth')?.value === 'true'
+  const globalContent = await getGlobalContent()
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -85,9 +87,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
         <MetaPixel />
-        <Navbar isLoggedIn={isLoggedIn} />
+        <Navbar isLoggedIn={isLoggedIn} globalContent={globalContent} />
         <main id="main-content">{children}</main>
-        <Footer />
+        <Footer globalContent={globalContent} />
         <CookieNotice />
       </body>
     </html>

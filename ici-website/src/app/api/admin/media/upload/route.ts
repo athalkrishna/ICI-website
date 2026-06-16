@@ -1,70 +1,75 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { NextRequest } from 'next/server';
+import { prisma } from '@/lib/prisma';
+import { requireAdmin } from '@/lib/auth';
+import { jsonOk, jsonError, unauthorized, serverError } from '@/lib/api';
+import { uploadToBunny, detectMediaType } from '@/lib/bunny';
+import { logActivity } from '@/lib/activity';
+
+const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
+const ALLOWED_MIME_TYPES = [
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'image/svg+xml',
+  'application/pdf',
+];
 
 export async function POST(req: NextRequest) {
+  const session = await requireAdmin();
+  if (!session) return unauthorized();
+
   try {
-    const session = await getServerSession(authOptions);
-    if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
     const formData = await req.formData();
-    const file = formData.get('file') as File;
+    const file = formData.get('file') as File | null;
+    const altText = (formData.get('altText') as string | null) ?? null;
 
-    if (!file) {
-      return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
+    if (!file) return jsonError('No file uploaded');
+
+    if (!ALLOWED_MIME_TYPES.includes(file.type)) {
+      return jsonError('Invalid file type. Allowed: JPEG, PNG, WebP, SVG, PDF.');
     }
 
-    // MIME type validation
-    const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'];
-    if (!allowedMimeTypes.includes(file.type)) {
-      return NextResponse.json({ error: 'Invalid file type. Only JPEG, PNG, WebP, and SVG are allowed.' }, { status: 400 });
-    }
-
-    // Size validation: 5MB
-    const MAX_SIZE = 5 * 1024 * 1024;
     if (file.size > MAX_SIZE) {
-      return NextResponse.json({ error: 'File size exceeds 5MB limit.' }, { status: 400 });
+      return jsonError('File size exceeds 5MB limit');
     }
 
-    // Clean up filename
-    const ext = file.name.split('.').pop();
-    const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${ext}`;
-
+    const ext = file.name.split('.').pop() ?? 'bin';
+    const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}.${ext}`;
     const buffer = await file.arrayBuffer();
+    const mimeType = file.type;
 
-    // Upload to Bunny.net
-    const zoneName = process.env.BUNNY_STORAGE_ZONE;
-    const apiKey = process.env.BUNNY_API_KEY;
-    const cdnUrl = process.env.BUNNY_CDN_URL;
+    const { url, path } = await uploadToBunny(buffer, fileName, mimeType, 'media');
+    const fileType = detectMediaType(mimeType);
 
-    if (!zoneName || !apiKey || !cdnUrl) {
-      return NextResponse.json({ error: 'CDN configuration missing' }, { status: 500 });
-    }
+    const mediaFile = await prisma.mediaFile.create({
+      data: {
+        fileName: file.name,
+        bunnyUrl: url,
+        bunnyPath: path,
+        fileType,
+        mimeType,
+        fileSizeBytes: file.size,
+        altText,
+        uploadedBy: session.user.id,
+      },
+      include: {
+        uploader: { select: { id: true, name: true } },
+      },
+    });
 
-    const response = await fetch(
-      `https://storage.bunnycdn.com/${zoneName}/${fileName}`,
-      {
-        method: 'PUT',
-        headers: {
-          AccessKey: apiKey,
-          'Content-Type': file.type,
-        },
-        body: buffer,
-      }
-    );
+    await logActivity({
+      action: 'MEDIA_UPLOADED',
+      entity: 'MediaFile',
+      entityId: mediaFile.id,
+      details: file.name,
+      userId: session.user.id,
+      userName: session.user.name,
+    });
 
-    if (!response.ok) {
-      const respText = await response.text();
-      console.error('Bunny upload failed:', respText);
-      return NextResponse.json({ error: 'Upload to CDN failed' }, { status: 500 });
-    }
-
-    const url = `${cdnUrl}/${fileName}`;
-    return NextResponse.json({ url });
-  } catch (error) {
-    console.error('Media Upload Error:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return jsonOk({ url, id: mediaFile.id, mediaFile });
+  } catch (err) {
+    console.error('[admin/media/upload POST]', err);
+    return serverError(err instanceof Error ? err.message : undefined);
   }
 }

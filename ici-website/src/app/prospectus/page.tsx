@@ -1,8 +1,9 @@
-import { getPageContent } from '@/lib/content'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import { Metadata } from 'next'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const revalidate = 60;
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ProspectusPage() {
-  const content = await getPageContent('prospectus')
+  const content = await getPublishedPageContent('/prospectus')
 
   return (
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
@@ -28,13 +29,15 @@ export default async function ProspectusPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Resources</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Resources')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Request Prospectus
+              {cmsField(content, 'hero_heading', 'Request Prospectus')}
             </h1>
             <p className="text-muted-dark mb-12 text-body">
-              {content.body || 'If you would rather read at your own pace, the prospectus brings together the whole picture, from philosophy to practicalities, in a single document.'}
+              {stripHtml(cmsHtml(content, 'hero_body', 'If you would rather read at your own pace, the prospectus brings together the whole picture, from philosophy to practicalities, in a single document.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -44,8 +47,12 @@ export default async function ProspectusPage() {
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <Container>
           <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-8 md:p-16 text-center rounded-3xl shadow-xl border border-navy-100">
-            <h2 className="text-h3 text-brand-navy-900 mb-6">Download the ICI Prospectus</h2>
-            <p className="text-muted mb-8 max-w-xl mx-auto text-body">Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.</p>
+            <h2 className="text-h3 text-brand-navy-900 mb-6">
+              {cmsField(content, 'form_heading', 'Download the ICI Prospectus')}
+            </h2>
+            <p className="text-muted mb-8 max-w-xl mx-auto text-body">
+              {cmsField(content, 'form_subheading', 'Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.')}
+            </p>
             <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
                <input type="email" placeholder="Your email address" required className="flex-1 bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70" />
                <button type="submit" className="btn-primary justify-center">Download PDF</button>

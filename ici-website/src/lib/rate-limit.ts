@@ -32,10 +32,10 @@ export default function rateLimit(options?: Options) {
   };
 }
 
-// 5 attempts per minute per IP for logins
+// 5 attempts per 15 minutes per IP for logins
 export const loginRateLimiter = rateLimit({
-  interval: 60 * 1000, // 60 seconds
-  uniqueTokenPerInterval: 500, // Max 500 users per second doing logins
+  interval: 15 * 60 * 1000,
+  uniqueTokenPerInterval: 500,
 });
 
 // 10 submissions per hour per IP for forms

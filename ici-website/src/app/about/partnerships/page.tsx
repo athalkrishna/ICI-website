@@ -4,12 +4,23 @@ import Link from 'next/link'
 import { Users, GraduationCap, Building2, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Partnerships & Alliances | International Coaching Institute',
 }
 
-export default function PartnershipsPage() {
+export default async function PartnershipsPage() {
+  const content = await getPublishedPageContent('/about/partnerships')
+
+  const wayDescriptions = cmsIndexedWithFallbacks(content, 'way_', [
+    'Training and certifying coaches inside organisations',
+    'Co-developing programmes with institutions and employers',
+    'Referral and delivery alliances with aligned platforms',
+    'Community and social-impact collaborations',
+  ])
+
   return (
     <div className="bg-cream-50 min-h-screen">
       {/* ── Hero Section ── */}
@@ -25,13 +36,15 @@ export default function PartnershipsPage() {
           <AnimatedSection className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">Collaborate with us</div>
+              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Collaborate with us')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Partnerships & Alliances
+              {cmsField(content, 'hero_heading', 'Partnerships & Alliances')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl">
-              Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.
+              {stripHtml(cmsHtml(content, 'hero_body', 'Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -44,29 +57,17 @@ export default function PartnershipsPage() {
           <AnimatedSection delay={0.2} className="mb-32">
             <Container size="mid" className="grid md:grid-cols-2 gap-8">
               {[
-                { 
-                  icon: <Building2 className="w-8 h-8" />, 
-                  desc: "Training and certifying coaches inside organisations" 
-                },
-                { 
-                  icon: <GraduationCap className="w-8 h-8" />, 
-                  desc: "Co-developing programmes with institutions and employers" 
-                },
-                { 
-                  icon: <Users className="w-8 h-8" />, 
-                  desc: "Referral and delivery alliances with aligned platforms" 
-                },
-                { 
-                  icon: <ArrowRight className="w-8 h-8" />, 
-                  desc: "Community and social-impact collaborations" 
-                }
+                { icon: <Building2 className="w-8 h-8" /> },
+                { icon: <GraduationCap className="w-8 h-8" /> },
+                { icon: <Users className="w-8 h-8" /> },
+                { icon: <ArrowRight className="w-8 h-8" /> },
               ].map((card, i) => (
                 <div key={i} className="bg-white rounded-3xl p-8 border border-navy-100 flex items-center gap-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                   <div className="w-16 h-16 bg-cream-50 rounded-2xl flex items-center justify-center text-brand-gold-700 shrink-0 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
                     {card.icon}
                   </div>
                   <p className="text-brand-navy-800 font-medium text-body">
-                    {card.desc}
+                    {wayDescriptions[i]}
                   </p>
                 </div>
               ))}
@@ -81,10 +82,10 @@ export default function PartnershipsPage() {
               
               <div className="relative z-10">
                 <p className="text-white mb-10 max-w-2xl mx-auto text-body">
-                  If your organisation develops people, or serves a community we could serve better together, we would like to hear from you.
+                  {cmsField(content, 'cta_body', 'If your organisation develops people, or serves a community we could serve better together, we would like to hear from you.')}
                 </p>
-                <Link href="/contact" className="btn-primary">
-                  Discuss a partnership
+                <Link href={cmsField(content, 'cta_button_link', '/contact')} className="btn-primary">
+                  {cmsField(content, 'cta_button_text', 'Discuss a partnership')}
                   <ArrowRight size={18} />
                 </Link>
               </div>

@@ -1,0 +1,514 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  STUDENT
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum EnrolledLevel {
+  CATALYST
+  ARCHITECT
+  SAGE
+  LUMINARY
+}
+
+enum Specialisation {
+  LIFE_COACHING
+  EXECUTIVE_LEADERSHIP
+  BUSINESS_COACHING
+  HEALTH_WELLNESS
+  TEAM_ORGANISATIONAL
+}
+
+enum StudentStatus {
+  ENQUIRY
+  APPLIED
+  ENROLLED
+  ACTIVE
+  COMPLETED
+  DEFERRED
+  WITHDRAWN
+}
+
+enum ProgrammeInterest {
+  LIFE_COACHING
+  EXECUTIVE_LEADERSHIP
+  BUSINESS_COACHING
+  HEALTH_WELLNESS
+  TEAM_ORGANISATIONAL
+  NOT_SURE
+}
+
+enum LeadSource {
+  HOME_FORM
+  CONTACT_FORM
+  APPLY_FORM
+  ASSESSMENT_FORM
+  OTHER
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  LOST
+  SPAM
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum ContentFieldType {
+  TEXT
+  TEXTAREA
+  RICHTEXT
+  IMAGE
+  URL
+  EMAIL
+  PHONE
+  NUMBER
+  BOOLEAN
+  CODE
+}
+
+enum VersionAction {
+  DRAFT_SAVED
+  PUBLISHED
+}
+
+enum BlogCategory {
+  INSTITUTE_NEWS
+  COACHING_INSIGHTS
+  RESEARCH
+  EVENTS_RECAP
+  ANNOUNCEMENTS
+}
+
+enum BlogStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum EventType {
+  WEBINAR
+  SUMMIT
+  WORKSHOP
+  MASTERCLASS
+  COMMUNITY_CALL
+  OTHER
+}
+
+enum LocationType {
+  ONLINE
+  IN_PERSON
+  HYBRID
+}
+
+enum EventStatus {
+  UPCOMING
+  ONGOING
+  COMPLETED
+  CANCELLED
+}
+
+enum MaterialLevel {
+  CATALYST
+  ARCHITECT
+  SAGE
+  LUMINARY
+  ALL_LEVELS
+}
+
+enum FileType {
+  PDF
+  VIDEO
+  AUDIO
+  DOCUMENT
+  PRESENTATION
+  OTHER
+}
+
+enum MediaFileType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+  AUDIO
+}
+
+enum EmailTemplate {
+  WELCOME_STUDENT
+  LEAD_CONFIRMATION
+  CREDENTIAL_ISSUED
+  COURSE_ACCESS_GRANTED
+  ADMIN_NEW_LEAD
+  PASSWORD_RESET
+  CUSTOM
+}
+
+enum EmailStatus {
+  SENT
+  FAILED
+  BOUNCED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  password     String
+  name         String
+  role         UserRole   @default(ADMIN)
+  status       UserStatus @default(ACTIVE)
+  avatarUrl    String?    @map("avatar_url")
+  lastLoginAt  DateTime?  @map("last_login_at")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  studentProfile       StudentProfile?
+  materialAccess       StudentMaterialAccess[] @relation("StudentAccess")
+  grantedAccess        StudentMaterialAccess[] @relation("GrantedBy")
+  uploadedMedia        MediaFile[]
+  pageVersions         PageVersion[]
+  passwordResetTokens  PasswordResetToken[]
+  activities           ActivityLog[]
+
+  @@map("users")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  tokenHash String   @map("token_hash")
+  expiresAt DateTime @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+model StudentProfile {
+  id                    String          @id @default(cuid())
+  userId                String          @unique @map("user_id")
+  phone                 String?
+  country               String?
+  city                  String?
+  dateOfBirth           DateTime?       @map("date_of_birth")
+  enrolledLevel         EnrolledLevel?  @map("enrolled_level")
+  enrolledSpecialisation Specialisation? @map("enrolled_specialisation")
+  enrolmentDate         DateTime?       @map("enrolment_date")
+  completionDate        DateTime?       @map("completion_date")
+  studentStatus         StudentStatus   @default(ENQUIRY) @map("student_status")
+  coachAssigned         String?         @map("coach_assigned")
+  coachEmail            String?         @map("coach_email")
+  notes                 String?         @db.Text
+  credentialIssued      Boolean         @default(false) @map("credential_issued")
+  credentialIssueDate   DateTime?       @map("credential_issue_date")
+  credentialNumber      String?         @unique @map("credential_number")
+  directoryOptIn        Boolean         @default(false) @map("directory_opt_in")
+  deletedAt             DateTime?       @map("deleted_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("student_profiles")
+}
+
+model Lead {
+  id                String            @id @default(cuid())
+  fullName          String            @map("full_name")
+  email             String
+  phone             String?
+  country           String?
+  programmeInterest ProgrammeInterest @map("programme_interest")
+  source            LeadSource
+  message           String?           @db.Text
+  status            LeadStatus        @default(NEW)
+  assignedTo        String?           @map("assigned_to")
+  notes             String?           @db.Text
+  utmSource         String?           @map("utm_source")
+  utmMedium         String?           @map("utm_medium")
+  utmCampaign       String?           @map("utm_campaign")
+  createdAt         DateTime          @default(now()) @map("created_at")
+  updatedAt         DateTime          @updatedAt @map("updated_at")
+
+  statusHistory LeadStatusHistory[]
+
+  @@index([status])
+  @@index([source])
+  @@index([createdAt])
+  @@map("leads")
+}
+
+model LeadStatusHistory {
+  id        String     @id @default(cuid())
+  leadId    String     @map("lead_id")
+  fromStatus LeadStatus? @map("from_status")
+  toStatus  LeadStatus @map("to_status")
+  changedBy String?    @map("changed_by")
+  note      String?    @db.Text
+  createdAt DateTime   @default(now()) @map("created_at")
+
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+  @@map("lead_status_history")
+}
+
+model Page {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  description String?    @db.Text
+  isSystem    Boolean    @default(false) @map("is_system")
+  status      PageStatus @default(DRAFT)
+  publishedAt DateTime?  @map("published_at")
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+
+  fields   ContentField[]
+  versions PageVersion[]
+
+  @@map("pages")
+}
+
+model ContentField {
+  id         String           @id @default(cuid())
+  pageId     String           @map("page_id")
+  key        String
+  label      String
+  helperText String?          @map("helper_text") @db.Text
+  type       ContentFieldType
+  value      String?          @db.LongText
+  order      Int              @default(0)
+  section    String           @default("General")
+  createdAt  DateTime         @default(now()) @map("created_at")
+  updatedAt  DateTime         @updatedAt @map("updated_at")
+
+  page Page @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@unique([pageId, key])
+  @@index([pageId])
+  @@map("content_fields")
+}
+
+model PageVersion {
+  id            String        @id @default(cuid())
+  pageId        String        @map("page_id")
+  snapshot      Json
+  action        VersionAction
+  createdBy     String        @map("created_by")
+  createdByName String        @map("created_by_name")
+  createdAt     DateTime      @default(now()) @map("created_at")
+
+  page Page @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [createdBy], references: [id])
+
+  @@index([pageId])
+  @@map("page_versions")
+}
+
+model BlogPost {
+  id              String       @id @default(cuid())
+  title           String
+  slug            String       @unique
+  excerpt         String       @db.VarChar(300)
+  content         String       @db.LongText
+  coverImageUrl   String       @map("cover_image_url")
+  coverImageAlt   String?      @map("cover_image_alt")
+  authorName      String       @map("author_name")
+  authorAvatarUrl String?      @map("author_avatar_url")
+  category        BlogCategory
+  tags            Json         @default("[]")
+  status          BlogStatus   @default(DRAFT)
+  featured        Boolean      @default(false)
+  publishedAt     DateTime?    @map("published_at")
+  metaTitle       String?      @map("meta_title")
+  metaDescription String?      @map("meta_description") @db.Text
+  createdAt       DateTime     @default(now()) @map("created_at")
+  updatedAt       DateTime     @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([featured])
+  @@map("blog_posts")
+}
+
+model Event {
+  id               String       @id @default(cuid())
+  title            String
+  slug             String       @unique
+  description      String       @db.Text
+  fullDescription  String       @map("full_description") @db.LongText
+  coverImageUrl    String?      @map("cover_image_url")
+  eventType        EventType    @map("event_type")
+  startDate        DateTime     @map("start_date")
+  endDate          DateTime     @map("end_date")
+  timezone         String       @default("Asia/Kolkata")
+  locationType     LocationType @map("location_type")
+  locationDetail   String?      @map("location_detail") @db.Text
+  registrationLink String?      @map("registration_link")
+  isFree           Boolean      @default(true) @map("is_free")
+  status           EventStatus  @default(UPCOMING)
+  featured         Boolean      @default(false)
+  maxAttendees     Int?         @map("max_attendees")
+  createdAt        DateTime     @default(now()) @map("created_at")
+  updatedAt        DateTime     @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([featured])
+  @@index([startDate])
+  @@map("events")
+}
+
+model CourseMaterial {
+  id            String        @id @default(cuid())
+  title         String
+  description   String?       @db.Text
+  fileUrl       String        @map("file_url")
+  bunnyPath     String        @map("bunny_path")
+  fileName      String        @map("file_name")
+  fileType      FileType      @map("file_type")
+  fileSizeBytes Int           @map("file_size_bytes")
+  level         MaterialLevel
+  moduleNumber  Int           @map("module_number")
+  isPublished   Boolean       @default(false) @map("is_published")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  access StudentMaterialAccess[]
+
+  @@index([level])
+  @@map("course_materials")
+}
+
+model StudentMaterialAccess {
+  id            String   @id @default(cuid())
+  studentUserId String   @map("student_user_id")
+  materialId    String   @map("material_id")
+  grantedAt     DateTime @default(now()) @map("granted_at")
+  grantedBy     String   @map("granted_by")
+
+  student  User           @relation("StudentAccess", fields: [studentUserId], references: [id], onDelete: Cascade)
+  material CourseMaterial @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  granter  User           @relation("GrantedBy", fields: [grantedBy], references: [id])
+
+  @@unique([studentUserId, materialId])
+  @@map("student_material_access")
+}
+
+model Testimonial {
+  id               String        @id @default(cuid())
+  studentName      String        @map("student_name")
+  studentTitle     String        @map("student_title")
+  studentLocation  String        @map("student_location")
+  studentAvatarUrl String?       @map("student_avatar_url")
+  credentialLevel  EnrolledLevel @map("credential_level")
+  quote            String        @db.Text
+  isPublished      Boolean       @default(false) @map("is_published")
+  displayOrder     Int           @default(0) @map("display_order")
+  createdAt        DateTime      @default(now()) @map("created_at")
+  updatedAt        DateTime      @updatedAt @map("updated_at")
+
+  @@index([isPublished, displayOrder])
+  @@map("testimonials")
+}
+
+model FacultyMember {
+  id        String   @id @default(cuid())
+  name      String
+  title     String
+  bio       String   @db.LongText
+  imageUrl  String?  @map("image_url")
+  order     Int      @default(0)
+  isPublished Boolean @default(true) @map("is_published")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("faculty_members")
+}
+
+model MediaFile {
+  id            String        @id @default(cuid())
+  fileName      String        @map("file_name")
+  bunnyUrl      String        @map("bunny_url")
+  bunnyPath     String        @map("bunny_path")
+  fileType      MediaFileType @map("file_type")
+  mimeType      String        @map("mime_type")
+  fileSizeBytes Int           @map("file_size_bytes")
+  altText       String?       @map("alt_text")
+  uploadedBy    String        @map("uploaded_by")
+  createdAt     DateTime      @default(now()) @map("created_at")
+
+  uploader User @relation(fields: [uploadedBy], references: [id])
+
+  @@index([fileType])
+  @@map("media_files")
+}
+
+model EmailLog {
+  id             String        @id @default(cuid())
+  recipientEmail String        @map("recipient_email")
+  recipientName  String?       @map("recipient_name")
+  subject        String
+  templateUsed   EmailTemplate @map("template_used")
+  status         EmailStatus
+  sentAt         DateTime      @default(now()) @map("sent_at")
+  errorMessage   String?       @map("error_message") @db.Text
+
+  @@index([sentAt])
+  @@map("email_logs")
+}
+
+model SiteSettings {
+  id                     String   @id @default("singleton")
+  siteName               String   @map("site_name")
+  siteEmail              String   @map("site_email")
+  sitePhone              String   @map("site_phone")
+  linkedinUrl            String?  @map("linkedin_url")
+  footerTagline          String?  @map("footer_tagline") @db.Text
+  copyrightText          String?  @map("copyright_text")
+  defaultMetaDescription String?  @map("default_meta_description") @db.Text
+  defaultOgImageUrl      String?  @map("default_og_image_url")
+  googleAnalyticsId      String?  @map("google_analytics_id")
+  facebookPixelId        String?  @map("facebook_pixel_id")
+  headCode               String?  @map("head_code") @db.LongText
+  bodyCode               String?  @map("body_code") @db.LongText
+  maintenanceMode        Boolean  @default(false) @map("maintenance_mode")
+  findCoachPageEnabled   Boolean  @default(false) @map("find_coach_page_enabled")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+  updatedBy              String?  @map("updated_by")
+
+  @@map("site_settings")
+}
+
+model ActivityLog {
+  id        String   @id @default(cuid())
+  action    String
+  entity    String
+  entityId  String?  @map("entity_id")
+  details   String?  @db.Text
+  userId    String?  @map("user_id")
+  userName  String?  @map("user_name")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@map("activity_logs")
+}

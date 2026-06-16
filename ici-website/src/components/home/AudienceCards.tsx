@@ -2,38 +2,52 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Image from 'next/image'
 import Section from '@/components/layout/Section'
+import { cmsField, cmsPlainBody } from '@/lib/cms-helpers'
+import type { ContentMap } from '@/lib/content'
 
 interface AudienceCardsProps {
-  content?: Record<string, string>;
+  content?: ContentMap;
 }
 
 export default function AudienceCards({ content = {} }: AudienceCardsProps) {
   const audiences = [
     {
-      title: content.path1_title || 'Aspiring coaches',
-      desc: content.path1_body || 'Begin a new career on solid ground. Foundational certification and real one-to-one coaching, so you graduate ready to take your first paying clients.',
+      title: cmsField(content, 'path_1_heading', 'Aspiring coaches'),
+      desc: cmsPlainBody(
+        content,
+        'path_1_body',
+        'Begin a new career on solid ground. Foundational certification and real one-to-one coaching, so you graduate ready to take your first paying clients.',
+      ),
       image: '/aspiring-coaches.png',
-      altText: 'Aspiring coaches collaborating in a modern classroom setting'
+      altText: 'Aspiring coaches collaborating in a modern classroom setting',
     },
     {
-      title: content.path2_title || 'Experienced practitioners',
-      desc: content.path2_body || 'Deepen a practice that already works. Advanced credentialing and supervision that sharpen your judgement and raise your standing.',
+      title: cmsField(content, 'path_2_heading', 'Experienced practitioners'),
+      desc: cmsPlainBody(
+        content,
+        'path_2_body',
+        'Deepen a practice that already works. Advanced credentialing and supervision that sharpen your judgement and raise your standing.',
+      ),
       image: '/experienced-practitioners.png',
-      altText: 'Two professionals in a focused one-on-one coaching conversation'
+      altText: 'Two professionals in a focused one-on-one coaching conversation',
     },
     {
-      title: content.path3_title || 'Organisations and leaders',
-      desc: content.path3_body || 'Build a coaching culture from the inside, so feedback, accountability and growth become part of how your people work.',
+      title: cmsField(content, 'path_3_heading', 'Organisations and leaders'),
+      desc: cmsPlainBody(
+        content,
+        'path_3_body',
+        'Build a coaching culture from the inside, so feedback, accountability and growth become part of how your people work.',
+      ),
       image: '/organisations-leaders.png',
-      altText: 'Corporate leadership team in a modern boardroom'
-    }
-  ]
+      altText: 'Corporate leadership team in a modern boardroom',
+    },
+  ];
   return (
     <Section spacing="standard" className="bg-cream-100">
       <div className="max-w-7xl mx-auto px-4">
         <AnimatedSection className="text-center mb-16">
           <div className="text-eyebrow flex items-center gap-3 justify-center mb-4">Discover Your Path</div>
-          <h2 className="text-h2 text-brand-navy-700">{content.coaching_for_everyone_heading || 'Coaching for Everyone'}</h2>
+          <h2 className="text-h2 text-brand-navy-700">{cmsField(content, 'paths_section_heading', 'Coaching for Everyone')}</h2>
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-8">
           {audiences.map((aud, i) => (

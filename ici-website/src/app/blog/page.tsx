@@ -3,13 +3,17 @@ import { Metadata } from 'next'
 import { Mail } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { getPublishedPageContent } from '@/lib/content'
+import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
   title: 'Coaching Insights & Articles | ICI Blog',
   description: 'Read the latest thinking from ICI on coaching, leadership, psychology and human change. Practical insights for coaches and the people they lead.'
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const content = await getPublishedPageContent('/blog')
+
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
@@ -24,13 +28,15 @@ export default function BlogPage() {
           <AnimatedSection className="max-w-4xl">
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
-              <div className="text-eyebrow text-brand-gold-400">Journal</div>
+              <div className="text-eyebrow text-brand-gold-400">
+                {cmsField(content, 'hero_eyebrow', 'Journal')}
+              </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              Insights from the field
+              {cmsField(content, 'hero_heading', 'Insights from the field')}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl mb-12">
-              Coaching changes when practitioners keep questioning it. This is where ICI faculty share their thinking: on leadership, the psychology of high achievers, how change really happens, and the craft of coaching itself. Come back often. The best ideas tend to arrive slowly.
+              {stripHtml(cmsHtml(content, 'hero_body', 'Coaching changes when practitioners keep questioning it. This is where ICI faculty share their thinking: on leadership, the psychology of high achievers, how change really happens, and the craft of coaching itself. Come back often. The best ideas tend to arrive slowly.'))}
             </p>
           </AnimatedSection>
         </Container>
@@ -47,10 +53,10 @@ export default function BlogPage() {
               </div>
               
               <h2 className="text-h3 text-brand-navy-900 mb-6">
-                The first articles are on their way
+                {cmsField(content, 'empty_heading', 'The first articles are on their way')}
               </h2>
               <p className="text-muted mb-12 text-body">
-                We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.
+                {cmsField(content, 'empty_body', 'We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.')}
               </p>
               
               <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" action="#">
@@ -58,16 +64,14 @@ export default function BlogPage() {
                   type="email" 
                   required 
                   className="flex-1 bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
-                  placeholder="Enter your email address"
+                  placeholder={cmsField(content, 'subscribe_placeholder', 'Enter your email address')}
                 />
                 <button type="submit" className="btn-primary">
-                  Notify me
+                  {cmsField(content, 'subscribe_button_text', 'Notify me')}
                 </button>
               </form>
             </div>
           </AnimatedSection>
-          
-          {/* Blog posts to be pulled from CMS/feed when published. Do not add dummy content. */}
 
         </Container>
       </Section>

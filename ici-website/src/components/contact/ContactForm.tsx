@@ -4,7 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Loader2 } from 'lucide-react';
 
-export default function ContactForm() {
+type ContactFormProps = {
+  successMessage?: string;
+};
+
+export default function ContactForm({ successMessage = 'Thank you. An advisor will be in touch within 2 working days.' }: ContactFormProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -45,7 +49,7 @@ export default function ContactForm() {
     return (
       <div className="bg-green-50 border border-green-200 p-8 rounded-2xl text-center space-y-4">
         <h3 className="text-xl font-display font-bold text-green-700">Message Sent!</h3>
-        <p className="text-brand-navy-900 text-body">Thank you. An advisor will be in touch within 2 working days.</p>
+        <p className="text-brand-navy-900 text-body">{successMessage}</p>
       </div>
     );
   }

@@ -8,8 +8,16 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { navItems } from '@/data/navigation'
 import MobileMenu from './MobileMenu'
 import Container from '@/components/layout/Container'
+import { cmsField } from '@/lib/cms-helpers'
+import type { ContentMap } from '@/lib/content'
 
-export default function Navbar({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
+export default function Navbar({
+  isLoggedIn = false,
+  globalContent = {},
+}: {
+  isLoggedIn?: boolean;
+  globalContent?: ContentMap;
+}) {
   const [scrolled, setScrolled]         = useState(false)
   const [activeMenu, setActiveMenu]     = useState<string | null>(null)
   const [mobileOpen, setMobileOpen]     = useState(false)
@@ -34,22 +42,22 @@ export default function Navbar({ isLoggedIn = false }: { isLoggedIn?: boolean })
         <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-sm font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>
           <Container className="flex justify-between items-center w-full px-0">
             <div className="flex gap-6 items-center text-white">
-              <a href="mailto:info@internationalcoachinginstitute.org" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
-                <Mail size={14} /> info@internationalcoachinginstitute.org
+              <a href={`mailto:${cmsField(globalContent, 'site_email', 'info@internationalcoachinginstitute.org')}`} className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
+                <Mail size={14} /> {cmsField(globalContent, 'site_email', 'info@internationalcoachinginstitute.org')}
               </a>
-              <a href="tel:+919819984575" className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
-                <Phone size={14} /> +91 98199 84575
+              <a href={`tel:${cmsField(globalContent, 'site_phone', '+919819984575').replace(/\s/g, '')}`} className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
+                <Phone size={14} /> {cmsField(globalContent, 'site_phone', '+91 98199 84575')}
               </a>
             </div>
             <div className="flex items-center gap-4 text-brand-gold-100 mr-12">
-              <a href="https://www.linkedin.com/company/internationalcoachinginstitute" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold-400 transition-colors flex items-center" aria-label="LinkedIn">
+              <a href={cmsField(globalContent, 'linkedin_url', 'https://www.linkedin.com/company/internationalcoachinginstitute')} target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold-400 transition-colors flex items-center" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
               <span className="text-brand-gold-500/50">|</span>
               {isLoggedIn ? (
                 <Link href="/account" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">My Account</Link>
               ) : (
-                <Link href="/login" className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">Log In</Link>
+                <Link href={cmsField(globalContent, 'login_link', '/login')} className="hover:text-brand-gold-400 transition-colors whitespace-nowrap">{cmsField(globalContent, 'login_text', 'Log In')}</Link>
               )}
             </div>
           </Container>
@@ -164,10 +172,10 @@ export default function Navbar({ isLoggedIn = false }: { isLoggedIn?: boolean })
               </button>
 
               <Link
-                href="/apply"
+                href={cmsField(globalContent, 'apply_button_link', '/apply')}
                 className={`hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-btn border transition-colors whitespace-nowrap ${scrolled ? 'border-white/30 text-white hover:bg-white/10' : 'border-brand-navy-200 text-brand-navy-600 hover:bg-brand-navy-50'}`}
               >
-                Apply Now
+                {cmsField(globalContent, 'apply_button_text', 'Apply Now')}
               </Link>
 
               <Link
