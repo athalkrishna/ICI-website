@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { requireStudent } from '@/lib/auth';
 import { jsonOk, unauthorized, forbidden, notFound, serverError } from '@/lib/api';
 import { getSignedUrl } from '@/lib/bunny';
+import { canStudentAccessMaterial } from '@/lib/material-access';
 
 type RouteParams = { params: Promise<{ id: string }> };
 
@@ -13,25 +14,41 @@ export async function GET(_req: NextRequest, { params }: RouteParams) {
   try {
     const { id } = await params;
 
-    const access = await prisma.studentMaterialAccess.findUnique({
-      where: {
-        studentUserId_materialId: {
-          studentUserId: session.user.id,
-          materialId: id,
+    const [material, profile, explicitAccess] = await Promise.all([
+      prisma.courseMaterial.findUnique({ where: { id } }),
+      prisma.studentProfile.findUnique({
+        where: { userId: session.user.id },
+        select: { enrolledLevel: true },
+      }),
+      prisma.studentMaterialAccess.findUnique({
+        where: {
+          studentUserId_materialId: {
+            studentUserId: session.user.id,
+            materialId: id,
+          },
         },
-      },
-      include: { material: true },
-    });
+      }),
+    ]);
 
-    if (!access) return notFound('Material not found or access not granted');
-    if (!access.material.isPublished) return forbidden('Material is not available');
+    if (!material) return notFound('Material not found');
+    if (!material.isPublished) return forbidden('Material is not available');
 
-    const signedUrl = getSignedUrl(access.material.bunnyPath);
+    if (
+      !canStudentAccessMaterial(
+        material,
+        profile?.enrolledLevel,
+        explicitAccess !== null,
+      )
+    ) {
+      return notFound('Material not found or access not granted');
+    }
+
+    const signedUrl = getSignedUrl(material.bunnyPath);
 
     return jsonOk({
       url: signedUrl,
-      title: access.material.title,
-      fileType: access.material.fileType,
+      title: material.title,
+      fileType: material.fileType,
       expiresIn: 900,
     });
   } catch (err) {

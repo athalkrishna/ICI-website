@@ -5,6 +5,7 @@ import { requireAdmin, hashPassword, generateTempPassword } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, serverError } from '@/lib/api';
 import { sendWelcomeStudent } from '@/lib/email';
 import { logActivity } from '@/lib/activity';
+import { syncMaterialAccessForStudent } from '@/lib/material-access';
 
 const enrolledLevel = z.enum(['CATALYST', 'ARCHITECT', 'SAGE', 'LUMINARY']);
 const specialisation = z.enum([
@@ -150,6 +151,14 @@ export async function POST(req: NextRequest) {
 
       return { user, profile };
     });
+
+    if (data.enrolledLevel) {
+      await syncMaterialAccessForStudent(
+        result.user.id,
+        data.enrolledLevel,
+        session.user.id,
+      );
+    }
 
     await sendWelcomeStudent({
       to: email,

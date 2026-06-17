@@ -1,60 +1,72 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { query } from '@/lib/db';
+import { NextRequest } from 'next/server';
 import { formRateLimiter } from '@/lib/rate-limit';
+import { jsonOk, jsonError, serverError } from '@/lib/api';
+import { createLead, getClientIp, verifyTurnstile } from '@/lib/leads';
+import { isBotFieldValue, mapProgrammeInterest } from '@/lib/lead-utils';
+
+function isBotSubmission(body: Record<string, unknown>) {
+  return ['website', 'honeypot', 'bot_field', '_hp'].some((key) => isBotFieldValue(body[key]));
+}
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1";
-    
-    // Apply rate limit
+    const ip = getClientIp(req);
+
     try {
-      await formRateLimiter.check(10, ip);
+      await formRateLimiter.check(30, ip);
     } catch {
-      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+      return jsonError('Too many requests', 429);
     }
 
     const body = await req.json();
-    const { name, email, phone, country, level, specialism, experience, goals, source, honeypot, turnstileToken } = body;
 
-    // Honeypot check
-    if (honeypot) {
-      // Bot detected, silently accept
-      return NextResponse.json({ success: true });
+    if (isBotSubmission(body)) {
+      return jsonOk({ success: true });
     }
 
-    // Verify Turnstile Token (if provided/required)
-    if (turnstileToken && process.env.TURNSTILE_SECRET_KEY) {
-      const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${turnstileToken}&remoteip=${ip}`,
-      });
-      
-      const verifyData = await verifyResponse.json();
-      
-      if (!verifyData.success) {
-        return NextResponse.json({ error: 'Failed captcha verification' }, { status: 400 });
-      }
+    const {
+      name,
+      email,
+      phone,
+      country,
+      level,
+      specialism,
+      experience,
+      goals,
+      source: referralSource,
+      turnstileToken,
+    } = body;
+
+    const captcha = await verifyTurnstile(turnstileToken, ip);
+    if (!captcha.ok) return jsonError(captcha.message);
+
+    if (!name?.trim() || !email?.trim()) {
+      return jsonError('Name and email are required');
     }
 
-    const message = `Experience: ${experience}\n\nGoals: ${goals}\n\nSpecialism: ${specialism || 'None'}\n\nSource: ${source || 'None'}`;
+    const message = [
+      level ? `Level of interest: ${level}` : null,
+      specialism ? `Specialism: ${specialism}` : null,
+      experience ? `Experience: ${experience}` : null,
+      goals ? `Goals: ${goals}` : null,
+      referralSource ? `How they heard about us: ${referralSource}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n\n');
 
-    // Insert Lead
-    try {
-      await query(
-        `INSERT INTO leads (source_page, name, email, phone, country, programme_interest, message)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        ['Apply Form', name, email, phone || null, country, level, message]
-      );
-    } catch (dbError) {
-      console.warn('DB Insert failed, continuing execution:', dbError);
-    }
+    await createLead({
+      fullName: String(name).trim(),
+      email: String(email).trim(),
+      phone: phone ? String(phone) : null,
+      country: country ? String(country) : null,
+      programmeInterest: mapProgrammeInterest(specialism ?? level),
+      source: 'APPLY_FORM',
+      message: message || null,
+    });
 
-    // Here you would also add nodemailer to send an email to admin.
-
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Apply Form Submission Error:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return jsonOk({ success: true });
+  } catch (err) {
+    console.error('[apply POST]', err);
+    return serverError();
   }
 }

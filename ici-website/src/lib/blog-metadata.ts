@@ -11,8 +11,8 @@ function parseTags(tags: BlogPost['tags']): string[] {
 export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://internationalcoachinginstitute.org';
   const url = `${baseUrl.replace(/\/$/, '')}/blog/${slug}`;
-  const title = post.metaTitle?.trim() || post.title;
-  const description = post.metaDescription?.trim() || post.excerpt;
+  const title = post.title;
+  const description = post.excerpt;
   const keywords = parseTags(post.tags);
   const imageAlt = post.coverImageAlt?.trim() || title;
 

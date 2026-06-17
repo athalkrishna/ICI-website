@@ -38,8 +38,8 @@ export const loginRateLimiter = rateLimit({
   uniqueTokenPerInterval: 500,
 });
 
-// 10 submissions per hour per IP for forms
+// 30 submissions per hour per IP for public forms
 export const formRateLimiter = rateLimit({
-  interval: 60 * 60 * 1000, // 1 hour
+  interval: 60 * 60 * 1000,
   uniqueTokenPerInterval: 1000,
 });

@@ -158,7 +158,13 @@ enum EmailTemplate {
   COURSE_ACCESS_GRANTED
   ADMIN_NEW_LEAD
   PASSWORD_RESET
+  NEWSLETTER
   CUSTOM
+}
+
+enum NewsletterStatus {
+  DRAFT
+  SENT
 }
 
 enum EmailStatus {
@@ -511,4 +517,40 @@ model ActivityLog {
 
   @@index([createdAt])
   @@map("activity_logs")
+}
+
+model Newsletter {
+  id              String           @id @default(cuid())
+  title           String
+  content         String           @db.LongText
+  imageUrl        String?          @map("image_url")
+  status          NewsletterStatus @default(DRAFT)
+  recipientCount  Int?             @map("recipient_count")
+  sentCount       Int?             @map("sent_count")
+  failedCount     Int?             @map("failed_count")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+  sentAt          DateTime?        @map("sent_at")
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("newsletters")
+}
+
+model NewsletterSubscriber {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  subscribedAt   DateTime  @default(now()) @map("subscribed_at")
+  unsubscribedAt DateTime? @map("unsubscribed_at")
+
+  @@index([subscribedAt])
+  @@map("newsletter_subscribers")
+}
+
+model NewsletterOptOut {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("newsletter_opt_outs")
 }

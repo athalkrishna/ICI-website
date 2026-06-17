@@ -3,7 +3,10 @@ import { Metadata } from 'next'
 import { Mail } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import BlogPostGrid from '@/components/blog/BlogPostGrid'
+import EmailSignupForm from '@/components/shared/EmailSignupForm'
 import { getPublishedPageContent } from '@/lib/content'
+import { getPublishedBlogPosts } from '@/lib/data'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
 export const metadata: Metadata = {
@@ -11,8 +14,13 @@ export const metadata: Metadata = {
   description: 'Read the latest thinking from ICI on coaching, leadership, psychology and human change. Practical insights for coaches and the people they lead.'
 }
 
+export const revalidate = 60
+
 export default async function BlogPage() {
-  const content = await getPublishedPageContent('/blog')
+  const [content, posts] = await Promise.all([
+    getPublishedPageContent('/blog'),
+    getPublishedBlogPosts(),
+  ])
 
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
@@ -42,39 +50,38 @@ export default async function BlogPage() {
         </Container>
       </Section>
 
-      {/* ── Empty State / Coming Soon ── */}
-      <Section spacing="standard" className="relative z-20">
-        <Container>
-          
-          <AnimatedSection>
-            <div className="max-w-2xl mx-auto text-center py-16">
-              <div className="w-16 h-16 bg-white border border-navy-100 shadow-sm rounded-full flex items-center justify-center text-brand-gold-600 mx-auto mb-8">
-                <Mail size={24} />
+      {posts.length > 0 ? (
+        <Section spacing="standard" className="relative z-20">
+          <Container>
+            <BlogPostGrid posts={posts} />
+          </Container>
+        </Section>
+      ) : (
+        <Section spacing="standard" className="relative z-20">
+          <Container>
+            <AnimatedSection>
+              <div className="max-w-2xl mx-auto text-center py-16">
+                <div className="w-16 h-16 bg-white border border-navy-100 shadow-sm rounded-full flex items-center justify-center text-brand-gold-600 mx-auto mb-8">
+                  <Mail size={24} />
+                </div>
+                
+                <h2 className="text-h3 text-brand-navy-900 mb-6">
+                  {cmsField(content, 'empty_heading', 'The first articles are on their way')}
+                </h2>
+                <p className="text-muted mb-12 text-body">
+                  {cmsField(content, 'empty_body', 'We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.')}
+                </p>
+                
+              <EmailSignupForm
+                context="Blog journal subscription"
+                placeholder={cmsField(content, 'subscribe_placeholder', 'Enter your email address')}
+                buttonText={cmsField(content, 'subscribe_button_text', 'Notify me')}
+              />
               </div>
-              
-              <h2 className="text-h3 text-brand-navy-900 mb-6">
-                {cmsField(content, 'empty_heading', 'The first articles are on their way')}
-              </h2>
-              <p className="text-muted mb-12 text-body">
-                {cmsField(content, 'empty_body', 'We are currently writing and editing our first collection of insights. Subscribe below to be notified when they arrive.')}
-              </p>
-              
-              <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" action="#">
-                <input 
-                  type="email" 
-                  required 
-                  className="flex-1 bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
-                  placeholder={cmsField(content, 'subscribe_placeholder', 'Enter your email address')}
-                />
-                <button type="submit" className="btn-primary">
-                  {cmsField(content, 'subscribe_button_text', 'Notify me')}
-                </button>
-              </form>
-            </div>
-          </AnimatedSection>
-
-        </Container>
-      </Section>
+            </AnimatedSection>
+          </Container>
+        </Section>
+      )}
 
     </div>
   )

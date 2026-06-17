@@ -14,6 +14,7 @@ import {
   Mail,
   Settings,
   UserCog,
+  Megaphone,
 } from 'lucide-react';
 import PortalSidebar, { type PortalNavItem } from '@/components/portal/PortalSidebar';
 import { formatEnumLabel } from '@/lib/admin-utils';
@@ -28,6 +29,7 @@ const navItems: (PortalNavItem & { superAdminOnly?: boolean })[] = [
   { label: 'Course Materials', href: '/admin/materials', icon: BookOpen },
   { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquareQuote },
   { label: 'Media Library', href: '/admin/media', icon: ImageIcon },
+  { label: 'Newsletter', href: '/admin/newsletter', icon: Megaphone },
   { label: 'Email Logs', href: '/admin/email-logs', icon: Mail },
   { label: 'Site Settings', href: '/admin/settings', icon: Settings },
   { label: 'Users', href: '/admin/users', icon: UserCog, superAdminOnly: true },

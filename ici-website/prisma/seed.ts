@@ -87,6 +87,7 @@ async function seedPages() {
           label: field.label,
           helperText: field.helperText,
           type: field.type,
+          value: field.value,
           order: field.order,
           section: field.section,
         },

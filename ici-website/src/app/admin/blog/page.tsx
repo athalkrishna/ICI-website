@@ -46,8 +46,8 @@ function formToPayload(form: BlogFormState) {
     category: form.category,
     featured: form.featured,
     tags,
-    metaTitle: form.metaTitle.trim() || null,
-    metaDescription: form.metaDescription.trim() || null,
+    metaTitle: null,
+    metaDescription: null,
   };
 }
 
@@ -63,8 +63,6 @@ function postToForm(post: Record<string, unknown>): BlogFormState {
     category: String(post.category ?? 'INSTITUTE_NEWS'),
     featured: Boolean(post.featured),
     tags: parseTags(post.tags),
-    metaTitle: String(post.metaTitle ?? ''),
-    metaDescription: String(post.metaDescription ?? ''),
   };
 }
 
@@ -177,7 +175,7 @@ export default function AdminBlogPage() {
     <div>
       <PortalPageHeader
         title="Blog Posts"
-        description="Create and manage blog articles with SEO meta tags."
+        description="Create and manage blog articles."
         actions={
           <button type="button" onClick={openCreate} className={portalPrimaryBtnClass}>
             <Plus size={16} />
@@ -237,11 +235,11 @@ export default function AdminBlogPage() {
                     <td className="px-6 py-4">
                       <span className={clsx(
                         'inline-flex px-2 py-0.5 rounded-full text-xs font-medium border',
-                        post.metaTitle && post.metaDescription
+                        post.title && post.excerpt
                           ? 'bg-green-50 text-green-700 border-green-100'
                           : 'bg-amber-50 text-amber-700 border-amber-100',
                       )}>
-                        {post.metaTitle && post.metaDescription ? 'Complete' : 'Needs SEO'}
+                        {post.title && post.excerpt ? 'Complete' : 'Needs excerpt'}
                       </span>
                     </td>
                     <td className="px-6 py-4">

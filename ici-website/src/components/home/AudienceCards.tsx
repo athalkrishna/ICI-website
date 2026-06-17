@@ -66,7 +66,7 @@ export default function AudienceCards({ content = {} }: AudienceCardsProps) {
                     Path 0{i + 1}
                   </div>
                   <h3 className="text-h3 text-white mb-3">{aud.title}</h3>
-                  <p className="font-body text-sm text-navy-100 leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75">
+                  <p className="font-body text-sm text-navy-100 leading-relaxed text-left opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75">
                     {aud.desc}
                   </p>
                 </div>

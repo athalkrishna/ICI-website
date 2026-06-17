@@ -14,7 +14,7 @@ export default function AuthConfigNotice({
       <p>
         Add <code className="font-mono text-xs bg-white/80 px-1 rounded">NEXTAUTH_SECRET</code> and{' '}
         <code className="font-mono text-xs bg-white/80 px-1 rounded">NEXTAUTH_URL</code> in your
-        Vercel project environment variables, then redeploy.
+        server environment variables (Cloudways → Application → Environment Variables), then restart the app.
       </p>
     </div>
   );

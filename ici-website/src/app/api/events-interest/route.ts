@@ -1,24 +1,41 @@
-import { NextResponse } from 'next/server'
+import { NextRequest } from 'next/server';
+import { formRateLimiter } from '@/lib/rate-limit';
+import { jsonOk, jsonError, serverError } from '@/lib/api';
+import { createLead, getClientIp } from '@/lib/leads';
 
-export async function POST(request: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const body = await request.json()
-    const { email, honeypot } = body
+    const ip = getClientIp(req);
 
-    // If honeypot is filled, it's a bot. Discard silently and return success.
+    try {
+      await formRateLimiter.check(10, ip);
+    } catch {
+      return jsonError('Too many requests', 429);
+    }
+
+    const body = await req.json();
+    const { email, name, honeypot, context } = body;
+
     if (honeypot) {
-      return NextResponse.json({ success: true })
+      return jsonOk({ success: true });
     }
 
-    if (!email) {
-      return NextResponse.json({ error: 'Email is required' }, { status: 400 })
+    if (!email?.trim()) {
+      return jsonError('Email is required');
     }
 
-    // TODO: Connect to actual database or CRM
-    console.log('Event interest registered for:', email)
+    await createLead({
+      fullName: name?.trim() || 'Events subscriber',
+      email: String(email).trim(),
+      programmeInterest: 'NOT_SURE',
+      source: 'OTHER',
+      message: context ? String(context) : 'Events interest signup',
+      statusNote: 'Events interest form',
+    });
 
-    return NextResponse.json({ success: true })
-  } catch (error) {
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    return jsonOk({ success: true });
+  } catch (err) {
+    console.error('[events-interest POST]', err);
+    return serverError();
   }
 }

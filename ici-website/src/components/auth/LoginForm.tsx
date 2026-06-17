@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { markAdminBrowserSession } from '@/components/auth/AdminBrowserSessionGuard';
 import { portalFieldLabelClass, portalInputClass } from '@/components/portal/portal-styles';
 
 type LoginFormProps = {
@@ -48,9 +49,12 @@ export default function LoginForm({
     setLoading(true);
 
     try {
+      const sessionMode = redirectTo.startsWith('/admin') ? 'browser' : 'persistent';
+
       const result = await signIn('credentials', {
         email: email.toLowerCase().trim(),
         password,
+        sessionMode,
         redirect: false,
       });
 
@@ -60,6 +64,9 @@ export default function LoginForm({
       }
 
       if (result?.ok) {
+        if (sessionMode === 'browser') {
+          markAdminBrowserSession();
+        }
         router.push(redirectTo);
         router.refresh();
       }

@@ -10,7 +10,9 @@ export const metadata = {
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <DashboardProviders>
-      <PortalShell sidebar={<DashboardSidebar />}>{children}</PortalShell>
+      <div className="h-full min-h-0">
+        <PortalShell sidebar={<DashboardSidebar />}>{children}</PortalShell>
+      </div>
     </DashboardProviders>
   );
 }

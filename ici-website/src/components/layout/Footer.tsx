@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Container from '@/components/layout/Container'
+import NewsletterSubscribeForm from '@/components/newsletter/NewsletterSubscribeForm'
 import { cmsField } from '@/lib/cms-helpers'
 import type { ContentMap } from '@/lib/content'
 
@@ -8,7 +9,7 @@ export default function Footer({ globalContent = {} }: { globalContent?: Content
   return (
     <footer className="bg-brand-navy-900 text-white pt-16 pb-2 border-t-4 border-brand-gold-500">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-10">
           
           <div className="md:col-span-2 lg:col-span-2">
              <Link href="/" className="inline-block -mt-4 md:-mt-8 -ml-4 md:-ml-6 mb-0 md:-mb-8">
@@ -56,6 +57,37 @@ export default function Footer({ globalContent = {} }: { globalContent?: Content
               <li><Link href="/privacy" className="hover:text-brand-gold-400 transition-colors">Privacy Policy</Link></li>
               <li><Link href="/complaints" className="hover:text-brand-gold-400 transition-colors">Complaints</Link></li>
             </ul>
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden rounded-2xl border border-brand-navy-700/80 bg-brand-navy-800/60 mb-12">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.07]"
+            aria-hidden
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 100% 0%, #c9a227 0%, transparent 45%), radial-gradient(circle at 0% 100%, #c9a227 0%, transparent 40%)',
+            }}
+          />
+          <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10 p-6 md:p-8 lg:p-10">
+            <div className="lg:max-w-md shrink-0">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-gold-500/30 bg-brand-gold-500/10 px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-[0.14em] text-brand-gold-400 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                {cmsField(globalContent, 'footer_newsletter_heading', 'Newsletter')}
+              </div>
+              <h3 className="font-serif text-xl md:text-2xl text-white mb-2 leading-snug">
+                {cmsField(globalContent, 'footer_newsletter_title', 'Insights from the institute')}
+              </h3>
+              <p className="text-navy-100/75 text-sm md:text-base leading-relaxed">
+                {cmsField(globalContent, 'footer_newsletter_text', 'Stay updated with institute news, events, and coaching insights delivered to your inbox.')}
+              </p>
+            </div>
+            <div className="w-full lg:max-w-xl lg:shrink-0">
+              <NewsletterSubscribeForm variant="footer" />
+            </div>
           </div>
         </div>
         

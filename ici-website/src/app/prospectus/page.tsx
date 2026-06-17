@@ -4,6 +4,7 @@ import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import ProspectusQuickForm from '@/components/shared/ProspectusQuickForm'
 
 export const revalidate = 60;
 
@@ -53,10 +54,7 @@ export default async function ProspectusPage() {
             <p className="text-muted mb-8 max-w-xl mx-auto text-body">
               {cmsField(content, 'form_subheading', 'Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.')}
             </p>
-            <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-               <input type="email" placeholder="Your email address" required className="flex-1 bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70" />
-               <button type="submit" className="btn-primary justify-center">Download PDF</button>
-            </form>
+            <ProspectusQuickForm />
           </AnimatedSection>
         </Container>
       </Section>

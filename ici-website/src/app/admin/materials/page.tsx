@@ -145,7 +145,7 @@ export default function AdminMaterialsPage() {
                 <th className="px-6 py-4 font-medium">Level</th>
                 <th className="px-6 py-4 font-medium">Module</th>
                 <th className="px-6 py-4 font-medium">Type</th>
-                <th className="px-6 py-4 font-medium">Access</th>
+                <th className="px-6 py-4 font-medium">Students</th>
                 <th className="px-6 py-4 font-medium">Status</th>
                 <th className="px-6 py-4 font-medium">Actions</th>
               </tr>

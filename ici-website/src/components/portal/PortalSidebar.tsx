@@ -45,36 +45,36 @@ export default function PortalSidebar({
 
   return (
     <aside className={portalSidebarClass}>
-      <div className="p-6 border-b border-white/10">
-        <Link href={homeHref} className="block group">
-          <p className="text-brand-gold-400 text-xs font-semibold uppercase tracking-widest mb-1.5 group-hover:text-brand-gold-300 transition-colors">
+      <div className="row-start-1 shrink-0 p-6 border-b border-white/10 min-w-0">
+        <Link href={homeHref} className="block group min-w-0">
+          <p className="text-brand-gold-400 text-xs font-semibold uppercase tracking-widest mb-1.5 group-hover:text-brand-gold-300 transition-colors truncate">
             International Coaching Institute
           </p>
-          <h1 className="font-display text-xl text-white tracking-wide">{portalName}</h1>
+          <h1 className="font-display text-xl text-white tracking-wide truncate">{portalName}</h1>
         </Link>
       </div>
 
-      <nav className="flex-1 mt-4 px-3 overflow-y-auto">
+      <nav className="row-start-2 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden overscroll-contain px-3 mt-4">
         <ul className="space-y-1">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href, item.exact);
             const Icon = item.icon;
             const linkClass = clsx(
-              'flex items-center gap-3 py-2.5 px-3 rounded-lg text-sm font-medium transition',
-              active ? portalNavActiveClass : portalNavInactiveClass
+              'flex items-center gap-3 min-w-0 py-2.5 px-3 rounded-lg text-sm font-medium transition',
+              active ? portalNavActiveClass : portalNavInactiveClass,
             );
 
             return (
-              <li key={item.href}>
+              <li key={item.href} className="min-w-0">
                 {item.external ? (
                   <a href={item.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                    <Icon size={18} className={active ? 'text-brand-gold-400' : 'text-white/60'} />
-                    {item.label}
+                    <Icon size={18} className={clsx('shrink-0', active ? 'text-brand-gold-400' : 'text-white/60')} />
+                    <span className="truncate">{item.label}</span>
                   </a>
                 ) : (
                   <Link href={item.href} className={linkClass}>
-                    <Icon size={18} className={active ? 'text-brand-gold-400' : 'text-white/60'} />
-                    {item.label}
+                    <Icon size={18} className={clsx('shrink-0', active ? 'text-brand-gold-400' : 'text-white/60')} />
+                    <span className="truncate">{item.label}</span>
                   </Link>
                 )}
               </li>
@@ -83,9 +83,9 @@ export default function PortalSidebar({
         </ul>
       </nav>
 
-      <div className="p-4 border-t border-white/10 mt-auto">
+      <div className="row-start-3 shrink-0 min-w-0 px-3 py-4 border-t border-white/10 overflow-hidden">
         {userName && (
-          <div className="mb-3 px-3">
+          <div className="mb-3 px-3 min-w-0">
             <p className="text-sm text-white truncate font-medium">{userName}</p>
             {userMeta && <p className="text-xs text-white/50 truncate mt-0.5">{userMeta}</p>}
           </div>
@@ -94,12 +94,12 @@ export default function PortalSidebar({
           type="button"
           onClick={() => signOut({ callbackUrl: logoutCallbackUrl })}
           className={clsx(
-            'flex items-center gap-2 w-full py-2.5 px-3 rounded-lg text-sm font-medium transition',
-            portalNavInactiveClass
+            'flex items-center gap-2 w-full min-w-0 py-2.5 px-3 rounded-lg text-sm font-medium transition',
+            portalNavInactiveClass,
           )}
         >
-          <LogOut size={16} />
-          Log out
+          <LogOut size={16} className="shrink-0" />
+          <span className="truncate">Log out</span>
         </button>
       </div>
     </aside>

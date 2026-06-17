@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { isBotFieldValue, mapProgrammeInterest, submitLeadRequest } from '@/lib/lead-utils';
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -12,7 +13,7 @@ const schema = z.object({
   phone: z.string().min(5, 'WhatsApp number is required'),
   country: z.string().min(2, 'Country is required'),
   level: z.string().min(2, 'Level of interest is required'),
-  specialism: z.string().optional(),
+  specialism: z.string().min(2, 'Specialism of interest is required'),
   experience: z.string().min(10, 'Please describe your experience'),
   goals: z.string().min(10, 'Please describe your goals'),
   source: z.string().optional(),
@@ -31,6 +32,7 @@ export default function ApplyForm({
   successBody = 'Thank you for applying to the International Coaching Institute. We will review your application and an advisor will be in touch within 2 working days.',
 }: ApplyFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState<string>('');
 
   const {
@@ -39,30 +41,54 @@ export default function ApplyForm({
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      country: '',
+      level: '',
+      honeypot: '',
+    },
   });
 
   const onSubmit = async (data: FormData) => {
+    if (isBotFieldValue(data.honeypot)) {
+      setStatus('success');
+      return;
+    }
+
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
-      alert('Please complete the CAPTCHA');
+      setErrorMessage('Please complete the CAPTCHA');
+      setStatus('error');
       return;
     }
 
     setStatus('submitting');
+    setErrorMessage('');
+
+    const { honeypot: _honeypot, source: referralSource, ...fields } = data;
 
     try {
-      const res = await fetch('/api/apply', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, turnstileToken }),
+      await submitLeadRequest({
+        fullName: fields.name,
+        email: fields.email,
+        phone: fields.phone,
+        country: fields.country,
+        programmeInterest: mapProgrammeInterest(fields.specialism ?? fields.level),
+        source: 'APPLY_FORM',
+        message: [
+          fields.level ? `Level of interest: ${fields.level}` : null,
+          fields.specialism ? `Specialism: ${fields.specialism}` : null,
+          fields.experience ? `Experience: ${fields.experience}` : null,
+          fields.goals ? `Goals: ${fields.goals}` : null,
+          referralSource ? `How they heard about us: ${referralSource}` : null,
+        ]
+          .filter(Boolean)
+          .join('\n\n'),
+        turnstileToken: turnstileToken || undefined,
       });
 
-      if (res.ok) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
+      setStatus('success');
     } catch (err) {
       setStatus('error');
+      setErrorMessage(err instanceof Error ? err.message : 'There was an error submitting your application.');
     }
   };
 
@@ -83,8 +109,15 @@ export default function ApplyForm({
   return (
     <form className="space-y-6 relative z-10" onSubmit={handleSubmit(onSubmit)}>
       {/* Honeypot field - invisible to real users */}
-      <div className="absolute left-[-9999px] top-[-9999px]">
-        <input type="text" {...register('honeypot')} tabIndex={-1} autoComplete="off" />
+      <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden>
+        <input
+          type="text"
+          {...register('honeypot')}
+          tabIndex={-1}
+          autoComplete="off"
+          data-lpignore="true"
+          data-1p-ignore
+        />
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -137,7 +170,6 @@ export default function ApplyForm({
           </label>
           <select 
             id="country" 
-            defaultValue=""
             {...register('country')}
             className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
           >
@@ -158,7 +190,6 @@ export default function ApplyForm({
         </label>
         <select 
           id="level" 
-          defaultValue=""
           {...register('level')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
         >
@@ -172,15 +203,17 @@ export default function ApplyForm({
 
       <div className="space-y-2">
         <label htmlFor="specialism" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          Specialism of interest <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+          Specialism of interest <span className="text-brand-gold-500">*</span>
         </label>
         <input 
           type="text" 
           id="specialism" 
+          required
           {...register('specialism')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
           placeholder="e.g. Executive Coaching, Health & Wellness"
         />
+        {errors.specialism && <p className="text-red-600 text-sm">{errors.specialism.message}</p>}
       </div>
 
       <div className="space-y-2">
@@ -236,7 +269,7 @@ export default function ApplyForm({
 
       {status === 'error' && (
         <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">
-          There was an error submitting your application. Please try again later.
+          {errorMessage || 'There was an error submitting your application. Please try again later.'}
         </div>
       )}
 

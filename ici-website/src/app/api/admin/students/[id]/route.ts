@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, notFound, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
+import { syncMaterialAccessForStudent } from '@/lib/material-access';
 
 type RouteParams = { params: Promise<{ id: string }> };
 
@@ -155,6 +156,17 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
         },
       });
     });
+
+    if (
+      parsed.data.enrolledLevel &&
+      parsed.data.enrolledLevel !== profile.enrolledLevel
+    ) {
+      await syncMaterialAccessForStudent(
+        profile.userId,
+        parsed.data.enrolledLevel,
+        session.user.id,
+      );
+    }
 
     await logActivity({
       action: 'STUDENT_UPDATED',

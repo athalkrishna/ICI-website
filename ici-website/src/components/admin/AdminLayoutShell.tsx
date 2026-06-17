@@ -15,18 +15,20 @@ export default function AdminLayoutShell({
   const pathname = usePathname();
 
   if (pathname === '/admin/login') {
-    return <>{children}</>;
+    return <div className="h-full min-h-0 overflow-y-auto">{children}</div>;
   }
 
   return (
-    <PortalShell
-      sidebar={
-        session?.user ? (
-          <AdminSidebar userName={session.user.name} userRole={session.user.role} />
-        ) : null
-      }
-    >
-      {children}
-    </PortalShell>
+    <div className="h-full min-h-0">
+      <PortalShell
+        sidebar={
+          session?.user ? (
+            <AdminSidebar userName={session.user.name} userRole={session.user.role} />
+          ) : null
+        }
+      >
+        {children}
+      </PortalShell>
+    </div>
   );
 }

@@ -1,10 +1,8 @@
 import { NextRequest } from 'next/server';
 import { z } from 'zod';
-import { prisma } from '@/lib/prisma';
 import { jsonOk, jsonError, serverError } from '@/lib/api';
-import { sendLeadConfirmation, sendAdminNewLead } from '@/lib/email';
-import { logActivity } from '@/lib/activity';
 import { formRateLimiter } from '@/lib/rate-limit';
+import { createLead, getClientIp, verifyTurnstile } from '@/lib/leads';
 
 const programmeInterest = z.enum([
   'LIFE_COACHING',
@@ -34,10 +32,10 @@ const submitLeadSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? '127.0.0.1';
+    const ip = getClientIp(req);
 
     try {
-      await formRateLimiter.check(10, ip);
+      await formRateLimiter.check(30, ip);
     } catch {
       return jsonError('Too many requests', 429);
     }
@@ -54,61 +52,20 @@ export async function POST(req: NextRequest) {
       return jsonOk({ success: true });
     }
 
-    if (data.turnstileToken && process.env.TURNSTILE_SECRET_KEY) {
-      const verifyResponse = await fetch(
-        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${data.turnstileToken}&remoteip=${ip}`,
-        }
-      );
-      const verifyData = await verifyResponse.json();
-      if (!verifyData.success) {
-        return jsonError('Failed captcha verification');
-      }
-    }
+    const captcha = await verifyTurnstile(data.turnstileToken, ip);
+    if (!captcha.ok) return jsonError(captcha.message);
 
-    const lead = await prisma.lead.create({
-      data: {
-        fullName: data.fullName.trim(),
-        email: data.email.toLowerCase().trim(),
-        phone: data.phone?.trim() || null,
-        country: data.country?.trim() || null,
-        programmeInterest: data.programmeInterest,
-        source: data.source,
-        message: data.message?.trim() || null,
-        status: 'NEW',
-        utmSource: data.utmSource,
-        utmMedium: data.utmMedium,
-        utmCampaign: data.utmCampaign,
-        statusHistory: {
-          create: {
-            fromStatus: null,
-            toStatus: 'NEW',
-            note: `Submitted via ${data.source}`,
-          },
-        },
-      },
-    });
-
-    await Promise.all([
-      sendLeadConfirmation(lead.email, lead.fullName),
-      sendAdminNewLead({
-        fullName: lead.fullName,
-        email: lead.email,
-        phone: lead.phone,
-        programmeInterest: lead.programmeInterest,
-        source: lead.source,
-        message: lead.message,
-      }),
-    ]);
-
-    await logActivity({
-      action: 'LEAD_SUBMITTED',
-      entity: 'Lead',
-      entityId: lead.id,
-      details: `${lead.fullName} (${lead.source})`,
+    const lead = await createLead({
+      fullName: data.fullName,
+      email: data.email,
+      phone: data.phone,
+      country: data.country,
+      programmeInterest: data.programmeInterest,
+      source: data.source,
+      message: data.message,
+      utmSource: data.utmSource,
+      utmMedium: data.utmMedium,
+      utmCampaign: data.utmCampaign,
     });
 
     return jsonOk({ success: true, id: lead.id }, 201);

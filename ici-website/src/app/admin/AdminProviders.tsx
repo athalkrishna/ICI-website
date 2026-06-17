@@ -1,11 +1,12 @@
 'use client';
 
-import { SessionProvider } from 'next-auth/react';
 import { Toaster } from 'react-hot-toast';
+import AdminBrowserSessionGuard from '@/components/auth/AdminBrowserSessionGuard';
 
 export default function AdminProviders({ children }: { children: React.ReactNode }) {
   return (
-    <SessionProvider>
+    <>
+      <AdminBrowserSessionGuard />
       {children}
       <Toaster
         position="top-right"
@@ -20,6 +21,6 @@ export default function AdminProviders({ children }: { children: React.ReactNode
           error: { iconTheme: { primary: '#ef4444', secondary: '#fff' } },
         }}
       />
-    </SessionProvider>
+    </>
   );
 }

@@ -57,10 +57,23 @@ export async function getFeaturedEvents(limit = 2) {
 }
 
 export async function getPublishedBlogPosts() {
-  return prisma.blogPost.findMany({
-    where: { status: 'PUBLISHED' },
-    orderBy: { publishedAt: 'desc' },
-  });
+  return safeQuery('getPublishedBlogPosts', () =>
+    prisma.blogPost.findMany({
+      where: { status: 'PUBLISHED' },
+      orderBy: { publishedAt: 'desc' },
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        excerpt: true,
+        coverImageUrl: true,
+        coverImageAlt: true,
+        category: true,
+        publishedAt: true,
+        authorName: true,
+      },
+    }),
+  []);
 }
 
 export async function getBlogPostBySlug(slug: string) {

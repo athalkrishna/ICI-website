@@ -34,6 +34,7 @@ declare module 'next-auth' {
   }
   interface User {
     role: UserRole;
+    sessionMode?: 'browser' | 'persistent';
   }
 }
 
@@ -41,7 +42,21 @@ declare module 'next-auth/jwt' {
   interface JWT {
     id: string;
     role: UserRole;
+    sessionMode?: 'browser' | 'persistent';
   }
+}
+
+const STUDENT_SESSION_MAX_AGE = 30 * 24 * 60 * 60;
+const ADMIN_SESSION_MAX_AGE = 12 * 60 * 60;
+
+function isAdminRole(role: UserRole) {
+  return role === 'ADMIN' || role === 'SUPER_ADMIN';
+}
+
+function sessionMaxAgeForRole(role: UserRole, sessionMode?: 'browser' | 'persistent') {
+  if (sessionMode === 'persistent') return STUDENT_SESSION_MAX_AGE;
+  if (sessionMode === 'browser') return ADMIN_SESSION_MAX_AGE;
+  return isAdminRole(role) ? ADMIN_SESSION_MAX_AGE : STUDENT_SESSION_MAX_AGE;
 }
 
 export const authOptions: NextAuthOptions = {
@@ -52,6 +67,7 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
+        sessionMode: { label: 'Session Mode', type: 'text' },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
@@ -80,6 +96,12 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
             name: user.name,
             role: user.role,
+            sessionMode:
+              credentials.sessionMode === 'browser' || credentials.sessionMode === 'persistent'
+                ? credentials.sessionMode
+                : isAdminRole(user.role)
+                  ? 'browser'
+                  : 'persistent',
           };
         } catch (error) {
           console.error('[auth] authorize failed:', error);
@@ -90,7 +112,7 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     strategy: 'jwt',
-    maxAge: 8 * 60 * 60,
+    maxAge: STUDENT_SESSION_MAX_AGE,
   },
   pages: {
     signIn: '/login',
@@ -100,6 +122,9 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
         token.role = user.role;
+        token.sessionMode = user.sessionMode;
+        const maxAge = sessionMaxAgeForRole(user.role, user.sessionMode);
+        token.exp = Math.floor(Date.now() / 1000) + maxAge;
       }
       return token;
     },

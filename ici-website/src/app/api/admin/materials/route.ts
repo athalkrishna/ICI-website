@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
+import { syncMaterialAccessForMaterial } from '@/lib/material-access';
 
 const materialLevel = z.enum(['CATALYST', 'ARCHITECT', 'SAGE', 'LUMINARY', 'ALL_LEVELS']);
 const fileType = z.enum(['PDF', 'VIDEO', 'AUDIO', 'DOCUMENT', 'PRESENTATION', 'OTHER']);
@@ -67,6 +68,10 @@ export async function POST(req: NextRequest) {
         isPublished: parsed.data.isPublished ?? false,
       },
     });
+
+    if (material.isPublished) {
+      await syncMaterialAccessForMaterial(material.id, session.user.id);
+    }
 
     await logActivity({
       action: 'MATERIAL_CREATED',

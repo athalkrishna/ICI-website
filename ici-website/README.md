@@ -61,17 +61,71 @@ npm run dev
 
 ## Production deployment (Cloudways)
 
-1. Create a Node.js application on Cloudways (Node 20+).
-2. Create a MySQL database and set `DATABASE_URL` in Cloudways environment variables.
-3. Set all variables from `.env.example` in the Cloudways panel (never commit secrets).
-4. Deploy the repo; build and start commands:
-   - **Build:** `npm run build`
-   - **Start:** `npm start`
-5. After first deploy, run migrations/seed via SSH:
-   ```bash
-   npm run db:push
-   npm run db:seed
-   ```
+Hosting, database, and the Node.js app all run on **Cloudways**. Uploaded files (images, PDFs, course materials) are stored on **Bunny.net** CDN — not on the Cloudways server disk.
+
+### 1. Create the Cloudways application
+
+1. Log in to [Cloudways](https://platform.cloudways.com).
+2. **Add application** → choose your server → **Custom PHP App** or **Node.js** (if available) on a server with **Node 20+**.
+3. Note the application URL (e.g. `https://xxxxx.cloudwaysapps.com`).
+
+### 2. Connect GitHub & deploy settings
+
+1. **Deployment via Git** → connect `International-coaching-Institute` repo.
+2. Set **Deployment path** to `ici-website` (if the repo root is the monorepo) or `/` if only the `ici-website` folder is deployed.
+3. **Build command:** `npm install && npm run build`
+4. **Start command / Application start:** `npm start`
+5. **Node version:** 20.x
+
+### 3. Environment variables (Cloudways → Application → Environment Variables)
+
+Copy every variable from `.env.example`. Minimum for production:
+
+| Variable | Example / notes |
+|----------|-----------------|
+| `DATABASE_URL` | `mysql://USER:PASS@HOST:3306/DB_NAME` from Cloudways **Database** tab |
+| `NEXTAUTH_URL` | `https://internationalcoachinginstitute.org` (your live domain) |
+| `NEXTAUTH_SECRET` | Random 32+ char string (`openssl rand -base64 32`) |
+| `NEXT_PUBLIC_APP_URL` | Same as `NEXTAUTH_URL` |
+| `BUNNY_STORAGE_ZONE_NAME` | Bunny storage zone name |
+| `BUNNY_STORAGE_API_KEY` | Bunny storage API password |
+| `BUNNY_CDN_URL` | `https://your-zone.b-cdn.net` |
+| `BUNNY_TOKEN_AUTH_KEY` | Bunny pull zone token auth key (for private materials) |
+| `SMTP_*` | Gmail / Google Workspace SMTP (see `.env.example`) |
+| `ADMIN_NOTIFICATION_EMAIL` | `info@internationalcoachinginstitute.org` |
+| `REVALIDATE_SECRET` | Random secret for on-demand cache revalidation |
+
+MySQL is on the **same Cloudways server** — use the internal DB host from the Cloudways panel (no remote IP whitelist needed).
+
+### 4. First-time database setup (SSH)
+
+SSH into the application and run:
+
+```bash
+cd applications/<app-folder>/public_html   # or your deploy path
+npm run db:push
+npm run db:seed
+```
+
+### 5. Domain & SSL
+
+1. **Domain management** → add `internationalcoachinginstitute.org` (+ `www`).
+2. Enable **Let's Encrypt SSL**.
+3. Update `NEXTAUTH_URL` and `NEXT_PUBLIC_APP_URL` to the live HTTPS domain.
+4. Restart the application.
+
+### 6. Remove Vercel
+
+1. In [Vercel](https://vercel.com) → your project → **Settings** → delete the project (or disconnect Git).
+2. Point your domain DNS to **Cloudways** (A record or CNAME from Cloudways domain tab).
+3. Remove any old Vercel DNS records.
+
+### 7. Verify after deploy
+
+- Homepage loads over HTTPS
+- `/admin/login` works with seeded admin user
+- Form submission creates a lead + sends email
+- Admin **Media** upload saves to Bunny (check URL is `*.b-cdn.net`)
 
 ## Bunny.net configuration
 

@@ -17,7 +17,7 @@ export default function EventsForm() {
       const response = await fetch('/api/events-interest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, honeypot }),
+        body: JSON.stringify({ email, honeypot, context: 'Events page interest signup' }),
       })
 
       if (response.ok) {

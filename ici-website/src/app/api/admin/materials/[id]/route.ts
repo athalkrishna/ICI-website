@@ -5,6 +5,7 @@ import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, notFound, serverError } from '@/lib/api';
 import { deleteFromBunny } from '@/lib/bunny';
 import { logActivity } from '@/lib/activity';
+import { syncMaterialAccessForMaterial } from '@/lib/material-access';
 
 type RouteParams = { params: Promise<{ id: string }> };
 
@@ -43,6 +44,10 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
       where: { id },
       data: parsed.data,
     });
+
+    if (material.isPublished) {
+      await syncMaterialAccessForMaterial(material.id, session.user.id);
+    }
 
     await logActivity({
       action: 'MATERIAL_UPDATED',

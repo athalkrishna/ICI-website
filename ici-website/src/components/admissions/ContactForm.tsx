@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { isBotFieldValue, submitLeadRequest } from '@/lib/lead-utils';
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -22,6 +23,7 @@ type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState<string>('');
 
   const {
@@ -30,30 +32,44 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      honeypot: '',
+    },
   });
 
   const onSubmit = async (data: FormData) => {
+    if (isBotFieldValue(data.honeypot)) {
+      setStatus('success');
+      return;
+    }
+
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
-      alert('Please complete the CAPTCHA');
+      setErrorMessage('Please complete the CAPTCHA');
+      setStatus('error');
       return;
     }
 
     setStatus('submitting');
+    setErrorMessage('');
+
+    const { honeypot: _honeypot, gdprConsent: _gdprConsent, ...fields } = data;
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, turnstileToken }),
+      await submitLeadRequest({
+        fullName: fields.name,
+        email: fields.email,
+        phone: fields.phone,
+        country: fields.country,
+        programmeInterest: 'NOT_SURE',
+        source: 'CONTACT_FORM',
+        message: `Discuss: ${fields.discuss}\n\nPreferred times: ${fields.times}`,
+        turnstileToken: turnstileToken || undefined,
       });
 
-      if (res.ok) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
+      setStatus('success');
     } catch (err) {
       setStatus('error');
+      setErrorMessage(err instanceof Error ? err.message : 'There was an error submitting your request.');
     }
   };
 
@@ -77,8 +93,15 @@ export default function ContactForm() {
   return (
     <form className="space-y-6 relative z-10" onSubmit={handleSubmit(onSubmit)}>
       {/* Honeypot field - invisible to real users */}
-      <div className="absolute left-[-9999px] top-[-9999px]">
-        <input type="text" {...register('honeypot')} tabIndex={-1} autoComplete="off" />
+      <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden>
+        <input
+          type="text"
+          {...register('honeypot')}
+          tabIndex={-1}
+          autoComplete="off"
+          data-lpignore="true"
+          data-1p-ignore
+        />
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -198,7 +221,7 @@ export default function ContactForm() {
 
       {status === 'error' && (
         <div className="bg-red-50 text-red-600 p-4 border border-red-200 rounded-xl text-sm">
-          There was an error submitting your request. Please try again later.
+          {errorMessage || 'There was an error submitting your request. Please try again later.'}
         </div>
       )}
 

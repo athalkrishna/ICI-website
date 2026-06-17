@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Sparkles, BookOpen, Layers, Award } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
-import { cmsField } from '@/lib/cms-helpers';
+import { cmsField, cmsHeroHeadingLines, cmsPlainBody } from '@/lib/cms-helpers';
 import type { ContentMap } from '@/lib/content';
 import type { ProgrammesOverviewData } from '@/lib/programmes-overview-defaults';
 
@@ -15,6 +15,14 @@ type Props = {
 };
 
 export default function ProgrammesOverviewView({ content, defaults }: Props) {
+  const heroHeading = cmsHeroHeadingLines(
+    content,
+    'hero_heading',
+    'hero_heading_accent',
+    defaults.heroHeading,
+    defaults.heroHeadingAccent,
+  );
+
   const levels = defaults.levels.map((item, i) => ({
     level: cmsField(content, `level_${i + 1}_label`, item.label),
     title: cmsField(content, `level_${i + 1}_name`, item.title),
@@ -56,13 +64,16 @@ export default function ProgrammesOverviewView({ content, defaults }: Props) {
               </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', defaults.heroHeading)} <br />
-              <span className="text-h1-accent">
-                {cmsField(content, 'hero_heading_accent', defaults.heroHeadingAccent)}
-              </span>
+              {heroHeading.line1}
+              {heroHeading.line2 && (
+                <>
+                  <br />
+                  <span className="text-h1-accent">{heroHeading.line2}</span>
+                </>
+              )}
             </h1>
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
-              {cmsField(content, 'hero_body', defaults.heroBody)}
+              {cmsPlainBody(content, 'hero_body', defaults.heroBody)}
             </p>
           </AnimatedSection>
         </Container>
@@ -76,7 +87,7 @@ export default function ProgrammesOverviewView({ content, defaults }: Props) {
               {cmsField(content, 'mastery_section_heading', defaults.masterySectionHeading)}
             </h2>
             <p className="text-muted max-w-3xl text-body">
-              {cmsField(content, 'mastery_section_body', defaults.masterySectionBody)}
+              {cmsPlainBody(content, 'mastery_section_body', defaults.masterySectionBody)}
             </p>
           </AnimatedSection>
 
@@ -129,7 +140,7 @@ export default function ProgrammesOverviewView({ content, defaults }: Props) {
                   </span>
                 </h2>
                 <p className="text-muted-dark mb-10 text-body">
-                  {cmsField(content, 'specialisations_body', defaults.specialisationsBody)}
+                  {cmsPlainBody(content, 'specialisations_body', defaults.specialisationsBody)}
                 </p>
               </div>
             </AnimatedSection>

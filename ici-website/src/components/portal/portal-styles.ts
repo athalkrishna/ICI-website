@@ -1,8 +1,10 @@
 /** Shared Tailwind classes for admin & student portals */
 
-export const portalShellClass = 'flex min-h-screen bg-cream-50 text-brand-navy-900 font-sans';
+export const portalShellClass =
+  'grid grid-cols-[16rem_minmax(0,1fr)] h-full max-h-full min-h-0 overflow-hidden bg-cream-50 text-brand-navy-900 font-sans';
 
-export const portalMainClass = 'flex-1 p-6 md:p-8 lg:p-10 overflow-y-auto';
+export const portalMainClass =
+  'min-w-0 min-h-0 p-6 md:p-8 lg:p-10 overflow-y-auto overscroll-contain';
 
 export const portalCardClass =
   'bg-white rounded-2xl shadow-md border border-navy-100';
@@ -28,7 +30,7 @@ export const portalNavInactiveClass =
   'text-white/80 hover:bg-brand-navy-800 hover:text-white';
 
 export const portalSidebarClass =
-  'w-full lg:w-64 bg-brand-navy-900 text-white flex-shrink-0 flex flex-col min-h-screen';
+  'grid grid-rows-[auto_minmax(0,1fr)_auto] h-full w-full min-w-0 overflow-hidden bg-brand-navy-900 text-white';
 
 export const portalTableHeadClass = 'bg-cream-50 border-b border-navy-200 text-muted';
 
@@ -42,4 +44,3 @@ export const portalQuickLinkClass =
 
 export const portalSecondaryBtnClass =
   'inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-brand-navy-900 border border-navy-100 bg-white hover:bg-cream-50 rounded-xl transition-colors disabled:opacity-50';
-

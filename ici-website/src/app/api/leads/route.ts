@@ -1,48 +1,41 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { query } from '@/lib/db';
+import { NextRequest } from 'next/server';
 import { formRateLimiter } from '@/lib/rate-limit';
+import { jsonOk, jsonError, serverError } from '@/lib/api';
+import { createLead, getClientIp, mapProgrammeInterest, verifyTurnstile } from '@/lib/leads';
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1";
-    
-    // Apply rate limit
+    const ip = getClientIp(req);
+
     try {
       await formRateLimiter.check(10, ip);
     } catch {
-      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+      return jsonError('Too many requests', 429);
     }
 
     const body = await req.json();
     const { name, email, phone, country, programme_interest, message, turnstileToken } = body;
 
-    // Verify Turnstile Token
-    const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${turnstileToken}&remoteip=${ip}`,
+    const captcha = await verifyTurnstile(turnstileToken, ip);
+    if (!captcha.ok) return jsonError(captcha.message);
+
+    if (!name?.trim() || !email?.trim()) {
+      return jsonError('Name and email are required');
+    }
+
+    await createLead({
+      fullName: String(name).trim(),
+      email: String(email).trim(),
+      phone: phone ? String(phone) : null,
+      country: country ? String(country) : null,
+      programmeInterest: mapProgrammeInterest(programme_interest),
+      source: 'APPLY_FORM',
+      message: message ? String(message) : null,
     });
-    
-    const verifyData = await verifyResponse.json();
-    
-    if (!verifyData.success) {
-      return NextResponse.json({ error: 'Failed captcha verification' }, { status: 400 });
-    }
 
-    // Insert Lead
-    try {
-      await query(
-        `INSERT INTO leads (source_page, name, email, phone, country, programme_interest, message)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        ['Contact Form', name, email, phone, country, programme_interest, message]
-      );
-    } catch (dbError) {
-      console.warn('DB Insert failed, mocking success for demo:', dbError);
-    }
-
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Lead Submission Error:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return jsonOk({ success: true });
+  } catch (err) {
+    console.error('[leads POST]', err);
+    return serverError();
   }
 }

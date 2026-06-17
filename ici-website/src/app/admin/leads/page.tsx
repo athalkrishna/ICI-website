@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import clsx from 'clsx';
-import { Download, Search, X } from 'lucide-react';
+import { Download, Search, Trash2, X } from 'lucide-react';
 import { formatDate, formatDateTime, formatEnumLabel } from '@/lib/admin-utils';
 import PortalPageHeader from '@/components/portal/PortalPageHeader';
 import { portalSecondaryBtnClass } from '@/components/portal/portal-styles';
@@ -42,6 +42,7 @@ export default function AdminLeadsPage() {
   const [search, setSearch] = useState('');
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [editNotes, setEditNotes] = useState('');
   const [editStatus, setEditStatus] = useState('');
   const [statusNote, setStatusNote] = useState('');
@@ -103,6 +104,23 @@ export default function AdminLeadsPage() {
       toast.error('Failed to update lead');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleDelete = async (lead: Lead) => {
+    if (!confirm(`Delete lead "${lead.fullName}"? This cannot be undone.`)) return;
+
+    setDeleting(true);
+    try {
+      const res = await fetch(`/api/admin/leads/${lead.id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Delete failed');
+      toast.success('Lead deleted');
+      if (selectedLead?.id === lead.id) setSelectedLead(null);
+      loadLeads();
+    } catch {
+      toast.error('Failed to delete lead');
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -168,13 +186,14 @@ export default function AdminLeadsPage() {
                 <th className="px-6 py-4 font-medium">Interest</th>
                 <th className="px-6 py-4 font-medium">Source</th>
                 <th className="px-6 py-4 font-medium">Status</th>
+                <th className="px-6 py-4 font-medium">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-navy-50">
               {loading ? (
-                <tr><td colSpan={6} className="px-6 py-8 text-center text-muted">Loading…</td></tr>
+                <tr><td colSpan={7} className="px-6 py-8 text-center text-muted">Loading…</td></tr>
               ) : leads.length === 0 ? (
-                <tr><td colSpan={6} className="px-6 py-8 text-center text-muted">No leads found.</td></tr>
+                <tr><td colSpan={7} className="px-6 py-8 text-center text-muted">No leads found.</td></tr>
               ) : (
                 leads.map((lead) => (
                   <tr key={lead.id} onClick={() => openDetail(lead)} className="hover:bg-cream-50 cursor-pointer transition-colors">
@@ -190,6 +209,20 @@ export default function AdminLeadsPage() {
                       <span className={clsx('inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium border', statusColor(lead.status))}>
                         {formatEnumLabel(lead.status)}
                       </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(lead);
+                        }}
+                        disabled={deleting}
+                        className="text-red-600 hover:text-red-700 disabled:opacity-50"
+                        title="Delete lead"
+                      >
+                        <Trash2 size={16} />
+                      </button>
                     </td>
                   </tr>
                 ))
@@ -249,9 +282,19 @@ export default function AdminLeadsPage() {
                   </ul>
                 </div>
               )}
-              <div className="flex justify-end gap-3 pt-2">
-                <button type="button" onClick={() => setSelectedLead(null)} className="px-4 py-2 text-sm border border-navy-100 rounded-xl">Cancel</button>
-                <button type="button" onClick={handleSave} disabled={saving} className="px-4 py-2 text-sm text-white bg-brand-navy-900 rounded-xl disabled:opacity-50">{saving ? 'Saving…' : 'Save'}</button>
+              <div className="flex justify-between gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => handleDelete(selectedLead)}
+                  disabled={deleting || saving}
+                  className="px-4 py-2 text-sm text-red-600 border border-red-200 rounded-xl hover:bg-red-50 disabled:opacity-50"
+                >
+                  {deleting ? 'Deleting…' : 'Delete lead'}
+                </button>
+                <div className="flex gap-3">
+                  <button type="button" onClick={() => setSelectedLead(null)} className="px-4 py-2 text-sm border border-navy-100 rounded-xl">Cancel</button>
+                  <button type="button" onClick={handleSave} disabled={saving || deleting} className="px-4 py-2 text-sm text-white bg-brand-navy-900 rounded-xl disabled:opacity-50">{saving ? 'Saving…' : 'Save'}</button>
+                </div>
               </div>
             </div>
           </div>

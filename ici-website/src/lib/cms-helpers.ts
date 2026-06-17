@@ -1,12 +1,23 @@
 import type { ContentMap } from './content';
 
+export function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function looksLikeHtml(value: string): boolean {
+  return /<\/?[a-z][\s\S]*>/i.test(value);
+}
+
+/** Plain text CMS value — strips accidental HTML tags from rich-text fields. */
 export function cmsField(
   content: ContentMap | null | undefined,
   key: string,
   fallback: string,
 ): string {
   const value = content?.[key];
-  return value?.trim() ? value : fallback;
+  if (!value?.trim()) return fallback;
+  const trimmed = value.trim().replace(/\s+/g, ' ');
+  return looksLikeHtml(trimmed) ? stripHtml(trimmed) : trimmed;
 }
 
 export function cmsNumber(
@@ -20,15 +31,11 @@ export function cmsNumber(
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
-export function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
 export function cmsAnnouncements(content: ContentMap | null | undefined) {
   const items: { _id: string; text: string; link?: string }[] = [];
 
   for (let i = 1; i <= 3; i++) {
-    const text = content?.[`announcement_${i}_text`]?.trim();
+    const text = cmsField(content, `announcement_${i}_text`, '');
     if (!text) continue;
     items.push({
       _id: String(i),
@@ -66,7 +73,7 @@ export function cmsIndexedStrings(
 ): string[] {
   const items: string[] = [];
   for (let i = 1; i <= count; i++) {
-    const value = content?.[`${prefix}${i}`]?.trim();
+    const value = cmsField(content, `${prefix}${i}`, '');
     if (value) items.push(value);
   }
   return items;
@@ -81,7 +88,43 @@ export function cmsIndexedWithFallbacks(
   return fallbacks.map((fallback, i) => cmsField(content, `${prefix}${i + 1}`, fallback));
 }
 
+/** Raw HTML CMS value — for dangerouslySetInnerHTML blocks only. */
 export function cmsHtml(
+  content: ContentMap | null | undefined,
+  key: string,
+  fallback: string,
+): string {
+  const value = content?.[key];
+  return value?.trim() ? value.trim() : fallback;
+}
+
+/**
+ * Legal pages (terms, privacy) — uses full fallback when CMS still has a short
+ * placeholder stub instead of the complete document.
+ */
+export function cmsLegalHtml(
+  content: ContentMap | null | undefined,
+  key: string,
+  fallback: string,
+  legacyStubs: string[] = [],
+): string {
+  const value = content?.[key]?.trim();
+  if (!value) return fallback;
+
+  const normalized = value.replace(/\s+/g, ' ').trim();
+  for (const stub of legacyStubs) {
+    if (normalized === stub.replace(/\s+/g, ' ').trim()) return fallback;
+  }
+
+  if (fallback.includes('<h2>') && !value.includes('<h2>')) {
+    return fallback;
+  }
+
+  return value;
+}
+
+/** @deprecated Use cmsField — kept for call-site clarity. */
+export function cmsPlainBody(
   content: ContentMap | null | undefined,
   key: string,
   fallback: string,
@@ -89,13 +132,20 @@ export function cmsHtml(
   return cmsField(content, key, fallback);
 }
 
-/** Plain text from CMS — strips HTML when a rich-text value is stored. */
-export function cmsPlainBody(
+/** Two-line hero heading — avoids duplicating accent text stored in the main heading field. */
+export function cmsHeroHeadingLines(
   content: ContentMap | null | undefined,
-  key: string,
-  fallback: string,
-): string {
-  const value = content?.[key];
-  if (!value?.trim()) return fallback;
-  return stripHtml(value);
+  headingKey: string,
+  accentKey: string,
+  headingFallback: string,
+  accentFallback: string,
+): { line1: string; line2: string | null } {
+  const line1 = cmsField(content, headingKey, headingFallback);
+  const accent = cmsField(content, accentKey, accentFallback);
+
+  if (!accent || line1.toLowerCase().includes(accent.toLowerCase())) {
+    return { line1, line2: null };
+  }
+
+  return { line1, line2: accent };
 }

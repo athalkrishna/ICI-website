@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CheckCircle2, UserPlus, Compass } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
-import { cmsField, cmsIndexedWithFallbacks } from '@/lib/cms-helpers';
+import { cmsField, cmsIndexedWithFallbacks, cmsPlainBody } from '@/lib/cms-helpers';
 import type { ContentMap } from '@/lib/content';
 import type { ProgrammeSpecialisationData } from '@/lib/programme-defaults';
 
@@ -47,7 +47,7 @@ export default function ProgrammeSpecialisationView({ content, defaults, learnIc
               {cmsField(content, 'hero_heading', defaults.heroHeading)}
             </h1>
             <p className="text-body-hero text-muted-dark max-w-3xl mb-12">
-              {cmsField(content, 'hero_body', defaults.heroBody)}
+              {cmsPlainBody(content, 'hero_body', defaults.heroBody)}
             </p>
           </AnimatedSection>
         </Container>

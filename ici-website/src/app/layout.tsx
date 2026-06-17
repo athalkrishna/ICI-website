@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Montserrat, Source_Serif_4, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import { cookies } from 'next/headers'
+import SiteChrome from '@/components/layout/SiteChrome'
+import AppProviders from '@/components/providers/AppProviders'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import MetaPixel from '@/components/MetaPixel'
-import CookieNotice from '@/components/shared/CookieNotice'
 import { getGlobalContent } from '@/lib/content'
 
 const playfair = Playfair_Display({
@@ -57,8 +55,6 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies()
-  const isLoggedIn = cookieStore.get('ici_mock_auth')?.value === 'true'
   let globalContent = {}
   try {
     globalContent = await getGlobalContent()
@@ -74,8 +70,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     logo: 'https://internationalcoachinginstitute.org/og-image.png',
     description: 'World-Class Coaching Education. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
     sameAs: [
-      'https://www.linkedin.com/school/internationalcoachinginstitute'
-    ]
+      'https://www.linkedin.com/school/internationalcoachinginstitute',
+    ],
   }
 
   return (
@@ -92,10 +88,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
         <MetaPixel />
-        <Navbar isLoggedIn={isLoggedIn} globalContent={globalContent} />
-        <main id="main-content">{children}</main>
-        <Footer globalContent={globalContent} />
-        <CookieNotice />
+        <AppProviders>
+          <SiteChrome globalContent={globalContent}>{children}</SiteChrome>
+        </AppProviders>
       </body>
     </html>
   )

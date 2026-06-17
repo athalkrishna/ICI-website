@@ -80,8 +80,8 @@ export default function MaterialsPage() {
           <FileText className="w-12 h-12 text-brand-navy-200 mx-auto mb-4" />
           <h2 className={`${portalSectionTitleClass} mb-2`}>No materials yet</h2>
           <p className="text-muted max-w-md mx-auto">
-            Materials will appear here once your coach or programme administrator grants access.
-            Contact{' '}
+            Published materials for your programme level will appear here. If you expect
+            something to be available, contact{' '}
             <a
               href="mailto:info@internationalcoachinginstitute.org"
               className="text-brand-gold-700 hover:text-brand-gold-800"

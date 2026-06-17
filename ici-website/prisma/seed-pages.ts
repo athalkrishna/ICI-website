@@ -13,6 +13,7 @@ import {
   LUMINARY_CREDENTIAL,
   type CredentialDetailDefaults,
 } from '../src/lib/credential-defaults';
+import { PRIVACY_CONTENT_HTML, TERMS_CONTENT_HTML } from '../src/lib/legal-defaults';
 
 export type SeedField = {
   key: string;
@@ -781,13 +782,13 @@ const STATIC_PAGES: SeedPage[] = [
   page('/terms', 'Terms of Service', 'Terms of service page', [
     f('page_heading', 'Page Heading', T.TEXT, 'Terms of Service', 'Content', 1),
     f('last_updated', 'Last Updated Date', T.TEXT, 'Last updated: 1 June 2026', 'Content', 2),
-    f('content', 'Full Terms Content', T.RICHTEXT, '<p>These terms govern your use of the International Coaching Institute website and services. By using this site you agree to these terms. For full terms, contact info@internationalcoachinginstitute.org.</p>', 'Content', 3),
+    f('content', 'Full Terms Content', T.RICHTEXT, TERMS_CONTENT_HTML, 'Content', 3),
     codeField(999),
   ]),
   page('/privacy', 'Privacy Policy', 'Privacy policy page', [
     f('page_heading', 'Page Heading', T.TEXT, 'Privacy Policy', 'Content', 1),
     f('last_updated', 'Last Updated Date', T.TEXT, 'Last updated: 1 June 2026', 'Content', 2),
-    f('content', 'Full Privacy Policy Content', T.RICHTEXT, '<p>We respect your privacy. This policy explains how we collect, use and protect your personal information when you use our website and services.</p>', 'Content', 3),
+    f('content', 'Full Privacy Policy Content', T.RICHTEXT, PRIVACY_CONTENT_HTML, 'Content', 3),
     codeField(999),
   ]),
   page('/complaints', 'Complaints', 'Complaints procedure page', [
