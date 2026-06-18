@@ -1,0 +1,3 @@
+module.exports=[52368,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(51206);a.n(d("[project]/Downloads/International coaching Institute/ici-website/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},2429,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(51206);a.n(d("[project]/Downloads/International coaching Institute/ici-website/node_modules/next/dist/client/components/builtin/global-error.js"))},50077,a=>{"use strict";a.i(52368);var b=a.i(2429);a.n(b)},24506,a=>{a.n(a.i(50077))}];
+
+//# sourceMappingURL=0fyl_next_dist_client_components_builtin_global-error_0o_7hlt.js.map

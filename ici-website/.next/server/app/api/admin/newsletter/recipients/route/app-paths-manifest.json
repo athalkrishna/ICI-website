@@ -1,0 +1,3 @@
+{
+  "/api/admin/newsletter/recipients/route": "app/api/admin/newsletter/recipients/route.js"
+}

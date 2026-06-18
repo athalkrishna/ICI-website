@@ -1,0 +1,10 @@
+var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/leads/route.js")
+R.c("server/chunks/[root-of-the-server]__1z4pid_._.js")
+R.c("server/chunks/0fyl_next_dist_0mrijbd._.js")
+R.c("server/chunks/[root-of-the-server]__1e-68ts._.js")
+R.c("server/chunks/[root-of-the-server]__1q-t2k5._.js")
+R.c("server/chunks/[root-of-the-server]__1kf2zgo._.js")
+R.c("server/chunks/Downloads_International coaching Institute_ici-website_0v5u5gl._.js")
+R.c("server/chunks/10s6_ici-website__next-internal_server_app_api_leads_route_actions_0p9pk3c.js")
+R.m(90793)
+module.exports=R.m(90793).exports

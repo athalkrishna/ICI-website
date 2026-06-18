@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/prospectus/layout,_N_T_/prospectus/page,_N_T_/prospectus"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/prospectus/__PAGE__",
+    "/prospectus",
+    "/_index",
+    "/_head"
+  ]
+}
