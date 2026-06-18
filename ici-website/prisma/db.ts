@@ -15,6 +15,7 @@ function createAdapter() {
     password: decodeURIComponent(parsed.password),
     database: parsed.pathname.replace(/^\//, ''),
     connectionLimit: 5,
+    allowPublicKeyRetrieval: true,
   });
 }
 
