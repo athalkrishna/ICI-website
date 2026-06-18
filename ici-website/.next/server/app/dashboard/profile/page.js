@@ -12,7 +12,7 @@ R.c("server/chunks/ssr/Downloads_International coaching Institute_ici-website_0-
 R.c("server/chunks/ssr/0fyl_next_dist_client_components_20b5dyg._.js")
 R.c("server/chunks/ssr/0fyl_next_dist_client_components_builtin_unauthorized_0fo2zqk.js")
 R.c("server/chunks/ssr/0fyl_next_dist_client_components_builtin_global-error_0o_7hlt.js")
-R.c("server/chunks/ssr/Downloads_International coaching Institute_ici-website_src_02o9u9r._.js")
+R.c("server/chunks/ssr/Downloads_International coaching Institute_ici-website_src_app_dashboard_15l881u._.js")
 R.c("server/chunks/ssr/10s6_ici-website__next-internal_server_app_dashboard_profile_page_actions_1n3b2dq.js")
 R.m(20922)
 module.exports=R.m(20922).exports

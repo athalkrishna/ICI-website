@@ -1,5 +1,5 @@
 var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/auth/forgot-password/route.js")
-R.c("server/chunks/[root-of-the-server]__0hthr_l._.js")
+R.c("server/chunks/[root-of-the-server]__0os4jqx._.js")
 R.c("server/chunks/[root-of-the-server]__1kf2zgo._.js")
 R.c("server/chunks/0fyl_next_dist_0mrijbd._.js")
 R.c("server/chunks/Downloads_International coaching Institute_ici-website_0v5u5gl._.js")

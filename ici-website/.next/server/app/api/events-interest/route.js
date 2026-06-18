@@ -2,9 +2,9 @@ var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/events-i
 R.c("server/chunks/[root-of-the-server]__1z4pid_._.js")
 R.c("server/chunks/0fyl_next_dist_0mrijbd._.js")
 R.c("server/chunks/[root-of-the-server]__0tsrapz._.js")
+R.c("server/chunks/Downloads_International coaching Institute_ici-website_0v5u5gl._.js")
 R.c("server/chunks/[root-of-the-server]__1q-t2k5._.js")
 R.c("server/chunks/[root-of-the-server]__1kf2zgo._.js")
-R.c("server/chunks/Downloads_International coaching Institute_ici-website_0v5u5gl._.js")
 R.c("server/chunks/10s6_ici-website__next-internal_server_app_api_events-interest_route_actions_0gdlx1s.js")
 R.m(98427)
 module.exports=R.m(98427).exports

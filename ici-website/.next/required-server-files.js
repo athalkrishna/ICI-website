@@ -315,6 +315,9 @@ self.__SERVER_FILES_MANIFEST={
     "eslint": {
       "ignoreDuringBuilds": true
     },
+    "serverExternalPackages": [
+      "@sanity/client"
+    ],
     "turbopack": {
       "root": "C:\\Users\\Acer"
     },

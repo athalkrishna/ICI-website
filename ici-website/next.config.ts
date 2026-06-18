@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  serverExternalPackages: ['@sanity/client'],
   async redirects() {
     return [
       { source: '/about/rankings', destination: '/about/accreditation', permanent: true },
