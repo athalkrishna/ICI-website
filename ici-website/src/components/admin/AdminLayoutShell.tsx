@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import type { Session } from 'next-auth';
 import AdminSidebar from './AdminSidebar';
 import PortalShell from '@/components/portal/PortalShell';
+import { formatEnumLabel } from '@/lib/admin-utils';
 
 export default function AdminLayoutShell({
   children,
@@ -21,6 +22,10 @@ export default function AdminLayoutShell({
   return (
     <div className="h-full min-h-0">
       <PortalShell
+        mobileTitle="Admin Portal"
+        headerUserName={session?.user?.name}
+        headerUserMeta={session?.user?.role ? formatEnumLabel(session.user.role) : undefined}
+        siteHref="/"
         sidebar={
           session?.user ? (
             <AdminSidebar userName={session.user.name} userRole={session.user.role} />

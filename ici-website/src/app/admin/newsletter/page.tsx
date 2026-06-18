@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { Plus, Trash2, Send, Pencil, Users } from 'lucide-react';
 import { formatDate, formatDateTime } from '@/lib/admin-utils';
 import PortalPageHeader from '@/components/portal/PortalPageHeader';
-import { portalPrimaryBtnClass } from '@/components/portal/portal-styles';
+import { portalPrimaryBtnClass, portalTableWrapperClass } from '@/components/portal/portal-styles';
 import TipTapEditor from '@/components/admin/TipTapEditor';
 
 type Newsletter = {
@@ -206,7 +206,8 @@ export default function AdminNewsletterPage() {
       )}
 
       <div className="bg-white border border-navy-100 rounded-2xl overflow-hidden">
-        <table className="w-full text-sm">
+        <div className={portalTableWrapperClass}>
+        <table className="w-full text-sm min-w-[640px]">
           <thead className="bg-cream-50 text-navy-600">
             <tr>
               <th className="text-left px-4 py-3 font-medium">Title</th>
@@ -276,11 +277,12 @@ export default function AdminNewsletterPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {modal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40">
-          <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-xl">
+          <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] sm:max-h-[92vh] overflow-y-auto shadow-xl mx-2 sm:mx-4">
             <div className="p-6 border-b border-navy-100">
               <h2 className="text-lg font-semibold text-brand-navy-900">
                 {modal === 'create' ? 'New Newsletter' : 'Edit Newsletter'}

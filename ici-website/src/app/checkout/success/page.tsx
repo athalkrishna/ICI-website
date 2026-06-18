@@ -20,7 +20,7 @@ export default function CheckoutSuccessPage() {
       <Suspense fallback={null}>
         <SuccessTracker />
       </Suspense>
-      <Section spacing="hero" className="bg-brand-navy-800 lg: lg: relative overflow-hidden">
+      <Section spacing="hero" className="bg-brand-navy-800 lg:relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <Container className="relative z-20">
           <AnimatedSection className="max-w-3xl">

@@ -26,7 +26,7 @@ export default function SiteChrome({
         portal ? 'h-dvh max-h-dvh overflow-hidden' : 'min-h-dvh',
       )}
     >
-      <Navbar globalContent={globalContent} />
+      {!portal && <Navbar globalContent={globalContent} />}
       <SiteMain>{children}</SiteMain>
       <SiteFooter globalContent={globalContent} />
       <SiteCookieNotice />

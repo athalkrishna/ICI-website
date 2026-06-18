@@ -45,17 +45,17 @@ export default function PortalSidebar({
 
   return (
     <aside className={portalSidebarClass}>
-      <div className="row-start-1 shrink-0 p-6 border-b border-white/10 min-w-0">
+      <div className="shrink-0 p-5 sm:p-6 border-b border-white/10 min-w-0">
         <Link href={homeHref} className="block group min-w-0">
           <p className="text-brand-gold-400 text-xs font-semibold uppercase tracking-widest mb-1.5 group-hover:text-brand-gold-300 transition-colors truncate">
             International Coaching Institute
           </p>
-          <h1 className="font-display text-xl text-white tracking-wide truncate">{portalName}</h1>
+          <p className="font-display text-lg sm:text-xl text-white tracking-wide truncate">{portalName}</p>
         </Link>
       </div>
 
-      <nav className="row-start-2 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden overscroll-contain px-3 mt-4">
-        <ul className="space-y-1">
+      <nav className="portal-sidebar-nav flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-contain px-3 py-4">
+        <ul className="space-y-1 pb-2">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href, item.exact);
             const Icon = item.icon;
@@ -83,7 +83,7 @@ export default function PortalSidebar({
         </ul>
       </nav>
 
-      <div className="row-start-3 shrink-0 min-w-0 px-3 py-4 border-t border-white/10 overflow-hidden">
+      <div className="shrink-0 min-w-0 px-3 py-4 border-t border-white/10 bg-brand-navy-900">
         {userName && (
           <div className="mb-3 px-3 min-w-0">
             <p className="text-sm text-white truncate font-medium">{userName}</p>
