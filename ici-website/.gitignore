@@ -14,7 +14,9 @@
 /coverage
 
 # next.js
-/.next/
+# /.next/
+/.next/cache/
+/.next/dev/
 /out/
 
 # archives
