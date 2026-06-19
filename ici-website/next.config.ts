@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    memoryBasedWorkersCount: true,
+    cpus: 1,
+    workerThreads: false,
+  },
   serverExternalPackages: ['@sanity/client'],
   async redirects() {
     return [
