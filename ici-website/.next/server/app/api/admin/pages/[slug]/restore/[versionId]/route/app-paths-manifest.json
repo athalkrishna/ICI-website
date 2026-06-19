@@ -1,0 +1,3 @@
+{
+  "/api/admin/pages/[slug]/restore/[versionId]/route": "app/api/admin/pages/[slug]/restore/[versionId]/route.js"
+}

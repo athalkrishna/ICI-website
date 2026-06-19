@@ -183,8 +183,8 @@ self.__SERVER_FILES_MANIFEST={
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 11,
-      "memoryBasedWorkersCount": false,
+      "cpus": 1,
+      "memoryBasedWorkersCount": true,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
       "imgOptMaxInputPixels": 268402689,
@@ -323,6 +323,7 @@ self.__SERVER_FILES_MANIFEST={
     "eslint": {
       "ignoreDuringBuilds": true
     },
+    "optimizeFonts": false,
     "serverExternalPackages": [
       "@sanity/client"
     ],
@@ -404,8 +405,6 @@ self.__SERVER_FILES_MANIFEST={
     ".next\\server\\functions-config-manifest.json",
     ".next\\server\\middleware-manifest.json",
     ".next\\server\\middleware-build-manifest.js",
-    ".next\\server\\middleware-react-loadable-manifest.js",
-    ".next\\react-loadable-manifest.json",
     ".next\\server\\app-paths-manifest.json",
     ".next\\app-path-routes-manifest.json",
     ".next\\server\\server-reference-manifest.js",

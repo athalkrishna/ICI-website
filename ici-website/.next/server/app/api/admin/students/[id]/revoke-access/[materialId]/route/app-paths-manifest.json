@@ -1,0 +1,3 @@
+{
+  "/api/admin/students/[id]/revoke-access/[materialId]/route": "app/api/admin/students/[id]/revoke-access/[materialId]/route.js"
+}

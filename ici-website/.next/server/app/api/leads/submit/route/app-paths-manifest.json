@@ -1,0 +1,3 @@
+{
+  "/api/leads/submit/route": "app/api/leads/submit/route.js"
+}

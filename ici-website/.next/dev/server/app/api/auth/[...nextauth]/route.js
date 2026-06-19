@@ -1,0 +1,13 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/auth/[...nextauth]/route.js")
+R.c("server/chunks/157j_l coaching Institute_ici-website_src_app_api_auth_[___nextauth]_route_ts_1_o84fg._.js")
+R.c("server/chunks/0fyl_next_0ydozbc._.js")
+R.c("server/chunks/0fyl_next-auth_126tpam._.js")
+R.c("server/chunks/0fyl_openid-client_20qmo7i._.js")
+R.c("server/chunks/0fyl_jose_dist_node_cjs_07vkufv._.js")
+R.c("server/chunks/1dii_mariadb_1m7elzu._.js")
+R.c("server/chunks/1dii_iconv-lite_1870xn4._.js")
+R.c("server/chunks/[root-of-the-server]__14bbay2._.js")
+R.c("server/chunks/[root-of-the-server]__19u_hc6._.js")
+R.c("server/chunks/0m47__next-internal_server_app_api_auth_[___nextauth]_route_actions_1ptjda-.js")
+R.m("[project]/Downloads/International coaching Institute/ici-website/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/Downloads/International coaching Institute/ici-website/src/app/api/auth/[...nextauth]/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/Downloads/International coaching Institute/ici-website/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/Downloads/International coaching Institute/ici-website/src/app/api/auth/[...nextauth]/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports
