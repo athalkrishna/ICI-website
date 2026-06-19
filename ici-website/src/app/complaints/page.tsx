@@ -27,8 +27,10 @@ export default async function ComplaintsPage() {
         {cmsField(content, 'how_to_intro', 'If you have a complaint, please contact us with the details. You can do this by:')}
       </p>
       <ul>
-        <li>{cmsField(content, 'how_to_email', 'Emailing us at: info@internationalcoachinginstitute.org')}</li>
-        <li>{cmsField(content, 'how_to_address', 'Writing to us at our registered office address')}</li>
+        <li>{cmsField(content, 'legal_entity_name', 'Legal Entity Name: International Coaching Institute')}</li>
+        <li>{cmsField(content, 'how_to_address', 'Address: [Address]')}</li>
+        <li>{cmsField(content, 'how_to_email', 'Email: info@internationalcoachinginstitute.org')}</li>
+        <li>{cmsField(content, 'jurisdiction_info', 'Jurisdiction: [Jurisdiction]')}</li>
       </ul>
 
       <h2>{cmsField(content, 'next_steps_heading', 'What happens next?')}</h2>

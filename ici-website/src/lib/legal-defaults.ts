@@ -1,7 +1,7 @@
 export const TERMS_CONTENT_HTML = `
 <p class="lead text-brand-navy-800 text-body">These terms govern your use of the International Coaching Institute website and your enrolment in our programmes. By using this site or enrolling, you agree to them.</p>
 <h2>Who we are</h2>
-<p>This website is operated by [legal entity name], registered at [address] (we, us, our).</p>
+<p>This website is operated by International Coaching Institute, registered at [address] (we, us, our).</p>
 <h2>Using our website</h2>
 <p>You agree to use the site lawfully and not to misuse it, disrupt it, or attempt to access areas you are not authorised to access.</p>
 <h2>Enrolment and programmes</h2>
@@ -13,22 +13,22 @@ export const TERMS_CONTENT_HTML = `
 <h2>Code of conduct</h2>
 <p>Students and members agree to engage respectfully and ethically. We may suspend or remove access for serious or repeated breaches.</p>
 <h2>Intellectual property</h2>
-<p>All course materials, content and branding remain the property of [legal entity name] or its licensors. You may use materials for your own learning but may not copy, share or resell them without written permission.</p>
+<p>All course materials, content and branding remain the property of International Coaching Institute or its licensors. You may use materials for your own learning but may not copy, share or resell them without written permission.</p>
 <h2>Disclaimers</h2>
 <p>Our programmes provide coaching education. Coaching is not therapy, counselling or medical advice, and we make no guarantee of any specific income, career or personal outcome.</p>
 <h2>Limitation of liability and governing law</h2>
 <p>To the extent permitted by law, our liability is limited as set out here. These terms are governed by the laws of [jurisdiction], and disputes are subject to the courts of [jurisdiction]. [Confirm with counsel.]</p>
 <h2>Changes and contact</h2>
-<p>We may update these terms from time to time; the current version will always be on this page. Questions: [email].</p>
+<p>We may update these terms from time to time; the current version will always be on this page. Questions: info@internationalcoachinginstitute.org.</p>
 `.trim();
 
 /** Short CMS placeholder from an older seed — not the full published copy. */
 export const TERMS_CONTENT_STUB = `<p>These terms govern your use of the International Coaching Institute website and services. By using this site you agree to these terms. For full terms, contact info@internationalcoachinginstitute.org.</p>`;
 
 export const PRIVACY_CONTENT_HTML = `
-<p class="lead text-brand-navy-800 text-body">The International Coaching Institute ([legal entity name], we, us, our) respects your privacy and is committed to protecting your personal data. This policy explains what we collect, why, how we use it, and the rights you have.</p>
+<p class="lead text-brand-navy-800 text-body">The International Coaching Institute (International Coaching Institute, we, us, our) respects your privacy and is committed to protecting your personal data. This policy explains what we collect, why, how we use it, and the rights you have.</p>
 <h2>Who we are</h2>
-<p>[Legal entity name], registered at [address], is the data controller for the personal data described here. For any privacy question, contact [privacy email].</p>
+<p>International Coaching Institute, registered at [address], is the data controller for the personal data described here. For any privacy question, contact info@internationalcoachinginstitute.org.</p>
 <h2>What we collect</h2>
 <ul>
 <li><strong>Information you give us:</strong> name, contact details, application and enrolment details, payment information, and anything you share when you contact us.</li>
@@ -53,11 +53,11 @@ export const PRIVACY_CONTENT_HTML = `
 <h2>How long we keep it</h2>
 <p>We keep personal data only as long as necessary for the purposes described, or as required by law, then delete or anonymise it.</p>
 <h2>Your rights</h2>
-<p>Depending on where you live, you may have the right to access, correct, delete or restrict the use of your data, to object to certain processing, to data portability, and to withdraw consent. To exercise any right, contact [privacy email]. You may also have the right to complain to a data protection authority.</p>
+<p>Depending on where you live, you may have the right to access, correct, delete or restrict the use of your data, to object to certain processing, to data portability, and to withdraw consent. To exercise any right, contact info@internationalcoachinginstitute.org. You may also have the right to complain to a data protection authority.</p>
 <h2>Cookies</h2>
 <p>We use cookies to make the site work and to understand how it is used. You can manage your preferences through our cookie settings.</p>
 <h2>Changes and contact</h2>
-<p>We may update this policy from time to time; the latest version will always be on this page. Questions: [privacy email], or write to us at [address].</p>
+<p>We may update this policy from time to time; the latest version will always be on this page. Questions: info@internationalcoachinginstitute.org, or write to us at [address].</p>
 `.trim();
 
 export const PRIVACY_CONTENT_STUB = `<p>We respect your privacy. This policy explains how we collect, use and protect your personal information when you use our website and services.</p>`;
