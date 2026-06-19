@@ -434,7 +434,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Downloads/International coaching Institute/ici-website/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 ;
 function Container({ children, size = 'default', className = '', ...props }) {
-    const baseClasses = 'mx-auto px-4 lg:px-8';
+    const baseClasses = 'mx-auto w-full max-w-full px-4 lg:px-8';
     const sizeClasses = {
         default: 'max-w-[1440px]',
         mid: 'max-w-5xl',
@@ -688,7 +688,7 @@ function Navbar({ globalContent = {} }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                className: `sticky top-0 z-50 w-full max-w-full overflow-x-clip transition-all duration-300 ${scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm'}`,
+                className: `sticky top-0 z-50 w-full max-w-full overflow-x-hidden transition-all duration-300 ${scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm'}`,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: `hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-sm font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`,
@@ -1355,7 +1355,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__
 ;
 function Footer({ globalContent = {} }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "bg-brand-navy-900 text-white pt-16 pb-2 border-t-4 border-brand-gold-500",
+        className: "bg-brand-navy-900 text-white pt-16 pb-2 border-t-4 border-brand-gold-500 w-full max-w-full overflow-x-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$src$2f$components$2f$layout$2f$Container$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2012,7 +2012,7 @@ function SiteMain({ children }) {
     const portal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$src$2f$lib$2f$portal$2d$routes$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isPortalRoute"])(pathname);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         id: "main-content",
-        className: portal ? 'min-h-0 flex-1 overflow-hidden bg-cream-50 flex flex-col' : 'flex-1 w-full max-w-full overflow-x-clip',
+        className: portal ? 'min-h-0 flex-1 overflow-hidden bg-cream-50 flex flex-col' : 'flex-1 w-full max-w-full overflow-x-hidden',
         children: children
     }, void 0, false, {
         fileName: "[project]/Downloads/International coaching Institute/ici-website/src/components/layout/SiteMain.tsx",
@@ -2216,7 +2216,7 @@ function SiteChrome({ children, globalContent }) {
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
     const portal = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$src$2f$lib$2f$portal$2d$routes$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isPortalRoute"])(pathname);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])('flex flex-col w-full max-w-full overflow-x-clip', portal ? 'h-dvh max-h-dvh overflow-hidden' : 'min-h-dvh'),
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])('flex flex-col w-full max-w-full overflow-x-hidden', portal ? 'h-dvh max-h-dvh overflow-hidden' : 'min-h-dvh'),
         children: [
             !portal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$src$2f$components$2f$layout$2f$Navbar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 globalContent: globalContent

@@ -76,7 +76,7 @@ function Section({ children, spacing = 'standard', className = '', ...props }) {
         compact: 'py-16',
         none: 'py-0'
     };
-    const combinedClassName = `${spacingClasses[spacing]} ${className}`.trim();
+    const combinedClassName = `relative w-full max-w-full overflow-x-hidden ${spacingClasses[spacing]} ${className}`.trim();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: combinedClassName,
         ...props,
@@ -98,7 +98,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Downloads$2f$International__coaching__Institute$2f$ici$2d$website$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Downloads/International coaching Institute/ici-website/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 ;
 function Container({ children, size = 'default', className = '', ...props }) {
-    const baseClasses = 'mx-auto px-4 lg:px-8';
+    const baseClasses = 'mx-auto w-full max-w-full px-4 lg:px-8';
     const sizeClasses = {
         default: 'max-w-[1440px]',
         mid: 'max-w-5xl',
