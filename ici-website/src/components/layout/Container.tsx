@@ -15,7 +15,7 @@ export default function Container({
   ...props 
 }: ContainerProps) {
   
-  const baseClasses = 'mx-auto px-4 lg:px-8';
+  const baseClasses = 'mx-auto w-full max-w-full px-4 lg:px-8';
   
   const sizeClasses = {
     default: 'max-w-[1440px]',

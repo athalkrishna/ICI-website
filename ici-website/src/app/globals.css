@@ -16,7 +16,8 @@
 
   html {
     scroll-behavior: smooth;
-    overflow-x: clip;
+    overflow-x: hidden;
+    width: 100%;
     max-width: 100%;
   }
 
@@ -24,7 +25,8 @@
     font-family: var(--font-montserrat), system-ui, sans-serif;
     color: #1A1A2E;
     line-height: 1.6;
-    overflow-x: clip;
+    overflow-x: hidden;
+    width: 100%;
     max-width: 100%;
   }
 

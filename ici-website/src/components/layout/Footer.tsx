@@ -7,7 +7,7 @@ import type { ContentMap } from '@/lib/content'
 
 export default function Footer({ globalContent = {} }: { globalContent?: ContentMap }) {
   return (
-    <footer className="bg-brand-navy-900 text-white pt-16 pb-2 border-t-4 border-brand-gold-500">
+    <footer className="bg-brand-navy-900 text-white pt-16 pb-2 border-t-4 border-brand-gold-500 w-full max-w-full overflow-x-hidden">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-10">
           

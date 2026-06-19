@@ -23,7 +23,7 @@ export default function Section({
     none: 'py-0',
   };
 
-  const combinedClassName = `${spacingClasses[spacing]} ${className}`.trim();
+  const combinedClassName = `relative w-full max-w-full overflow-x-hidden ${spacingClasses[spacing]} ${className}`.trim();
 
   return (
     <section className={combinedClassName} {...props}>

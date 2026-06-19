@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocalCurrency } from '@/hooks/useLocalCurrency';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
+import HeroDecor from '@/components/layout/HeroDecor';
 import { cmsField, cmsNumber, stripHtml } from '@/lib/cms-helpers';
 import type { ContentMap } from '@/lib/content';
 import { PRICING_OVERVIEW } from '@/lib/pricing-overview-defaults';
@@ -65,12 +66,9 @@ export default function PricingPageClient({ content }: PricingPageClientProps) {
     : defaults.gstBody;
 
   return (
-    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
-      <Section spacing="hero" className="bg-brand-navy-800 lg:relative overflow-hidden border-b border-faint">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
-        </div>
+    <div className="bg-cream-50 min-h-screen w-full max-w-full overflow-x-hidden font-sans selection:bg-brand-gold-500/30">
+      <Section spacing="hero" className="bg-brand-navy-800 overflow-hidden border-b border-faint">
+        <HeroDecor />
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
@@ -98,8 +96,11 @@ export default function PricingPageClient({ content }: PricingPageClientProps) {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
-              <table className="w-full text-left border-collapse min-w-[800px]">
+            <div
+              className="w-full max-w-full overflow-x-auto overscroll-x-contain -mx-4 px-4 sm:mx-0 sm:px-0"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
+              <table className="w-full text-left border-collapse min-w-[640px]">
                 <thead>
                   <tr className="border-b-2 border-brand-gold-200">
                     <th className="py-6 px-6 w-1/4 text-brand-navy-700 text-eyebrow">Level & Credential</th>
@@ -213,7 +214,7 @@ export default function PricingPageClient({ content }: PricingPageClientProps) {
       </Section>
 
       <Section spacing="standard" className="relative z-20">
-        <div className="max-w-[800px] mx-auto px-4 lg:px-8">
+        <div className="max-w-[800px] mx-auto w-full px-4 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-h2 text-brand-navy-900 mb-4">
               {cmsField(content, 'faq_heading', defaults.faqHeading)}

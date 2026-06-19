@@ -22,7 +22,7 @@ export default function AnimatedSection({ children, className, delay = 0, direct
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={className ? `max-w-full ${className}` : 'max-w-full'}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={variants[direction]}

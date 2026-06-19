@@ -35,7 +35,7 @@ export default function Navbar({
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full max-w-full overflow-x-clip transition-all duration-300 ${ scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm' }`}
+        className={`sticky top-0 z-50 w-full max-w-full overflow-x-hidden transition-all duration-300 ${ scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm' }`}
       >
         {/* ── Top Bar ── */}
         <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-sm font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>

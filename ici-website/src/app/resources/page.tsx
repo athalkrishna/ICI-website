@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import HeroDecor from '@/components/layout/HeroDecor'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
@@ -16,14 +17,11 @@ export default async function ResourcesPage() {
   const content = await getPublishedPageContent('/resources')
 
   return (
-    <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
+    <div className="bg-cream-50 min-h-screen w-full max-w-full overflow-x-hidden font-sans selection:bg-brand-gold-500/30">
       
       {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-800 lg:relative overflow-hidden border-b border-faint">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3" />
-        </div>
+      <Section spacing="hero" className="bg-brand-navy-800 overflow-hidden border-b border-faint">
+        <HeroDecor />
 
         <Container className="relative z-20">
           <AnimatedSection className="max-w-4xl">
