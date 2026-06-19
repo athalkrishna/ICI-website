@@ -7209,6 +7209,12 @@
   }
 
   @media (min-width: 64rem) {
+    .lg\:mb-20 {
+      margin-bottom: calc(var(--spacing) * 20);
+    }
+  }
+
+  @media (min-width: 64rem) {
     .lg\:mb-32 {
       margin-bottom: calc(var(--spacing) * 32);
     }
