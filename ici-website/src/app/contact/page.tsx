@@ -73,7 +73,7 @@ export default async function ContactPage() {
                       </div>
                       <div>
                         <div className="text-sm font-bold text-navy-700 uppercase tracking-wider mb-1">
-                          {cmsField(content, 'phone_label', 'Phone')}
+                          {cmsField(content, 'phone_label', 'WhatsApp Number')}
                         </div>
                         <div className="font-body text-brand-navy-900">
                           {cmsField(content, 'phone_display', '+91 98199 84575')}
