@@ -233,7 +233,7 @@ export default function ContactForm() {
         >
           {status === 'submitting' ? 'Submitting...' : 'Request a call'}
         </button>
-        <Link href="/admissions" className="btn-secondary flex-1 justify-center py-4 text-base text-center flex items-center">
+        <Link href="/admissions" className="btn-secondary-light flex-1 justify-center py-4 text-base text-center flex items-center">
           Take the free assessment
         </Link>
       </div>

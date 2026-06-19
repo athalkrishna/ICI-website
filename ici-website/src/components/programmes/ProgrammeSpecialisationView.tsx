@@ -118,7 +118,7 @@ export default function ProgrammeSpecialisationView({ content, defaults, learnIc
         </div>
       </Section>
 
-      <Section spacing="none" className="mt-12 lg:mt-16">
+      <Section spacing="none" className="mt-12 lg:mt-16 mb-12 lg:mb-20">
         <AnimatedSection>
           <Container>
             <div className="bg-brand-navy-900 p-10 md:p-16 lg:p-20 border-brand-gold-500/20 relative overflow-hidden rounded-[32px] shadow-2xl border border-navy-100">
