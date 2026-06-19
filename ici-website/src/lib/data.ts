@@ -35,6 +35,7 @@ export async function getLatestBlogPosts(limit = 3) {
         category: true,
         publishedAt: true,
         authorName: true,
+        authorAvatarUrl: true,
       },
     }),
   []);
@@ -71,9 +72,67 @@ export async function getPublishedBlogPosts() {
         category: true,
         publishedAt: true,
         authorName: true,
+        authorAvatarUrl: true,
       },
     }),
   []);
+}
+
+export async function getRelatedBlogPosts(
+  currentSlug: string,
+  category: string,
+  limit = 3,
+) {
+  const related = await safeQuery('getRelatedBlogPosts', () =>
+    prisma.blogPost.findMany({
+      where: {
+        status: 'PUBLISHED',
+        slug: { not: currentSlug },
+        category: category as never,
+      },
+      orderBy: { publishedAt: 'desc' },
+      take: limit,
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        excerpt: true,
+        coverImageUrl: true,
+        coverImageAlt: true,
+        category: true,
+        publishedAt: true,
+        authorName: true,
+        authorAvatarUrl: true,
+      },
+    }),
+  []);
+
+  if (related.length >= limit) return related;
+
+  const extras = await safeQuery('getRelatedBlogPostsFallback', () =>
+    prisma.blogPost.findMany({
+      where: {
+        status: 'PUBLISHED',
+        slug: { not: currentSlug, notIn: related.map((p) => p.slug) },
+      },
+      orderBy: { publishedAt: 'desc' },
+      take: limit - related.length,
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        excerpt: true,
+        coverImageUrl: true,
+        coverImageAlt: true,
+        category: true,
+        publishedAt: true,
+        authorName: true,
+        authorAvatarUrl: true,
+      },
+    }),
+  []);
+
+  return [...related, ...extras];
 }
 
 export async function getBlogPostBySlug(slug: string) {

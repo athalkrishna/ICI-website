@@ -6,19 +6,10 @@ import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { cmsField } from '@/lib/cms-helpers'
 import type { ContentMap } from '@/lib/content'
-import BlogPostGrid from '@/components/blog/BlogPostGrid'
+import BlogPostCard from '@/components/blog/BlogPostCard'
+import type { BlogPostPreview } from '@/lib/blog-utils'
 
-export type BlogPostPreview = {
-  id: string
-  title: string
-  slug: string
-  excerpt: string
-  coverImageUrl: string
-  coverImageAlt: string | null
-  category: string
-  publishedAt: Date | string | null
-  authorName: string
-}
+export type { BlogPostPreview }
 
 interface LatestBlogPostsProps {
   posts: BlogPostPreview[]
@@ -48,7 +39,11 @@ export default function LatestBlogPosts({ posts, content = {} }: LatestBlogPosts
           </Link>
         </AnimatedSection>
 
-        <BlogPostGrid posts={posts} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post, i) => (
+            <BlogPostCard key={post.id} post={post} index={i} />
+          ))}
+        </div>
       </Container>
     </Section>
   )

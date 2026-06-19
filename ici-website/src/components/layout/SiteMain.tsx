@@ -10,7 +10,7 @@ export default function SiteMain({ children }: { children: React.ReactNode }) {
   return (
     <main
       id="main-content"
-      className={portal ? 'min-h-0 flex-1 overflow-hidden bg-cream-50 flex flex-col' : 'flex-1'}
+      className={portal ? 'min-h-0 flex-1 overflow-hidden bg-cream-50 flex flex-col' : 'flex-1 w-full max-w-full overflow-x-clip'}
     >
       {children}
     </main>

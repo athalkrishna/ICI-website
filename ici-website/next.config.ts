@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '**.b-cdn.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'internationalcoachinginstitute.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.internationalcoachinginstitute.org',
+      },
     ],
   },
   eslint: {

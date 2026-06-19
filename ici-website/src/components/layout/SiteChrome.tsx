@@ -22,7 +22,7 @@ export default function SiteChrome({
   return (
     <div
       className={clsx(
-        'flex flex-col',
+        'flex flex-col w-full max-w-full overflow-x-clip',
         portal ? 'h-dvh max-h-dvh overflow-hidden' : 'min-h-dvh',
       )}
     >
