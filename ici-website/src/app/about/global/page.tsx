@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsNumber } from '@/lib/cms-helpers'
 
@@ -33,32 +34,11 @@ export default async function GlobalPage() {
 
   return (
     <div className="bg-cream-50 min-h-screen">
-      {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-navy-500 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
-        </div>
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'Global Presence')}
-              </div>
-            </div>
-            <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'Online, and genuinely global')}
-            </h1>
-            <p className="text-navy-100 text-base max-w-2xl">
-              {stripHtml(cmsHtml(content, 'hero_body', 'We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate. Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.'))}
-            </p>
-          </AnimatedSection>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow={cmsField(content, 'hero_eyebrow', 'Global Presence')}
+        title={cmsField(content, 'hero_heading', 'Online, and genuinely global')}
+        body={stripHtml(cmsHtml(content, 'hero_body', 'We do not measure our reach in buildings. Because every programme is delivered online and one-to-one, ICI trains coaches wherever they are, across many countries and time zones, without asking anyone to pause their life or relocate. Our campus is the community: a working network of coaches who refer, supervise and support one another long after they qualify.'))}
+      />
 
       {/* ── Main Content ── */}
       <Section spacing="standard">

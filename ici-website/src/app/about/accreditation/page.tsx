@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ShieldCheck, Award, Scale, BookOpen } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
@@ -23,31 +24,11 @@ export default async function AccreditationPage() {
 
   return (
     <div className="bg-cream-50 min-h-screen">
-      {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-        </div>
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'Recognition & Accreditation')}
-              </div>
-            </div>
-            <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'Standards you can stand behind')}
-            </h1>
-            <p className="text-navy-100 text-base max-w-2xl">
-              {stripHtml(cmsHtml(content, 'hero_body', 'A credential is only worth what it can be trusted to mean. This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned. We would rather say less and be believed than claim more and be doubted.'))}
-            </p>
-          </AnimatedSection>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow={cmsField(content, 'hero_eyebrow', 'Recognition & Accreditation')}
+        title={cmsField(content, 'hero_heading', 'Standards you can stand behind')}
+        body={stripHtml(cmsHtml(content, 'hero_body', 'A credential is only worth what it can be trusted to mean. This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned. We would rather say less and be believed than claim more and be doubted.'))}
+      />
 
       {/* ── Main Content ── */}
       <Section spacing="standard">

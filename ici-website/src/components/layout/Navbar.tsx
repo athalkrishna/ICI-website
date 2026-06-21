@@ -93,31 +93,73 @@ export default function Navbar({
   // Close mega menu on route change
   useEffect(() => { setActiveMenu(null); setMobileOpen(false) }, [pathname])
 
+  const siteEmail = cmsField(globalContent, 'site_email', 'info@internationalcoachinginstitute.org')
+  const sitePhone = cmsField(globalContent, 'site_phone', '+91 98199 84575')
+  const linkedinUrl = cmsField(globalContent, 'linkedin_url', 'https://www.linkedin.com/company/internationalcoachinginstitute')
+  const loginHref = cmsField(globalContent, 'login_link', '/login')
+  const loginText = cmsField(globalContent, 'login_text', 'Log In')
+  const topBarHidden = scrolled ? 'h-0 overflow-hidden py-0 opacity-0 pointer-events-none' : ''
+
   return (
     <>
       <header
         className={`sticky top-0 z-50 w-full max-w-full overflow-visible transition-all duration-300 ${ scrolled ? 'bg-brand-navy-700 shadow-nav' : 'bg-white shadow-sm' }`}
       >
-        {/* ── Top Bar ── */}
-        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-sm font-sans transition-all duration-300 ${scrolled ? 'h-0 overflow-hidden py-0 opacity-0' : 'bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800'}`}>
+        {/* ── Mobile & tablet top bar ── */}
+        <div className={`flex lg:hidden items-center justify-between gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-sans transition-all duration-300 bg-brand-navy-900 text-navy-100/90 border-b border-brand-navy-800 ${topBarHidden}`}>
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <a
+              href={`mailto:${siteEmail}`}
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] sm:min-w-0 sm:px-1 hover:text-brand-gold-400 transition-colors shrink-0"
+              aria-label={`Email ${siteEmail}`}
+            >
+              <IconMail />
+              <span className="hidden sm:inline ml-1.5 truncate max-w-[120px] md:max-w-[200px]">{siteEmail}</span>
+            </a>
+            <a
+              href={`tel:${sitePhone.replace(/\s/g, '')}`}
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] sm:min-w-0 sm:px-1 hover:text-brand-gold-400 transition-colors shrink-0"
+              aria-label={`Call ${sitePhone}`}
+            >
+              <IconPhone />
+              <span className="hidden md:inline ml-1.5 whitespace-nowrap">{sitePhone}</span>
+            </a>
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] hover:text-brand-gold-400 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <TopBarAuthLink
+              loginHref={loginHref}
+              loginText={loginText}
+              className="inline-flex items-center min-h-[44px] px-1 text-brand-gold-400 hover:text-brand-gold-300 transition-colors font-semibold whitespace-nowrap"
+            />
+          </div>
+        </div>
+
+        {/* ── Desktop top bar ── */}
+        <div className={`hidden lg:flex justify-between items-center px-4 lg:px-8 py-2 text-sm font-sans transition-all duration-300 ${topBarHidden} bg-brand-navy-900 text-navy-100/80 border-b border-brand-navy-800`}>
           <Container className="flex justify-between items-center w-full px-0">
             <div className="flex gap-6 items-center text-white">
-              <a href={`mailto:${cmsField(globalContent, 'site_email', 'info@internationalcoachinginstitute.org')}`} className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
-                <IconMail /> {cmsField(globalContent, 'site_email', 'info@internationalcoachinginstitute.org')}
+              <a href={`mailto:${siteEmail}`} className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
+                <IconMail /> {siteEmail}
               </a>
-              <a href={`tel:${cmsField(globalContent, 'site_phone', '+919819984575').replace(/\s/g, '')}`} className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
-                <IconPhone /> {cmsField(globalContent, 'site_phone', '+91 98199 84575')}
+              <a href={`tel:${sitePhone.replace(/\s/g, '')}`} className="hover:text-brand-gold-400 flex items-center gap-1.5 transition-colors">
+                <IconPhone /> {sitePhone}
               </a>
             </div>
             <div className="flex items-center gap-4 text-brand-gold-100 mr-12">
-              <a href={cmsField(globalContent, 'linkedin_url', 'https://www.linkedin.com/company/internationalcoachinginstitute')} target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold-400 transition-colors flex items-center" aria-label="LinkedIn">
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold-400 transition-colors flex items-center" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
               <span className="text-brand-gold-500/50">|</span>
-              <TopBarAuthLink
-                loginHref={cmsField(globalContent, 'login_link', '/login')}
-                loginText={cmsField(globalContent, 'login_text', 'Log In')}
-              />
+              <TopBarAuthLink loginHref={loginHref} loginText={loginText} />
             </div>
           </Container>
         </div>
@@ -288,7 +330,7 @@ export default function Navbar({
           )}
       </header>
 
-      <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} globalContent={globalContent} />
     </>
   )
 }

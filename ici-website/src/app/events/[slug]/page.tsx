@@ -5,8 +5,8 @@ import { notFound } from 'next/navigation'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import PageHero from '@/components/layout/PageHero'
 import { getEventBySlug } from '@/lib/data'
-import { ArrowLeft, Calendar, MapPin } from 'lucide-react'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -25,46 +25,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-function formatDateRange(start: Date, end: Date) {
-  const startStr = new Date(start).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-  const endStr = new Date(end).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-  return startStr === endStr ? startStr : `${startStr} – ${endStr}`
-}
-
 export default async function EventDetailPage({ params }: PageProps) {
   const { slug } = await params
   const event = await getEventBySlug(slug)
   if (!event) notFound()
 
-  const locationLabel = event.locationType === 'ONLINE'
-    ? 'Online'
-    : event.locationDetail || event.locationType
-
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
-      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-4xl">
-            <Link href="/events" className="inline-flex items-center gap-2 text-brand-gold-400 hover:text-brand-gold-300 text-sm mb-8 transition-colors">
-              <ArrowLeft size={16} /> Back to events
-            </Link>
-            <div className="text-eyebrow text-brand-gold-400 mb-4">{event.eventType.replace(/_/g, ' ')}</div>
-            <h1 className="text-h1 text-white mb-6">{event.title}</h1>
-            <p className="text-navy-100 text-base max-w-3xl mb-8">{event.description}</p>
-            <div className="flex flex-wrap gap-6 text-sm text-navy-200">
-              <span className="inline-flex items-center gap-2">
-                <Calendar size={16} className="text-brand-gold-400" />
-                {formatDateRange(event.startDate, event.endDate)}
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <MapPin size={16} className="text-brand-gold-400" />
-                {locationLabel}
-              </span>
-            </div>
-          </AnimatedSection>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow={event.eventType.replace(/_/g, ' ')}
+        title={event.title}
+        body={event.description}
+      />
 
       {event.coverImageUrl && (
         <div className="relative -mt-8 z-10">

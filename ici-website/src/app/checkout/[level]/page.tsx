@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CheckoutForm from '@/components/checkout/CheckoutForm';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import Section from '@/components/layout/Section'
-import Container from '@/components/layout/Container'
+import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
   title: {
@@ -32,19 +32,11 @@ export default async function CheckoutPage({ params }: { params: { level: string
 
   return (
     <div className="bg-cream-50 min-h-screen pb-24 font-sans selection:bg-brand-gold-500/30">
-      <Section spacing="hero" className="bg-brand-navy-800 lg:relative overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-4xl">
-            <h1 className="text-h1 text-white mb-6">
-              Enrol in {levelInfo.title}
-            </h1>
-            <p className="text-muted-dark text-body">
-              Secure your place and begin your coaching journey.
-            </p>
-          </AnimatedSection>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Enrolment"
+        title={`Enrol in ${levelInfo.title}`}
+        body="Secure your place and begin your coaching journey."
+      />
 
       <Section spacing="compact" className="relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">

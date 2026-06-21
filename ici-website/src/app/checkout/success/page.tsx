@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import SuccessTracker from '@/components/checkout/SuccessTracker';
 import { Suspense } from 'react';
-import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'
+import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
   title: {
@@ -20,22 +20,11 @@ export default function CheckoutSuccessPage() {
       <Suspense fallback={null}>
         <SuccessTracker />
       </Suspense>
-      <Section spacing="hero" className="bg-brand-navy-800 lg:relative overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-3xl">
-            <div className="w-20 h-20 bg-brand-gold-500/20 text-brand-gold-400 rounded-full flex items-center justify-center mx-auto mb-8">
-              <CheckCircle2 size={40} />
-            </div>
-            <h1 className="text-h1 text-white mb-6">
-              Enrolment Confirmed
-            </h1>
-            <p className="text-muted-dark mb-12 text-body">
-              Your payment was successful and your place is secure. Welcome to the International Coaching Institute.
-            </p>
-          </AnimatedSection>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Enrolment"
+        title="Enrolment Confirmed"
+        body="Your payment was successful and your place is secure. Welcome to the International Coaching Institute."
+      />
 
       <Section spacing="none" className="-mt-12 relative z-20">
         <div className="max-w-2xl mx-auto px-4 lg:px-8">

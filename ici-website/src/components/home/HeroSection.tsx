@@ -1,7 +1,30 @@
 import Link from 'next/link';
-import { ArrowRight, Download, ChevronDown } from 'lucide-react';
 import { HOME_HERO_DEFAULTS } from '@/lib/home-hero-defaults';
 import DeferredHeroLeadForm from '@/components/home/DeferredHeroLeadForm';
+
+function IconArrowRight() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
+function IconDownload() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" />
+    </svg>
+  );
+}
+
+function IconChevronDown() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
 
 const stats = [
   {
@@ -24,14 +47,14 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center bg-brand-navy-700 overflow-hidden">
+    <section className="relative min-h-[85dvh] lg:min-h-screen flex items-center bg-brand-navy-700 overflow-hidden">
       <div className="absolute inset-0 bg-hero-pattern" aria-hidden />
       <div
         className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-gold-500 to-transparent opacity-80"
         aria-hidden
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-28 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 md:py-24 lg:py-28 w-full">
         <div className="grid lg:grid-cols-5 gap-16 items-center">
           <div className="lg:col-span-3">
             <p className="text-eyebrow text-brand-gold-400 flex items-center gap-3 justify-center mb-6">
@@ -63,13 +86,13 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <Link href={HOME_HERO_DEFAULTS.hero_primary_button_link} className="btn-primary text-base px-8 py-4 min-h-[44px]">
                 {HOME_HERO_DEFAULTS.hero_primary_button_text}
-                <ArrowRight size={18} aria-hidden />
+                <IconArrowRight />
               </Link>
               <Link
                 href={HOME_HERO_DEFAULTS.hero_secondary_button_link}
                 className="btn-secondary text-base px-8 py-4 min-h-[44px]"
               >
-                <Download size={18} aria-hidden />
+                <IconDownload />
                 {HOME_HERO_DEFAULTS.hero_secondary_button_text}
               </Link>
             </div>
@@ -86,7 +109,7 @@ export default function HeroSection() {
         aria-hidden
       >
         <span className="text-eyebrow">Scroll</span>
-        <ChevronDown size={18} />
+        <IconChevronDown />
       </div>
     </section>
   );
