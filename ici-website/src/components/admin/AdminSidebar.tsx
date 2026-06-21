@@ -30,6 +30,7 @@ const navItems: (PortalNavItem & { superAdminOnly?: boolean })[] = [
   { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquareQuote },
   { label: 'Media Library', href: '/admin/media', icon: ImageIcon },
   { label: 'Newsletter', href: '/admin/newsletter', icon: Megaphone },
+  { label: 'Subscriber Lists', href: '/admin/newsletter/subscribers', icon: Users },
   { label: 'Email Logs', href: '/admin/email-logs', icon: Mail },
   { label: 'Site Settings', href: '/admin/settings', icon: Settings },
   { label: 'Users', href: '/admin/users', icon: UserCog, superAdminOnly: true },

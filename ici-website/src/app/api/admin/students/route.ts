@@ -142,6 +142,7 @@ export async function POST(req: NextRequest) {
           enrolledSpecialisation: data.enrolledSpecialisation,
           enrolmentDate: data.enrolmentDate ? new Date(data.enrolmentDate) : new Date(),
           studentStatus: data.studentStatus ?? 'ENROLLED',
+          enrolmentSource: 'MANUAL',
           coachAssigned: data.coachAssigned,
           coachEmail: data.coachEmail,
           notes: data.notes,

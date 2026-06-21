@@ -1,9 +1,10 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
-import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import { cmsField, cmsHtml } from '@/lib/cms-helpers'
+import { ABOUT_HERO_DEFAULTS } from '@/lib/about-page-hero-defaults'
 
 export const metadata: Metadata = {
   title: 'About the International Coaching Institute | ICI',
@@ -31,15 +32,12 @@ export default async function AboutPage() {
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
               <div className="text-eyebrow text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'ABOUT THE INSTITUTE')}
+                {ABOUT_HERO_DEFAULTS.hero_eyebrow}
               </div>
             </div>
-            <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'Coaching education with a soul and a standard')}
+            <h1 className="text-h1 text-white">
+              {ABOUT_HERO_DEFAULTS.hero_heading}
             </h1>
-            <p className="text-h4 text-navy-100 font-normal leading-relaxed">
-              {stripHtml(cmsHtml(content, 'hero_body', 'The International Coaching Institute exists because the world has enough people with advice and too few who can truly help someone change. We train coaches to do the harder, quieter work: to listen well, to see clearly, and to hold the space where real change happens. Our standards are demanding on purpose, because the people our graduates serve deserve nothing less.'))}
-            </p>
           </AnimatedSection>
         </Container>
       </Section>

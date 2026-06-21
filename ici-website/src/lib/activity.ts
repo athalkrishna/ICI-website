@@ -1,4 +1,4 @@
-import { prisma } from './prisma';
+import { prisma, hasDatabaseUrl } from './prisma';
 
 export async function logActivity(params: {
   action: string;
@@ -8,6 +8,8 @@ export async function logActivity(params: {
   userId?: string;
   userName?: string;
 }) {
+  if (!hasDatabaseUrl()) return;
+
   try {
     await prisma.activityLog.create({ data: params });
   } catch (err) {
@@ -16,8 +18,15 @@ export async function logActivity(params: {
 }
 
 export async function getRecentActivity(limit = 20) {
-  return prisma.activityLog.findMany({
-    orderBy: { createdAt: 'desc' },
-    take: limit,
-  });
+  if (!hasDatabaseUrl()) return [];
+
+  try {
+    return await prisma.activityLog.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: limit,
+    });
+  } catch (error) {
+    console.warn('[activity] getRecentActivity failed:', error);
+    return [];
+  }
 }

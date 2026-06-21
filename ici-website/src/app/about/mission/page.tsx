@@ -1,15 +1,13 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Our Mission | International Coaching Institute',
-  },
-  description: 'The International Coaching Institute exists to produce coaches who create real, lasting change. Read our mission and the principles that guide us.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about/mission');
 }
 
 export default async function MissionPage() {

@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -21,9 +26,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -31,6 +33,7 @@ const nextConfig: NextConfig = {
     memoryBasedWorkersCount: true,
     cpus: 1,
     workerThreads: false,
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
   serverExternalPackages: ['@sanity/client'],
   async redirects() {

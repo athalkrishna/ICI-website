@@ -1,14 +1,14 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import ContactForm from '@/components/admissions/ContactForm'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Speak to an Advisor | ICI Admissions',
-  description: 'Talk to an ICI advisor about programmes, levels, timing or cost. No script and no pressure, just a straight conversation to help you decide.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/admissions/contact');
 }
 
 export default async function ContactAdmissionsPage() {

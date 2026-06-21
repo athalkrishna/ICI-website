@@ -45,7 +45,7 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
       const orderData = await fetch('/api/razorpay/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ levelId: level }),
+        body: JSON.stringify({ levelId: level, ...formData }),
       }).then((t) => t.json());
 
       if (orderData.error) {
@@ -53,15 +53,30 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
       }
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '', // Needs to be set in env
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '',
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'International Coaching Institute',
         description: `Enrolment for ${level}`,
         order_id: orderData.id,
-        handler: function (response: any) {
-          // Verify payment here if needed, then redirect to success
-          router.push(`/checkout/success?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}`);
+        handler: async function (response: {
+          razorpay_order_id: string;
+          razorpay_payment_id: string;
+          razorpay_signature: string;
+        }) {
+          const verifyRes = await fetch('/api/checkout/verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(response),
+          });
+          const verifyData = await verifyRes.json();
+          if (!verifyRes.ok) {
+            setError(verifyData.error || 'Payment verification failed');
+            return;
+          }
+          router.push(
+            `/checkout/success?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}`,
+          );
         },
         prefill: {
           name: formData.name,
@@ -69,14 +84,14 @@ export default function CheckoutForm({ level }: CheckoutFormProps) {
           contact: formData.phone,
         },
         theme: {
-          color: '#0A192F', // navy-900
+          color: '#0A192F',
         },
       };
 
-      const paymentObject = new (window as any).Razorpay(options);
+      const paymentObject = new (window as { Razorpay: new (opts: typeof options) => { open: () => void } }).Razorpay(options);
       paymentObject.open();
-    } catch (err: any) {
-      setError(err.message || 'Payment failed to initiate.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Payment failed to initiate.');
     } finally {
       setLoading(false);
     }

@@ -3,6 +3,12 @@ import bcrypt from 'bcrypt';
 import { EnrolledLevel, UserRole } from '@prisma/client';
 import { createPrismaClient } from './db';
 import { SEED_PAGES } from './seed-pages';
+import {
+  HOME_HERO_FIELD_KEYS,
+  isHomeHeroLockedField,
+  isHomePageSlug,
+  lockedHomeHeroDbValue,
+} from '../src/lib/home-hero-defaults';
 
 dotenv.config({ path: '.env.local' });
 dotenv.config();
@@ -47,6 +53,15 @@ async function seedUsers() {
   console.log('Seeded admin users');
 }
 
+async function enforceHomeHeroFields(pageId: string) {
+  for (const key of HOME_HERO_FIELD_KEYS) {
+    await prisma.contentField.updateMany({
+      where: { pageId, key },
+      data: { value: lockedHomeHeroDbValue(key) },
+    });
+  }
+}
+
 async function seedPages() {
   for (const pageData of SEED_PAGES) {
     const page = await prisma.page.upsert({
@@ -69,6 +84,11 @@ async function seedPages() {
     });
 
     for (const field of pageData.fields) {
+      const seedValue =
+        isHomePageSlug(pageData.slug) && isHomeHeroLockedField(field.key)
+          ? lockedHomeHeroDbValue(field.key)
+          : field.value;
+
       await prisma.contentField.upsert({
         where: {
           pageId_key: { pageId: page.id, key: field.key },
@@ -79,19 +99,23 @@ async function seedPages() {
           label: field.label,
           helperText: field.helperText,
           type: field.type,
-          value: field.value,
+          value: seedValue,
           order: field.order,
           section: field.section,
         },
         update: {
+          // Never overwrite CMS content on re-seed — only sync field metadata.
           label: field.label,
           helperText: field.helperText,
           type: field.type,
-          value: field.value,
           order: field.order,
           section: field.section,
         },
       });
+    }
+
+    if (isHomePageSlug(pageData.slug)) {
+      await enforceHomeHeroFields(page.id);
     }
   }
 

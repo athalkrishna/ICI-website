@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata'
 import { Scale, Shield, TrendingUp, BarChart } from 'lucide-react';
 import ProgrammeSpecialisationView from '@/components/programmes/ProgrammeSpecialisationView';
 import { getPublishedPageContent } from '@/lib/content';
 import { EXECUTIVE_COACHING } from '@/lib/programme-defaults';
 
-export const metadata: Metadata = {
-  title: 'Executive & Leadership Coaching | ICI',
-  description:
-    'Train to coach senior leaders with ICI. An executive and leadership focus within the four-level Mastery Pathway, taught one-to-one and online.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/programmes/executive-coaching');
+}
 
 export default async function ExecutiveCoachingPage() {
   const content = await getPublishedPageContent('/programmes/executive-coaching');

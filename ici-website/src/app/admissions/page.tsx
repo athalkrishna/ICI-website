@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import AdmissionsOverviewView from '@/components/admissions/AdmissionsOverviewView';
 import { getPublishedPageContent } from '@/lib/content';
 import { ADMISSIONS_OVERVIEW } from '@/lib/admissions-overview-defaults';

@@ -1,51 +1,50 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Montserrat, Source_Serif_4, JetBrains_Mono } from 'next/font/google'
+import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
-import SiteChrome from '@/components/layout/SiteChrome'
-import AppProviders from '@/components/providers/AppProviders'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import MetaPixel from '@/components/MetaPixel'
-import { getGlobalContent } from '@/lib/content'
+import SiteChromeShell from '@/components/layout/SiteChromeShell'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
   display: 'swap',
+  weight: ['700'],
+  adjustFontFallback: true,
 })
 
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
   display: 'swap',
+  weight: ['400', '600'],
+  adjustFontFallback: true,
 })
 
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin'],
-  variable: '--font-source-serif',
-  display: 'swap',
-})
-
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains',
-  display: 'swap',
-})
+const SITE_URL = 'https://internationalcoachinginstitute.org';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'International Coaching Institute | World-Class Coaching Education',
     template: '%s | International Coaching Institute',
   },
   description:
     'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://internationalcoachinginstitute.org',
+    url: SITE_URL,
     siteName: 'International Coaching Institute',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'International Coaching Institute',
@@ -54,20 +53,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  let globalContent = {}
-  try {
-    globalContent = await getGlobalContent()
-  } catch (error) {
-    console.warn('[layout] getGlobalContent failed:', error)
-  }
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'International Coaching Institute',
-    url: 'https://internationalcoachinginstitute.org',
-    logo: 'https://internationalcoachinginstitute.org/og-image.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/og-image.webp`,
     description: 'World-Class Coaching Education. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
     sameAs: [
       'https://www.linkedin.com/school/internationalcoachinginstitute',
@@ -77,20 +69,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${montserrat.variable} ${sourceSerif.variable} ${jetbrains.variable}`}
+      className={`${playfair.variable} ${montserrat.variable}`}
     >
       <body className="font-sans bg-white text-brand-navy-700 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        )}
-        <MetaPixel />
-        <AppProviders>
-          <SiteChrome globalContent={globalContent}>{children}</SiteChrome>
-        </AppProviders>
+        <SiteChromeShell>{children}</SiteChromeShell>
       </body>
     </html>
   )

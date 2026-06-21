@@ -66,7 +66,7 @@ const config: Config = {
         display: ['var(--font-playfair)', 'Georgia', 'serif'],
         sans:    ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
         body:    ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
-        mono:    ['var(--font-jetbrains)', 'monospace'],
+        mono:    ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       backgroundImage: {
         'navy-gradient':  'linear-gradient(135deg, #0A1F44 0%, #1A3A7A 100%)',

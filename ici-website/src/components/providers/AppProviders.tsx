@@ -1,7 +1,6 @@
 'use client';
 
-import { SessionProvider } from 'next-auth/react';
-
+/** SessionProvider lives in dashboard/admin layouts only — keeps public pages lighter. */
 export default function AppProviders({ children }: { children: React.ReactNode }) {
-  return <SessionProvider>{children}</SessionProvider>;
+  return children;
 }

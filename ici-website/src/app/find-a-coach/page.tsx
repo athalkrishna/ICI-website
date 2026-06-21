@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { Search, SlidersHorizontal } from 'lucide-react'
 import Section from '@/components/layout/Section'
@@ -7,9 +8,8 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Find a Certified ICI Coach',
-  description: 'Looking for a coach you can trust? Find an ICI-certified coach by specialism, level and language. Every coach here earned their credential through real practice.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/find-a-coach');
 }
 
 export default async function FindACoachPage() {

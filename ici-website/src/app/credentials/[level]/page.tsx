@@ -5,24 +5,31 @@ import Link from 'next/link'
 import { ChevronRight, Award } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 
 export const revalidate = 60;
 
-const validLevels = ['catalyst', 'architect', 'sage', 'luminary']
+const validLevels = ['catalyst', 'architect', 'sage', 'luminary'] as const
+
+const LEVEL_SLUGS: Record<(typeof validLevels)[number], string> = {
+  catalyst: '/credentials/catalyst',
+  architect: '/credentials/architect',
+  sage: '/credentials/sage',
+  luminary: '/credentials/luminary',
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ level: string }> }): Promise<Metadata> {
   const { level } = await params;
-  if (!validLevels.includes(level)) return { title: 'Not Found' }
-  const titleStr = level.charAt(0).toUpperCase() + level.slice(1)
-  return { title: `${titleStr} | Coaching Credential | International Coaching Institute` }
+  if (!validLevels.includes(level as (typeof validLevels)[number])) return { title: 'Not Found' }
+  return pageMetadata(LEVEL_SLUGS[level as (typeof validLevels)[number]]);
 }
 
 export default async function CredentialLevelPage({ params }: { params: Promise<{ level: string }> }) {
   const { level } = await params;
 
-  if (!validLevels.includes(level)) {
+  if (!validLevels.includes(level as (typeof validLevels)[number])) {
     notFound()
   }
 

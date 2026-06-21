@@ -1,4 +1,6 @@
+import { unstable_cache } from 'next/cache';
 import { prisma, hasDatabaseUrl } from './prisma';
+import { CMS_REVALIDATE_SECONDS } from './content';
 
 async function safeQuery<T>(label: string, query: () => Promise<T>, fallback: T): Promise<T> {
   if (!hasDatabaseUrl()) return fallback;
@@ -20,25 +22,33 @@ export async function getPublishedTestimonials() {
 }
 
 export async function getLatestBlogPosts(limit = 3) {
-  return safeQuery('getLatestBlogPosts', () =>
-    prisma.blogPost.findMany({
-      where: { status: 'PUBLISHED' },
-      orderBy: { publishedAt: 'desc' },
-      take: limit,
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        excerpt: true,
-        coverImageUrl: true,
-        coverImageAlt: true,
-        category: true,
-        publishedAt: true,
-        authorName: true,
-        authorAvatarUrl: true,
-      },
-    }),
-  []);
+  return unstable_cache(
+    () =>
+      safeQuery('getLatestBlogPosts', () =>
+        prisma.blogPost.findMany({
+          where: { status: 'PUBLISHED' },
+          orderBy: { publishedAt: 'desc' },
+          take: limit,
+          select: {
+            id: true,
+            title: true,
+            slug: true,
+            excerpt: true,
+            coverImageUrl: true,
+            coverImageAlt: true,
+            category: true,
+            publishedAt: true,
+            authorName: true,
+            authorAvatarUrl: true,
+          },
+        }),
+      []),
+    ['latest-blog-posts', String(limit)],
+    {
+      revalidate: CMS_REVALIDATE_SECONDS,
+      tags: ['cms:blog-posts'],
+    },
+  )();
 }
 
 export async function getFeaturedBlogPosts(limit = 2) {
@@ -178,67 +188,99 @@ export async function getDirectoryCoaches() {
   });
 }
 
-export async function getAdminStats() {
-  const now = new Date();
-  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-  const startOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+export type AdminStats = {
+  leadsThisMonth: number;
+  leadsPctChange: number;
+  leadsToday: number;
+  activeStudents: number;
+  publishedPosts: number;
+  leadsChart: Record<string, Record<string, number>>;
+  upcomingEvents: { title: string; startDate: Date; slug: string }[];
+};
 
-  const [
-    leadsThisMonth,
-    leadsLastMonth,
-    leadsToday,
-    activeStudents,
-    publishedPosts,
-    leadsByDay,
-    upcomingEvents,
-  ] = await Promise.all([
-    prisma.lead.count({ where: { createdAt: { gte: startOfMonth } } }),
-    prisma.lead.count({
-      where: { createdAt: { gte: startOfLastMonth, lt: startOfMonth } },
-    }),
-    prisma.lead.count({ where: { createdAt: { gte: startOfToday } } }),
-    prisma.studentProfile.count({
-      where: {
-        studentStatus: { in: ['ENROLLED', 'ACTIVE'] },
-        deletedAt: null,
-      },
-    }),
-    prisma.blogPost.count({ where: { status: 'PUBLISHED' } }),
-    prisma.lead.findMany({
-      where: { createdAt: { gte: thirtyDaysAgo } },
-      select: { createdAt: true, source: true },
-    }),
-    prisma.event.findMany({
-      where: { status: 'UPCOMING', startDate: { gte: now } },
-      orderBy: { startDate: 'asc' },
-      take: 3,
-      select: { title: true, startDate: true, slug: true },
-    }),
-  ]);
+const EMPTY_ADMIN_STATS: AdminStats = {
+  leadsThisMonth: 0,
+  leadsPctChange: 0,
+  leadsToday: 0,
+  activeStudents: 0,
+  publishedPosts: 0,
+  leadsChart: {},
+  upcomingEvents: [],
+};
 
-  const pctChange =
-    leadsLastMonth === 0
-      ? leadsThisMonth > 0
-        ? 100
-        : 0
-      : Math.round(((leadsThisMonth - leadsLastMonth) / leadsLastMonth) * 100);
+export async function getAdminStats(): Promise<AdminStats> {
+  return safeQuery('getAdminStats', async () => {
+    const now = new Date();
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const startOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
 
-  const chartData: Record<string, Record<string, number>> = {};
-  for (const lead of leadsByDay) {
-    const day = lead.createdAt.toISOString().slice(0, 10);
-    if (!chartData[day]) chartData[day] = {};
-    chartData[day][lead.source] = (chartData[day][lead.source] || 0) + 1;
-  }
+    const {
+      leadsThisMonth,
+      leadsLastMonth,
+      leadsToday,
+      activeStudents,
+      publishedPosts,
+      leadsByDay,
+      upcomingEvents,
+    } = await prisma.$transaction(async (tx) => {
+      const leadsThisMonth = await tx.lead.count({ where: { createdAt: { gte: startOfMonth } } });
+      const leadsLastMonth = await tx.lead.count({
+        where: { createdAt: { gte: startOfLastMonth, lt: startOfMonth } },
+      });
+      const leadsToday = await tx.lead.count({ where: { createdAt: { gte: startOfToday } } });
+      const activeStudents = await tx.studentProfile.count({
+        where: {
+          studentStatus: { in: ['ENROLLED', 'ACTIVE'] },
+          deletedAt: null,
+        },
+      });
+      const publishedPosts = await tx.blogPost.count({ where: { status: 'PUBLISHED' } });
+      const leadsByDay = await tx.lead.findMany({
+        where: { createdAt: { gte: thirtyDaysAgo } },
+        select: { createdAt: true, source: true },
+      });
+      const upcomingEvents = await tx.event.findMany({
+        where: { status: 'UPCOMING', startDate: { gte: now } },
+        orderBy: { startDate: 'asc' },
+        take: 3,
+        select: { title: true, startDate: true, slug: true },
+      });
 
-  return {
-    leadsThisMonth,
-    leadsPctChange: pctChange,
-    leadsToday,
-    activeStudents,
-    publishedPosts,
-    leadsChart: chartData,
-    upcomingEvents,
-  };
+      return {
+        leadsThisMonth,
+        leadsLastMonth,
+        leadsToday,
+        activeStudents,
+        publishedPosts,
+        leadsByDay,
+        upcomingEvents,
+      };
+    });
+
+    const pctChange =
+      leadsLastMonth === 0
+        ? leadsThisMonth > 0
+          ? 100
+          : 0
+        : Math.round(((leadsThisMonth - leadsLastMonth) / leadsLastMonth) * 100);
+
+    const chartData: Record<string, Record<string, number>> = {};
+    for (const lead of leadsByDay) {
+      const day = lead.createdAt.toISOString().slice(0, 10);
+      if (!chartData[day]) chartData[day] = {};
+      chartData[day][lead.source] = (chartData[day][lead.source] || 0) + 1;
+    }
+
+    return {
+      leadsThisMonth,
+      leadsPctChange: pctChange,
+      leadsToday,
+      activeStudents,
+      publishedPosts,
+      leadsChart: chartData,
+      upcomingEvents,
+    };
+  }, EMPTY_ADMIN_STATS);
 }

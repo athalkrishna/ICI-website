@@ -7,7 +7,7 @@ import { getPageWithFields, savePageDraft } from '@/lib/cms';
 import { logActivity } from '@/lib/activity';
 import { resolvePageSlug } from '@/lib/admin-utils';
 
-type RouteParams = { params: Promise<{ slug: string }> };
+type RouteParams = { params: Promise<{ slug: string[] }> };
 
 const saveDraftSchema = z.object({
   fields: z.array(
@@ -29,7 +29,7 @@ export async function GET(_req: NextRequest, { params }: RouteParams) {
     if (!page) return notFound('Page not found');
     return jsonOk(page);
   } catch (err) {
-    console.error('[admin/pages/[slug] GET]', err);
+    console.error('[admin/pages/[...slug] GET]', err);
     return serverError();
   }
 }
@@ -61,7 +61,7 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
     return jsonOk(page);
   } catch (err) {
     if (err instanceof Error && err.message === 'Page not found') return notFound();
-    console.error('[admin/pages/[slug] PUT]', err);
+    console.error('[admin/pages/[...slug] PUT]', err);
     return serverError();
   }
 }
@@ -90,7 +90,7 @@ export async function DELETE(_req: NextRequest, { params }: RouteParams) {
 
     return jsonOk({ success: true });
   } catch (err) {
-    console.error('[admin/pages/[slug] DELETE]', err);
+    console.error('[admin/pages/[...slug] DELETE]', err);
     return serverError();
   }
 }

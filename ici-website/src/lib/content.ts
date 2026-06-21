@@ -1,4 +1,5 @@
 /** Prisma CMS with legacy slug/key compatibility for unchanged client frontend. */
+import { unstable_cache } from 'next/cache';
 import {
   getPageContent as getPageContentFromCms,
   getPublishedPageContent as getPublishedPageContentFromCms,
@@ -6,9 +7,12 @@ import {
   slugToPath,
   type ContentMap,
 } from './cms';
+import { normalizeHomeHeroContent } from './home-hero-defaults';
 
 export type { ContentMap };
-export { slugToPath, getGlobalContentFromCms as getGlobalContent };
+export { slugToPath };
+
+export const CMS_REVALIDATE_SECONDS = 300;
 
 const LEGACY_SLUGS: Record<string, string> = {
   home: '/',
@@ -35,18 +39,62 @@ function mapLegacyCredentialFields(slug: string, content: ContentMap): ContentMa
   };
 }
 
+function applyPageContentGuards(slug: string, content: ContentMap): ContentMap {
+  const mapped = mapLegacyCredentialFields(slug, content);
+  if (slug === 'home' || slug === '/') {
+    return normalizeHomeHeroContent(mapped);
+  }
+  return mapped;
+}
+
 export async function getPageContent(
   slug: string,
   options?: { draft?: boolean }
 ): Promise<ContentMap> {
+  if (options?.draft) {
+    const normalized = normalizeSlug(slug);
+    const content = await getPageContentFromCms(normalized, options);
+    if (!content) return applyPageContentGuards(slug, {});
+    return applyPageContentGuards(slug, content);
+  }
+
   const normalized = normalizeSlug(slug);
-  const content = await getPageContentFromCms(normalized, options);
-  if (!content) return {};
-  return mapLegacyCredentialFields(slug, content);
+  return unstable_cache(
+    async () => {
+      const content = await getPageContentFromCms(normalized);
+      if (!content) return applyPageContentGuards(slug, {});
+      return applyPageContentGuards(slug, content);
+    },
+    ['page-content', normalized],
+    {
+      revalidate: CMS_REVALIDATE_SECONDS,
+      tags: [`cms:page:${normalized}`],
+    },
+  )();
 }
 
 export async function getPublishedPageContent(slug: string): Promise<ContentMap> {
   const normalized = normalizeSlug(slug);
-  const content = await getPublishedPageContentFromCms(normalized);
-  return mapLegacyCredentialFields(slug, content);
+  return unstable_cache(
+    async () => {
+      const content = await getPublishedPageContentFromCms(normalized);
+      return applyPageContentGuards(slug, content);
+    },
+    ['published-page-content', normalized],
+    {
+      revalidate: CMS_REVALIDATE_SECONDS,
+      tags: [`cms:page:${normalized}`],
+    },
+  )();
+}
+
+export async function getGlobalContent(): Promise<ContentMap> {
+  return unstable_cache(
+    async () => getGlobalContentFromCms(),
+    ['global-content'],
+    {
+      revalidate: CMS_REVALIDATE_SECONDS,
+      tags: ['cms:global'],
+    },
+  )();
 }

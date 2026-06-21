@@ -1,14 +1,14 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Leadership & Faculty | International Coaching Institute',
-  description: 'Our faculty are practicing coaches who deliver live, online, one-to-one programmes.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about/leadership-faculty');
 }
 
 export default async function LeadershipFacultyPage() {

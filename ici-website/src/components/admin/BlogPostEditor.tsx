@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { ImageIcon, X } from 'lucide-react';
 import { formatEnumLabel } from '@/lib/admin-utils';
 
 export type BlogFormState = {
@@ -56,6 +57,7 @@ type BlogPostEditorProps = {
   onChange: (form: BlogFormState) => void;
   onSubmit: (e: React.FormEvent) => void;
   onCancel: () => void;
+  onPickCoverImage: () => void;
   saving: boolean;
   mode: 'create' | 'edit';
 };
@@ -65,17 +67,90 @@ export default function BlogPostEditor({
   onChange,
   onSubmit,
   onCancel,
+  onPickCoverImage,
   saving,
   mode,
 }: BlogPostEditorProps) {
   const set = (patch: Partial<BlogFormState>) => onChange({ ...form, ...patch });
 
   return (
-    <form onSubmit={onSubmit} className="relative bg-white rounded-2xl shadow-xl border border-navy-100 w-full max-w-2xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
+    <form onSubmit={onSubmit} className="relative bg-white rounded-2xl shadow-xl border border-navy-100 w-full max-w-3xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
       <div>
         <h2 className="text-h3 text-brand-navy-900">{mode === 'create' ? 'New Blog Post' : 'Edit Blog Post'}</h2>
-        <p className="text-sm text-muted mt-1">Content settings for your blog articles.</p>
+        <p className="text-sm text-muted mt-1">Featured image, article content, and SEO settings.</p>
       </div>
+
+      {/* Featured image — primary focus */}
+      <section className="space-y-4 rounded-2xl border-2 border-brand-gold-400/30 bg-gradient-to-b from-cream-50 to-white p-5">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-bold text-brand-navy-900">Featured image</h3>
+            <p className="text-xs text-muted mt-0.5">Shown on blog cards and as the article hero image.</p>
+          </div>
+          {form.coverImageUrl && (
+            <button
+              type="button"
+              onClick={() => set({ coverImageUrl: '', coverImageAlt: '' })}
+              className="inline-flex items-center gap-1 text-xs text-red-600 hover:underline"
+            >
+              <X size={14} />
+              Remove
+            </button>
+          )}
+        </div>
+
+        {form.coverImageUrl ? (
+          <div className="relative rounded-xl overflow-hidden border border-navy-100 bg-navy-900/5 aspect-[16/9] max-h-64">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={form.coverImageUrl}
+              alt={form.coverImageAlt || form.title || 'Featured image preview'}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={onPickCoverImage}
+            className="w-full aspect-[16/9] max-h-52 rounded-xl border-2 border-dashed border-brand-gold-400/50 bg-white flex flex-col items-center justify-center gap-2 text-brand-navy-900 hover:bg-cream-50 transition"
+          >
+            <ImageIcon size={32} className="text-brand-gold-600" />
+            <span className="text-sm font-medium">Select featured image</span>
+            <span className="text-xs text-muted">From media library or paste URL below</span>
+          </button>
+        )}
+
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={onPickCoverImage}
+            className="px-4 py-2 text-sm font-medium border border-navy-100 rounded-xl hover:bg-white"
+          >
+            {form.coverImageUrl ? 'Change image' : 'Open media library'}
+          </button>
+        </div>
+
+        <div>
+          <label className={labelClass}>Image URL</label>
+          <input
+            required
+            type="url"
+            value={form.coverImageUrl}
+            onChange={(e) => set({ coverImageUrl: e.target.value })}
+            className={inputClass}
+            placeholder="https://..."
+          />
+        </div>
+        <div>
+          <label className={labelClass}>Alt text</label>
+          <input
+            value={form.coverImageAlt}
+            onChange={(e) => set({ coverImageAlt: e.target.value })}
+            className={inputClass}
+            placeholder="Describe the image for accessibility and SEO"
+          />
+        </div>
+      </section>
 
       <section className="space-y-4">
         <h3 className="text-sm font-bold text-brand-navy-900 border-b border-navy-100 pb-2">Article</h3>
@@ -109,14 +184,6 @@ export default function BlogPostEditor({
           </div>
         </div>
         <div>
-          <label className={labelClass}>Cover image URL</label>
-          <input required type="url" value={form.coverImageUrl} onChange={(e) => set({ coverImageUrl: e.target.value })} className={inputClass} />
-        </div>
-        <div>
-          <label className={labelClass}>Cover image alt text</label>
-          <input value={form.coverImageAlt} onChange={(e) => set({ coverImageAlt: e.target.value })} className={inputClass} placeholder="Describe the image for accessibility and SEO" />
-        </div>
-        <div>
           <div className="flex justify-between items-center mb-1.5">
             <label className={labelClass}>Excerpt</label>
             <CharCount value={form.excerpt} max={300} recommended={160} />
@@ -130,7 +197,6 @@ export default function BlogPostEditor({
         <div>
           <label className={labelClass}>Tags</label>
           <input value={form.tags} onChange={(e) => set({ tags: e.target.value })} className={inputClass} placeholder="coaching, leadership, certification (comma-separated)" />
-          <p className="text-xs text-muted mt-1">Used as meta keywords when set.</p>
         </div>
         <label className="flex items-center gap-2 text-sm text-brand-navy-900 cursor-pointer">
           <input type="checkbox" checked={form.featured} onChange={(e) => set({ featured: e.target.checked })} className="rounded border-navy-200" />
@@ -141,11 +207,8 @@ export default function BlogPostEditor({
       <section className="space-y-3 rounded-xl bg-cream-50 border border-navy-100 p-4">
         <div>
           <h3 className="text-sm font-bold text-brand-navy-900">Search preview</h3>
-          <p className="text-xs text-muted mt-1">
-            Generated from the article title and excerpt. Edit those fields above to update how this appears on Google.
-          </p>
+          <p className="text-xs text-muted mt-1">Generated from title and excerpt.</p>
         </div>
-
         <div className="rounded-lg border border-navy-100 bg-white p-4 space-y-1.5">
           <p className="text-[#1a0dab] text-lg font-normal leading-snug line-clamp-1">
             {form.title || 'Article title'}

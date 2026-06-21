@@ -5,7 +5,8 @@ import { sendNewsletterEmail } from './email';
 export type NewsletterRecipient = {
   email: string;
   name?: string;
-  source: 'student' | 'subscriber';
+  source: 'dashboard_student' | 'alumni' | 'subscriber';
+  hasDashboard: boolean;
 };
 
 function normalizeEmail(email: string) {
@@ -41,21 +42,20 @@ export function unsubscribeUrl(email: string) {
 }
 
 export async function getNewsletterRecipients(): Promise<NewsletterRecipient[]> {
-  const [students, subscribers, optOuts] = await Promise.all([
+  const [students, alumni, subscribers, optOuts] = await Promise.all([
     prisma.user.findMany({
-      where: {
-        role: 'STUDENT',
-        status: 'ACTIVE',
-      },
+      where: { role: 'STUDENT', status: 'ACTIVE' },
+      select: { email: true, name: true },
+    }),
+    prisma.alumniNewsletterContact.findMany({
+      where: { unsubscribedAt: null },
       select: { email: true, name: true },
     }),
     prisma.newsletterSubscriber.findMany({
       where: { unsubscribedAt: null },
       select: { email: true },
     }),
-    prisma.newsletterOptOut.findMany({
-      select: { email: true },
-    }),
+    prisma.newsletterOptOut.findMany({ select: { email: true } }),
   ]);
 
   const optedOut = new Set(optOuts.map((row) => normalizeEmail(row.email)));
@@ -64,14 +64,32 @@ export async function getNewsletterRecipients(): Promise<NewsletterRecipient[]> 
   for (const student of students) {
     const email = normalizeEmail(student.email);
     if (optedOut.has(email)) continue;
-    byEmail.set(email, { email, name: student.name, source: 'student' });
+    byEmail.set(email, {
+      email,
+      name: student.name,
+      source: 'dashboard_student',
+      hasDashboard: true,
+    });
+  }
+
+  for (const contact of alumni) {
+    const email = normalizeEmail(contact.email);
+    if (optedOut.has(email)) continue;
+    if (!byEmail.has(email)) {
+      byEmail.set(email, {
+        email,
+        name: contact.name ?? undefined,
+        source: 'alumni',
+        hasDashboard: false,
+      });
+    }
   }
 
   for (const subscriber of subscribers) {
     const email = normalizeEmail(subscriber.email);
     if (optedOut.has(email)) continue;
     if (!byEmail.has(email)) {
-      byEmail.set(email, { email, source: 'subscriber' });
+      byEmail.set(email, { email, source: 'subscriber', hasDashboard: false });
     }
   }
 
@@ -80,12 +98,15 @@ export async function getNewsletterRecipients(): Promise<NewsletterRecipient[]> 
 
 export async function getRecipientCounts() {
   const recipients = await getNewsletterRecipients();
-  const studentCount = recipients.filter((r) => r.source === 'student').length;
-  const subscriberCount = recipients.filter((r) => r.source === 'subscriber').length;
+  const dashboardStudents = recipients.filter((r) => r.source === 'dashboard_student').length;
+  const alumni = recipients.filter((r) => r.source === 'alumni').length;
+  const externalSubscribers = recipients.filter((r) => r.source === 'subscriber').length;
   return {
     total: recipients.length,
-    students: studentCount,
-    externalSubscribers: subscriberCount,
+    dashboardStudents,
+    alumni,
+    externalSubscribers,
+    students: dashboardStudents,
     recipients,
   };
 }
@@ -110,7 +131,6 @@ export async function sendNewsletterToAll(params: {
     });
     if (ok) sentCount += 1;
     else failedCount += 1;
-    // Small delay to reduce SMTP rate-limit issues
     await new Promise((resolve) => setTimeout(resolve, 150));
   }
 
@@ -126,6 +146,10 @@ export async function optOutEmail(email: string) {
       update: {},
     }),
     prisma.newsletterSubscriber.updateMany({
+      where: { email: normalized },
+      data: { unsubscribedAt: new Date() },
+    }),
+    prisma.alumniNewsletterContact.updateMany({
       where: { email: normalized },
       data: { unsubscribedAt: new Date() },
     }),

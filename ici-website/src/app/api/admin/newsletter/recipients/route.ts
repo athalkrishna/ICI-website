@@ -10,8 +10,10 @@ export async function GET() {
     const counts = await getRecipientCounts();
     return jsonOk({
       total: counts.total,
-      students: counts.students,
+      dashboardStudents: counts.dashboardStudents,
+      alumni: counts.alumni,
       externalSubscribers: counts.externalSubscribers,
+      students: counts.dashboardStudents,
       recipients: counts.recipients,
     });
   } catch (err) {

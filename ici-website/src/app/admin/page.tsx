@@ -23,7 +23,8 @@ export default async function AdminDashboard() {
   const session = await getSafeServerSession();
   if (!session) redirect('/admin/login');
 
-  const [stats, activity] = await Promise.all([getAdminStats(), getRecentActivity(10)]);
+  const stats = await getAdminStats();
+  const activity = await getRecentActivity(10);
 
   const statCards = [
     {

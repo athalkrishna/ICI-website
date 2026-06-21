@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import clsx from 'clsx';
@@ -24,8 +25,10 @@ type Newsletter = {
 
 type RecipientStats = {
   total: number;
-  students: number;
+  dashboardStudents: number;
+  alumni: number;
   externalSubscribers: number;
+  students: number;
 };
 
 type FormState = {
@@ -58,7 +61,13 @@ export default function AdminNewsletterPage() {
       const newsData = await newsRes.json();
       const statsData = await statsRes.json();
       setNewsletters(Array.isArray(newsData) ? newsData : []);
-      setStats(statsData?.total != null ? statsData : null);
+      setStats(statsData?.total != null ? {
+        total: statsData.total,
+        dashboardStudents: statsData.dashboardStudents ?? statsData.students ?? 0,
+        alumni: statsData.alumni ?? 0,
+        externalSubscribers: statsData.externalSubscribers ?? 0,
+        students: statsData.dashboardStudents ?? statsData.students ?? 0,
+      } : null);
     } catch {
       toast.error('Failed to load newsletters');
     } finally {
@@ -186,7 +195,7 @@ export default function AdminNewsletterPage() {
       />
 
       {stats && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="bg-white border border-navy-100 rounded-2xl p-5">
             <div className="flex items-center gap-2 text-navy-500 text-sm mb-1">
               <Users className="w-4 h-4" />
@@ -195,15 +204,28 @@ export default function AdminNewsletterPage() {
             <p className="text-2xl font-semibold text-brand-navy-900">{stats.total}</p>
           </div>
           <div className="bg-white border border-navy-100 rounded-2xl p-5">
-            <p className="text-navy-500 text-sm mb-1">Registered students</p>
-            <p className="text-2xl font-semibold text-brand-navy-900">{stats.students}</p>
+            <p className="text-navy-500 text-sm mb-1">Dashboard students</p>
+            <p className="text-xs text-muted mb-2">Paid + manually enrolled</p>
+            <p className="text-2xl font-semibold text-brand-navy-900">{stats.dashboardStudents}</p>
           </div>
           <div className="bg-white border border-navy-100 rounded-2xl p-5">
-            <p className="text-navy-500 text-sm mb-1">External subscribers</p>
+            <p className="text-navy-500 text-sm mb-1">Alumni (newsletter only)</p>
+            <p className="text-xs text-muted mb-2">No dashboard access</p>
+            <p className="text-2xl font-semibold text-brand-navy-900">{stats.alumni}</p>
+          </div>
+          <div className="bg-white border border-navy-100 rounded-2xl p-5">
+            <p className="text-navy-500 text-sm mb-1">Website subscribers</p>
             <p className="text-2xl font-semibold text-brand-navy-900">{stats.externalSubscribers}</p>
           </div>
         </div>
       )}
+
+      <p className="text-sm text-muted mb-8">
+        All lists receive newsletters when you publish.{' '}
+        <Link href="/admin/newsletter/subscribers" className="text-brand-gold-700 hover:underline">
+          Manage subscriber lists →
+        </Link>
+      </p>
 
       <div className="bg-white border border-navy-100 rounded-2xl overflow-hidden">
         <div className={portalTableWrapperClass}>

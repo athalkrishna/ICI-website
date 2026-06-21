@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
+import type { Session } from 'next-auth';
 import type { UserRole } from '@prisma/client';
 
 function accountHref(role: UserRole | undefined) {
@@ -21,13 +23,45 @@ export default function TopBarAuthLink({
   loginText = 'Log In',
   className = 'hover:text-brand-gold-400 transition-colors whitespace-nowrap',
 }: TopBarAuthLinkProps) {
-  const { data: session, status } = useSession();
+  const [session, setSession] = useState<Session | null>(null);
+  const [ready, setReady] = useState(false);
 
-  if (status === 'loading') {
+  useEffect(() => {
+    let active = true;
+
+    const load = () => {
+      getSession()
+        .then((data) => {
+          if (active) {
+            setSession(data);
+            setReady(true);
+          }
+        })
+        .catch(() => {
+          if (active) setReady(true);
+        });
+    };
+
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(load, { timeout: 3000 });
+      return () => {
+        active = false;
+        window.cancelIdleCallback(id);
+      };
+    }
+
+    const timer = window.setTimeout(load, 2000);
+    return () => {
+      active = false;
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  if (!ready) {
     return (
-      <span className={`${className} opacity-70`} aria-hidden>
+      <Link href={loginHref} className={className}>
         {loginText}
-      </span>
+      </Link>
     );
   }
 

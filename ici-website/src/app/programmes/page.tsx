@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import ProgrammesOverviewView from '@/components/programmes/ProgrammesOverviewView';
 import { getPublishedPageContent } from '@/lib/content';
 import { PROGRAMMES_OVERVIEW } from '@/lib/programmes-overview-defaults';

@@ -14,6 +14,7 @@ import {
   type CredentialDetailDefaults,
 } from '../src/lib/credential-defaults';
 import { PRIVACY_CONTENT_HTML, TERMS_CONTENT_HTML } from '../src/lib/legal-defaults';
+import { PAGE_SEO_DEFAULTS } from '../src/lib/page-seo-defaults';
 
 export type SeedField = {
   key: string;
@@ -49,13 +50,66 @@ function f(
   return { key, label, helperText, type, value, order, section };
 }
 
+const SEO_SECTION = 'SEO';
+
+function slugToPublicPath(slug: string): string {
+  if (slug === '/') return '/';
+  return slug.startsWith('/') ? slug : `/${slug}`;
+}
+
+function seoFields(slug: string, adminTitle: string, pageDescription: string): SeedField[] {
+  if (slug === 'global') return [];
+
+  const defaults = PAGE_SEO_DEFAULTS[slug];
+  const metaTitle =
+    defaults?.title ?? `${adminTitle.replace(/^(Programme|Credentials):\s*/, '')} | ICI`;
+  const metaDescription = defaults?.description ?? pageDescription;
+
+  return [
+    f(
+      'meta_title',
+      'Meta Title',
+      T.TEXT,
+      metaTitle,
+      SEO_SECTION,
+      -30,
+      'Browser tab and search result title. Aim for 60 characters or fewer.',
+    ),
+    f(
+      'meta_description',
+      'Meta Description',
+      T.TEXTAREA,
+      metaDescription,
+      SEO_SECTION,
+      -29,
+      'Search result description. Aim for 160 characters or fewer.',
+    ),
+    f(
+      'page_url',
+      'Page URL (Slug)',
+      T.URL,
+      slugToPublicPath(slug),
+      SEO_SECTION,
+      -28,
+      'Public URL path for this page, e.g. /about or /programmes/certified-life-coach',
+    ),
+  ];
+}
+
 function page(
   slug: string,
   title: string,
   description: string,
   fields: SeedField[],
 ): SeedPage {
-  return { slug, title, description, isSystem: true, status: P, fields };
+  return {
+    slug,
+    title,
+    description,
+    isSystem: true,
+    status: P,
+    fields: [...seoFields(slug, title, description), ...fields],
+  };
 }
 
 function codeField(order: number): SeedField {
@@ -258,38 +312,38 @@ const HOME_PAGE: SeedPage = page('/', 'Home', 'ICI homepage', [
   f('hero_heading', 'Hero Heading', T.TEXT, 'Where great coaches are made.', 'Hero', 11, 'The large bold heading'),
   f('hero_body', 'Hero Body Text', T.RICHTEXT, '<p>The International Coaching Institute trains and certifies coaches who want to do work that genuinely changes lives. Every programme is delivered one-to-one and online, blending rigorous coaching practice with leadership, psychology, neuroscience and human behaviour. Whether you are starting out or deepening an established practice, you will leave able to hold a room, read a person, and create lasting change. Become the coach people trust.</p>', 'Hero', 12),
   f('hero_image', 'Hero Background Image', T.IMAGE, '', 'Hero', 13, 'Background image of the hero section'),
-  f('stat_1_number', 'Stat 1 Number', T.NUMBER, '60', 'Hero Stats', 14, 'Currently: 60 (countries)'),
+  f('stat_1_number', 'Stat 1 Number', T.NUMBER, '25000', 'Hero Stats', 14, 'Currently: 25,000+ coaches trained'),
   f('stat_1_suffix', 'Stat 1 Suffix', T.TEXT, '+', 'Hero Stats', 15),
-  f('stat_1_label', 'Stat 1 Label', T.TEXT, 'COUNTRIES', 'Hero Stats', 16),
-  f('stat_2_number', 'Stat 2 Number', T.NUMBER, '25000', 'Hero Stats', 17),
+  f('stat_1_label', 'Stat 1 Label', T.TEXT, 'Coaches trained', 'Hero Stats', 16),
+  f('stat_2_number', 'Stat 2 Number', T.NUMBER, '60', 'Hero Stats', 17),
   f('stat_2_suffix', 'Stat 2 Suffix', T.TEXT, '+', 'Hero Stats', 18),
-  f('stat_2_label', 'Stat 2 Label', T.TEXT, 'ALUMNI', 'Hero Stats', 19),
-  f('stat_3_number', 'Stat 3 Number', T.NUMBER, '5', 'Hero Stats', 20),
+  f('stat_2_label', 'Stat 2 Label', T.TEXT, 'Countries reached', 'Hero Stats', 19),
+  f('stat_3_number', 'Stat 3 Number', T.NUMBER, '4', 'Hero Stats', 20),
   f('stat_3_suffix', 'Stat 3 Suffix', T.TEXT, '', 'Hero Stats', 21, 'Leave blank if no suffix'),
-  f('stat_3_label', 'Stat 3 Label', T.TEXT, 'CAMPUSES', 'Hero Stats', 22),
-  f('stat_4_number', 'Stat 4 Number', T.NUMBER, '200', 'Hero Stats', 23),
-  f('stat_4_suffix', 'Stat 4 Suffix', T.TEXT, '+', 'Hero Stats', 24),
-  f('stat_4_label', 'Stat 4 Label', T.TEXT, 'PARTNERS', 'Hero Stats', 25),
+  f('stat_3_label', 'Stat 3 Label', T.TEXT, 'Credential levels', 'Hero Stats', 22),
+  f('stat_4_number', 'Stat 4 Number', T.NUMBER, '5', 'Hero Stats', 23),
+  f('stat_4_suffix', 'Stat 4 Suffix', T.TEXT, '', 'Hero Stats', 24),
+  f('stat_4_label', 'Stat 4 Label', T.TEXT, 'Campuses', 'Hero Stats', 25),
   f('hero_primary_button_text', 'Primary Button Text', T.TEXT, 'Explore the Mastery Pathway', 'Hero', 26),
   f('hero_primary_button_link', 'Primary Button Link', T.URL, '/credentials', 'Hero', 27),
   f('hero_secondary_button_text', 'Secondary Button Text', T.TEXT, 'Download Prospectus', 'Hero', 28),
   f('hero_secondary_button_link', 'Secondary Button Link', T.URL, '/resources/brochure', 'Hero', 29),
-  f('hero_form_heading', 'Form Heading', T.TEXT, 'Start Your Coaching Journey', 'Hero Form', 30),
-  f('hero_form_subheading', 'Form Subheading', T.TEXT, 'Free application · No commitment', 'Hero Form', 31),
+  f('hero_form_heading', 'Form Heading', T.TEXT, 'Start your coaching journey', 'Hero Form', 30),
+  f('hero_form_subheading', 'Form Subheading', T.TEXT, 'Free enquiry, no commitment. Tell us where you are and we will point you to the right level.', 'Hero Form', 31),
   f('hero_form_button_text', 'Form Button Text', T.TEXT, 'Get Started', 'Hero Form', 32),
   f('trust_point_1', 'Trust Point 1', T.TEXT, 'One-to-one, never group classes', 'Hero Form', 33),
   f('trust_point_2', 'Trust Point 2', T.TEXT, 'Online, delivered worldwide', 'Hero Form', 34),
   f('trust_point_3', 'Trust Point 3', T.TEXT, 'Assessed on real coaching', 'Hero Form', 35),
-  f('accreditation_1_name', 'Accreditation 1 Name', T.TEXT, 'ICF', 'Accreditation', 40),
-  f('accreditation_1_subtitle', 'Accreditation 1 Subtitle', T.TEXT, 'Accredited', 'Accreditation', 41),
-  f('accreditation_2_name', 'Accreditation 2 Name', T.TEXT, 'EMCC', 'Accreditation', 42),
-  f('accreditation_2_subtitle', 'Accreditation 2 Subtitle', T.TEXT, 'Global Standard', 'Accreditation', 43),
-  f('accreditation_3_name', 'Accreditation 3 Name', T.TEXT, 'AC', 'Accreditation', 44),
-  f('accreditation_3_subtitle', 'Accreditation 3 Subtitle', T.TEXT, 'Association', 'Accreditation', 45),
-  f('accreditation_4_name', 'Accreditation 4 Name', T.TEXT, 'CCE', 'Accreditation', 46),
-  f('accreditation_4_subtitle', 'Accreditation 4 Subtitle', T.TEXT, 'Approved Provider', 'Accreditation', 47),
-  f('accreditation_5_name', 'Accreditation 5 Name', T.TEXT, 'ISO', 'Accreditation', 48),
-  f('accreditation_5_subtitle', 'Accreditation 5 Subtitle', T.TEXT, '9001:2015', 'Accreditation', 49),
+  f('accreditation_1_name', 'Accreditation 1 Name', T.TEXT, 'CRAFT', 'Accreditation', 40),
+  f('accreditation_1_subtitle', 'Accreditation 1 Subtitle', T.TEXT, 'ONE-TO-ONE MASTERY', 'Accreditation', 41),
+  f('accreditation_2_name', 'Accreditation 2 Name', T.TEXT, 'EVIDENCE', 'Accreditation', 42),
+  f('accreditation_2_subtitle', 'Accreditation 2 Subtitle', T.TEXT, 'NEUROSCIENCE-BACKED', 'Accreditation', 43),
+  f('accreditation_3_name', 'Accreditation 3 Name', T.TEXT, 'STANDARDS', 'Accreditation', 44),
+  f('accreditation_3_subtitle', 'Accreditation 3 Subtitle', T.TEXT, 'REAL COACHING ASSESSED', 'Accreditation', 45),
+  f('accreditation_4_name', 'Accreditation 4 Name', T.TEXT, 'INTEGRITY', 'Accreditation', 46),
+  f('accreditation_4_subtitle', 'Accreditation 4 Subtitle', T.TEXT, 'A PROFESSIONAL CODE', 'Accreditation', 47),
+  f('accreditation_5_name', 'Accreditation 5 Name', T.TEXT, 'ACCESS', 'Accreditation', 48),
+  f('accreditation_5_subtitle', 'Accreditation 5 Subtitle', T.TEXT, 'DELIVERED WORLDWIDE', 'Accreditation', 49),
   f('paths_section_heading', 'Section Heading', T.TEXT, 'Coaching for Everyone', 'Coaching for Everyone', 50),
   f('path_1_label', 'Path 1 Label', T.TEXT, 'Path 01', 'Coaching for Everyone', 51),
   f('path_1_heading', 'Path 1 Heading', T.TEXT, 'Aspiring coaches', 'Coaching for Everyone', 52),
@@ -388,6 +442,7 @@ const GLOBAL_PAGE: SeedPage = page('global', 'Global — Header & Footer', 'Site
   f('footer_col_2_heading', 'Footer Column 2 Heading', T.TEXT, 'Programmes & Credentials', 'Footer', 13),
   f('footer_col_3_heading', 'Footer Column 3 Heading', T.TEXT, 'About', 'Footer', 14),
   f('footer_col_4_heading', 'Footer Column 4 Heading', T.TEXT, 'Legal', 'Footer', 15),
+  f('default_meta_title', 'Default Meta Title', T.TEXT, 'International Coaching Institute | World-Class Coaching Education', 'SEO Defaults', 19, 'Fallback when a page has no meta title set'),
   f('default_meta_description', 'Default Meta Description', T.TEXTAREA, 'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.', 'SEO Defaults', 20, 'Max 160 characters'),
   f('default_og_image', 'Default Social Share Image', T.IMAGE, '', 'SEO Defaults', 21),
   f('head_code', 'Global Head Code', T.CODE, '', 'Custom Code (Site-wide)', 30, 'DEVELOPER ONLY - Injected into head on every page'),

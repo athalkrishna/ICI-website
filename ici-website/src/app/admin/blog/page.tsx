@@ -8,6 +8,7 @@ import { formatDate, formatEnumLabel } from '@/lib/admin-utils';
 import PortalPageHeader from '@/components/portal/PortalPageHeader';
 import { portalPrimaryBtnClass } from '@/components/portal/portal-styles';
 import BlogPostEditor, { emptyBlogForm, type BlogFormState } from '@/components/admin/BlogPostEditor';
+import MediaPicker from '@/components/admin/MediaPicker';
 
 type BlogPost = {
   id: string;
@@ -75,6 +76,7 @@ export default function AdminBlogPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<BlogFormState>(emptyBlogForm());
   const [saving, setSaving] = useState(false);
+  const [mediaPickerOpen, setMediaPickerOpen] = useState(false);
 
   const loadPosts = useCallback(async () => {
     setLoading(true);
@@ -287,11 +289,25 @@ export default function AdminBlogPage() {
             onChange={setForm}
             onSubmit={handleSubmit}
             onCancel={closeModal}
+            onPickCoverImage={() => setMediaPickerOpen(true)}
             saving={saving}
             mode={modal}
           />
         </div>
       )}
+
+      <MediaPicker
+        open={mediaPickerOpen}
+        onClose={() => setMediaPickerOpen(false)}
+        onSelect={(url, media) => {
+          setForm((prev) => ({
+            ...prev,
+            coverImageUrl: url,
+            coverImageAlt: prev.coverImageAlt || media?.altText || prev.title,
+          }));
+          setMediaPickerOpen(false);
+        }}
+      />
     </div>
   );
 }

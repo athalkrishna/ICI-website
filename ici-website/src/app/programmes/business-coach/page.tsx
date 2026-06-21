@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata'
 import { Briefcase, ArrowUpRight, LineChart, ShieldCheck } from 'lucide-react';
 import ProgrammeSpecialisationView from '@/components/programmes/ProgrammeSpecialisationView';
 import { getPublishedPageContent } from '@/lib/content';
 import { BUSINESS_COACH } from '@/lib/programme-defaults';
 
-export const metadata: Metadata = {
-  title: 'Business Coaching Specialisation | ICI',
-  description:
-    'Train as a business coach with ICI. Help founders and owners build companies that work, one-to-one and online, within the Mastery Pathway.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/programmes/business-coach');
+}
 
 export default async function BusinessCoachingPage() {
   const content = await getPublishedPageContent('/programmes/business-coach');

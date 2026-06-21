@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata'
 import { Network, Settings, MessageSquare, LineChart } from 'lucide-react';
 import ProgrammeSpecialisationView from '@/components/programmes/ProgrammeSpecialisationView';
 import { getPublishedPageContent } from '@/lib/content';
 import { TEAM_COACHING } from '@/lib/programme-defaults';
 
-export const metadata: Metadata = {
-  title: 'Team & Organisational Coaching | ICI',
-  description:
-    'Build a coaching culture with ICI. A team and organisational focus within the Mastery Pathway, delivered one-to-one and online.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/programmes/team-coaching');
+}
 
 export default async function TeamCoachingPage() {
   const content = await getPublishedPageContent('/programmes/team-coaching');

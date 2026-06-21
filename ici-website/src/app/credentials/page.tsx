@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import CredentialsOverviewView from '@/components/credentials/CredentialsOverviewView';
 import { getPublishedPageContent } from '@/lib/content';
 import { CREDENTIALS_OVERVIEW } from '@/lib/credentials-overview-defaults';

@@ -1,5 +1,5 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import ProspectusForm from '@/components/shared/ProspectusForm'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'

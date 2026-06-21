@@ -1,11 +1,11 @@
 import ArticleLayout from '@/components/layout/ArticleLayout'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Complaints Policy | International Coaching Institute',
-  description: 'How to file a complaint with the International Coaching Institute and our process for resolving it.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/complaints');
 }
 
 export default async function ComplaintsPage() {

@@ -4,7 +4,7 @@ import { requireAdmin } from '@/lib/auth';
 import { jsonOk, unauthorized, notFound, serverError } from '@/lib/api';
 import { resolvePageSlug } from '@/lib/admin-utils';
 
-type RouteParams = { params: Promise<{ slug: string }> };
+type RouteParams = { params: Promise<{ slug: string[] }> };
 
 export async function GET(_req: NextRequest, { params }: RouteParams) {
   const session = await requireAdmin();
@@ -30,7 +30,7 @@ export async function GET(_req: NextRequest, { params }: RouteParams) {
 
     return jsonOk(versions);
   } catch (err) {
-    console.error('[admin/pages/[slug]/versions GET]', err);
+    console.error('[admin/pages/versions/[...slug] GET]', err);
     return serverError();
   }
 }

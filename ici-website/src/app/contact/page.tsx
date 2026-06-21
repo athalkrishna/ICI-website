@@ -1,6 +1,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import ContactForm from '@/components/contact/ContactForm'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { Phone, Mail, Clock } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
@@ -8,11 +9,8 @@ import HeroDecor from '@/components/layout/HeroDecor'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Contact ICI | Speak to a Coaching Advisor',
-  },
-  description: 'Get in touch with the International Coaching Institute. Ask about programmes, credentials or organisational training, and speak to a human who can help.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/contact');
 }
 
 export default async function ContactPage() {

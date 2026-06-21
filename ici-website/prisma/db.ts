@@ -8,13 +8,21 @@ function createAdapter() {
   }
 
   const parsed = new URL(url);
+  const poolSize = Number(process.env.DATABASE_POOL_SIZE ?? 10);
+  // Node may resolve localhost to ::1; MySQL/MariaDB often listens on 127.0.0.1 only.
+  const host = parsed.hostname === 'localhost' ? '127.0.0.1' : parsed.hostname;
+  const isDev = process.env.NODE_ENV !== 'production';
+  const connectTimeout = isDev ? 5_000 : 30_000;
+
   return new PrismaMariaDb({
-    host: parsed.hostname,
+    host,
     port: Number(parsed.port || 3306),
     user: decodeURIComponent(parsed.username),
     password: decodeURIComponent(parsed.password),
     database: parsed.pathname.replace(/^\//, ''),
-    connectionLimit: 5,
+    connectionLimit: Number.isFinite(poolSize) && poolSize > 0 ? poolSize : 10,
+    connectTimeout,
+    acquireTimeout: connectTimeout,
     allowPublicKeyRetrieval: true,
   });
 }

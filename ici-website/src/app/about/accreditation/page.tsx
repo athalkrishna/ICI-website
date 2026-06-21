@@ -1,5 +1,5 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ShieldCheck, Award, Scale, BookOpen } from 'lucide-react'
 import Section from '@/components/layout/Section'

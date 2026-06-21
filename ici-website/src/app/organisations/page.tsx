@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { Briefcase, Building, Users, Target, BarChart, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
@@ -7,9 +8,8 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Coaching for Organisations | ICI',
-  description: 'Build a coaching culture with ICI. Train managers and internal coaches one-to-one, develop leaders, and make feedback and accountability part of how people work.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/organisations');
 }
 
 export default async function OrganizationsPage() {

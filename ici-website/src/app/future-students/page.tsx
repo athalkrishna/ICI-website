@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { ArrowRight, Compass, Target, ClipboardCheck, CreditCard, MessageSquare } from 'lucide-react'
 import Section from '@/components/layout/Section'
@@ -7,9 +8,8 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Future Students | International Coaching Institute',
-  description: 'Thinking about becoming a coach? Everything a prospective ICI student needs: the Mastery Pathway, specialisations, pricing and a free assessment to find your level.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/future-students');
 }
 
 export default async function FutureStudentsPage() {

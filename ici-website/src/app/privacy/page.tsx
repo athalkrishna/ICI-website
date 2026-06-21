@@ -1,12 +1,12 @@
 import ArticleLayout from '@/components/layout/ArticleLayout'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsLegalHtml } from '@/lib/cms-helpers'
 import { PRIVACY_CONTENT_HTML, PRIVACY_CONTENT_STUB } from '@/lib/legal-defaults'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | International Coaching Institute',
-  description: 'How the International Coaching Institute collects, uses and protects your personal data, and the rights you have over it.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/privacy');
 }
 
 export default async function PrivacyPage() {

@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
@@ -8,9 +9,8 @@ import HeroDecor from '@/components/layout/HeroDecor'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Coaching Resources, Insights & Prospectus | ICI',
-  description: 'Free coaching resources from ICI: articles on leadership, psychology and change, plus the prospectus. Practical thinking for coaches and the people they serve.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/resources');
 }
 
 export default async function ResourcesPage() {

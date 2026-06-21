@@ -1,27 +1,34 @@
 import { NextRequest } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, unauthorized, notFound, serverError } from '@/lib/api';
-import { restorePageVersion, getPageWithFields } from '@/lib/cms';
+import { publishPage, slugToPath, getPageWithFields } from '@/lib/cms';
 import { logActivity } from '@/lib/activity';
 import { resolvePageSlug } from '@/lib/admin-utils';
+import { revalidateCmsGlobal, revalidateCmsPage } from '@/lib/revalidate-cms';
 
-type RouteParams = { params: Promise<{ slug: string; versionId: string }> };
+type RouteParams = { params: Promise<{ slug: string[] }> };
 
 export async function POST(_req: NextRequest, { params }: RouteParams) {
   const session = await requireAdmin();
   if (!session) return unauthorized();
 
   try {
-    const { slug: rawSlug, versionId } = await params;
+    const { slug: rawSlug } = await params;
     const slug = resolvePageSlug(rawSlug);
 
-    await restorePageVersion(slug, versionId, session.user.id, session.user.name);
+    await publishPage(slug, session.user.id, session.user.name);
+    revalidatePath(slugToPath(slug));
+    revalidateCmsPage(slug);
+    if (slug === 'global') {
+      revalidatePath('/', 'layout');
+      revalidateCmsGlobal();
+    }
 
     await logActivity({
-      action: 'PAGE_VERSION_RESTORED',
+      action: 'PAGE_PUBLISHED',
       entity: 'Page',
       entityId: slug,
-      details: versionId,
       userId: session.user.id,
       userName: session.user.name,
     });
@@ -30,11 +37,8 @@ export async function POST(_req: NextRequest, { params }: RouteParams) {
     if (!page) return notFound('Page not found');
     return jsonOk(page);
   } catch (err) {
-    if (err instanceof Error) {
-      if (err.message === 'Page not found') return notFound('Page not found');
-      if (err.message === 'Version not found') return notFound('Version not found');
-    }
-    console.error('[admin/pages/[slug]/restore POST]', err);
+    if (err instanceof Error && err.message === 'Page not found') return notFound();
+    console.error('[admin/pages/publish/[...slug] POST]', err);
     return serverError();
   }
 }

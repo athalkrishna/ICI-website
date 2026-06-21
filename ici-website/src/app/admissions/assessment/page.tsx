@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import AssessmentForm from '@/components/admissions/AssessmentForm';
 import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'

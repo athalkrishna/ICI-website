@@ -1,12 +1,13 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'History & Heritage | International Coaching Institute',
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about/history');
 }
 
 export default async function HistoryPage() {

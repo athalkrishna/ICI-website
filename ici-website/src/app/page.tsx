@@ -1,27 +1,27 @@
-import HeroSection          from '@/components/home/HeroSection'
-import AnnouncementBanner   from '@/components/home/AnnouncementBanner'
-import AudienceCards        from '@/components/home/AudienceCards'
-import CredentialPathway    from '@/components/home/CredentialPathway'
-import ICIDifference        from '@/components/home/ICIDifference'
-import FeaturedProgrammes     from '@/components/home/FeaturedProgrammes'
-import Testimonials         from '@/components/home/Testimonials'
-import LatestBlogPosts      from '@/components/home/LatestBlogPosts'
-import GlobalReachMap       from '@/components/home/GlobalReachMap'
-import ApplyCTA             from '@/components/home/ApplyCTA'
-import AccreditationLogos   from '@/components/home/AccreditationLogos'
+import HeroSection from '@/components/home/HeroSection'
+import AnnouncementBanner from '@/components/home/AnnouncementBanner'
+import AccreditationLogos from '@/components/home/AccreditationLogos'
 import type { Metadata } from 'next'
-import { getPageContent }   from '@/lib/content'
+import dynamic from 'next/dynamic'
+import { pageMetadata } from '@/lib/page-metadata'
+import { getPageContent } from '@/lib/content'
 import { cmsAnnouncements } from '@/lib/cms-helpers'
 import { getLatestBlogPosts } from '@/lib/data'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'International Coaching Institute | Become a Certified Coach',
-  },
-  description: 'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+const AudienceCards = dynamic(() => import('@/components/home/AudienceCards'))
+const CredentialPathway = dynamic(() => import('@/components/home/CredentialPathway'))
+const ICIDifference = dynamic(() => import('@/components/home/ICIDifference'))
+const FeaturedProgrammes = dynamic(() => import('@/components/home/FeaturedProgrammes'))
+const Testimonials = dynamic(() => import('@/components/home/Testimonials'))
+const GlobalReachMap = dynamic(() => import('@/components/home/GlobalReachMap'))
+const LatestBlogPosts = dynamic(() => import('@/components/home/LatestBlogPosts'))
+const ApplyCTA = dynamic(() => import('@/components/home/ApplyCTA'))
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/');
 }
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export default async function Home() {
   const [content, latestPosts] = await Promise.all([
@@ -30,21 +30,9 @@ export default async function Home() {
   ]);
 
   const fallbackAnnouncements = [
-    { 
-      _id: '1', 
-      text: 'Enrolment is open now. Begin any month, one-to-one.', 
-      link: '/apply' 
-    },
-    { 
-      _id: '2', 
-      text: 'Now enrolling worldwide: one-to-one, online coaching certification.', 
-      link: '/credentials' 
-    },
-    { 
-      _id: '3', 
-      text: 'The ICI Mastery Pathway, from Catalyst to Luminary. Explore the credentials.', 
-      link: '/credentials' 
-    },
+    { _id: '1', text: 'Enrolment is open now. Begin any month, one-to-one.', link: '/apply' },
+    { _id: '2', text: 'Now enrolling worldwide: one-to-one, online coaching certification.', link: '/credentials' },
+    { _id: '3', text: 'The ICI Mastery Pathway, from Catalyst to Luminary. Explore the credentials.', link: '/credentials' },
   ];
 
   const cmsItems = cmsAnnouncements(content);
@@ -53,8 +41,8 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <AnnouncementBanner announcements={announcements} />
-      <HeroSection content={content} />
-      <AccreditationLogos content={content} />
+      <HeroSection />
+      <AccreditationLogos />
       <AudienceCards content={content} />
       <CredentialPathway content={content} />
       <ICIDifference content={content} />

@@ -1,13 +1,12 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata'
 import CredentialDetailView from '@/components/credentials/CredentialDetailView';
 import { getPublishedPageContent } from '@/lib/content';
 import { ARCHITECT_CREDENTIAL } from '@/lib/credential-defaults';
 
-export const metadata: Metadata = {
-  title: 'ICI Architect Coach (Level 2) | Professional Certification',
-  description:
-    'Build a thriving, ethical coaching practice. The ICI Architect Coach certification is 60 hours, one-to-one and online: 20 hours coaching plus 40 hours self-work.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/credentials/architect');
+}
 
 export default async function ArchitectPage() {
   const content = await getPublishedPageContent('/credentials/architect');

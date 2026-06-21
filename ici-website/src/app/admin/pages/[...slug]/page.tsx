@@ -16,7 +16,13 @@ import {
 } from 'lucide-react';
 import TipTapEditor from '@/components/admin/TipTapEditor';
 import MediaPicker from '@/components/admin/MediaPicker';
-import { resolvePageSlug, pageApiPath, formatDateTime, slugToPreviewPath, groupFieldsBySection } from '@/lib/admin-utils';
+import { resolvePageSlug, pageApiPath, pagePublishApiPath, pageVersionsApiPath, pageRestoreApiPath, formatDateTime, slugToPreviewPath, groupFieldsBySection } from '@/lib/admin-utils';
+import {
+  HOME_HERO_FIELD_KEYS,
+  isHomeHeroLockedField,
+  lockedHomeHeroDbValue,
+} from '@/lib/home-hero-defaults';
+import { stripHtml } from '@/lib/cms-helpers';
 
 const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
 
@@ -58,10 +64,12 @@ type PageVersion = {
   createdAt: string;
 };
 
-export default function PageEditor({ params }: { params: Promise<{ slug: string }> }) {
+export default function PageEditor({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug: rawSlug } = use(params);
   const dbSlug = resolvePageSlug(rawSlug);
   const apiBase = pageApiPath(dbSlug);
+  const publishApi = pagePublishApiPath(dbSlug);
+  const versionsApi = pageVersionsApiPath(dbSlug);
 
   const [page, setPage] = useState<PageData | null>(null);
   const [values, setValues] = useState<Record<string, string | null>>({});
@@ -92,6 +100,11 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
       data.fields.forEach((f) => {
         initial[f.key] = f.value;
       });
+      if (dbSlug === '/') {
+        for (const key of HOME_HERO_FIELD_KEYS) {
+          initial[key] = lockedHomeHeroDbValue(key);
+        }
+      }
       setValues(initial);
       setSavedValues(initial);
     } catch {
@@ -103,14 +116,14 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
 
   const loadVersions = useCallback(async () => {
     try {
-      const res = await fetch(`${apiBase}/versions`);
+      const res = await fetch(versionsApi);
       if (!res.ok) return;
       const data = await res.json();
       setVersions(Array.isArray(data) ? data : []);
     } catch {
       /* ignore */
     }
-  }, [apiBase]);
+  }, [versionsApi]);
 
   useEffect(() => {
     loadPage();
@@ -182,7 +195,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
     }
     setPublishing(true);
     try {
-      const res = await fetch(`${apiBase}/publish`, { method: 'POST' });
+      const res = await fetch(publishApi, { method: 'POST' });
       if (!res.ok) throw new Error('Publish failed');
       const data: PageData = await res.json();
       setPage(data);
@@ -198,7 +211,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
   const handleRestore = async (versionId: string) => {
     if (!confirm('Restore this version? Current unsaved changes will be lost.')) return;
     try {
-      const res = await fetch(`${apiBase}/restore/${versionId}`, { method: 'POST' });
+      const res = await fetch(pageRestoreApiPath(dbSlug, versionId), { method: 'POST' });
       if (!res.ok) throw new Error('Restore failed');
       toast.success('Version restored');
       await loadPage();
@@ -222,18 +235,47 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
   const renderField = (field: ContentField) => {
     const value = values[field.key] ?? '';
 
+    if (dbSlug === '/' && isHomeHeroLockedField(field.key)) {
+      const display =
+        field.type === 'RICHTEXT' || field.key === 'hero_body'
+          ? stripHtml(lockedHomeHeroDbValue(field.key))
+          : lockedHomeHeroDbValue(field.key);
+      return (
+        <div className="rounded-xl border border-navy-100 bg-cream-50 p-3">
+          <p className="text-sm text-brand-navy-900 whitespace-pre-wrap">{display}</p>
+          <p className="text-xs text-muted mt-2">
+            Fixed homepage copy — always shown on the live site and cannot be edited here.
+          </p>
+        </div>
+      );
+    }
+
+    const charHint =
+      field.key === 'meta_title' ? (
+        <p className={clsx('text-xs mt-1', value.length > 60 ? 'text-amber-600' : 'text-muted')}>
+          {value.length}/70 · aim for 60 or fewer
+        </p>
+      ) : field.key === 'meta_description' ? (
+        <p className={clsx('text-xs mt-1', value.length > 160 ? 'text-amber-600' : 'text-muted')}>
+          {value.length}/320 · aim for 160 or fewer
+        </p>
+      ) : null;
+
     switch (field.type) {
       case 'TEXT':
       case 'URL':
       case 'EMAIL':
       case 'PHONE':
         return (
-          <input
-            type={field.type === 'EMAIL' ? 'email' : field.type === 'PHONE' ? 'tel' : 'text'}
-            value={value}
-            onChange={(e) => updateValue(field.key, e.target.value)}
-            className="w-full p-3 text-sm border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
-          />
+          <>
+            <input
+              type={field.type === 'EMAIL' ? 'email' : field.type === 'PHONE' ? 'tel' : 'text'}
+              value={value}
+              onChange={(e) => updateValue(field.key, e.target.value)}
+              className="w-full p-3 text-sm border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
+            />
+            {charHint}
+          </>
         );
       case 'NUMBER':
         return (
@@ -246,12 +288,15 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
         );
       case 'TEXTAREA':
         return (
-          <textarea
-            value={value}
-            rows={4}
-            onChange={(e) => updateValue(field.key, e.target.value)}
-            className="w-full p-3 text-sm border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
-          />
+          <>
+            <textarea
+              value={value}
+              rows={4}
+              onChange={(e) => updateValue(field.key, e.target.value)}
+              className="w-full p-3 text-sm border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold-500/50"
+            />
+            {charHint}
+          </>
         );
       case 'RICHTEXT':
         return (
@@ -327,14 +372,40 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
         );
       default:
         return (
-          <input
-            type="text"
-            value={value}
-            onChange={(e) => updateValue(field.key, e.target.value)}
-            className="w-full p-3 text-sm border border-navy-100 rounded-xl"
-          />
+          <>
+            <input
+              type="text"
+              value={value}
+              onChange={(e) => updateValue(field.key, e.target.value)}
+              className="w-full p-3 text-sm border border-navy-100 rounded-xl"
+            />
+            {charHint}
+          </>
         );
     }
+  };
+
+  const renderSeoPreview = () => {
+    const metaTitle = values.meta_title ?? page?.title ?? '';
+    const metaDescription = values.meta_description ?? '';
+    const pageUrl = (values.page_url ?? page?.slug ?? '').replace(/^\//, '');
+
+    return (
+      <div className="rounded-xl border border-navy-100 bg-cream-50 p-4 space-y-2">
+        <p className="text-xs font-semibold text-brand-navy-900">Search preview</p>
+        <div className="rounded-lg border border-navy-100 bg-white p-4 space-y-1.5">
+          <p className="text-[#1a0dab] text-lg font-normal leading-snug line-clamp-1">
+            {metaTitle || 'Page title'}
+          </p>
+          <p className="text-[#006621] text-sm line-clamp-1">
+            internationalcoachinginstitute.org › {pageUrl || 'page-url'}
+          </p>
+          <p className="text-sm text-[#545454] leading-relaxed line-clamp-2">
+            {metaDescription || 'Meta description will appear here in search results.'}
+          </p>
+        </div>
+      </div>
+    );
   };
 
   if (loading) {
@@ -421,6 +492,22 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
 
       <div className="flex gap-6">
         <div className={clsx('flex-1 space-y-4', showVersions && 'xl:mr-80')}>
+          {sections.length === 0 ? (
+            <div className="bg-white rounded-2xl shadow-md border border-navy-100 p-8 text-center">
+              <p className="text-brand-navy-900 font-medium mb-2">No content fields found for this page</p>
+              <p className="text-sm text-muted mb-4">
+                Run <code className="font-mono bg-cream-50 px-1.5 py-0.5 rounded">npm run db:seed</code> to
+                populate CMS fields, then refresh this page.
+              </p>
+              <button
+                type="button"
+                onClick={() => loadPage()}
+                className="px-4 py-2 text-sm border border-navy-100 rounded-xl hover:bg-cream-50"
+              >
+                Retry
+              </button>
+            </div>
+          ) : null}
           {sections.map(([section, fields]) => {
             const isCollapsed = collapsed[section];
             return (
@@ -438,6 +525,12 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
                 </button>
                 {!isCollapsed && (
                   <div className="px-4 pb-4 space-y-6 border-t border-navy-50">
+                    {dbSlug === '/' &&
+                      (section === 'Hero' || section === 'Hero Stats' || section === 'Hero Form') && (
+                        <p className="text-xs text-muted bg-cream-50 border border-navy-100 rounded-lg px-3 py-2 mt-4">
+                          This section is locked to the approved one-to-one homepage design.
+                        </p>
+                      )}
                     {fields.map((field) => (
                       <div key={field.key}>
                         <label className="block text-sm font-medium text-navy-700 mb-1">
@@ -450,6 +543,7 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string 
                         {renderField(field)}
                       </div>
                     ))}
+                    {section === 'SEO' && renderSeoPreview()}
                   </div>
                 )}
               </div>

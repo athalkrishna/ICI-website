@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata'
 import { FlaskConical, Moon, HeartPulse, Stethoscope } from 'lucide-react';
 import ProgrammeSpecialisationView from '@/components/programmes/ProgrammeSpecialisationView';
 import { getPublishedPageContent } from '@/lib/content';
 import { HEALTH_WELLNESS } from '@/lib/programme-defaults';
 
-export const metadata: Metadata = {
-  title: 'Health & Wellness Coaching | ICI',
-  description:
-    'Become a health and wellness coach with ICI. Guide sustainable change in body and mind, one-to-one and online, within the Mastery Pathway.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/programmes/health-wellness');
+}
 
 export default async function HealthWellnessPage() {
   const content = await getPublishedPageContent('/programmes/health-wellness');

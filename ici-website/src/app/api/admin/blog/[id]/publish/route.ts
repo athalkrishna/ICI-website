@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, unauthorized, notFound, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
+import { revalidateCmsBlogPosts } from '@/lib/revalidate-cms';
 
 type RouteParams = { params: Promise<{ id: string }> };
 
@@ -27,6 +28,7 @@ export async function POST(_req: NextRequest, { params }: RouteParams) {
     revalidatePath('/');
     revalidatePath('/blog');
     revalidatePath(`/blog/${post.slug}`);
+    revalidateCmsBlogPosts();
 
     await logActivity({
       action: 'BLOG_PUBLISHED',

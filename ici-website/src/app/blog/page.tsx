@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { Mail } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
@@ -10,9 +11,8 @@ import { getPublishedPageContent } from '@/lib/content'
 import { getPublishedBlogPosts } from '@/lib/data'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Coaching Insights & Articles | ICI Blog',
-  description: 'Read the latest thinking from ICI on coaching, leadership, psychology and human change. Practical insights for coaches and the people they lead.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/blog');
 }
 
 export const revalidate = 60

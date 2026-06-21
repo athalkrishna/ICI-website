@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { Calendar, BookOpen, Users, Monitor, Phone, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
@@ -7,9 +8,8 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Faculty & Staff | International Coaching Institute',
-  description: 'Resources and tools for ICI faculty and staff: schedules, supervision, internal systems and support. Everything the team needs, in one place.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/faculty-staff');
 }
 
 export default async function FacultyStaffPage() {

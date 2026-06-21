@@ -1,13 +1,14 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
-import SiteFooter from '@/components/layout/SiteFooter';
-import SiteMain from '@/components/layout/SiteMain';
-import SiteCookieNotice from '@/components/layout/SiteCookieNotice';
+import Footer from '@/components/layout/Footer';
 import { isPortalRoute } from '@/lib/portal-routes';
 import type { ContentMap } from '@/lib/content';
+
+const SiteCookieNotice = dynamic(() => import('@/components/layout/SiteCookieNotice'), { ssr: false });
 
 export default function SiteChrome({
   children,
@@ -27,8 +28,17 @@ export default function SiteChrome({
       )}
     >
       {!portal && <Navbar globalContent={globalContent} />}
-      <SiteMain>{children}</SiteMain>
-      <SiteFooter globalContent={globalContent} />
+      <main
+        id="main-content"
+        className={
+          portal
+            ? 'min-h-0 flex-1 overflow-hidden bg-cream-50 flex flex-col'
+            : 'flex-1 w-full max-w-full overflow-x-hidden'
+        }
+      >
+        {children}
+      </main>
+      {!portal && <Footer globalContent={globalContent} />}
       <SiteCookieNotice />
     </div>
   );

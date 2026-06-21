@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
@@ -8,8 +9,8 @@ import ProspectusQuickForm from '@/components/shared/ProspectusQuickForm'
 
 export const revalidate = 60;
 
-export const metadata: Metadata = {
-  title: 'Prospectus | International Coaching Institute',
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/prospectus');
 }
 
 export default async function ProspectusPage() {

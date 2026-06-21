@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { FileBarChart2 } from 'lucide-react'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
@@ -7,8 +8,8 @@ import AnnualReportSubscription from '@/components/about/AnnualReportSubscriptio
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Annual Reports | International Coaching Institute',
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about/annual-reports');
 }
 
 export default async function AnnualReportsPage() {

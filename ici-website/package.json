@@ -17,6 +17,7 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed",
+    "db:repair-home-hero": "tsx scripts/repair-home-hero.ts",
     "db:push": "prisma db push"
   },
   "dependencies": {

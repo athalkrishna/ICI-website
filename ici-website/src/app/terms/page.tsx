@@ -1,12 +1,12 @@
 import ArticleLayout from '@/components/layout/ArticleLayout'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsLegalHtml } from '@/lib/cms-helpers'
 import { TERMS_CONTENT_HTML, TERMS_CONTENT_STUB } from '@/lib/legal-defaults'
 
-export const metadata: Metadata = {
-  title: 'Terms of Service | International Coaching Institute',
-  description: 'The terms that govern your use of the ICI website and our programmes, including enrolment, payment, intellectual property and liability.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/terms');
 }
 
 export default async function TermsPage() {

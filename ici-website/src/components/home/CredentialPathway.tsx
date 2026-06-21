@@ -1,8 +1,5 @@
-'use client'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Award, ChevronRight, CheckCircle2 } from 'lucide-react'
-import AnimatedSection from '@/components/shared/AnimatedSection'
 import Section from '@/components/layout/Section'
 import { cmsField, cmsPlainBody, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 import type { ContentMap } from '@/lib/content'
@@ -62,7 +59,6 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       desc: cmsPlainBody(content, `${prefix}body`, def.desc),
       badge: i === 3 ? 'bg-navy-500/20 text-brand-gold-600' : 'bg-white/10 text-white',
       href: cmsField(content, `${prefix}button_link`, def.href),
-      popular: i === 1,
       bullets: cmsIndexedWithFallbacks(content, `${prefix}bullet_`, def.bullets),
     };
   });
@@ -73,10 +69,10 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-navy-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <AnimatedSection className="text-center mb-20">
-          <div className="text-eyebrow text-brand-gold-400 flex items-center gap-3 justify-center mb-4">
+        <div className="text-center mb-20">
+          <p className="text-eyebrow text-brand-gold-400 flex items-center gap-3 justify-center mb-4">
             {cmsField(content, 'pathway_section_label', 'The ICI Mastery Pathway')}
-          </div>
+          </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {cmsField(content, 'pathway_section_heading', 'Your path to mastery')}
           </h2>
@@ -87,55 +83,53 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
               'Four progressive levels, each a credential you carry for life, taught one-to-one and online.',
             )}
           </p>
-        </AnimatedSection>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {credentials.map((cred, i) => (
-            <AnimatedSection key={cred.code} delay={i * 0.1}>
-              <div className="relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group bg-white/5 border border-subtle hover:border-white/30 hover:bg-white/10 backdrop-blur-md">
-                <div className="flex items-start justify-between mb-8">
-                  <div className={`inline-flex items-center gap-2 ${cred.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase`}>
-                    <Award size={14} />
-                    {cred.code}
-                  </div>
-                  <div className="font-display text-6xl font-bold leading-none text-white/10 group-hover:scale-110 transition-transform duration-500">
-                    0{i + 1}
-                  </div>
+            <div key={cred.code} className="relative rounded-3xl p-6 md:p-10 h-full flex flex-col transition-all duration-500 group bg-white/5 border border-subtle hover:border-white/30 hover:bg-white/10 backdrop-blur-md">
+              <div className="flex items-start justify-between mb-8">
+                <div className={`inline-flex items-center gap-2 ${cred.badge} text-xs font-sans font-bold px-4 py-2 rounded-xl tracking-wider uppercase`}>
+                  <Award size={14} aria-hidden />
+                  {cred.code}
                 </div>
-
-                <h3 className="text-h3 text-white mb-2">{cred.name}</h3>
-                <div className="text-brand-gold-400 mb-2 text-eyebrow">{cred.level}</div>
-                <div className="font-mono text-sm text-navy-300 mb-6">{cred.hours}</div>
-                <p className="text-navy-100/70 flex-1 mb-8 text-body">{cred.desc}</p>
-
-                <div className="border-t border-subtle pt-8 mt-auto">
-                  <ul className="space-y-4 text-sm text-navy-100/90 font-sans mb-8">
-                    {cred.bullets.map((bullet, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 size={18} className="text-brand-gold-400 shrink-0 mt-0.5" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={cred.href}
-                    className="flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit text-white hover:text-brand-gold-400"
-                  >
-                    Explore Pathway
-                    <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
+                <div className="font-display text-6xl font-bold leading-none text-white/10 group-hover:scale-110 transition-transform duration-500">
+                  0{i + 1}
                 </div>
               </div>
-            </AnimatedSection>
+
+              <h3 className="text-h3 text-white mb-2">{cred.name}</h3>
+              <div className="text-brand-gold-400 mb-2 text-eyebrow">{cred.level}</div>
+              <div className="font-mono text-sm text-navy-300 mb-6">{cred.hours}</div>
+              <p className="text-navy-100/70 flex-1 mb-8 text-body">{cred.desc}</p>
+
+              <div className="border-t border-subtle pt-8 mt-auto">
+                <ul className="space-y-4 text-sm text-navy-100/90 font-sans mb-8">
+                  {cred.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 size={18} className="text-brand-gold-400 shrink-0 mt-0.5" aria-hidden />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={cred.href}
+                  className="flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit min-h-[44px] text-white hover:text-brand-gold-400"
+                >
+                  Explore {cred.name} pathway
+                  <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" aria-hidden />
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
 
-        <AnimatedSection className="text-center">
-          <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4">
+        <div className="text-center">
+          <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4 min-h-[44px]">
             Not sure where to start? Speak to an advisor
-            <ChevronRight size={18} />
+            <ChevronRight size={18} aria-hidden />
           </Link>
-        </AnimatedSection>
+        </div>
       </div>
     </Section>
   );

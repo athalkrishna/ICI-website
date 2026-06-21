@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/shared/AnimatedSection'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { Users, GraduationCap, Network, HeartHandshake, BookOpen, ArrowRight } from 'lucide-react'
 import Section from '@/components/layout/Section'
@@ -7,9 +8,8 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'ICI Alumni | International Coaching Institute',
-  description: 'ICI alumni stay connected for supervision, referrals, continued learning and friendship. Qualifying is the beginning of your relationship with the institute.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/alumni');
 }
 
 export default async function AlumniPage() {

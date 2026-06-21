@@ -85,16 +85,20 @@ export default function NewsletterSubscribeForm({
             : 'flex flex-col sm:flex-row gap-4'
         }
       >
+        <label htmlFor="newsletter-email" className="sr-only">
+          Email address for newsletter
+        </label>
         <input
+          id="newsletter-email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete="email"
           placeholder="Enter your email address"
           className={inputClass}
-          aria-label="Email address for newsletter"
         />
-        <button type="submit" disabled={status === 'loading'} className={buttonClass}>
+        <button type="submit" disabled={status === 'loading'} className={`${buttonClass} min-h-[44px]`}>
           {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
         </button>
       </form>

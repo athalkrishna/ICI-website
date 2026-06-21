@@ -1,11 +1,13 @@
 /** Map friendly admin URL segments to database page slugs. */
 const ADMIN_SLUG_TO_DB: Record<string, string> = {
   home: '/',
+  global: 'global',
 };
 
-/** Map database slugs to admin URL segments (avoids `%2F` routing issues). */
+/** Map database slugs to admin URL path (without /admin/pages prefix). */
 const DB_SLUG_TO_ADMIN: Record<string, string> = {
   '/': 'home',
+  global: 'global',
 };
 
 export function decodePageSlug(raw: string): string {
@@ -16,18 +18,30 @@ export function decodePageSlug(raw: string): string {
   }
 }
 
+function slugPartsFromRaw(raw: string | string[]): string[] {
+  const parts = (Array.isArray(raw) ? raw : [raw]).map(decodePageSlug).filter(Boolean);
+  if (parts.length === 1 && parts[0].startsWith('/')) {
+    // Legacy links used encodeURIComponent('/about') → "%2Fabout"
+    return parts[0].replace(/^\/+/, '').split('/').filter(Boolean);
+  }
+  return parts;
+}
+
 /** Resolve an admin route/API slug param to the database slug. */
-export function resolvePageSlug(raw: string): string {
-  const decoded = decodePageSlug(raw);
-  return ADMIN_SLUG_TO_DB[decoded] ?? decoded;
+export function resolvePageSlug(raw: string | string[]): string {
+  const parts = slugPartsFromRaw(raw);
+  const path = parts.join('/');
+
+  if (!path || path === 'home') return '/';
+  if (ADMIN_SLUG_TO_DB[path]) return ADMIN_SLUG_TO_DB[path];
+
+  return path.startsWith('/') ? path : `/${path}`;
 }
 
-export function encodePageSlug(slug: string): string {
-  return encodeURIComponent(slug);
-}
-
+/** Convert a database slug to admin URL segments (no leading slash). */
 export function adminRouteSlug(slug: string): string {
-  return DB_SLUG_TO_ADMIN[slug] ?? encodePageSlug(slug);
+  if (DB_SLUG_TO_ADMIN[slug]) return DB_SLUG_TO_ADMIN[slug];
+  return slug.startsWith('/') ? slug.slice(1) : slug;
 }
 
 export function slugToPreviewPath(slug: string): string {
@@ -42,6 +56,18 @@ export function pageEditorHref(slug: string): string {
 
 export function pageApiPath(slug: string): string {
   return `/api/admin/pages/${adminRouteSlug(slug)}`;
+}
+
+export function pagePublishApiPath(slug: string): string {
+  return `/api/admin/pages/publish/${adminRouteSlug(slug)}`;
+}
+
+export function pageVersionsApiPath(slug: string): string {
+  return `/api/admin/pages/versions/${adminRouteSlug(slug)}`;
+}
+
+export function pageRestoreApiPath(slug: string, versionId: string): string {
+  return `/api/admin/pages/restore/${versionId}/${adminRouteSlug(slug)}`;
 }
 
 export function formatPageSlugLabel(slug: string): string {

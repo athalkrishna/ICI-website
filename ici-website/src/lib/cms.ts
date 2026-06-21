@@ -1,5 +1,11 @@
 import { prisma, hasDatabaseUrl } from './prisma';
 import type { PageStatus } from '@prisma/client';
+import {
+  isHomeHeroLockedField,
+  isHomePageSlug,
+  lockedHomeHeroDbValue,
+  HOME_HERO_FIELD_KEYS,
+} from './home-hero-defaults';
 
 export type ContentMap = Record<string, string>;
 
@@ -69,6 +75,17 @@ export async function getPageWithFields(slug: string) {
   });
 }
 
+type DbClient = Pick<typeof prisma, 'contentField'>;
+
+export async function enforceLockedHomeHeroFields(pageId: string, client: DbClient = prisma) {
+  for (const key of HOME_HERO_FIELD_KEYS) {
+    await client.contentField.updateMany({
+      where: { pageId, key },
+      data: { value: lockedHomeHeroDbValue(key) },
+    });
+  }
+}
+
 export async function savePageDraft(
   slug: string,
   fields: { key: string; value: string | null }[],
@@ -80,10 +97,15 @@ export async function savePageDraft(
 
   await prisma.$transaction(async (tx) => {
     for (const field of fields) {
+      if (isHomePageSlug(slug) && isHomeHeroLockedField(field.key)) continue;
       await tx.contentField.updateMany({
         where: { pageId: page.id, key: field.key },
         data: { value: field.value },
       });
+    }
+
+    if (isHomePageSlug(slug)) {
+      await enforceLockedHomeHeroFields(page.id, tx);
     }
 
     const snapshot = await tx.contentField.findMany({
@@ -113,6 +135,10 @@ export async function savePageDraft(
 export async function publishPage(slug: string, userId: string, userName: string) {
   const page = await prisma.page.findUnique({ where: { slug } });
   if (!page) throw new Error('Page not found');
+
+  if (isHomePageSlug(slug)) {
+    await enforceLockedHomeHeroFields(page.id);
+  }
 
   const snapshot = await prisma.contentField.findMany({
     where: { pageId: page.id },
@@ -169,10 +195,15 @@ export async function restorePageVersion(
 
   await prisma.$transaction(async (tx) => {
     for (const [key, value] of Object.entries(snapshot)) {
+      if (isHomePageSlug(slug) && isHomeHeroLockedField(key)) continue;
       await tx.contentField.updateMany({
         where: { pageId: page.id, key },
         data: { value },
       });
+    }
+
+    if (isHomePageSlug(slug)) {
+      await enforceLockedHomeHeroFields(page.id, tx);
     }
 
     await tx.pageVersion.create({

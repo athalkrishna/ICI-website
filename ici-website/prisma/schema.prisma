@@ -168,6 +168,17 @@ enum NewsletterStatus {
   SENT
 }
 
+enum EnrolmentSource {
+  MANUAL
+  PAYMENT
+}
+
+enum CheckoutOrderStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
 enum EmailStatus {
   SENT
   FAILED
@@ -230,6 +241,7 @@ model StudentProfile {
   credentialIssueDate   DateTime?       @map("credential_issue_date")
   credentialNumber      String?         @unique @map("credential_number")
   directoryOptIn        Boolean         @default(false) @map("directory_opt_in")
+  enrolmentSource       EnrolmentSource @default(MANUAL) @map("enrolment_source")
   deletedAt             DateTime?       @map("deleted_at")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -554,4 +566,39 @@ model NewsletterOptOut {
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("newsletter_opt_outs")
+}
+
+/// Legacy / alumni contacts — newsletter only, no student dashboard.
+model AlumniNewsletterContact {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String?
+  source         String?   @default("import")
+  notes          String?   @db.Text
+  subscribedAt   DateTime  @default(now()) @map("subscribed_at")
+  unsubscribedAt DateTime? @map("unsubscribed_at")
+
+  @@index([subscribedAt])
+  @@map("alumni_newsletter_contacts")
+}
+
+model CheckoutOrder {
+  id              String              @id @default(cuid())
+  razorpayOrderId String              @unique @map("razorpay_order_id")
+  levelId         String              @map("level_id")
+  email           String
+  name            String
+  phone           String?
+  country         String?
+  amountPaise     Int                 @map("amount_paise")
+  currency        String              @default("INR")
+  status          CheckoutOrderStatus   @default(PENDING)
+  paymentId       String?             @map("payment_id")
+  studentUserId   String?             @map("student_user_id")
+  createdAt       DateTime            @default(now()) @map("created_at")
+  completedAt     DateTime?           @map("completed_at")
+
+  @@index([email])
+  @@index([status])
+  @@map("checkout_orders")
 }
