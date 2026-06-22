@@ -100,6 +100,13 @@ export default function Navbar({
   const loginText = cmsField(globalContent, 'login_text', 'Log In')
   const topBarHidden = scrolled ? 'h-0 overflow-hidden py-0 opacity-0 pointer-events-none' : ''
 
+  const desktopNavLinkClass = (href: string) =>
+    `flex items-center gap-1 px-2 xl:px-2.5 py-2.5 min-h-[44px] rounded-lg text-[15px] xl:text-base font-sans font-semibold whitespace-nowrap transition-colors duration-200 ${
+      scrolled
+        ? 'text-gray-200 hover:text-white hover:bg-white/10'
+        : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50'
+    } ${pathname.startsWith(href) ? (scrolled ? 'text-brand-gold-400' : 'text-brand-gold-500') : ''}`
+
   return (
     <>
       <header
@@ -196,32 +203,19 @@ export default function Navbar({
                   onMouseEnter={() => setActiveMenu(item.label)}
                 >
                   {item.children ? (
-                    <div className="flex items-center">
-                      <Link
-                        href={item.href}
-                        className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? 'text-brand-gold-500' : ''}`}
-                      >
-                        {item.label}
-                      </Link>
-                      <button
-                        type="button"
-                        aria-expanded={activeMenu === item.label}
-                        aria-haspopup="true"
-                        aria-label={`Expand ${item.label} menu`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setActiveMenu(activeMenu === item.label ? null : item.label);
-                        }}
-                        className={`inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-2 rounded-md transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50'}`}
-                      >
-                        <IconChevronDown className={`transition-transform duration-200 ${activeMenu === item.label ? 'rotate-180' : ''}`} />
-                      </button>
-                    </div>
-                  ) : (
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-0.5 px-1 xl:px-1 2xl:px-2 py-2 rounded-lg text-sm 2xl:text-sm font-sans font-medium whitespace-nowrap transition-colors duration-200 ${scrolled ? 'text-gray-200 hover:text-white hover:bg-white/10' : 'text-brand-navy-600 hover:text-brand-navy-700 hover:bg-brand-navy-50' } ${pathname.startsWith(item.href) ? 'text-brand-gold-500' : ''}`}
+                      className={desktopNavLinkClass(item.href)}
+                      aria-expanded={activeMenu === item.label}
+                      aria-haspopup="true"
                     >
+                      {item.label}
+                      <IconChevronDown
+                        className={`shrink-0 transition-transform duration-200 ${activeMenu === item.label ? 'rotate-180' : ''}`}
+                      />
+                    </Link>
+                  ) : (
+                    <Link href={item.href} className={desktopNavLinkClass(item.href)}>
                       {item.label}
                     </Link>
                   )}
