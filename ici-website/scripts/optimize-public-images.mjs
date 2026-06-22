@@ -13,7 +13,6 @@ const root = path.join(__dirname, '..');
 const jobs = [
   { in: 'public/logo-transparent.png', out: 'public/logo-transparent.webp', w: 480 },
   { in: 'public/logo-white.png', out: 'public/logo-white.webp', w: 480 },
-  { in: 'public/og-image.png', out: 'public/og-image.webp', w: 1200 },
   { in: 'public/aspiring-coaches.png', out: 'public/aspiring-coaches.webp', w: 800 },
   { in: 'public/experienced-practitioners.png', out: 'public/experienced-practitioners.webp', w: 800 },
   { in: 'public/organisations-leaders.png', out: 'public/organisations-leaders.webp', w: 800 },

@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { EnrolledLevel, UserRole } from '@prisma/client';
 import { createPrismaClient } from './db';
 import { SEED_PAGES } from './seed-pages';
+import { seedNewsletterBranding, seedNewsletterTemplates } from './seed-newsletter';
 import {
   HOME_HERO_FIELD_KEYS,
   isHomeHeroLockedField,
@@ -136,7 +137,7 @@ async function seedSiteSettings() {
       copyrightText: 'Copyright © 2026 International Coaching Institute. All rights reserved.',
       defaultMetaDescription:
         'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
-      defaultOgImageUrl: '',
+      defaultOgImageUrl: 'https://internationalcoachinginstitute.org/logo-transparent.webp',
       googleAnalyticsId: '',
       facebookPixelId: '',
       headCode: '',
@@ -154,6 +155,7 @@ async function seedSiteSettings() {
       copyrightText: 'Copyright © 2026 International Coaching Institute. All rights reserved.',
       defaultMetaDescription:
         'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+      defaultOgImageUrl: 'https://internationalcoachinginstitute.org/logo-transparent.webp',
     },
   });
 
@@ -235,6 +237,8 @@ async function main() {
   await seedPages();
   await seedSiteSettings();
   await seedTestimonials();
+  await seedNewsletterTemplates(prisma);
+  await seedNewsletterBranding(prisma);
   console.log('Seed completed successfully.');
 }
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
 import SiteChromeShell from '@/components/layout/SiteChromeShell'
-import { SITE_URL } from '@/lib/site-url'
+import { SITE_URL, SITE_LOGO_PATH } from '@/lib/site-url'
 import { buildOrganizationSchema } from '@/lib/structured-data'
 import JsonLdScript from '@/components/seo/JsonLdScript'
 
@@ -42,10 +42,8 @@ export const metadata: Metadata = {
     siteName: 'International Coaching Institute',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
-        alt: 'International Coaching Institute',
+        url: SITE_LOGO_PATH,
+        alt: 'International Coaching Institute logo',
       },
     ],
   },

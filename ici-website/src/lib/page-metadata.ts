@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getPublishedPageContent, getGlobalContent } from '@/lib/content';
 import { cmsField, stripHtml } from '@/lib/cms-helpers';
 import { PAGE_SEO_DEFAULTS, SITE_DEFAULT_KEYWORDS } from '@/lib/page-seo-defaults';
-import { SITE_URL } from '@/lib/site-url';
+import { SITE_URL, SITE_LOGO_PATH } from '@/lib/site-url';
 import { getSiteSettings } from '@/lib/data';
 
 const SITE_DEFAULT_DESCRIPTION =
@@ -51,7 +51,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
   const ogImage =
     cmsField(global, 'default_og_image', '') ||
     siteSettings?.defaultOgImageUrl ||
-    '/og-image.webp';
+    SITE_LOGO_PATH;
 
   const shared: Metadata = {
     description: metaDescription,
@@ -70,7 +70,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: metaTitle || 'International Coaching Institute',
+          alt: metaTitle || 'International Coaching Institute logo',
         },
       ],
     },

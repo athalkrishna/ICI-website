@@ -1,6 +1,9 @@
 import { createHmac, timingSafeEqual } from 'crypto';
 import { prisma } from './prisma';
 import { sendNewsletterEmail } from './email';
+import type { NewsletterBlock } from './newsletter-blocks';
+import { getNewsletterBranding } from './newsletter-branding';
+import { resolveNewsletterBlocks } from './newsletter-payload';
 
 export type NewsletterRecipient = {
   email: string;
@@ -113,9 +116,12 @@ export async function getRecipientCounts() {
 
 export async function sendNewsletterToAll(params: {
   title: string;
-  content: string;
+  blocks?: NewsletterBlock[] | unknown;
+  content?: string;
   imageUrl?: string | null;
 }) {
+  const blocks = resolveNewsletterBlocks(params.blocks, params.content, params.imageUrl);
+  const branding = await getNewsletterBranding();
   const recipients = await getNewsletterRecipients();
   let sentCount = 0;
   let failedCount = 0;
@@ -125,8 +131,8 @@ export async function sendNewsletterToAll(params: {
       to: recipient.email,
       toName: recipient.name,
       title: params.title,
-      content: params.content,
-      imageUrl: params.imageUrl,
+      blocks,
+      branding,
       unsubscribeUrl: unsubscribeUrl(recipient.email),
     });
     if (ok) sentCount += 1;

@@ -168,6 +168,21 @@ export async function getPublishedBlogSlugsForSitemap() {
   []);
 }
 
+export async function getEventSlugsForSitemap() {
+  return safeQuery('getEventSlugsForSitemap', () =>
+    prisma.event.findMany({
+      where: { status: { not: 'CANCELLED' } },
+      select: { slug: true, updatedAt: true },
+      orderBy: { startDate: 'desc' },
+    }).then((events) =>
+      events.map((event) => ({
+        slug: event.slug,
+        updatedAt: event.updatedAt ?? new Date(),
+      })),
+    ),
+  []);
+}
+
 export async function getEvents() {
   return prisma.event.findMany({
     orderBy: { startDate: 'desc' },

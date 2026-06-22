@@ -13,7 +13,7 @@ import BlogTableOfContents from '@/components/blog/BlogTableOfContents'
 import BlogRelatedPosts from '@/components/blog/BlogRelatedPosts'
 import { getBlogPostBySlug, getRelatedBlogPosts } from '@/lib/data'
 import { buildBlogPostMetadata } from '@/lib/blog-metadata'
-import { SITE_URL } from '@/lib/site-url'
+import { SITE_URL, SITE_LOGO_URL } from '@/lib/site-url'
 import {
   addHeadingIds,
   estimateReadTime,
@@ -50,7 +50,7 @@ function buildArticleJsonLd(
       name: 'International Coaching Institute',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/og-image.webp`,
+        url: SITE_LOGO_URL,
       },
     },
     mainEntityOfPage: `${SITE_URL}/blog/${slug}`,

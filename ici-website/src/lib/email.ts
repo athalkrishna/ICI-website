@@ -67,6 +67,8 @@ export async function sendEmail(params: {
   subject: string;
   html: string;
   template: EmailTemplate;
+  skipWrap?: boolean;
+  from?: string;
 }) {
   if (!process.env.SMTP_HOST) {
     console.warn('[Email] SMTP not configured, skipping send to', params.to);
@@ -76,10 +78,10 @@ export async function sendEmail(params: {
 
   try {
     await transporter().sendMail({
-      from: fromAddress(),
+      from: params.from || fromAddress(),
       to: params.toName ? `"${params.toName}" <${params.to}>` : params.to,
       subject: params.subject,
-      html: wrapHtml(params.html),
+      html: params.skipWrap ? params.html : wrapHtml(params.html),
     });
     await logEmail(params.to, params.toName, params.subject, params.template, 'SENT');
     return true;
@@ -217,38 +219,36 @@ export async function sendCustomEmail(params: {
   });
 }
 
-function newsletterHtml(params: {
-  title: string;
-  content: string;
-  imageUrl?: string | null;
-  unsubscribeUrl: string;
-}) {
-  const imageBlock = params.imageUrl
-    ? `<p style="margin:0 0 24px;"><img src="${params.imageUrl}" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></p>`
-    : '';
-
-  return `<h2 style="margin:0 0 16px;color:#1a2744;font-size:22px;font-weight:normal;">${params.title}</h2>
-    ${imageBlock}
-    <div style="color:#1a2744;">${params.content}</div>
-    <p style="margin:32px 0 0;padding-top:24px;border-top:1px solid #e8e4dc;font-size:13px;color:#666;">
-      You are receiving this because you are an ICI student or newsletter subscriber.
-      <a href="${params.unsubscribeUrl}" style="color:#1a2744;">Unsubscribe</a>
-    </p>`;
-}
+import type { NewsletterBlock, NewsletterBranding } from './newsletter-blocks';
+import { renderNewsletterHtml } from './newsletter-render';
 
 export async function sendNewsletterEmail(params: {
   to: string;
   toName?: string;
   title: string;
-  content: string;
-  imageUrl?: string | null;
+  blocks: NewsletterBlock[];
+  branding: NewsletterBranding;
   unsubscribeUrl: string;
 }) {
+  const html = await renderNewsletterHtml({
+    title: params.title,
+    blocks: params.blocks,
+    branding: params.branding,
+    unsubscribeUrl: params.unsubscribeUrl,
+  });
+
+  const from =
+    params.branding.senderName && params.branding.senderEmail
+      ? `"${params.branding.senderName}" <${params.branding.senderEmail}>`
+      : undefined;
+
   return sendEmail({
     to: params.to,
     toName: params.toName,
     subject: params.title,
     template: 'NEWSLETTER',
-    html: newsletterHtml(params),
+    html,
+    skipWrap: true,
+    from,
   });
 }

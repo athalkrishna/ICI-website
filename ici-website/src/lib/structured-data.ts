@@ -1,4 +1,4 @@
-import { SITE_URL } from '@/lib/site-url';
+import { SITE_URL, SITE_LOGO_URL } from '@/lib/site-url';
 import { cmsField, stripHtml } from '@/lib/cms-helpers';
 import type { ContentMap } from '@/lib/content';
 import type { CredentialDetailDefaults } from '@/lib/credential-defaults';
@@ -27,9 +27,7 @@ export function buildOrganizationSchema() {
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/og-image.webp`,
-      width: 1200,
-      height: 630,
+      url: SITE_LOGO_URL,
     },
     description:
       'World-class coaching education. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',

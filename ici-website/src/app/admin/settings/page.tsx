@@ -138,6 +138,19 @@ export default function AdminSettingsPage() {
         </section>
 
         <section className="bg-white rounded-2xl shadow-md border border-navy-100 p-6 space-y-4">
+          <h2 className="text-h3 text-brand-navy-900">Newsletter</h2>
+          <p className="text-sm text-navy-600">
+            Configure logo, footer, and sender details for all outgoing newsletters.
+          </p>
+          <a
+            href="/admin/settings/newsletter-branding"
+            className="inline-flex text-sm text-brand-gold-700 hover:underline"
+          >
+            Open newsletter branding settings →
+          </a>
+        </section>
+
+        <section className="bg-white rounded-2xl shadow-md border border-navy-100 p-6 space-y-4">
           <h2 className="text-h3 text-brand-navy-900">Features</h2>
           <label className="flex items-center gap-3 cursor-pointer">
             <input type="checkbox" checked={settings.maintenanceMode} onChange={(e) => update('maintenanceMode', e.target.checked)} className="w-5 h-5 rounded" />

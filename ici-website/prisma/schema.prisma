@@ -375,6 +375,9 @@ model Event {
   description      String       @db.Text
   fullDescription  String       @map("full_description") @db.LongText
   coverImageUrl    String?      @map("cover_image_url")
+  coverImageAlt    String?      @map("cover_image_alt")
+  metaTitle        String?      @map("meta_title")
+  metaDescription  String?      @map("meta_description") @db.Text
   eventType        EventType    @map("event_type")
   startDate        DateTime     @map("start_date")
   endDate          DateTime     @map("end_date")
@@ -537,6 +540,8 @@ model Newsletter {
   title           String
   content         String           @db.LongText
   imageUrl        String?          @map("image_url")
+  blocks          Json?
+  templateId      String?          @map("template_id")
   status          NewsletterStatus @default(DRAFT)
   recipientCount  Int?             @map("recipient_count")
   sentCount       Int?             @map("sent_count")
@@ -545,9 +550,45 @@ model Newsletter {
   updatedAt       DateTime         @updatedAt @map("updated_at")
   sentAt          DateTime?        @map("sent_at")
 
+  template NewsletterTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+
   @@index([status])
   @@index([createdAt])
+  @@index([templateId])
   @@map("newsletters")
+}
+
+model NewsletterTemplate {
+  id              String   @id @default(cuid())
+  name            String
+  description     String?  @db.Text
+  thumbnailKey    String?  @map("thumbnail_key")
+  blocks          Json
+  isSystemDefault Boolean  @default(false) @map("is_system_default")
+  createdById     String?  @map("created_by_id")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  newsletters Newsletter[]
+
+  @@index([isSystemDefault])
+  @@map("newsletter_templates")
+}
+
+model NewsletterBrandingSettings {
+  id              String   @id @default("singleton")
+  logoUrl         String?  @map("logo_url")
+  primaryColor    String   @default("#1a2744") @map("primary_color")
+  accentColor     String   @default("#c9a227") @map("accent_color")
+  footerAddress   String?  @map("footer_address") @db.Text
+  footerTagline   String?  @map("footer_tagline") @db.Text
+  socialLinks     Json?    @map("social_links")
+  senderName      String?  @map("sender_name")
+  senderEmail     String?  @map("sender_email")
+  unsubscribeText String?  @map("unsubscribe_text") @db.Text
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("newsletter_branding_settings")
 }
 
 model NewsletterSubscriber {

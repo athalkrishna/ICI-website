@@ -4,12 +4,20 @@ import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
+import { parseBlocks } from '@/lib/newsletter-blocks';
+import {
+  deriveLegacyFields,
+  hasNewsletterContent,
+  resolveNewsletterBlocks,
+} from '@/lib/newsletter-payload';
 
 const newsletterSchema = z.object({
   id: z.string().optional(),
   title: z.string().min(1, 'Title is required'),
-  content: z.string().min(1, 'Content is required'),
+  content: z.string().optional(),
   imageUrl: z.string().url().optional().nullable().or(z.literal('')),
+  blocks: z.array(z.unknown()).optional(),
+  templateId: z.string().optional().nullable(),
 });
 
 export async function GET() {
@@ -19,6 +27,7 @@ export async function GET() {
   try {
     const newsletters = await prisma.newsletter.findMany({
       orderBy: { createdAt: 'desc' },
+      include: { template: { select: { id: true, name: true } } },
     });
     return jsonOk(newsletters);
   } catch (err) {
@@ -38,8 +47,15 @@ export async function POST(req: NextRequest) {
       return jsonError(parsed.error.issues[0]?.message ?? 'Invalid payload');
     }
 
-    const { id, title, content, imageUrl } = parsed.data;
-    const image = imageUrl?.trim() || null;
+    const { id, title, templateId } = parsed.data;
+    const image = parsed.data.imageUrl?.trim() || null;
+    const blocks = resolveNewsletterBlocks(parsed.data.blocks, parsed.data.content, image);
+
+    if (!hasNewsletterContent(blocks)) {
+      return jsonError('Add at least one content block');
+    }
+
+    const legacy = deriveLegacyFields(blocks);
 
     let newsletter;
 
@@ -51,14 +67,23 @@ export async function POST(req: NextRequest) {
         where: { id },
         data: {
           title,
-          content,
-          imageUrl: image,
+          content: legacy.content,
+          imageUrl: legacy.imageUrl,
+          blocks,
+          templateId: templateId ?? existing.templateId,
           ...(existing.status === 'DRAFT' ? { status: 'DRAFT' as const } : {}),
         },
       });
     } else {
       newsletter = await prisma.newsletter.create({
-        data: { title, content, imageUrl: image, status: 'DRAFT' },
+        data: {
+          title,
+          content: legacy.content,
+          imageUrl: legacy.imageUrl,
+          blocks,
+          templateId: templateId ?? null,
+          status: 'DRAFT',
+        },
       });
     }
 

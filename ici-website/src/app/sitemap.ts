@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-url';
-import { getPublishedBlogSlugsForSitemap } from '@/lib/data';
+import { getPublishedBlogSlugsForSitemap, getEventSlugsForSitemap } from '@/lib/data';
 import { PAGE_SEO_DEFAULTS } from '@/lib/page-seo-defaults';
 
 function slugToUrl(slug: string): string {
@@ -20,6 +20,7 @@ function priorityForSlug(slug: string): number {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
   const blogPosts = await getPublishedBlogSlugsForSitemap();
+  const events = await getEventSlugsForSitemap();
 
   const pageEntries: MetadataRoute.Sitemap = Object.keys(PAGE_SEO_DEFAULTS).map((slug) => ({
     url: slugToUrl(slug),
@@ -35,5 +36,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...pageEntries, ...blogEntries];
+  const eventEntries: MetadataRoute.Sitemap = events.map((event) => ({
+    url: `${SITE_URL}/events/${event.slug}`,
+    lastModified: event.updatedAt,
+    changeFrequency: 'weekly',
+    priority: 0.55,
+  }));
+
+  return [...pageEntries, ...blogEntries, ...eventEntries];
 }

@@ -5,12 +5,19 @@ import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, notFound, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
 import { sendNewsletterToAll } from '@/lib/newsletter';
+import {
+  deriveLegacyFields,
+  hasNewsletterContent,
+  resolveNewsletterBlocks,
+} from '@/lib/newsletter-payload';
 
 const publishSchema = z.object({
   id: z.string().optional(),
   title: z.string().min(1, 'Title is required'),
-  content: z.string().min(1, 'Content is required'),
+  content: z.string().optional(),
   imageUrl: z.string().url().optional().nullable().or(z.literal('')),
+  blocks: z.array(z.unknown()).optional(),
+  templateId: z.string().optional().nullable(),
 });
 
 export async function POST(req: NextRequest) {
@@ -24,30 +31,47 @@ export async function POST(req: NextRequest) {
       return jsonError(parsed.error.issues[0]?.message ?? 'Invalid payload');
     }
 
-    const { id, title, content, imageUrl } = parsed.data;
-    const image = imageUrl?.trim() || null;
+    const { id, title, templateId } = parsed.data;
+    const image = parsed.data.imageUrl?.trim() || null;
+    const blocks = resolveNewsletterBlocks(parsed.data.blocks, parsed.data.content, image);
 
-    let newsletter = id
-      ? await prisma.newsletter.findUnique({ where: { id } })
-      : null;
+    if (!hasNewsletterContent(blocks)) {
+      return jsonError('Add at least one content block');
+    }
+
+    const legacy = deriveLegacyFields(blocks);
+
+    let newsletter = id ? await prisma.newsletter.findUnique({ where: { id } }) : null;
 
     if (id && !newsletter) return notFound('Newsletter not found');
 
     if (newsletter) {
       newsletter = await prisma.newsletter.update({
         where: { id },
-        data: { title, content, imageUrl: image },
+        data: {
+          title,
+          content: legacy.content,
+          imageUrl: legacy.imageUrl,
+          blocks,
+          templateId: templateId ?? newsletter.templateId,
+        },
       });
     } else {
       newsletter = await prisma.newsletter.create({
-        data: { title, content, imageUrl: image, status: 'DRAFT' },
+        data: {
+          title,
+          content: legacy.content,
+          imageUrl: legacy.imageUrl,
+          blocks,
+          templateId: templateId ?? null,
+          status: 'DRAFT',
+        },
       });
     }
 
     const { recipientCount, sentCount, failedCount } = await sendNewsletterToAll({
       title,
-      content,
-      imageUrl: image,
+      blocks,
     });
 
     const updated = await prisma.newsletter.update({

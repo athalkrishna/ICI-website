@@ -6,8 +6,9 @@ import AnimatedSection from '@/components/shared/AnimatedSection'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import PageHero from '@/components/layout/PageHero'
+import JsonLdScript from '@/components/seo/JsonLdScript'
 import { getEventBySlug } from '@/lib/data'
-import { SITE_URL } from '@/lib/site-url'
+import { buildEventJsonLd, buildEventMetadata } from '@/lib/event-metadata'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -19,20 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params
   const event = await getEventBySlug(slug)
   if (!event) return { title: 'Event Not Found' }
-
-  const canonical = `${SITE_URL}/events/${slug}`
-
-  return {
-    title: event.title,
-    description: event.description,
-    alternates: { canonical },
-    openGraph: {
-      title: event.title,
-      description: event.description ?? undefined,
-      url: canonical,
-      type: 'website',
-    },
-  }
+  return buildEventMetadata(event, slug)
 }
 
 export default async function EventDetailPage({ params }: PageProps) {
@@ -40,8 +28,12 @@ export default async function EventDetailPage({ params }: PageProps) {
   const event = await getEventBySlug(slug)
   if (!event) notFound()
 
+  const imageAlt = event.coverImageAlt?.trim() || event.title
+
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
+      <JsonLdScript data={buildEventJsonLd(event, slug)} />
+
       <PageHero
         eyebrow={event.eventType.replace(/_/g, ' ')}
         title={event.title}
@@ -54,7 +46,7 @@ export default async function EventDetailPage({ params }: PageProps) {
             <div className="relative aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-navy-100">
               <Image
                 src={event.coverImageUrl}
-                alt={event.title}
+                alt={imageAlt}
                 fill
                 className="object-cover"
                 priority
