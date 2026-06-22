@@ -19,7 +19,7 @@ if (!dbUrl) {
 }
 
 const prisma = new PrismaClient({
-  datasources: { db: { url: dbUrl } },
+  datasourceUrl: dbUrl,
 });
 
 // ── helpers ──────────────────────────────────────────────────────────────────
