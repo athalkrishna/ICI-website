@@ -20,22 +20,15 @@ function loadEnv() {
     if (!match) continue;
     const key = match[1].trim();
     let value = match[2].trim();
-    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
       value = value.slice(1, -1);
     }
     if (!process.env[key]) process.env[key] = value;
   }
 }
-loadEnv();
-
-// ── DB connection ─────────────────────────────────────────────────────────────
-const db = await mysql.createPool({
-  host: process.env.DATABASE_HOST || '127.0.0.1',
-  port: parseInt(process.env.DATABASE_PORT || '3306'),
-  user: process.env.DATABASE_USER || 'root',
-  password: process.env.DATABASE_PASSWORD || '',
-  database: process.env.DATABASE_NAME || 'ici_website',
-});
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const MIME_MAP: Record<string, string> = {
@@ -70,7 +63,9 @@ function generateId(): string {
 type BunnyRow = { ObjectName: string; IsDirectory?: boolean; Length?: number };
 
 async function listBunnyRecursive(
-  zone: string, apiKey: string, prefix = ''
+  zone: string,
+  apiKey: string,
+  prefix = '',
 ): Promise<{ name: string; path: string; size: number }[]> {
   const url = prefix
     ? `https://storage.bunnycdn.com/${zone}/${prefix}/`
@@ -85,7 +80,7 @@ async function listBunnyRecursive(
   for (const row of rows) {
     const fullPath = prefix ? `${prefix}/${row.ObjectName}` : row.ObjectName;
     if (row.IsDirectory) {
-      results.push(...await listBunnyRecursive(zone, apiKey, fullPath));
+      results.push(...(await listBunnyRecursive(zone, apiKey, fullPath)));
     } else {
       results.push({ name: row.ObjectName, path: fullPath, size: row.Length ?? 0 });
     }
@@ -94,52 +89,74 @@ async function listBunnyRecursive(
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
-const zone = process.env.BUNNY_STORAGE_ZONE_NAME || process.env.BUNNY_STORAGE_ZONE;
-const apiKey = process.env.BUNNY_STORAGE_API_KEY || process.env.BUNNY_API_KEY;
-const cdnUrl = (process.env.BUNNY_CDN_URL || '').replace(/\/$/, '');
+async function main() {
+  loadEnv();
 
-if (!zone || !apiKey || !cdnUrl) {
-  console.error('❌  Missing BUNNY_STORAGE_ZONE / BUNNY_API_KEY / BUNNY_CDN_URL');
-  process.exit(1);
-}
+  const zone = process.env.BUNNY_STORAGE_ZONE_NAME || process.env.BUNNY_STORAGE_ZONE;
+  const apiKey = process.env.BUNNY_STORAGE_API_KEY || process.env.BUNNY_API_KEY;
+  const cdnUrl = (process.env.BUNNY_CDN_URL || '').replace(/\/$/, '');
 
-// Get admin user id
-const [admins]: any = await db.query(`SELECT id, email FROM users WHERE role = 'SUPER_ADMIN' LIMIT 1`);
-if (!admins.length) {
-  console.error('❌  No SUPER_ADMIN user found.');
-  process.exit(1);
-}
-const adminId = admins[0].id;
-console.log(`✅  Using admin: ${admins[0].email}\n`);
-
-console.log('📦  Listing Bunny CDN files...');
-const files = await listBunnyRecursive(zone, apiKey);
-console.log(`    Found ${files.length} file(s)\n`);
-
-let created = 0, skipped = 0;
-
-for (const file of files) {
-  const bunnyUrl = `${cdnUrl}/${file.path}`;
-  const mime = extToMime(file.name);
-  const mediaType = mimeToMediaType(mime);
-
-  const [existing]: any = await db.query(
-    `SELECT id FROM media_files WHERE bunny_path = ? LIMIT 1`, [file.path]
-  );
-
-  if (existing.length) {
-    console.log(`  ⏭   Already exists: ${file.path}`);
-    skipped++;
-  } else {
-    await db.query(
-      `INSERT INTO media_files (id, file_name, bunny_url, bunny_path, file_type, mime_type, file_size_bytes, uploaded_by, created_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())`,
-      [generateId(), file.name, bunnyUrl, file.path, mediaType, mime, file.size, adminId]
-    );
-    console.log(`  ✅  ${file.path}`);
-    created++;
+  if (!zone || !apiKey || !cdnUrl) {
+    console.error('❌  Missing BUNNY_STORAGE_ZONE / BUNNY_API_KEY / BUNNY_CDN_URL in .env');
+    process.exit(1);
   }
+
+  const db = await mysql.createPool({
+    host: process.env.DATABASE_HOST || '127.0.0.1',
+    port: parseInt(process.env.DATABASE_PORT || '3306'),
+    user: process.env.DATABASE_USER || 'root',
+    password: process.env.DATABASE_PASSWORD || '',
+    database: process.env.DATABASE_NAME || 'ici_website',
+  });
+
+  // Get admin user id
+  const [admins]: any = await db.query(
+    `SELECT id, email FROM users WHERE role = 'SUPER_ADMIN' LIMIT 1`,
+  );
+  if (!admins.length) {
+    console.error('❌  No SUPER_ADMIN user found.');
+    process.exit(1);
+  }
+  const adminId = admins[0].id;
+  console.log(`✅  Using admin: ${admins[0].email}\n`);
+
+  // List all Bunny files
+  console.log('📦  Listing Bunny CDN files...');
+  const files = await listBunnyRecursive(zone, apiKey);
+  console.log(`    Found ${files.length} file(s)\n`);
+
+  let created = 0;
+  let skipped = 0;
+
+  for (const file of files) {
+    const bunnyUrl = `${cdnUrl}/${file.path}`;
+    const mime = extToMime(file.name);
+    const mediaType = mimeToMediaType(mime);
+
+    const [existing]: any = await db.query(
+      `SELECT id FROM media_files WHERE bunny_path = ? LIMIT 1`,
+      [file.path],
+    );
+
+    if (existing.length) {
+      console.log(`  ⏭   Already exists: ${file.path}`);
+      skipped++;
+    } else {
+      await db.query(
+        `INSERT INTO media_files (id, file_name, bunny_url, bunny_path, file_type, mime_type, file_size_bytes, uploaded_by, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())`,
+        [generateId(), file.name, bunnyUrl, file.path, mediaType, mime, file.size, adminId],
+      );
+      console.log(`  ✅  ${file.path}`);
+      created++;
+    }
+  }
+
+  console.log(`\n🎉  Done! Created: ${created} | Already existed: ${skipped}`);
+  await db.end();
 }
 
-console.log(`\n🎉  Done! Created: ${created} | Already existed: ${skipped}`);
-await db.end();
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
