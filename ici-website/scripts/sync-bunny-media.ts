@@ -9,7 +9,7 @@
  *   npx tsx scripts/sync-bunny-media.ts
  */
 
-import 'dotenv/config';
+import '@dotenvx/dotenvx/config';
 import { PrismaClient, MediaFileType } from '@prisma/client';
 
 const prisma = new PrismaClient();
