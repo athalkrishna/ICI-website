@@ -64,7 +64,7 @@ export default function HeroLeadForm() {
           }
         }}
       >
-        <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+        <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
         <label htmlFor="hero-lead-name" className="sr-only">
           Full name
         </label>

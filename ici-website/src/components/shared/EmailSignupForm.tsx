@@ -52,7 +52,7 @@ export default function EmailSignupForm({
 
   return (
     <form className={className} onSubmit={handleSubmit}>
-      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
+      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <input
         type="email"
         name="email"

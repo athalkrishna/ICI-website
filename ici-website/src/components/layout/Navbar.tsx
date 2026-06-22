@@ -76,22 +76,31 @@ export default function Navbar({
   const pathname = usePathname()
 
   useEffect(() => {
+    let active = true
     let ticking = false
     const onScroll = () => {
       if (ticking) return
       ticking = true
       requestAnimationFrame(() => {
+        if (!active) return
         setScrolled(window.scrollY > 80)
         ticking = false
       })
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      active = false
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
 
-  // Close mega menu on route change
-  useEffect(() => { setActiveMenu(null); setMobileOpen(false) }, [pathname])
+  // Close overlays on route change (after mount only — runs in useEffect)
+  useEffect(() => {
+    setActiveMenu(null)
+    setMobileOpen(false)
+    setSearchOpen(false)
+  }, [pathname])
 
   const siteEmail = cmsField(globalContent, 'site_email', 'info@internationalcoachinginstitute.org')
   const sitePhone = cmsField(globalContent, 'site_phone', '+91 98199 84575')
@@ -272,6 +281,8 @@ export default function Navbar({
                 onClick={() => setSearchOpen(!searchOpen)}
                 className={`p-2 rounded-lg transition-colors ${scrolled ? 'text-white hover:bg-white/10' : 'text-brand-navy-600 hover:bg-brand-navy-50'}`}
                 aria-label="Search"
+                aria-expanded={searchOpen}
+                aria-controls="site-search-panel"
               >
                 <IconSearch />
               </button>
@@ -305,7 +316,7 @@ export default function Navbar({
 
         {/* Search Bar */}
         {searchOpen && (
-            <div className="border-t border-navy-100 bg-white overflow-hidden animate-menu-in">
+            <div id="site-search-panel" className="border-t border-navy-100 bg-white overflow-hidden animate-menu-in">
               <div className="max-w-2xl mx-auto px-4 py-4 flex gap-3">
                 <label htmlFor="site-search" className="sr-only">Search programmes, resources, and faculty</label>
                 <input

@@ -40,7 +40,7 @@ export default function ProspectusQuickForm() {
 
   return (
     <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
-      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
+      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <input
         type="email"
         name="email"

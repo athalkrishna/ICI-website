@@ -35,8 +35,10 @@ export default function BlogTableOfContents({
   useEffect(() => {
     if (headings.length === 0) return;
 
+    let active = true;
     const observer = new IntersectionObserver(
       (entries) => {
+        if (!active) return;
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
@@ -52,7 +54,10 @@ export default function BlogTableOfContents({
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      active = false;
+      observer.disconnect();
+    };
   }, [headings]);
 
   if (headings.length === 0) return null;

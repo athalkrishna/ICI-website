@@ -57,7 +57,7 @@ export default function BlogPostGrid({ posts }: BlogPostGridProps) {
                 {post.title}
               </h3>
               <p className="text-muted mb-6 flex-1 text-body line-clamp-3">{post.excerpt}</p>
-              <span className="inline-flex items-center gap-2 text-brand-gold-600 font-sans font-semibold text-sm group-hover:gap-3 transition-all">
+              <span className="inline-flex items-center gap-2 text-brand-gold-700 font-sans font-semibold text-sm group-hover:gap-3 transition-all">
                 Read article
                 <ArrowRight size={16} />
               </span>

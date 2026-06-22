@@ -86,7 +86,7 @@
   .text-eyebrow { @apply font-sans text-sm font-semibold uppercase tracking-widest; }
 
   .text-muted { @apply text-gray-600; }
-  .text-muted-dark { @apply text-blue-100/80; }
+  .text-muted-dark { @apply text-navy-100/80; }
   .border-subtle { @apply border-white/10; }
   .border-faint { @apply border-white/5; }
   .gradient-accent-gold { @apply bg-gradient-to-r from-brand-gold-500 to-transparent; }

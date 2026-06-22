@@ -54,7 +54,7 @@ export default function ProspectusForm() {
       )}
 
       {/* Honeypot field */}
-      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
+      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <div className="space-y-2">
         <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider">

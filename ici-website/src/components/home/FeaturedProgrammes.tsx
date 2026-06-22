@@ -61,7 +61,7 @@ export default function FeaturedProgrammes({ content = {} }: FeaturedProgrammesP
               {cmsField(content, 'programmes_section_heading', 'Featured Programmes')}
             </h2>
           </div>
-          <Link href="/programmes" className="text-brand-gold-600 hover:text-brand-gold-700 font-sans font-semibold text-sm underline underline-offset-4 min-h-[44px] inline-flex items-center">
+          <Link href="/programmes" className="text-brand-gold-700 hover:text-brand-gold-800 font-sans font-semibold text-sm underline underline-offset-4 min-h-[44px] inline-flex items-center">
             View All Programmes
           </Link>
         </div>

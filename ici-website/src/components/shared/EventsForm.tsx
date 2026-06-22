@@ -46,7 +46,7 @@ export default function EventsForm() {
     <form onSubmit={handleSubmit} className="w-full max-w-md mt-8" id="events-form">
       <div className="flex flex-col sm:flex-row gap-4">
         {/* Honeypot field */}
-        <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
+        <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
         
         <input
           type="email"

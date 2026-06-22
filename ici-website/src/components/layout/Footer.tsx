@@ -22,40 +22,40 @@ export default function Footer({ globalContent = {} }: { globalContent?: Content
 
           <div>
              <p className="font-sans font-semibold text-xs uppercase tracking-wider mb-4 text-white min-h-[2rem] flex items-start">{cmsField(globalContent, 'footer_col_1_heading', 'Information For')}</p>
-             <ul className="space-y-2 text-sm text-navy-100/80">
-              <li><Link href="/future-students" className="hover:text-brand-gold-400 transition-colors">Future Students</Link></li>
-              <li><Link href="/current-students" className="hover:text-brand-gold-400 transition-colors">Current Students</Link></li>
-              <li><Link href="/organisations" className="hover:text-brand-gold-400 transition-colors">Organisations</Link></li>
-              <li><Link href="/alumni" className="hover:text-brand-gold-400 transition-colors">Alumni</Link></li>
-              <li><Link href="/faculty-staff" className="hover:text-brand-gold-400 transition-colors">Faculty & Staff</Link></li>
+             <ul className="space-y-1 text-sm text-navy-100/80">
+              <li><Link href="/future-students" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Future Students</Link></li>
+              <li><Link href="/current-students" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Current Students</Link></li>
+              <li><Link href="/organisations" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Organisations</Link></li>
+              <li><Link href="/alumni" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Alumni</Link></li>
+              <li><Link href="/faculty-staff" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Faculty & Staff</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="font-sans font-semibold text-xs uppercase tracking-wider mb-4 text-white min-h-[2rem] flex items-start">{cmsField(globalContent, 'footer_col_2_heading', 'Programmes & Credentials')}</p>
-            <ul className="space-y-2 text-sm text-navy-100/80">
-              <li><Link href="/programmes" className="hover:text-brand-gold-400 transition-colors">Programmes</Link></li>
-              <li><Link href="/credentials" className="hover:text-brand-gold-400 transition-colors">Credentials</Link></li>
-              <li><Link href="/admissions" className="hover:text-brand-gold-400 transition-colors">Assessment</Link></li>
+            <ul className="space-y-1 text-sm text-navy-100/80">
+              <li><Link href="/programmes" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Programmes</Link></li>
+              <li><Link href="/credentials" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Credentials</Link></li>
+              <li><Link href="/admissions" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Assessment</Link></li>
             </ul>
           </div>
 
           <div>
              <p className="font-sans font-semibold text-xs uppercase tracking-wider mb-4 text-white min-h-[2rem] flex items-start">{cmsField(globalContent, 'footer_col_3_heading', 'About')}</p>
-             <ul className="space-y-2 text-sm text-navy-100/80">
-              <li><Link href="/faculty" className="hover:text-brand-gold-400 transition-colors">Faculty</Link></li>
-              <li><Link href="/about/global" className="hover:text-brand-gold-400 transition-colors">Global Network</Link></li>
-              <li><Link href="/about/accreditation" className="hover:text-brand-gold-400 transition-colors">Accreditation</Link></li>
-              <li><Link href="/contact" className="hover:text-brand-gold-400 transition-colors">Contact</Link></li>
+             <ul className="space-y-1 text-sm text-navy-100/80">
+              <li><Link href="/faculty" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Faculty</Link></li>
+              <li><Link href="/about/global" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Global Network</Link></li>
+              <li><Link href="/about/accreditation" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Accreditation</Link></li>
+              <li><Link href="/contact" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="font-sans font-semibold text-xs uppercase tracking-wider mb-4 text-white min-h-[2rem] flex items-start">{cmsField(globalContent, 'footer_col_4_heading', 'Legal')}</p>
-            <ul className="space-y-2 text-sm text-navy-100/80">
-              <li><Link href="/terms" className="hover:text-brand-gold-400 transition-colors">Terms of Service</Link></li>
-              <li><Link href="/privacy" className="hover:text-brand-gold-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/complaints" className="hover:text-brand-gold-400 transition-colors">Complaints</Link></li>
+            <ul className="space-y-1 text-sm text-navy-100/80">
+              <li><Link href="/terms" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Privacy Policy</Link></li>
+              <li><Link href="/complaints" className="hover:text-brand-gold-400 transition-colors inline-flex items-center min-h-[44px] py-2">Complaints</Link></li>
             </ul>
           </div>
         </div>

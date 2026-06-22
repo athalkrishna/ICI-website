@@ -62,6 +62,7 @@ export default function ContactForm({ successMessage = 'Thank you. An advisor wi
         className="hidden"
         tabIndex={-1}
         autoComplete="off"
+        aria-hidden="true"
       />
       <div className="grid md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-end h-full relative">

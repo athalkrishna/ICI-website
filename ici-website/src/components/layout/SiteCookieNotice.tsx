@@ -1,8 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import CookieNotice from '@/components/shared/CookieNotice';
+import dynamic from 'next/dynamic';
 import { isPortalRoute } from '@/lib/portal-routes';
+
+const CookieNotice = dynamic(() => import('@/components/shared/CookieNotice'), { ssr: false });
 
 export default function SiteCookieNotice() {
   const pathname = usePathname();

@@ -30,7 +30,7 @@ export default function LatestBlogPosts({ posts, content = {} }: LatestBlogPosts
           </div>
           <Link
             href="/blog"
-            className="text-brand-gold-600 hover:text-brand-gold-700 font-sans font-semibold text-sm underline underline-offset-4 whitespace-nowrap min-h-[44px] inline-flex items-center"
+            className="text-brand-gold-700 hover:text-brand-gold-800 font-sans font-semibold text-sm underline underline-offset-4 whitespace-nowrap min-h-[44px] inline-flex items-center"
           >
             {cmsField(content, 'blog_view_all_text', 'View all articles')}
           </Link>

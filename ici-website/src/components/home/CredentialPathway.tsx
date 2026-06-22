@@ -57,7 +57,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       level: cmsField(content, `${prefix}tag`, def.level),
       hours: cmsField(content, `${prefix}hours`, def.hours),
       desc: cmsPlainBody(content, `${prefix}body`, def.desc),
-      badge: i === 3 ? 'bg-navy-500/20 text-brand-gold-600' : 'bg-white/10 text-white',
+      badge: i === 3 ? 'bg-navy-500/20 text-brand-gold-300' : 'bg-white/10 text-white',
       href: cmsField(content, `${prefix}button_link`, def.href),
       bullets: cmsIndexedWithFallbacks(content, `${prefix}bullet_`, def.bullets),
     };
@@ -93,14 +93,17 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                   <Award size={14} aria-hidden />
                   {cred.code}
                 </div>
-                <div className="font-display text-6xl font-bold leading-none text-white/10 group-hover:scale-110 transition-transform duration-500">
+                <div
+                  inert
+                  className="font-display text-6xl font-bold leading-none text-white/10 group-hover:scale-110 transition-transform duration-500 select-none"
+                >
                   0{i + 1}
                 </div>
               </div>
 
               <h3 className="text-h3 text-white mb-2">{cred.name}</h3>
               <div className="text-brand-gold-400 mb-2 text-eyebrow">{cred.level}</div>
-              <div className="font-mono text-sm text-navy-300 mb-6">{cred.hours}</div>
+              <div className="font-mono text-sm text-navy-100 mb-6">{cred.hours}</div>
               <p className="text-navy-100/70 flex-1 mb-8 text-body">{cred.desc}</p>
 
               <div className="border-t border-subtle pt-8 mt-auto">

@@ -12,9 +12,10 @@ export default function DeferredAnalytics() {
   useEffect(() => {
     if (!gaId && !pixelId) return;
 
+    let active = true;
     let loaded = false;
     const enable = () => {
-      if (loaded) return;
+      if (!active || loaded) return;
       loaded = true;
       setEnabled(true);
     };
@@ -24,6 +25,7 @@ export default function DeferredAnalytics() {
     const timer = window.setTimeout(enable, 8000);
 
     return () => {
+      active = false;
       events.forEach((event) => window.removeEventListener(event, enable));
       window.clearTimeout(timer);
     };

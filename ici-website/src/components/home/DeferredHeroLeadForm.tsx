@@ -17,9 +17,9 @@ export default function DeferredHeroLeadForm() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let cancelled = false;
+    let active = true;
     const load = () => {
-      if (!cancelled) setReady(true);
+      if (active) setReady(true);
     };
 
     const el = containerRef.current;
@@ -35,7 +35,7 @@ export default function DeferredHeroLeadForm() {
       );
       observer.observe(el);
       return () => {
-        cancelled = true;
+        active = false;
         observer.disconnect();
       };
     }
@@ -43,20 +43,21 @@ export default function DeferredHeroLeadForm() {
     if ('requestIdleCallback' in window) {
       const id = window.requestIdleCallback(load, { timeout: 3000 });
       return () => {
-        cancelled = true;
+        active = false;
         window.cancelIdleCallback(id);
       };
     }
 
     const timer = window.setTimeout(load, 2000);
     return () => {
-      cancelled = true;
+      active = false;
       window.clearTimeout(timer);
     };
   }, []);
 
-  if (!ready) {
-    return <div ref={containerRef}>{placeholder}</div>;
-  }
-  return <HeroLeadForm />;
+  return (
+    <div ref={containerRef}>
+      {ready ? <HeroLeadForm /> : placeholder}
+    </div>
+  );
 }

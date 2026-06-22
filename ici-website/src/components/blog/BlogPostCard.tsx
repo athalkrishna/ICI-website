@@ -85,7 +85,7 @@ export default function BlogPostCard({ post, excerptOverride }: BlogPostCardProp
               )}
               <span className="text-sm font-medium text-brand-navy-700 truncate">{post.authorName}</span>
             </div>
-            <span className="inline-flex items-center gap-1.5 text-brand-gold-600 font-sans font-semibold text-sm group-hover:gap-2.5 transition-all shrink-0">
+            <span className="inline-flex items-center gap-1.5 text-brand-gold-700 font-sans font-semibold text-sm group-hover:gap-2.5 transition-all shrink-0">
               Read article
             </span>
           </div>

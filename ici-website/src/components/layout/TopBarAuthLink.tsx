@@ -30,12 +30,12 @@ export default function TopBarAuthLink({
     let active = true;
 
     const load = () => {
+      if (!active) return;
       getSession()
         .then((data) => {
-          if (active) {
-            setSession(data);
-            setReady(true);
-          }
+          if (!active) return;
+          setSession(data);
+          setReady(true);
         })
         .catch(() => {
           if (active) setReady(true);

@@ -38,21 +38,21 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
           </p>
           <ul className="space-y-6 font-sans text-brand-navy-600">
             <li className="flex gap-4">
-              <span className="text-brand-gold-500 font-bold text-xl shrink-0">01</span>
+              <span className="text-brand-gold-700 font-bold text-xl shrink-0" aria-hidden>01</span>
               <div>
                 <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_1_title', 'Evidence with humanity')}</strong>
                 <span className="text-sm text-brand-navy-600">{cmsPlainBody(content, 'difference_point_1_body', 'Coaching psychology, neuroscience and behavioural science, taught in plain language and tied to what happens in a real session.')}</span>
               </div>
             </li>
             <li className="flex gap-4">
-              <span className="text-brand-gold-500 font-bold text-xl shrink-0">02</span>
+              <span className="text-brand-gold-700 font-bold text-xl shrink-0" aria-hidden>02</span>
               <div>
                 <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_2_title', 'One-to-one mastery')}</strong>
                 <span className="text-sm text-brand-navy-600">{cmsPlainBody(content, 'difference_point_2_body', 'You are coached and developed individually, so nothing is glossed over and no one hides at the back of a room.')}</span>
               </div>
             </li>
             <li className="flex gap-4">
-              <span className="text-brand-gold-500 font-bold text-xl shrink-0">03</span>
+              <span className="text-brand-gold-700 font-bold text-xl shrink-0" aria-hidden>03</span>
               <div>
                 <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_3_title', 'Practising faculty')}</strong>
                 <span className="text-sm text-brand-navy-600">{cmsPlainBody(content, 'difference_point_3_body', 'Learn from working coaches who carry real client experience into every session.')}</span>
