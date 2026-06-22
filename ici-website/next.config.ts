@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    memoryBasedWorkersCount: true,
+    memoryBasedWorkersCount: false,
     cpus: 1,
     workerThreads: false,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
