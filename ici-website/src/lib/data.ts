@@ -153,6 +153,21 @@ export async function getBlogPostBySlug(slug: string) {
   null);
 }
 
+export async function getPublishedBlogSlugsForSitemap() {
+  return safeQuery('getPublishedBlogSlugsForSitemap', () =>
+    prisma.blogPost.findMany({
+      where: { status: 'PUBLISHED' },
+      select: { slug: true, updatedAt: true, publishedAt: true },
+      orderBy: { publishedAt: 'desc' },
+    }).then((posts) =>
+      posts.map((post) => ({
+        slug: post.slug,
+        updatedAt: post.updatedAt ?? post.publishedAt ?? new Date(),
+      })),
+    ),
+  []);
+}
+
 export async function getEvents() {
   return prisma.event.findMany({
     orderBy: { startDate: 'desc' },

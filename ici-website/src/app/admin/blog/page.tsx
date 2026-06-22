@@ -47,8 +47,8 @@ function formToPayload(form: BlogFormState) {
     category: form.category,
     featured: form.featured,
     tags,
-    metaTitle: null,
-    metaDescription: null,
+    metaTitle: form.metaTitle.trim() || null,
+    metaDescription: form.metaDescription.trim() || null,
   };
 }
 
@@ -64,7 +64,15 @@ function postToForm(post: Record<string, unknown>): BlogFormState {
     category: String(post.category ?? 'INSTITUTE_NEWS'),
     featured: Boolean(post.featured),
     tags: parseTags(post.tags),
+    metaTitle: String(post.metaTitle ?? ''),
+    metaDescription: String(post.metaDescription ?? ''),
   };
+}
+
+function blogSeoComplete(post: Pick<BlogPost, 'title' | 'excerpt' | 'metaTitle' | 'metaDescription'>) {
+  const title = post.metaTitle?.trim() || post.title.trim();
+  const description = post.metaDescription?.trim() || post.excerpt.trim();
+  return Boolean(title && description);
 }
 
 export default function AdminBlogPage() {
@@ -237,11 +245,11 @@ export default function AdminBlogPage() {
                     <td className="px-6 py-4">
                       <span className={clsx(
                         'inline-flex px-2 py-0.5 rounded-full text-xs font-medium border',
-                        post.title && post.excerpt
+                        blogSeoComplete(post)
                           ? 'bg-green-50 text-green-700 border-green-100'
                           : 'bg-amber-50 text-amber-700 border-amber-100',
                       )}>
-                        {post.title && post.excerpt ? 'Complete' : 'Needs excerpt'}
+                        {blogSeoComplete(post) ? 'Complete' : 'Needs SEO'}
                       </span>
                     </td>
                     <td className="px-6 py-4">

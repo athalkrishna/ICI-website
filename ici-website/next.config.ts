@@ -38,6 +38,18 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ['@sanity/client'],
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.internationalcoachinginstitute.org' }],
+        destination: 'https://internationalcoachinginstitute.org/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'international-coaching-institute.vercel.app' }],
+        destination: 'https://internationalcoachinginstitute.org/:path*',
+        permanent: true,
+      },
       { source: '/about/rankings', destination: '/about/accreditation', permanent: true },
       { source: '/credentials/iac', destination: '/credentials/catalyst', permanent: true },
       { source: '/credentials/ipc', destination: '/credentials/architect', permanent: true },
@@ -51,6 +63,22 @@ const nextConfig: NextConfig = {
       { source: '/organizations', destination: '/organisations', permanent: true },
       { source: '/organizations/:path*', destination: '/organisations/:path*', permanent: true },
 
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/admin/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/dashboard/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'index, follow' }],
+      },
     ];
   },
 };

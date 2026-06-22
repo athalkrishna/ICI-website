@@ -4,6 +4,7 @@ import DashboardPortalShell from './DashboardPortalShell';
 
 export const metadata = {
   title: 'Student Portal | International Coaching Institute',
+  robots: { index: false, follow: false },
 };
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {

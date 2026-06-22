@@ -5,12 +5,11 @@ import Section from '@/components/layout/Section'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Admissions Assessment | International Coaching Institute',
-  },
-  description: 'Take our free admissions assessment to find the right credential level for your coaching career.',
-};
+import { pageMetadata } from '@/lib/page-metadata';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/admissions/assessment');
+}
 
 export default async function AssessmentPage() {
   const content = await getPublishedPageContent('/admissions/assessment')

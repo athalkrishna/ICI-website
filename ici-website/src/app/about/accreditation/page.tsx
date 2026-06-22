@@ -8,8 +8,10 @@ import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Recognition & Accreditation | International Coaching Institute',
+import { pageMetadata } from '@/lib/page-metadata'
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about/accreditation');
 }
 
 export default async function AccreditationPage() {

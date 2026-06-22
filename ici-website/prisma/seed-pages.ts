@@ -93,6 +93,15 @@ function seoFields(slug: string, adminTitle: string, pageDescription: string): S
       -28,
       'Public URL path for this page, e.g. /about or /programmes/certified-life-coach',
     ),
+    f(
+      'meta_keywords',
+      'Meta Keywords',
+      T.TEXT,
+      defaults?.keywords ?? '',
+      SEO_SECTION,
+      -27,
+      'Optional comma-separated keywords for SEO tools. Not required by Google but useful for audits.',
+    ),
   ];
 }
 

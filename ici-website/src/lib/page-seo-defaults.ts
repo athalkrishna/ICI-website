@@ -2,15 +2,28 @@
 export type PageSeoDefault = {
   title: string;
   description?: string;
+  /** Comma-separated meta keywords (optional; mainly for SEO audit tools). */
+  keywords?: string;
   /** When true, title is used as-is (no layout template suffix). */
   absolute?: boolean;
 };
+
+export const SITE_DEFAULT_KEYWORDS = [
+  'coaching certification',
+  'online coaching course',
+  'life coach training',
+  'executive coaching certification',
+  'International Coaching Institute',
+  'ICI coaching',
+];
 
 export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
   '/': {
     title: 'International Coaching Institute | Become a Certified Coach',
     description:
       'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+    keywords:
+      'coaching certification, online coaching course, life coach training, executive coaching certification, International Coaching Institute',
     absolute: true,
   },
   '/for-ai': {

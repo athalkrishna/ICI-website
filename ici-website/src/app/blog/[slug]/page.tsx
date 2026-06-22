@@ -13,6 +13,7 @@ import BlogTableOfContents from '@/components/blog/BlogTableOfContents'
 import BlogRelatedPosts from '@/components/blog/BlogRelatedPosts'
 import { getBlogPostBySlug, getRelatedBlogPosts } from '@/lib/data'
 import { buildBlogPostMetadata } from '@/lib/blog-metadata'
+import { SITE_URL } from '@/lib/site-url'
 import {
   addHeadingIds,
   estimateReadTime,
@@ -27,6 +28,34 @@ type PageProps = {
 export const revalidate = 60
 
 const ARTICLE_SHELL = 'max-w-6xl mx-auto w-full'
+
+function buildArticleJsonLd(
+  post: NonNullable<Awaited<ReturnType<typeof getBlogPostBySlug>>>,
+  slug: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.metaTitle?.trim() || post.title,
+    description: post.metaDescription?.trim() || post.excerpt,
+    image: post.coverImageUrl ? [post.coverImageUrl] : undefined,
+    datePublished: post.publishedAt?.toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    author: {
+      '@type': 'Person',
+      name: post.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'International Coaching Institute',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/og-image.webp`,
+      },
+    },
+    mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
+  };
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
@@ -49,6 +78,10 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(post, slug)) }}
+      />
       <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint pb-8">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <Container className="relative z-20">

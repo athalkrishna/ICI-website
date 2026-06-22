@@ -7,11 +7,10 @@ import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Apply to the International Coaching Institute',
-  },
-  description: 'Apply to ICI in minutes. Tell us your goals, choose your level, and an advisor will help you take the next step. Free to apply, no commitment.'
+import { pageMetadata } from '@/lib/page-metadata'
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/apply');
 }
 
 export default async function ApplyPage() {

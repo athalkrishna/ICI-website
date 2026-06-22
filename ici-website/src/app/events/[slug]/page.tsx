@@ -7,6 +7,7 @@ import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import PageHero from '@/components/layout/PageHero'
 import { getEventBySlug } from '@/lib/data'
+import { SITE_URL } from '@/lib/site-url'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -19,9 +20,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const event = await getEventBySlug(slug)
   if (!event) return { title: 'Event Not Found' }
 
+  const canonical = `${SITE_URL}/events/${slug}`
+
   return {
     title: event.title,
     description: event.description,
+    alternates: { canonical },
+    openGraph: {
+      title: event.title,
+      description: event.description ?? undefined,
+      url: canonical,
+      type: 'website',
+    },
   }
 }
 

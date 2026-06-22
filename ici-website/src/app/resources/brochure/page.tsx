@@ -7,9 +7,10 @@ import HeroDecor from '@/components/layout/HeroDecor'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Download the ICI Prospectus',
-  description: 'Download the International Coaching Institute prospectus: the Mastery Pathway, specialisations, pricing and admissions, in one clear PDF.'
+import { pageMetadata } from '@/lib/page-metadata'
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/resources/brochure');
 }
 
 export default async function BrochurePage() {

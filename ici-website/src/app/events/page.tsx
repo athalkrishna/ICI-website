@@ -8,10 +8,10 @@ import Container from '@/components/layout/Container'
 import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import { pageMetadata } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Coaching Events, Summits & Masterclasses | ICI',
-  description: 'Join ICI events: masterclasses, summits and live sessions for coaches and leaders. Learn, connect and grow with the wider coaching community.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/events');
 }
 
 export default async function EventsPage() {

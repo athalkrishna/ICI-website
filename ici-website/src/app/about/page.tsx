@@ -5,10 +5,10 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml } from '@/lib/cms-helpers'
 import { ABOUT_HERO_DEFAULTS } from '@/lib/about-page-hero-defaults'
+import { pageMetadata } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'About the International Coaching Institute | ICI',
-  description: 'The International Coaching Institute trains and certifies coaches one-to-one and online worldwide, blending coaching craft with psychology and neuroscience.'
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about');
 }
 
 export default async function AboutPage() {

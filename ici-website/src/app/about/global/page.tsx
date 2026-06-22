@@ -7,9 +7,10 @@ import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsNumber } from '@/lib/cms-helpers'
 
-export const metadata: Metadata = {
-  title: 'Global Presence | International Coaching Institute',
-  description: 'Delivered entirely online, ICI trains coaches across many countries and time zones. Our campus is the community, not a building.',
+import { pageMetadata } from '@/lib/page-metadata'
+
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata('/about/global');
 }
 
 export default async function GlobalPage() {

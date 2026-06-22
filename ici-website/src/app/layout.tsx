@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
 import SiteChromeShell from '@/components/layout/SiteChromeShell'
+import { SITE_URL } from '@/lib/site-url'
+import { buildOrganizationSchema } from '@/lib/structured-data'
+import JsonLdScript from '@/components/seo/JsonLdScript'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -19,8 +22,6 @@ const montserrat = Montserrat({
   adjustFontFallback: true,
 })
 
-const SITE_URL = 'https://internationalcoachinginstitute.org';
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -29,9 +30,6 @@ export const metadata: Metadata = {
   },
   description:
     'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
-  alternates: {
-    canonical: '/',
-  },
   robots: {
     index: true,
     follow: true,
@@ -54,28 +52,13 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
-    name: 'International Coaching Institute',
-    url: SITE_URL,
-    logo: `${SITE_URL}/og-image.webp`,
-    description: 'World-Class Coaching Education. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
-    sameAs: [
-      'https://www.linkedin.com/school/internationalcoachinginstitute',
-    ],
-  }
-
   return (
     <html
       lang="en"
       className={`${playfair.variable} ${montserrat.variable}`}
     >
       <body className="font-sans bg-white text-brand-navy-700 antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLdScript data={buildOrganizationSchema()} />
         <SiteChromeShell>{children}</SiteChromeShell>
       </body>
     </html>

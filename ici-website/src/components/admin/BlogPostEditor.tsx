@@ -15,6 +15,8 @@ export type BlogFormState = {
   category: string;
   featured: boolean;
   tags: string;
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export const BLOG_CATEGORIES = [
@@ -36,6 +38,8 @@ export const emptyBlogForm = (): BlogFormState => ({
   category: 'INSTITUTE_NEWS',
   featured: false,
   tags: '',
+  metaTitle: '',
+  metaDescription: '',
 });
 
 const inputClass = 'w-full p-3 text-sm border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold-400/40';
@@ -204,21 +208,56 @@ export default function BlogPostEditor({
         </label>
       </section>
 
-      <section className="space-y-3 rounded-xl bg-cream-50 border border-navy-100 p-4">
+      <section className="space-y-4 rounded-xl bg-cream-50 border border-navy-100 p-4">
         <div>
-          <h3 className="text-sm font-bold text-brand-navy-900">Search preview</h3>
-          <p className="text-xs text-muted mt-1">Generated from title and excerpt.</p>
+          <h3 className="text-sm font-bold text-brand-navy-900">SEO</h3>
+          <p className="text-xs text-muted mt-1">
+            Custom search title and description. Leave blank to use the article title and excerpt.
+          </p>
         </div>
-        <div className="rounded-lg border border-navy-100 bg-white p-4 space-y-1.5">
-          <p className="text-[#1a0dab] text-lg font-normal leading-snug line-clamp-1">
-            {form.title || 'Article title'}
-          </p>
-          <p className="text-[#006621] text-sm line-clamp-1">
-            internationalcoachinginstitute.org › blog › {form.slug || 'your-slug'}
-          </p>
-          <p className="text-sm text-[#545454] leading-relaxed line-clamp-2">
-            {form.excerpt || 'Your excerpt will appear here as the search result description.'}
-          </p>
+        <div>
+          <div className="flex justify-between items-center mb-1.5">
+            <label className={labelClass}>Meta title</label>
+            <CharCount value={form.metaTitle} max={70} recommended={60} />
+          </div>
+          <input
+            value={form.metaTitle}
+            onChange={(e) => set({ metaTitle: e.target.value })}
+            className={inputClass}
+            placeholder={form.title || 'Defaults to article title'}
+            maxLength={70}
+          />
+        </div>
+        <div>
+          <div className="flex justify-between items-center mb-1.5">
+            <label className={labelClass}>Meta description</label>
+            <CharCount value={form.metaDescription} max={320} recommended={160} />
+          </div>
+          <textarea
+            value={form.metaDescription}
+            onChange={(e) => set({ metaDescription: e.target.value })}
+            className={inputClass}
+            rows={3}
+            maxLength={320}
+            placeholder={form.excerpt || 'Defaults to excerpt'}
+          />
+        </div>
+        <p className="text-xs text-muted">
+          Tags above are used as meta keywords. Featured image alt text is used for social sharing and image SEO.
+        </p>
+        <div>
+          <p className="text-xs font-semibold text-brand-navy-900 mb-2">Search preview</p>
+          <div className="rounded-lg border border-navy-100 bg-white p-4 space-y-1.5">
+            <p className="text-[#1a0dab] text-lg font-normal leading-snug line-clamp-1">
+              {form.metaTitle.trim() || form.title || 'Article title'}
+            </p>
+            <p className="text-[#006621] text-sm line-clamp-1">
+              internationalcoachinginstitute.org › blog › {form.slug || 'your-slug'}
+            </p>
+            <p className="text-sm text-[#545454] leading-relaxed line-clamp-2">
+              {form.metaDescription.trim() || form.excerpt || 'Your excerpt will appear here as the search result description.'}
+            </p>
+          </div>
         </div>
       </section>
 

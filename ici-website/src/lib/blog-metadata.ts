@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { BlogPost } from '@prisma/client';
+import { SITE_URL } from '@/lib/site-url';
 
 function parseTags(tags: BlogPost['tags']): string[] {
   if (Array.isArray(tags)) {
@@ -9,20 +10,22 @@ function parseTags(tags: BlogPost['tags']): string[] {
 }
 
 export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://internationalcoachinginstitute.org';
-  const url = `${baseUrl.replace(/\/$/, '')}/blog/${slug}`;
-  const title = post.title;
-  const description = post.excerpt;
+  const url = `${SITE_URL}/blog/${slug}`;
+  const displayTitle = post.metaTitle?.trim() || post.title;
+  const description = post.metaDescription?.trim() || post.excerpt;
   const keywords = parseTags(post.tags);
-  const imageAlt = post.coverImageAlt?.trim() || title;
+  const imageAlt = post.coverImageAlt?.trim() || post.title;
+  const useAbsoluteTitle = Boolean(post.metaTitle?.trim());
+
+  const title = useAbsoluteTitle ? { absolute: displayTitle } : displayTitle;
 
   return {
     title,
     description,
     ...(keywords.length > 0 ? { keywords } : {}),
-    alternates: { canonical: url },
+    alternates: { canonical: `${SITE_URL}/blog/${slug}` },
     openGraph: {
-      title,
+      title: displayTitle,
       description,
       url,
       type: 'article',
@@ -45,13 +48,14 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
     },
     twitter: {
       card: post.coverImageUrl ? 'summary_large_image' : 'summary',
-      title,
+      title: displayTitle,
       description,
       ...(post.coverImageUrl ? { images: [post.coverImageUrl] } : {}),
     },
     robots: {
       index: true,
       follow: true,
+      googleBot: { index: true, follow: true },
     },
   };
 }
