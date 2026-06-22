@@ -9,7 +9,7 @@
  *   npx tsx scripts/sync-bunny-media.ts
  */
 
-import '@dotenvx/dotenvx/config';
+// env vars are loaded via --env-file flag or sourced from .env before running
 import { PrismaClient, MediaFileType } from '@prisma/client';
 
 const prisma = new PrismaClient();
