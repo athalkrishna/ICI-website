@@ -12,7 +12,15 @@
 // env vars are loaded via --env-file flag or sourced from .env before running
 import { PrismaClient, MediaFileType } from '@prisma/client';
 
-const prisma = new PrismaClient();
+const dbUrl = process.env.DATABASE_URL;
+if (!dbUrl) {
+  console.error('❌  DATABASE_URL is not set. Run: set -a; source .env; set +a  before this script.');
+  process.exit(1);
+}
+
+const prisma = new PrismaClient({
+  datasources: { db: { url: dbUrl } },
+});
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
