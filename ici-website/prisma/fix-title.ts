@@ -7,12 +7,12 @@ async function main() {
       where: { pageId_key: { pageId: page.id, key: 'meta_title' } }
     });
     
-    if (titleField && titleField.value === 'PricingCoaching Certifications') {
+    if (titleField) {
       await prisma.contentField.update({
         where: { id: titleField.id },
         data: { value: 'Pricing | Coaching Certifications' }
       });
-      console.log('Fixed /pricing meta_title in DB!');
+      console.log('Fixed /pricing meta_title in DB! Bypassed buggy regex.');
     } else {
       console.log('Current title is:', titleField?.value);
     }
