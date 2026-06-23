@@ -2,6 +2,20 @@ import { unstable_cache } from 'next/cache';
 import { prisma, hasDatabaseUrl } from './prisma';
 import { CMS_REVALIDATE_SECONDS } from './content';
 
+const blogPreviewSelect = {
+  id: true,
+  title: true,
+  slug: true,
+  excerpt: true,
+  coverImageUrl: true,
+  coverImageAlt: true,
+  category: true,
+  publishedAt: true,
+  authorName: true,
+  authorAvatarUrl: true,
+  featured: true,
+} as const;
+
 async function safeQuery<T>(label: string, query: () => Promise<T>, fallback: T): Promise<T> {
   if (!hasDatabaseUrl()) return fallback;
   try {
@@ -22,28 +36,37 @@ export async function getPublishedTestimonials() {
 }
 
 export async function getLatestBlogPosts(limit = 3) {
+  return getHomepageBlogPosts(limit);
+}
+
+/** Featured posts first, then latest — used on the homepage blog section. */
+export async function getHomepageBlogPosts(limit = 3) {
   return unstable_cache(
     () =>
-      safeQuery('getLatestBlogPosts', () =>
-        prisma.blogPost.findMany({
-          where: { status: 'PUBLISHED' },
+      safeQuery('getHomepageBlogPosts', async () => {
+        const featured = await prisma.blogPost.findMany({
+          where: { status: 'PUBLISHED', featured: true },
           orderBy: { publishedAt: 'desc' },
           take: limit,
-          select: {
-            id: true,
-            title: true,
-            slug: true,
-            excerpt: true,
-            coverImageUrl: true,
-            coverImageAlt: true,
-            category: true,
-            publishedAt: true,
-            authorName: true,
-            authorAvatarUrl: true,
+          select: blogPreviewSelect,
+        });
+
+        if (featured.length >= limit) return featured;
+
+        const featuredIds = featured.map((p) => p.id);
+        const rest = await prisma.blogPost.findMany({
+          where: {
+            status: 'PUBLISHED',
+            ...(featuredIds.length > 0 ? { id: { notIn: featuredIds } } : {}),
           },
-        }),
-      []),
-    ['latest-blog-posts', String(limit)],
+          orderBy: { publishedAt: 'desc' },
+          take: limit - featured.length,
+          select: blogPreviewSelect,
+        });
+
+        return [...featured, ...rest];
+      }, []),
+    ['homepage-blog-posts', String(limit)],
     {
       revalidate: CMS_REVALIDATE_SECONDS,
       tags: ['cms:blog-posts'],
@@ -56,6 +79,7 @@ export async function getFeaturedBlogPosts(limit = 2) {
     where: { status: 'PUBLISHED', featured: true },
     orderBy: { publishedAt: 'desc' },
     take: limit,
+    select: blogPreviewSelect,
   });
 }
 
@@ -71,19 +95,8 @@ export async function getPublishedBlogPosts() {
   return safeQuery('getPublishedBlogPosts', () =>
     prisma.blogPost.findMany({
       where: { status: 'PUBLISHED' },
-      orderBy: { publishedAt: 'desc' },
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        excerpt: true,
-        coverImageUrl: true,
-        coverImageAlt: true,
-        category: true,
-        publishedAt: true,
-        authorName: true,
-        authorAvatarUrl: true,
-      },
+      orderBy: [{ featured: 'desc' }, { publishedAt: 'desc' }],
+      select: blogPreviewSelect,
     }),
   []);
 }
@@ -102,18 +115,7 @@ export async function getRelatedBlogPosts(
       },
       orderBy: { publishedAt: 'desc' },
       take: limit,
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        excerpt: true,
-        coverImageUrl: true,
-        coverImageAlt: true,
-        category: true,
-        publishedAt: true,
-        authorName: true,
-        authorAvatarUrl: true,
-      },
+      select: blogPreviewSelect,
     }),
   []);
 
@@ -127,18 +129,7 @@ export async function getRelatedBlogPosts(
       },
       orderBy: { publishedAt: 'desc' },
       take: limit - related.length,
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        excerpt: true,
-        coverImageUrl: true,
-        coverImageAlt: true,
-        category: true,
-        publishedAt: true,
-        authorName: true,
-        authorAvatarUrl: true,
-      },
+      select: blogPreviewSelect,
     }),
   []);
 

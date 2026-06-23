@@ -14,7 +14,7 @@ import {
   type CredentialDetailDefaults,
 } from '../src/lib/credential-defaults';
 import { PRIVACY_CONTENT_HTML, TERMS_CONTENT_HTML } from '../src/lib/legal-defaults';
-import { PAGE_SEO_DEFAULTS } from '../src/lib/page-seo-defaults';
+import { PAGE_SEO_DEFAULTS, pageSeoKeywordsInput } from '../src/lib/page-seo-defaults';
 
 export type SeedField = {
   key: string;
@@ -64,6 +64,8 @@ function seoFields(slug: string, adminTitle: string, pageDescription: string): S
   const metaTitle =
     defaults?.title ?? `${adminTitle.replace(/^(Programme|Credentials):\s*/, '')} | ICI`;
   const metaDescription = defaults?.description ?? pageDescription;
+  const focusKeyword = defaults?.focusKeyword ?? '';
+  const seoKeywords = defaults ? pageSeoKeywordsInput(defaults) : '';
 
   return [
     f(
@@ -73,7 +75,7 @@ function seoFields(slug: string, adminTitle: string, pageDescription: string): S
       metaTitle,
       SEO_SECTION,
       -30,
-      'Browser tab and search result title. Aim for 60 characters or fewer.',
+      'Browser tab and search result title. Google typically shows ~60 characters; longer text is allowed.',
     ),
     f(
       'meta_description',
@@ -82,7 +84,25 @@ function seoFields(slug: string, adminTitle: string, pageDescription: string): S
       metaDescription,
       SEO_SECTION,
       -29,
-      'Search result description. Aim for 160 characters or fewer.',
+      'Search result description. Google typically shows ~160 characters; longer text is allowed.',
+    ),
+    f(
+      'focus_keyword',
+      'Focus Keyword',
+      T.TEXT,
+      focusKeyword,
+      SEO_SECTION,
+      -28,
+      'Primary phrase this page should rank for (e.g. online coaching certification).',
+    ),
+    f(
+      'seo_keywords',
+      'Additional SEO Keywords',
+      T.TEXTAREA,
+      seoKeywords,
+      SEO_SECTION,
+      -27,
+      'Up to 10 comma-separated keywords supporting this page (e.g. professional coaching certification, coach certification program).',
     ),
     f(
       'page_url',
@@ -90,17 +110,17 @@ function seoFields(slug: string, adminTitle: string, pageDescription: string): S
       T.URL,
       slugToPublicPath(slug),
       SEO_SECTION,
-      -28,
+      -26,
       'Public URL path for this page, e.g. /about or /programmes/certified-life-coach',
     ),
     f(
       'meta_keywords',
-      'Meta Keywords',
+      'Legacy Meta Keywords',
       T.TEXT,
-      defaults?.keywords ?? '',
+      seoKeywords,
       SEO_SECTION,
-      -27,
-      'Optional comma-separated keywords for SEO tools. Not required by Google but useful for audits.',
+      -25,
+      'Deprecated — use Focus Keyword and Additional SEO Keywords above. Kept for compatibility.',
     ),
   ];
 }

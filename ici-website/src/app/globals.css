@@ -334,3 +334,19 @@
 .animate-menu-in {
   animation: menu-in 0.2s ease-out both;
 }
+
+/* Public site copy protection — admin/dashboard routes are excluded in SiteChrome */
+.ici-no-copy {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ici-no-copy input,
+.ici-no-copy textarea,
+.ici-no-copy select,
+.ici-no-copy [contenteditable='true'],
+.ici-no-copy .allow-copy,
+.ici-no-copy .allow-copy * {
+  -webkit-user-select: text;
+  user-select: text;
+}

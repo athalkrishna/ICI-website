@@ -64,8 +64,13 @@ export default function BlogListing({ posts, initialCategory }: BlogListingProps
 
       <div className="mb-10">
         <BlogSectionTitle as="h2" titleClassName="text-brand-navy-900">
-          {activeCategory === 'ALL' ? 'Latest Articles' : blogCategoryLabel(activeCategory)}
+          {activeCategory === 'ALL' ? 'Articles' : blogCategoryLabel(activeCategory)}
         </BlogSectionTitle>
+        {activeCategory === 'ALL' && posts.some((p) => p.featured) && (
+          <p className="text-muted mt-4 max-w-2xl">
+            Featured articles appear first, followed by the latest posts.
+          </p>
+        )}
         {activeCategory !== 'ALL' && (
           <p className="text-muted mt-4 max-w-2xl">
             {filtered.length} {filtered.length === 1 ? 'article' : 'articles'} in this category.

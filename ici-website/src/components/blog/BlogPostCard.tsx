@@ -26,6 +26,11 @@ export default function BlogPostCard({ post, excerptOverride }: BlogPostCardProp
         variant="overlay"
         className="absolute top-4 left-4 z-10"
       />
+      {post.featured && (
+        <span className="absolute top-4 right-4 z-10 inline-flex px-3 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider bg-brand-gold-500 text-brand-navy-900 shadow-sm">
+          Featured
+        </span>
+      )}
       <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
         <div className="h-52 sm:h-56 relative overflow-hidden bg-brand-navy-100">
           {post.coverImageUrl ? (

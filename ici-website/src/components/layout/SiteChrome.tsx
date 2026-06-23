@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
@@ -10,6 +11,32 @@ import type { ContentMap } from '@/lib/content';
 
 const SiteCookieNotice = dynamic(() => import('@/components/layout/SiteCookieNotice'), { ssr: false });
 
+function useCopyProtection(enabled: boolean) {
+  useEffect(() => {
+    if (!enabled) return;
+
+    const block = (event: Event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement) {
+        const allowed = target.closest('input, textarea, select, [contenteditable="true"], .allow-copy');
+        if (allowed) return;
+      }
+      event.preventDefault();
+    };
+
+    const opts = { capture: true };
+    document.addEventListener('copy', block, opts);
+    document.addEventListener('cut', block, opts);
+    document.addEventListener('contextmenu', block, opts);
+
+    return () => {
+      document.removeEventListener('copy', block, opts);
+      document.removeEventListener('cut', block, opts);
+      document.removeEventListener('contextmenu', block, opts);
+    };
+  }, [enabled]);
+}
+
 export default function SiteChrome({
   children,
   globalContent,
@@ -19,12 +46,15 @@ export default function SiteChrome({
 }) {
   const pathname = usePathname();
   const portal = isPortalRoute(pathname);
+  const copyProtected = !portal;
+
+  useCopyProtection(copyProtected);
 
   return (
     <div
       className={clsx(
         'flex flex-col w-full max-w-full overflow-x-hidden',
-        portal ? 'h-dvh max-h-dvh overflow-hidden' : 'min-h-dvh',
+        portal ? 'h-dvh max-h-dvh overflow-hidden' : 'min-h-dvh ici-no-copy',
       )}
     >
       {!portal && <Navbar globalContent={globalContent} />}

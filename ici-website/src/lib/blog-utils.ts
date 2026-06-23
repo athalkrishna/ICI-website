@@ -11,6 +11,7 @@ export type BlogPostPreview = {
   publishedAt: Date | string | null;
   authorName: string;
   authorAvatarUrl?: string | null;
+  featured?: boolean;
 };
 
 export type TocHeading = {

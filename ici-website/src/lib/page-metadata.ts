@@ -1,22 +1,28 @@
 import type { Metadata } from 'next';
 import { getPublishedPageContent, getGlobalContent } from '@/lib/content';
 import { cmsField, stripHtml } from '@/lib/cms-helpers';
-import { PAGE_SEO_DEFAULTS, SITE_DEFAULT_KEYWORDS } from '@/lib/page-seo-defaults';
+import {
+  PAGE_SEO_DEFAULTS,
+  SITE_DEFAULT_KEYWORDS,
+  buildPageKeywordList,
+} from '@/lib/page-seo-defaults';
 import { SITE_URL, SITE_LOGO_PATH } from '@/lib/site-url';
 import { getSiteSettings } from '@/lib/data';
 
 const SITE_DEFAULT_DESCRIPTION =
   'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.';
 
-function parseKeywords(raw: string | undefined): string[] | undefined {
-  if (!raw?.trim()) return undefined;
-  const list = raw.split(',').map((k) => k.trim()).filter(Boolean);
-  return list.length > 0 ? list : undefined;
-}
-
 function publicPath(cmsSlug: string): string {
   if (cmsSlug === '/') return '/';
   return cmsSlug.startsWith('/') ? cmsSlug : `/${cmsSlug}`;
+}
+
+function contentSeoMap(content: Record<string, string>) {
+  return {
+    focus_keyword: cmsField(content, 'focus_keyword', ''),
+    seo_keywords: cmsField(content, 'seo_keywords', ''),
+    meta_keywords: cmsField(content, 'meta_keywords', ''),
+  };
 }
 
 /** Build Next.js metadata from CMS SEO fields for a page slug. */
@@ -40,10 +46,9 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
     cmsField(global, 'default_meta_description', SITE_DEFAULT_DESCRIPTION) ||
     SITE_DEFAULT_DESCRIPTION;
 
+  const keywordList = buildPageKeywordList(contentSeoMap(content), defaults);
   const keywords =
-    parseKeywords(cmsField(content, 'meta_keywords', '')) ||
-    parseKeywords(defaults?.keywords) ||
-    (cmsSlug === '/' ? SITE_DEFAULT_KEYWORDS : undefined);
+    keywordList.length > 0 ? keywordList : cmsSlug === '/' ? SITE_DEFAULT_KEYWORDS : undefined;
 
   const useAbsolute = defaults?.absolute === true || cmsSlug === '/';
   const path = publicPath(cmsSlug);

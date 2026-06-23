@@ -1,19 +1,13 @@
 import type { Metadata } from 'next';
 import type { BlogPost } from '@prisma/client';
 import { SITE_URL, SITE_LOGO_URL } from '@/lib/site-url';
-
-function parseTags(tags: BlogPost['tags']): string[] {
-  if (Array.isArray(tags)) {
-    return tags.filter((tag): tag is string => typeof tag === 'string' && tag.trim().length > 0);
-  }
-  return [];
-}
+import { buildBlogKeywordList } from '@/lib/blog-seo';
 
 export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
   const url = `${SITE_URL}/blog/${slug}`;
   const displayTitle = post.metaTitle?.trim() || post.title;
   const description = post.metaDescription?.trim() || post.excerpt;
-  const keywords = parseTags(post.tags);
+  const keywords = buildBlogKeywordList(post);
   const useAbsoluteTitle = Boolean(post.metaTitle?.trim());
 
   const title = useAbsoluteTitle ? { absolute: displayTitle } : displayTitle;

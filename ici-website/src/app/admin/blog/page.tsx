@@ -1,10 +1,11 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import clsx from 'clsx';
 import { Plus, Trash2, ExternalLink, Pencil } from 'lucide-react';
 import { formatDate, formatEnumLabel } from '@/lib/admin-utils';
+import { isBlogSeoComplete, parseSeoKeywords, seoKeywordsToInput } from '@/lib/blog-seo';
 import PortalPageHeader from '@/components/portal/PortalPageHeader';
 import { portalPrimaryBtnClass } from '@/components/portal/portal-styles';
 import BlogPostEditor, { emptyBlogForm, type BlogFormState } from '@/components/admin/BlogPostEditor';
@@ -21,6 +22,7 @@ type BlogPost = {
   authorName: string;
   metaTitle: string | null;
   metaDescription: string | null;
+  focusKeyword: string | null;
   updatedAt: string;
   publishedAt: string | null;
 };
@@ -36,6 +38,8 @@ function formToPayload(form: BlogFormState) {
     .map((tag) => tag.trim())
     .filter(Boolean);
 
+  const seoKeywords = parseSeoKeywords(form.seoKeywords);
+
   return {
     title: form.title,
     ...(form.slug.trim() ? { slug: form.slug.trim() } : {}),
@@ -49,6 +53,8 @@ function formToPayload(form: BlogFormState) {
     tags,
     metaTitle: form.metaTitle.trim() || null,
     metaDescription: form.metaDescription.trim() || null,
+    focusKeyword: form.focusKeyword.trim() || null,
+    seoKeywords,
   };
 }
 
@@ -66,13 +72,9 @@ function postToForm(post: Record<string, unknown>): BlogFormState {
     tags: parseTags(post.tags),
     metaTitle: String(post.metaTitle ?? ''),
     metaDescription: String(post.metaDescription ?? ''),
+    focusKeyword: String(post.focusKeyword ?? ''),
+    seoKeywords: seoKeywordsToInput(post.seoKeywords),
   };
-}
-
-function blogSeoComplete(post: Pick<BlogPost, 'title' | 'excerpt' | 'metaTitle' | 'metaDescription'>) {
-  const title = post.metaTitle?.trim() || post.title.trim();
-  const description = post.metaDescription?.trim() || post.excerpt.trim();
-  return Boolean(title && description);
 }
 
 export default function AdminBlogPage() {
@@ -85,6 +87,8 @@ export default function AdminBlogPage() {
   const [form, setForm] = useState<BlogFormState>(emptyBlogForm());
   const [saving, setSaving] = useState(false);
   const [mediaPickerOpen, setMediaPickerOpen] = useState(false);
+  const [mediaPickerTarget, setMediaPickerTarget] = useState<'cover' | 'content'>('cover');
+  const contentImageInsertRef = useRef<((url: string) => void) | null>(null);
 
   const loadPosts = useCallback(async () => {
     setLoading(true);
@@ -223,6 +227,7 @@ export default function AdminBlogPage() {
               <tr>
                 <th className="px-6 py-4 font-medium">Title</th>
                 <th className="px-6 py-4 font-medium">Category</th>
+                <th className="px-6 py-4 font-medium">Featured</th>
                 <th className="px-6 py-4 font-medium">SEO</th>
                 <th className="px-6 py-4 font-medium">Status</th>
                 <th className="px-6 py-4 font-medium">Updated</th>
@@ -231,9 +236,9 @@ export default function AdminBlogPage() {
             </thead>
             <tbody className="divide-y divide-navy-50">
               {loading ? (
-                <tr><td colSpan={6} className="px-6 py-8 text-center text-muted">Loading…</td></tr>
+                <tr><td colSpan={7} className="px-6 py-8 text-center text-muted">Loading…</td></tr>
               ) : posts.length === 0 ? (
-                <tr><td colSpan={6} className="px-6 py-8 text-center text-muted">No posts found.</td></tr>
+                <tr><td colSpan={7} className="px-6 py-8 text-center text-muted">No posts found.</td></tr>
               ) : (
                 posts.map((post) => (
                   <tr key={post.id} className="hover:bg-cream-50">
@@ -243,13 +248,22 @@ export default function AdminBlogPage() {
                     </td>
                     <td className="px-6 py-4 text-muted">{formatEnumLabel(post.category)}</td>
                     <td className="px-6 py-4">
+                      {post.featured ? (
+                        <span className="inline-flex px-2 py-0.5 rounded-full text-xs font-medium border bg-brand-gold-50 text-brand-gold-800 border-brand-gold-200">
+                          Featured
+                        </span>
+                      ) : (
+                        <span className="text-xs text-muted">—</span>
+                      )}
+                    </td>
+                    <td className="px-6 py-4">
                       <span className={clsx(
                         'inline-flex px-2 py-0.5 rounded-full text-xs font-medium border',
-                        blogSeoComplete(post)
+                        isBlogSeoComplete(post)
                           ? 'bg-green-50 text-green-700 border-green-100'
                           : 'bg-amber-50 text-amber-700 border-amber-100',
                       )}>
-                        {blogSeoComplete(post) ? 'Complete' : 'Needs SEO'}
+                        {isBlogSeoComplete(post) ? 'Complete' : 'Needs SEO'}
                       </span>
                     </td>
                     <td className="px-6 py-4">
@@ -297,7 +311,20 @@ export default function AdminBlogPage() {
             onChange={setForm}
             onSubmit={handleSubmit}
             onCancel={closeModal}
-            onPickCoverImage={() => setMediaPickerOpen(true)}
+            onPickCoverImage={() => {
+              setMediaPickerTarget('cover');
+              setMediaPickerOpen(true);
+            }}
+            onPickContentImage={() => {
+              setMediaPickerTarget('content');
+              contentImageInsertRef.current = (url: string) => {
+                setForm((prev) => ({
+                  ...prev,
+                  content: `${prev.content}<p><img src="${url}" alt="" /></p>`,
+                }));
+              };
+              setMediaPickerOpen(true);
+            }}
             saving={saving}
             mode={modal}
           />
@@ -308,11 +335,16 @@ export default function AdminBlogPage() {
         open={mediaPickerOpen}
         onClose={() => setMediaPickerOpen(false)}
         onSelect={(url, media) => {
-          setForm((prev) => ({
-            ...prev,
-            coverImageUrl: url,
-            coverImageAlt: prev.coverImageAlt || media?.altText || prev.title,
-          }));
+          if (mediaPickerTarget === 'content') {
+            contentImageInsertRef.current?.(url);
+            contentImageInsertRef.current = null;
+          } else {
+            setForm((prev) => ({
+              ...prev,
+              coverImageUrl: url,
+              coverImageAlt: prev.coverImageAlt || media?.altText || prev.title,
+            }));
+          }
           setMediaPickerOpen(false);
         }}
       />

@@ -1,33 +1,10 @@
 import { NextRequest } from 'next/server';
-import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
-
-const blogCategory = z.enum([
-  'INSTITUTE_NEWS',
-  'COACHING_INSIGHTS',
-  'RESEARCH',
-  'EVENTS_RECAP',
-  'ANNOUNCEMENTS',
-]);
-
-const createBlogSchema = z.object({
-  title: z.string().min(1),
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/).optional(),
-  excerpt: z.string().max(300),
-  content: z.string().min(1),
-  coverImageUrl: z.string().url(),
-  coverImageAlt: z.string().optional(),
-  authorName: z.string().min(1),
-  authorAvatarUrl: z.string().url().optional().nullable(),
-  category: blogCategory,
-  tags: z.array(z.string()).optional(),
-  featured: z.boolean().optional(),
-  metaTitle: z.string().max(70).optional().nullable(),
-  metaDescription: z.string().max(320).optional().nullable(),
-});
+import { createBlogSchema, blogCategory } from '@/lib/blog-api-schema';
+import type { z } from 'zod';
 
 function slugify(text: string): string {
   return text
@@ -96,6 +73,8 @@ export async function POST(req: NextRequest) {
         featured: data.featured ?? false,
         metaTitle: data.metaTitle,
         metaDescription: data.metaDescription,
+        focusKeyword: data.focusKeyword,
+        seoKeywords: data.seoKeywords ?? [],
         status: 'DRAFT',
       },
     });

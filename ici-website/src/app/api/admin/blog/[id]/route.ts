@@ -1,36 +1,12 @@
 import { NextRequest } from 'next/server';
 import { revalidatePath } from 'next/cache';
-import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
 import { jsonOk, jsonError, unauthorized, notFound, serverError } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
+import { updateBlogSchema } from '@/lib/blog-api-schema';
 
 type RouteParams = { params: Promise<{ id: string }> };
-
-const blogCategory = z.enum([
-  'INSTITUTE_NEWS',
-  'COACHING_INSIGHTS',
-  'RESEARCH',
-  'EVENTS_RECAP',
-  'ANNOUNCEMENTS',
-]);
-
-const updateBlogSchema = z.object({
-  title: z.string().min(1).optional(),
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/).optional(),
-  excerpt: z.string().max(300).optional(),
-  content: z.string().min(1).optional(),
-  coverImageUrl: z.string().url().optional(),
-  coverImageAlt: z.string().optional().nullable(),
-  authorName: z.string().min(1).optional(),
-  authorAvatarUrl: z.string().url().optional().nullable(),
-  category: blogCategory.optional(),
-  tags: z.array(z.string()).optional(),
-  featured: z.boolean().optional(),
-  metaTitle: z.string().max(70).optional().nullable(),
-  metaDescription: z.string().max(320).optional().nullable(),
-});
 
 export async function GET(_req: NextRequest, { params }: RouteParams) {
   const session = await requireAdmin();

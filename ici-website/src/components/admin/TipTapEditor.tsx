@@ -25,6 +25,7 @@ type TipTapEditorProps = {
   onChange: (html: string) => void;
   placeholder?: string;
   onImageRequest?: () => void;
+  minHeight?: string;
 };
 
 function ToolbarButton({
@@ -60,6 +61,7 @@ export default function TipTapEditor({
   onChange,
   placeholder = 'Start writing…',
   onImageRequest,
+  minHeight = 'min-h-[160px]',
 }: TipTapEditorProps) {
   const editor = useEditor({
     extensions: [
@@ -75,7 +77,7 @@ export default function TipTapEditor({
     editorProps: {
       attributes: {
         class:
-          'prose prose-sm max-w-none min-h-[160px] px-4 py-3 focus:outline-none text-navy-800',
+          `prose prose-sm max-w-none ${minHeight} px-4 py-3 focus:outline-none text-navy-800`,
       },
     },
   });

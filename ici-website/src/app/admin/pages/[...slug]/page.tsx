@@ -253,11 +253,17 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string[
     const charHint =
       field.key === 'meta_title' ? (
         <p className={clsx('text-xs mt-1', value.length > 60 ? 'text-amber-600' : 'text-muted')}>
-          {value.length}/70 · aim for 60 or fewer
+          {value.length}/120 · Google typically shows ~60
         </p>
       ) : field.key === 'meta_description' ? (
         <p className={clsx('text-xs mt-1', value.length > 160 ? 'text-amber-600' : 'text-muted')}>
-          {value.length}/320 · aim for 160 or fewer
+          {value.length}/1000 · Google typically shows ~160
+        </p>
+      ) : field.key === 'focus_keyword' ? (
+        <p className="text-xs mt-1 text-muted">{value.length}/100 · primary ranking phrase</p>
+      ) : field.key === 'seo_keywords' ? (
+        <p className="text-xs mt-1 text-muted">
+          {value.split(',').filter((k) => k.trim()).length}/10 keywords · comma-separated
         </p>
       ) : null;
 

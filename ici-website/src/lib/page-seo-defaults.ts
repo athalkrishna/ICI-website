@@ -2,7 +2,11 @@
 export type PageSeoDefault = {
   title: string;
   description?: string;
-  /** Comma-separated meta keywords (optional; mainly for SEO audit tools). */
+  /** Primary phrase this page should rank for. */
+  focusKeyword?: string;
+  /** Up to 10 additional SEO keywords (comma-separated in CMS). */
+  seoKeywords?: string[];
+  /** @deprecated Prefer focusKeyword + seoKeywords */
   keywords?: string;
   /** When true, title is used as-is (no layout template suffix). */
   absolute?: boolean;
@@ -17,31 +21,100 @@ export const SITE_DEFAULT_KEYWORDS = [
   'ICI coaching',
 ];
 
+/** Transactional keyword targets mapped to landing pages (for seeding & audits). */
+export const PAGE_KEYWORD_TARGETS: Record<string, { focus: string; additional: string[] }> = {
+  '/credentials': {
+    focus: 'online coaching certification',
+    additional: [
+      'professional coaching certification',
+      'international coaching certification',
+      'coach certification program',
+    ],
+  },
+  '/programmes': {
+    focus: 'coach certification program',
+    additional: [
+      'online coaching certification',
+      'professional coaching certification',
+      'international coaching certification',
+    ],
+  },
+  '/credentials/catalyst': {
+    focus: 'transformational coaching certification',
+    additional: ['become a certified life coach', 'life coaching course'],
+  },
+  '/programmes/certified-life-coach': {
+    focus: 'online life coach training',
+    additional: [
+      'life coaching course',
+      'become a certified life coach',
+      'transformational coaching certification',
+    ],
+  },
+  '/programmes/executive-coaching': {
+    focus: 'executive coach training',
+    additional: [
+      'leadership coach training',
+      'executive coaching certification',
+      'leadership coaching certification',
+    ],
+  },
+  '/programmes/business-coach': {
+    focus: 'business coaching course',
+    additional: ['coach certification program', 'professional coaching certification'],
+  },
+  '/programmes/health-wellness': {
+    focus: 'wellness coach certification',
+    additional: ['health and wellness coach training', 'coach certification program'],
+  },
+};
+
+function withKeywordTargets(slug: string, base: PageSeoDefault): PageSeoDefault {
+  const targets = PAGE_KEYWORD_TARGETS[slug];
+  if (!targets) return base;
+  return {
+    ...base,
+    focusKeyword: targets.focus,
+    seoKeywords: targets.additional,
+  };
+}
+
 export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
   '/': {
     title: 'International Coaching Institute | Become a Certified Coach',
     description:
       'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
-    keywords:
-      'coaching certification, online coaching course, life coach training, executive coaching certification, International Coaching Institute',
+    focusKeyword: 'coaching certification',
+    seoKeywords: [
+      'online coaching course',
+      'life coach training',
+      'executive coaching certification',
+      'International Coaching Institute',
+    ],
     absolute: true,
   },
   '/for-ai': {
     title: 'International Coaching Institute | Global Coaching Certification & Training',
     description:
       'International Coaching Institute — a global coach education institute offering online coaching certification, professional coach certification programs, and one-to-one training in life, executive, business and wellness coaching.',
+    focusKeyword: 'international coaching certification',
+    seoKeywords: [
+      'online coaching certification',
+      'professional coaching certification',
+      'coach certification program',
+    ],
     absolute: true,
   },
-  '/programmes': {
+  '/programmes': withKeywordTargets('/programmes', {
     title: 'Coach Certification Programs & Specialisations | ICI',
     description:
       'Explore ICI coach certification programs: the four-level Mastery Pathway plus specialisations in life, executive, business, wellness and team coaching. One-to-one and online.',
-  },
-  '/credentials': {
+  }),
+  '/credentials': withKeywordTargets('/credentials', {
     title: 'Online Coaching Certification | ICI Mastery Pathway',
     description:
       'Earn your online coaching certification with ICI. Four progressive levels — Catalyst, Architect, Sage and Luminary — professional coaching certification taught one-to-one and online.',
-  },
+  }),
   '/pricing': {
     title: 'Pricing | ICI Coaching Certifications',
     description:
@@ -201,11 +274,11 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     title: 'Complaints Policy | International Coaching Institute',
     description: 'How to file a complaint with the International Coaching Institute and our process for resolving it.',
   },
-  '/credentials/catalyst': {
+  '/credentials/catalyst': withKeywordTargets('/credentials/catalyst', {
     title: 'Transformational Coaching Certification | ICI Catalyst (Level 1)',
     description:
       'Transformational coaching certification with ICI Catalyst. A one-to-one, online foundation credential: 36 hours of coaching with a professional coach plus guided self-work.',
-  },
+  }),
   '/credentials/architect': {
     title: 'ICI Architect Coach (Level 2) | Professional Certification',
     description:
@@ -221,29 +294,67 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     description:
       'The ICI Luminary is our highest distinction. 120 hours, one-to-one, for master coaches who shape the field, mentor others and make an original contribution to coaching.',
   },
-  '/programmes/certified-life-coach': {
+  '/programmes/certified-life-coach': withKeywordTargets('/programmes/certified-life-coach', {
     title: 'Life Coaching Course | Online Life Coach Training | ICI',
     description:
       'ICI life coaching course and online life coach training within the Mastery Pathway. Learn to guide clients through real change, one-to-one and online.',
-  },
-  '/programmes/executive-coaching': {
+  }),
+  '/programmes/executive-coaching': withKeywordTargets('/programmes/executive-coaching', {
     title: 'Executive Coach Training & Leadership Coaching Certification | ICI',
     description:
       'Executive coach training and leadership coaching certification with ICI. Coach senior leaders one-to-one and online within the four-level Mastery Pathway.',
-  },
-  '/programmes/business-coach': {
+  }),
+  '/programmes/business-coach': withKeywordTargets('/programmes/business-coach', {
     title: 'Business Coaching Course | ICI Certification',
     description:
       'Business coaching course with ICI. Help founders and owners build companies that work — one-to-one, online, within the Mastery Pathway.',
-  },
-  '/programmes/health-wellness': {
-    title: 'Health and Wellness Coach Training | ICI',
+  }),
+  '/programmes/health-wellness': withKeywordTargets('/programmes/health-wellness', {
+    title: 'Wellness Coach Certification | Health & Wellness Training | ICI',
     description:
-      'Health and wellness coach training, wellness coaching course and wellness coach certification with ICI. Guide sustainable change, one-to-one and online.',
-  },
+      'Wellness coach certification and health and wellness coach training with ICI. Guide sustainable change, one-to-one and online.',
+  }),
   '/programmes/team-coaching': {
     title: 'Team & Organisational Coaching | ICI',
     description:
       'Build a coaching culture with ICI. A team and organisational focus within the Mastery Pathway, delivered one-to-one and online.',
   },
 };
+
+/** Build comma-separated keywords string for CMS seeding. */
+export function pageSeoKeywordsInput(defaults: PageSeoDefault): string {
+  if (defaults.seoKeywords?.length) return defaults.seoKeywords.join(', ');
+  return defaults.keywords ?? '';
+}
+
+/** Merge focus + additional keywords for metadata output. */
+export function buildPageKeywordList(content: {
+  focus_keyword?: string;
+  seo_keywords?: string;
+  meta_keywords?: string;
+}, defaults?: PageSeoDefault): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  const add = (value: string) => {
+    const trimmed = value.trim();
+    if (!trimmed) return;
+    const key = trimmed.toLowerCase();
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(trimmed);
+    }
+  };
+
+  const fromCsv = (raw: string) => raw.split(',').forEach((k) => add(k));
+
+  if (content.focus_keyword) add(content.focus_keyword);
+  if (content.seo_keywords) fromCsv(content.seo_keywords);
+  if (content.meta_keywords) fromCsv(content.meta_keywords);
+
+  if (defaults?.focusKeyword) add(defaults.focusKeyword);
+  defaults?.seoKeywords?.forEach(add);
+  if (defaults?.keywords) fromCsv(defaults.keywords);
+
+  return result;
+}
