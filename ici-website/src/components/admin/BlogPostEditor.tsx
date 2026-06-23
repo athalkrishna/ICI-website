@@ -51,21 +51,12 @@ export const emptyBlogForm = (): BlogFormState => ({
 const inputClass = 'w-full p-3 text-sm border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold-400/40';
 const labelClass = 'block text-xs font-semibold text-brand-navy-900 mb-1.5';
 
-function CharCount({
-  value,
-  max,
-  recommended,
-}: {
-  value: string;
-  max: number;
-  recommended?: number;
-}) {
+function CharCount({ value, recommended }: { value: string; recommended?: number }) {
   const len = value.length;
   const overRecommended = recommended !== undefined && len > recommended;
-  const atMax = len >= max;
   return (
-    <span className={clsx('text-xs', atMax ? 'text-red-600' : overRecommended ? 'text-amber-600' : 'text-muted')}>
-      {len}/{max}
+    <span className={clsx('text-xs', overRecommended ? 'text-amber-600' : 'text-muted')}>
+      {len} characters
       {recommended !== undefined && ` · aim for ~${recommended}`}
     </span>
   );
@@ -93,11 +84,6 @@ export default function BlogPostEditor({
   mode,
 }: BlogPostEditorProps) {
   const set = (patch: Partial<BlogFormState>) => onChange({ ...form, ...patch });
-  const seoKeywordCount = form.seoKeywords
-    .split(',')
-    .map((k) => k.trim())
-    .filter(Boolean).length;
-
   return (
     <form onSubmit={onSubmit} className="relative bg-white rounded-2xl shadow-xl border border-navy-100 w-full max-w-4xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
       <div>
@@ -210,7 +196,7 @@ export default function BlogPostEditor({
         <div>
           <div className="flex justify-between items-center mb-1.5">
             <label className={labelClass}>Excerpt</label>
-            <CharCount value={form.excerpt} max={BLOG_SEO.excerpt.max} recommended={BLOG_SEO.excerpt.recommended} />
+            <CharCount value={form.excerpt} recommended={BLOG_SEO.excerpt.recommended} />
           </div>
           <textarea
             required
@@ -257,7 +243,7 @@ export default function BlogPostEditor({
         <div>
           <div className="flex justify-between items-center mb-1.5">
             <label className={labelClass}>Focus keyword</label>
-            <CharCount value={form.focusKeyword} max={BLOG_SEO.focusKeyword.max} />
+            <CharCount value={form.focusKeyword} />
           </div>
           <input
             value={form.focusKeyword}
@@ -268,24 +254,22 @@ export default function BlogPostEditor({
           <p className="text-xs text-muted mt-1">Primary phrase this article should rank for.</p>
         </div>
         <div>
-          <div className="flex justify-between items-center mb-1.5">
-            <label className={labelClass}>Additional SEO keywords</label>
-            <span className={clsx('text-xs', seoKeywordCount > BLOG_SEO.seoKeywords.max ? 'text-red-600' : 'text-muted')}>
-              {seoKeywordCount}/{BLOG_SEO.seoKeywords.max}
-            </span>
-          </div>
+          <label className={labelClass}>Additional SEO keywords</label>
           <textarea
             value={form.seoKeywords}
             onChange={(e) => set({ seoKeywords: e.target.value })}
             className={inputClass}
             rows={2}
-            placeholder="professional coaching certification, coach certification program, … (comma-separated, up to 10)"
+            placeholder="professional coaching certification, coach certification program, … (comma-separated)"
           />
+          <p className="text-xs text-muted mt-1">
+            Add as many as you need — ~{BLOG_SEO.seoKeywords.recommended} is a typical starting point for Google.
+          </p>
         </div>
         <div>
           <div className="flex justify-between items-center mb-1.5">
             <label className={labelClass}>Meta title</label>
-            <CharCount value={form.metaTitle} max={BLOG_SEO.metaTitle.max} recommended={BLOG_SEO.metaTitle.recommended} />
+            <CharCount value={form.metaTitle} recommended={BLOG_SEO.metaTitle.recommended} />
           </div>
           <input
             value={form.metaTitle}
@@ -297,7 +281,7 @@ export default function BlogPostEditor({
         <div>
           <div className="flex justify-between items-center mb-1.5">
             <label className={labelClass}>Meta description</label>
-            <CharCount value={form.metaDescription} max={BLOG_SEO.metaDescription.max} recommended={BLOG_SEO.metaDescription.recommended} />
+            <CharCount value={form.metaDescription} recommended={BLOG_SEO.metaDescription.recommended} />
           </div>
           <textarea
             value={form.metaDescription}
@@ -327,7 +311,7 @@ export default function BlogPostEditor({
         <button type="button" onClick={onCancel} className="px-4 py-2 text-sm border border-navy-100 rounded-xl">
           Cancel
         </button>
-        <button type="submit" disabled={saving || seoKeywordCount > BLOG_SEO.seoKeywords.max} className="px-4 py-2 text-sm text-white bg-brand-navy-900 rounded-xl disabled:opacity-50">
+        <button type="submit" disabled={saving} className="px-4 py-2 text-sm text-white bg-brand-navy-900 rounded-xl disabled:opacity-50">
           {saving ? 'Saving…' : mode === 'create' ? 'Create draft' : 'Save changes'}
         </button>
       </div>

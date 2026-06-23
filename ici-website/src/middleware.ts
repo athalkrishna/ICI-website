@@ -23,7 +23,9 @@ function canonicalHostRedirect(req: NextRequest): NextResponse | null {
   }
 
   const shouldRedirect =
-    host === `www.${CANONICAL_HOST}` || host.endsWith('.vercel.app');
+    host === `www.${CANONICAL_HOST}` ||
+    host.endsWith('.vercel.app') ||
+    host.endsWith('.cloudwaysapps.com');
 
   if (!shouldRedirect) return null;
 

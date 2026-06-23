@@ -117,10 +117,12 @@ export default function AdminSettingsPage() {
             <div>
               <label className="text-sm font-medium text-navy-700 block mb-1">Google Analytics ID</label>
               <input value={settings.googleAnalyticsId ?? ''} onChange={(e) => update('googleAnalyticsId', e.target.value || null)} className={`w-full ${portalInputClass}`} placeholder="G-XXXXXXXXXX" />
+              <p className="text-xs text-muted mt-1">Saved here and applied on the live site immediately after deploy. Env var NEXT_PUBLIC_GA_MEASUREMENT_ID is used as fallback.</p>
             </div>
             <div>
               <label className="text-sm font-medium text-navy-700 block mb-1">Facebook Pixel ID</label>
               <input value={settings.facebookPixelId ?? ''} onChange={(e) => update('facebookPixelId', e.target.value || null)} className={`w-full ${portalInputClass}`} />
+              <p className="text-xs text-muted mt-1">Saved here and applied on the live site. Env var NEXT_PUBLIC_META_PIXEL_ID is used as fallback.</p>
             </div>
           </div>
         </section>

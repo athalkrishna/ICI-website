@@ -1,10 +1,11 @@
-/** SEO guidance — soft limits for UI hints; API allows generous hard caps. */
+/** SEO guidance — recommended lengths for UI hints only; no hard editor/API caps. */
 export const BLOG_SEO = {
-  metaTitle: { recommended: 60, max: 120 },
-  metaDescription: { recommended: 160, max: 1000 },
-  excerpt: { recommended: 160, max: 500 },
-  focusKeyword: { max: 100 },
-  seoKeywords: { max: 10, eachMax: 80 },
+  metaTitle: { recommended: 60 },
+  metaDescription: { recommended: 160 },
+  excerpt: { recommended: 160 },
+  focusKeyword: {},
+  /** Soft hint for editors — additional keywords are not capped. */
+  seoKeywords: { recommended: 10 },
 } as const;
 
 export function parseSeoKeywords(raw: unknown): string[] {
@@ -12,15 +13,13 @@ export function parseSeoKeywords(raw: unknown): string[] {
     return raw
       .filter((k): k is string => typeof k === 'string')
       .map((k) => k.trim())
-      .filter(Boolean)
-      .slice(0, BLOG_SEO.seoKeywords.max);
+      .filter(Boolean);
   }
   if (typeof raw === 'string') {
     return raw
       .split(',')
       .map((k) => k.trim())
-      .filter(Boolean)
-      .slice(0, BLOG_SEO.seoKeywords.max);
+      .filter(Boolean);
   }
   return [];
 }

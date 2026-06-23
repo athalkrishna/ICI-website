@@ -37,6 +37,7 @@ export const PAGE_KEYWORD_TARGETS: Record<string, { focus: string; additional: s
       'online coaching certification',
       'professional coaching certification',
       'international coaching certification',
+      'coach education institute',
     ],
   },
   '/credentials/catalyst': {
@@ -57,6 +58,7 @@ export const PAGE_KEYWORD_TARGETS: Record<string, { focus: string; additional: s
       'leadership coach training',
       'executive coaching certification',
       'leadership coaching certification',
+      'certified executive coach',
     ],
   },
   '/programmes/business-coach': {
@@ -65,7 +67,11 @@ export const PAGE_KEYWORD_TARGETS: Record<string, { focus: string; additional: s
   },
   '/programmes/health-wellness': {
     focus: 'wellness coach certification',
-    additional: ['health and wellness coach training', 'coach certification program'],
+    additional: [
+      'health and wellness coach training', 
+      'coach certification program',
+      'wellness coaching course',
+    ],
   },
 };
 
@@ -90,6 +96,7 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'life coach training',
       'executive coaching certification',
       'International Coaching Institute',
+      'global coaching institute',
     ],
     absolute: true,
   },
@@ -159,6 +166,10 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     title: 'About ICI',
     description:
       'ICI is a global coaching institute and coach education institute. We train and certify coaches one-to-one and online worldwide, blending coaching craft with psychology and neuroscience.',
+    seoKeywords: [
+      'global coaching institute',
+      'coach education institute',
+    ],
   },
   '/about/history': {
     title: 'History & Heritage | International Coaching Institute',

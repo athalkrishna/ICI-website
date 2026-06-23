@@ -54,7 +54,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
     keywordList.length > 0 ? keywordList : cmsSlug === '/' ? SITE_DEFAULT_KEYWORDS : undefined;
 
   const path = publicPath(cmsSlug);
-  const canonicalUrl = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
+  const canonicalUrl = `${SITE_URL}${path}`;
   const ogImage = resolveOgImageUrl(
     cmsField(global, 'default_og_image', '') ||
       siteSettings?.defaultOgImageUrl ||

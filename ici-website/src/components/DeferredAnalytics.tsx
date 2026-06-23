@@ -1,16 +1,28 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
+import { isPortalRoute } from '@/lib/portal-routes';
+
+type DeferredAnalyticsProps = {
+  googleAnalyticsId?: string | null;
+  facebookPixelId?: string | null;
+};
 
 /** Load analytics only after user interaction or delay — keeps Lighthouse Performance higher. */
-export default function DeferredAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+export default function DeferredAnalytics({
+  googleAnalyticsId,
+  facebookPixelId,
+}: DeferredAnalyticsProps) {
+  const pathname = usePathname();
+  const gaId = googleAnalyticsId?.trim() || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const pixelId = facebookPixelId?.trim() || process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (!gaId && !pixelId) return;
+    if (isPortalRoute(pathname)) return;
 
     let active = true;
     let loaded = false;
@@ -29,7 +41,7 @@ export default function DeferredAnalytics() {
       events.forEach((event) => window.removeEventListener(event, enable));
       window.clearTimeout(timer);
     };
-  }, [gaId, pixelId]);
+  }, [gaId, pixelId, pathname]);
 
   if (!enabled) return null;
 
