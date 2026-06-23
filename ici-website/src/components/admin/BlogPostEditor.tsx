@@ -214,7 +214,6 @@ export default function BlogPostEditor({
           </div>
           <textarea
             required
-            maxLength={BLOG_SEO.excerpt.max}
             value={form.excerpt}
             onChange={(e) => set({ excerpt: e.target.value })}
             className={inputClass}
@@ -265,7 +264,6 @@ export default function BlogPostEditor({
             onChange={(e) => set({ focusKeyword: e.target.value })}
             className={inputClass}
             placeholder="e.g. online life coach training"
-            maxLength={BLOG_SEO.focusKeyword.max}
           />
           <p className="text-xs text-muted mt-1">Primary phrase this article should rank for.</p>
         </div>
@@ -294,7 +292,6 @@ export default function BlogPostEditor({
             onChange={(e) => set({ metaTitle: e.target.value })}
             className={inputClass}
             placeholder={form.title || 'Defaults to article title'}
-            maxLength={BLOG_SEO.metaTitle.max}
           />
         </div>
         <div>
@@ -307,7 +304,6 @@ export default function BlogPostEditor({
             onChange={(e) => set({ metaDescription: e.target.value })}
             className={inputClass}
             rows={4}
-            maxLength={BLOG_SEO.metaDescription.max}
             placeholder={form.excerpt || 'Defaults to excerpt'}
           />
         </div>
