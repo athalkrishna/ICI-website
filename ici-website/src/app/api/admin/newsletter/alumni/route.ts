@@ -64,62 +64,63 @@ export async function GET(req: NextRequest) {
   }
 }
 
+async function processBulkImport(rows: { email: string; name?: string }[]) {
+  if (rows.length === 0) return { imported: 0, skipped: 0, total: 0 };
+
+  let imported = 0;
+  let skipped = 0;
+
+  const BATCH_SIZE = 2000;
+  for (let i = 0; i < rows.length; i += BATCH_SIZE) {
+    const batch = rows.slice(i, i + BATCH_SIZE);
+    const emails = batch.map((r) => r.email);
+
+    const existingUsers = await prisma.user.findMany({
+      where: { email: { in: emails } },
+      select: { email: true },
+    });
+    const dashboardEmails = new Set(existingUsers.map((u) => u.email));
+
+    const validRows = batch.filter((r) => !dashboardEmails.has(r.email));
+    skipped += batch.length - validRows.length;
+
+    if (validRows.length > 0) {
+      const result = await prisma.alumniNewsletterContact.createMany({
+        data: validRows.map((r) => ({
+          email: r.email,
+          name: r.name || undefined,
+          source: 'import',
+        })),
+        skipDuplicates: true,
+      });
+      imported += result.count;
+      skipped += validRows.length - result.count;
+    }
+  }
+
+  return { imported, skipped, total: rows.length };
+}
+
 export async function POST(req: NextRequest) {
   const session = await requireAdmin();
   if (!session) return unauthorized();
 
   try {
     const contentType = req.headers.get('content-type') ?? '';
-    let imported = 0;
-    let skipped = 0;
 
     if (contentType.includes('text/csv') || contentType.includes('text/plain')) {
       const text = await req.text();
       const rows = parseCsvEmails(text);
-
-      for (const row of rows) {
-        const existingUser = await prisma.user.findUnique({ where: { email: row.email } });
-        if (existingUser) {
-          skipped += 1;
-          continue;
-        }
-        await prisma.alumniNewsletterContact.upsert({
-          where: { email: row.email },
-          create: {
-            email: row.email,
-            name: row.name,
-            source: 'import',
-          },
-          update: {
-            name: row.name ?? undefined,
-            unsubscribedAt: null,
-            source: 'import',
-          },
-        });
-        imported += 1;
-      }
-
-      return jsonOk({ imported, skipped, total: rows.length });
+      const result = await processBulkImport(rows);
+      return jsonOk(result);
     }
 
     const body = await req.json();
 
     if (body.csv && typeof body.csv === 'string') {
       const rows = parseCsvEmails(body.csv);
-      for (const row of rows) {
-        const existingUser = await prisma.user.findUnique({ where: { email: row.email } });
-        if (existingUser) {
-          skipped += 1;
-          continue;
-        }
-        await prisma.alumniNewsletterContact.upsert({
-          where: { email: row.email },
-          create: { email: row.email, name: row.name, source: 'import' },
-          update: { name: row.name ?? undefined, unsubscribedAt: null },
-        });
-        imported += 1;
-      }
-      return jsonOk({ imported, skipped, total: rows.length });
+      const result = await processBulkImport(rows);
+      return jsonOk(result);
     }
 
     const parsed = addSchema.safeParse(body);
