@@ -3,6 +3,7 @@
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import Link from 'next/link';
 import { ChevronRight, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useLocalCurrency } from '@/hooks/useLocalCurrency';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
