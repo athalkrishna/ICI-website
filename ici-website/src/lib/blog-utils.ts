@@ -111,6 +111,20 @@ export function authorInitials(name: string) {
     .join('');
 }
 
+const VALID_BLOG_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const MAX_BLOG_SLUG_LENGTH = 120;
+
+/** Reject malformed/imported slugs (URLs embedded, placeholder garbage, etc.). */
+export function isValidBlogSlug(slug: string): boolean {
+  if (!slug || slug.length > MAX_BLOG_SLUG_LENGTH) return false;
+  if (/https?|www\.|\.com|localhost/i.test(slug)) return false;
+  return VALID_BLOG_SLUG.test(slug);
+}
+
+export function filterValidBlogPosts<T extends { slug: string }>(posts: T[]): T[] {
+  return posts.filter((post) => isValidBlogSlug(post.slug));
+}
+
 /** Hide magazine lead when CMS body already opens with the same paragraph. */
 export function resolveBlogLead(lead: string, html: string): { lead: string | undefined; html: string } {
   const trimmedLead = lead.trim();

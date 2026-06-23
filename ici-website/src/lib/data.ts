@@ -1,6 +1,7 @@
 import { unstable_cache } from 'next/cache';
 import { prisma, hasDatabaseUrl } from './prisma';
 import { CMS_REVALIDATE_SECONDS } from './content';
+import { filterValidBlogPosts, isValidBlogSlug } from './blog-utils';
 
 const blogPreviewSelect = {
   id: true,
@@ -64,7 +65,7 @@ export async function getHomepageBlogPosts(limit = 3) {
           select: blogPreviewSelect,
         });
 
-        return [...featured, ...rest];
+        return filterValidBlogPosts([...featured, ...rest]);
       }, []),
     ['homepage-blog-posts', String(limit)],
     {
@@ -92,12 +93,14 @@ export async function getFeaturedEvents(limit = 2) {
 }
 
 export async function getPublishedBlogPosts() {
-  return safeQuery('getPublishedBlogPosts', () =>
-    prisma.blogPost.findMany({
-      where: { status: 'PUBLISHED' },
-      orderBy: [{ featured: 'desc' }, { publishedAt: 'desc' }],
-      select: blogPreviewSelect,
-    }),
+  return safeQuery('getPublishedBlogPosts', async () =>
+    filterValidBlogPosts(
+      await prisma.blogPost.findMany({
+        where: { status: 'PUBLISHED' },
+        orderBy: [{ featured: 'desc' }, { publishedAt: 'desc' }],
+        select: blogPreviewSelect,
+      }),
+    ),
   []);
 }
 
@@ -119,7 +122,7 @@ export async function getRelatedBlogPosts(
     }),
   []);
 
-  if (related.length >= limit) return related;
+  if (related.length >= limit) return filterValidBlogPosts(related);
 
   const extras = await safeQuery('getRelatedBlogPostsFallback', () =>
     prisma.blogPost.findMany({
@@ -133,10 +136,11 @@ export async function getRelatedBlogPosts(
     }),
   []);
 
-  return [...related, ...extras];
+  return filterValidBlogPosts([...related, ...extras]);
 }
 
 export async function getBlogPostBySlug(slug: string) {
+  if (!isValidBlogSlug(slug)) return null;
   return safeQuery('getBlogPostBySlug', () =>
     prisma.blogPost.findFirst({
       where: { slug, status: 'PUBLISHED' },
@@ -145,18 +149,19 @@ export async function getBlogPostBySlug(slug: string) {
 }
 
 export async function getPublishedBlogSlugsForSitemap() {
-  return safeQuery('getPublishedBlogSlugsForSitemap', () =>
-    prisma.blogPost.findMany({
+  return safeQuery('getPublishedBlogSlugsForSitemap', async () => {
+    const posts = await prisma.blogPost.findMany({
       where: { status: 'PUBLISHED' },
       select: { slug: true, updatedAt: true, publishedAt: true },
       orderBy: { publishedAt: 'desc' },
-    }).then((posts) =>
+    });
+    return filterValidBlogPosts(
       posts.map((post) => ({
         slug: post.slug,
         updatedAt: post.updatedAt ?? post.publishedAt ?? new Date(),
       })),
-    ),
-  []);
+    );
+  }, []);
 }
 
 export async function getEventSlugsForSitemap() {

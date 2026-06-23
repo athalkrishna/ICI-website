@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import AnimatedSection from '@/components/shared/AnimatedSection'
 import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/page-metadata'
@@ -58,9 +57,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       {posts.length > 0 ? (
         <Section spacing="standard" className="relative z-20 pb-20">
           <Container>
-            <Suspense fallback={<div className="py-16 text-center text-muted">Loading articles…</div>}>
-              <BlogListing posts={posts} initialCategory={category} />
-            </Suspense>
+            <BlogListing posts={posts} initialCategory={category} />
           </Container>
         </Section>
       ) : (

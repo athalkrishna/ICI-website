@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { BlogPost } from '@prisma/client';
-import { SITE_URL, SITE_LOGO_URL } from '@/lib/site-url';
+import { resolveMetadataTitle } from '@/lib/metadata-title';
+import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
 import { buildBlogKeywordList } from '@/lib/blog-seo';
 
 export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
@@ -9,10 +10,13 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
   const description = post.metaDescription?.trim() || post.excerpt;
   const keywords = buildBlogKeywordList(post);
   const useAbsoluteTitle = Boolean(post.metaTitle?.trim());
+  const title = resolveMetadataTitle(displayTitle, { forceAbsolute: useAbsoluteTitle });
+  const ogTitle =
+    typeof title === 'object' && title && 'absolute' in title
+      ? title.absolute
+      : `${displayTitle} | ICI`;
 
-  const title = useAbsoluteTitle ? { absolute: displayTitle } : displayTitle;
-
-  const ogImageUrl = post.coverImageUrl || SITE_LOGO_URL;
+  const ogImageUrl = resolveOgImageUrl(post.coverImageUrl || SITE_LOGO_PATH);
   const ogImageAlt = post.coverImageAlt?.trim() || (post.coverImageUrl ? post.title : 'International Coaching Institute logo');
 
   return {
@@ -21,7 +25,7 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
     ...(keywords.length > 0 ? { keywords } : {}),
     alternates: { canonical: `${SITE_URL}/blog/${slug}` },
     openGraph: {
-      title: displayTitle,
+      title: ogTitle,
       description,
       url,
       type: 'article',
@@ -39,7 +43,7 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      title: displayTitle,
+      title: ogTitle,
       description,
       images: [ogImageUrl],
     },

@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import AnimatedSection from '@/components/shared/AnimatedSection';
 import Link from 'next/link';
 import { ChevronRight, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useLocalCurrency } from '@/hooks/useLocalCurrency';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
@@ -18,7 +16,6 @@ type PricingPageClientProps = {
 };
 
 export default function PricingPageClient({ content }: PricingPageClientProps) {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { currencyCode, formatPrice } = useLocalCurrency();
   const defaults = PRICING_OVERVIEW;
 
@@ -225,31 +222,15 @@ export default function PricingPageClient({ content }: PricingPageClientProps) {
           <div className="space-y-4">
             {faqs.map((faq, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="bg-white border border-navy-100 shadow-sm rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-cream-50 transition-colors"
-                  >
+                <details className="group bg-white border border-navy-100 shadow-sm rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                  <summary className="w-full flex items-center justify-between p-6 text-left cursor-pointer list-none hover:bg-cream-50 transition-colors [&::-webkit-details-marker]:hidden">
                     <span className="font-sans font-bold text-lg text-brand-navy-900 pr-8">{faq.q}</span>
-                    <ChevronDown
-                      className={`text-brand-gold-600 shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {openFaq === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-navy-100">
-                          {faq.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                    <ChevronDown className="text-brand-gold-600 shrink-0 transition-transform duration-300 group-open:rotate-180" />
+                  </summary>
+                  <div className="px-6 pb-6 pt-2 font-body text-muted leading-relaxed border-t border-navy-100">
+                    {faq.a}
+                  </div>
+                </details>
               </AnimatedSection>
             ))}
           </div>

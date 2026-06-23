@@ -6,8 +6,11 @@ import {
   SITE_DEFAULT_KEYWORDS,
   buildPageKeywordList,
 } from '@/lib/page-seo-defaults';
-import { SITE_URL, SITE_LOGO_PATH } from '@/lib/site-url';
+import { resolveMetadataTitle } from '@/lib/metadata-title';
+import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
 import { getSiteSettings } from '@/lib/data';
+
+const BRAND_SUFFIX_RE = /\s*\|\s*(International Coaching Institute|ICI)\s*$/i;
 
 const SITE_DEFAULT_DESCRIPTION =
   'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.';
@@ -50,13 +53,24 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
   const keywords =
     keywordList.length > 0 ? keywordList : cmsSlug === '/' ? SITE_DEFAULT_KEYWORDS : undefined;
 
-  const useAbsolute = defaults?.absolute === true || cmsSlug === '/';
   const path = publicPath(cmsSlug);
   const canonicalUrl = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
-  const ogImage =
+  const ogImage = resolveOgImageUrl(
     cmsField(global, 'default_og_image', '') ||
-    siteSettings?.defaultOgImageUrl ||
-    SITE_LOGO_PATH;
+      siteSettings?.defaultOgImageUrl ||
+      SITE_LOGO_PATH,
+  );
+
+  const resolvedTitle = resolveMetadataTitle(metaTitle, {
+    forceAbsolute: defaults?.absolute === true || cmsSlug === '/',
+  });
+
+  const ogTitle =
+    typeof resolvedTitle === 'object' && resolvedTitle && 'absolute' in resolvedTitle
+      ? resolvedTitle.absolute
+      : metaTitle
+        ? `${metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle} | ICI`
+        : undefined;
 
   const shared: Metadata = {
     description: metaDescription,
@@ -64,7 +78,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     ...(keywords ? { keywords } : {}),
     openGraph: {
-      title: metaTitle || undefined,
+      title: ogTitle,
       description: metaDescription,
       url: canonicalUrl,
       type: 'website',
@@ -81,18 +95,14 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: metaTitle || undefined,
+      title: ogTitle,
       description: metaDescription,
       images: [ogImage],
     },
   };
 
-  if (useAbsolute && metaTitle) {
-    return { ...shared, title: { absolute: metaTitle } };
-  }
-
   return {
     ...shared,
-    title: metaTitle || undefined,
+    ...(resolvedTitle ? { title: resolvedTitle } : {}),
   };
 }

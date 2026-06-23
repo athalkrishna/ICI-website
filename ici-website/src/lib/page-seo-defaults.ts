@@ -116,9 +116,9 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'Earn your online coaching certification with ICI. Four progressive levels — Catalyst, Architect, Sage and Luminary — professional coaching certification taught one-to-one and online.',
   }),
   '/pricing': {
-    title: 'Pricing | ICI Coaching Certifications',
+    title: 'Pricing',
     description:
-      'Clear, transparent pricing for the ICI Mastery Pathway. Four one-to-one, online certifications, from Catalyst to Luminary. Enrol level by level.',
+      'Transparent pricing for ICI online coach certification: four one-to-one Mastery Pathway levels from Catalyst to Luminary. See costs and enrol level by level.',
     absolute: true,
   },
   '/admissions': {
@@ -151,12 +151,12 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     absolute: true,
   },
   '/faculty': {
-    title: 'Faculty & Research | International Coaching Institute',
+    title: 'Faculty & Research',
     description:
       'Meet the ICI faculty: practising coaches who teach what they do. Explore our thinking on coaching, leadership and behavioural change.',
   },
   '/about': {
-    title: 'Global Coaching Institute | About International Coaching Institute',
+    title: 'About ICI',
     description:
       'ICI is a global coaching institute and coach education institute. We train and certify coaches one-to-one and online worldwide, blending coaching craft with psychology and neuroscience.',
   },
@@ -190,7 +190,7 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'Delivered entirely online, ICI trains coaches across many countries and time zones. Our campus is the community, not a building.',
   },
   '/about/accreditation': {
-    title: 'Recognition & Accreditation | International Coaching Institute',
+    title: 'Recognition & Accreditation',
     description:
       'How ICI holds its coaching standard, the bodies we work with and the recognition behind our credentials, stated plainly.',
   },

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
 import SiteChromeShell from '@/components/layout/SiteChromeShell'
-import { SITE_URL, SITE_LOGO_PATH } from '@/lib/site-url'
+import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url'
 import { buildOrganizationSchema } from '@/lib/structured-data'
 import JsonLdScript from '@/components/seo/JsonLdScript'
 
@@ -25,8 +25,8 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'International Coaching Institute | World-Class Coaching Education',
-    template: '%s | International Coaching Institute',
+    default: 'International Coaching Institute | Become a Certified Coach',
+    template: '%s | ICI',
   },
   description:
     'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: 'International Coaching Institute',
     images: [
       {
-        url: SITE_LOGO_PATH,
+        url: resolveOgImageUrl(SITE_LOGO_PATH),
         alt: 'International Coaching Institute logo',
       },
     ],

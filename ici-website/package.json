@@ -21,7 +21,8 @@
     "db:repair-home-hero": "tsx scripts/repair-home-hero.ts",
     "db:push": "prisma db push",
     "db:seed-page-seo": "tsx prisma/seed-page-seo.ts",
-    "db:seed-pillar-blog": "tsx prisma/seed-pillar-blog.ts"
+    "db:seed-pillar-blog": "tsx prisma/seed-pillar-blog.ts",
+    "db:repair-seo": "tsx prisma/repair-production-seo.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
