@@ -1,6 +1,31 @@
 {
   "version": 4,
   "routes": {
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/_global-error": {
       "experimentalBypassFor": [
         {
@@ -38,7 +63,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/_not-found",
       "dataRoute": "/_not-found.rsc",
       "allowHeader": [
@@ -62,7 +88,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about",
       "dataRoute": "/about.rsc",
       "allowHeader": [
@@ -86,7 +113,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/accreditation",
       "dataRoute": "/about/accreditation.rsc",
       "allowHeader": [
@@ -110,7 +138,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/annual-reports",
       "dataRoute": "/about/annual-reports.rsc",
       "allowHeader": [
@@ -134,7 +163,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/global",
       "dataRoute": "/about/global.rsc",
       "allowHeader": [
@@ -158,7 +188,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/history",
       "dataRoute": "/about/history.rsc",
       "allowHeader": [
@@ -182,7 +213,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/leadership-faculty",
       "dataRoute": "/about/leadership-faculty.rsc",
       "allowHeader": [
@@ -206,7 +238,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/mission",
       "dataRoute": "/about/mission.rsc",
       "allowHeader": [
@@ -230,7 +263,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/partnerships",
       "dataRoute": "/about/partnerships.rsc",
       "allowHeader": [
@@ -254,7 +288,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/about/press",
       "dataRoute": "/about/press.rsc",
       "allowHeader": [
@@ -278,7 +313,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/admissions",
       "dataRoute": "/admissions.rsc",
       "allowHeader": [
@@ -302,7 +338,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/admissions/assessment",
       "dataRoute": "/admissions/assessment.rsc",
       "allowHeader": [
@@ -326,7 +363,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/admissions/contact",
       "dataRoute": "/admissions/contact.rsc",
       "allowHeader": [
@@ -350,9 +388,39 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/alumni",
       "dataRoute": "/alumni.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/apple-icon.png": {
+      "initialHeaders": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "image/png",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/apple-icon.png/layout,_N_T_/apple-icon.png/route,_N_T_/apple-icon.png"
+      },
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/apple-icon.png",
+      "dataRoute": null,
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -374,7 +442,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/apply",
       "dataRoute": "/apply.rsc",
       "allowHeader": [
@@ -398,7 +467,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/checkout/success",
       "dataRoute": "/checkout/success.rsc",
       "allowHeader": [
@@ -422,7 +492,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/community",
       "dataRoute": "/community.rsc",
       "allowHeader": [
@@ -446,7 +517,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/complaints",
       "dataRoute": "/complaints.rsc",
       "allowHeader": [
@@ -470,7 +542,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/contact",
       "dataRoute": "/contact.rsc",
       "allowHeader": [
@@ -494,7 +567,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/credentials",
       "dataRoute": "/credentials.rsc",
       "allowHeader": [
@@ -518,7 +592,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/credentials/architect",
       "dataRoute": "/credentials/architect.rsc",
       "allowHeader": [
@@ -542,7 +617,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/credentials/catalyst",
       "dataRoute": "/credentials/catalyst.rsc",
       "allowHeader": [
@@ -566,7 +642,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/credentials/luminary",
       "dataRoute": "/credentials/luminary.rsc",
       "allowHeader": [
@@ -590,7 +667,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/credentials/sage",
       "dataRoute": "/credentials/sage.rsc",
       "allowHeader": [
@@ -614,7 +692,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/current-students",
       "dataRoute": "/current-students.rsc",
       "allowHeader": [
@@ -638,7 +717,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/dashboard",
       "dataRoute": "/dashboard.rsc",
       "allowHeader": [
@@ -662,7 +742,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/dashboard/credential",
       "dataRoute": "/dashboard/credential.rsc",
       "allowHeader": [
@@ -686,7 +767,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/dashboard/materials",
       "dataRoute": "/dashboard/materials.rsc",
       "allowHeader": [
@@ -710,7 +792,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/dashboard/profile",
       "dataRoute": "/dashboard/profile.rsc",
       "allowHeader": [
@@ -734,7 +817,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/events",
       "dataRoute": "/events.rsc",
       "allowHeader": [
@@ -758,7 +842,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/faculty",
       "dataRoute": "/faculty.rsc",
       "allowHeader": [
@@ -782,38 +867,10 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/faculty-staff",
       "dataRoute": "/faculty-staff.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/favicon.ico": {
-      "initialHeaders": {
-        "cache-control": "public, max-age=0, must-revalidate",
-        "content-type": "image/x-icon",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/favicon.ico/layout,_N_T_/favicon.ico/route,_N_T_/favicon.ico"
-      },
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/favicon.ico",
-      "dataRoute": null,
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -835,9 +892,35 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/find-a-coach",
       "dataRoute": "/find-a-coach.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/for-ai": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
+      "srcRoute": "/for-ai",
+      "dataRoute": "/for-ai.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -859,9 +942,39 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/future-students",
       "dataRoute": "/future-students.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/icon.png": {
+      "initialHeaders": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "image/png",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/icon.png/layout,_N_T_/icon.png/route,_N_T_/icon.png"
+      },
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/icon.png",
+      "dataRoute": null,
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -883,7 +996,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/login",
       "dataRoute": "/login.rsc",
       "allowHeader": [
@@ -907,7 +1021,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/organisations",
       "dataRoute": "/organisations.rsc",
       "allowHeader": [
@@ -931,7 +1046,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/pricing",
       "dataRoute": "/pricing.rsc",
       "allowHeader": [
@@ -955,7 +1071,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/privacy",
       "dataRoute": "/privacy.rsc",
       "allowHeader": [
@@ -979,7 +1096,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/programmes",
       "dataRoute": "/programmes.rsc",
       "allowHeader": [
@@ -1003,7 +1121,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/programmes/business-coach",
       "dataRoute": "/programmes/business-coach.rsc",
       "allowHeader": [
@@ -1027,7 +1146,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/programmes/certified-life-coach",
       "dataRoute": "/programmes/certified-life-coach.rsc",
       "allowHeader": [
@@ -1051,7 +1171,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/programmes/executive-coaching",
       "dataRoute": "/programmes/executive-coaching.rsc",
       "allowHeader": [
@@ -1075,7 +1196,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/programmes/health-wellness",
       "dataRoute": "/programmes/health-wellness.rsc",
       "allowHeader": [
@@ -1099,7 +1221,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/programmes/team-coaching",
       "dataRoute": "/programmes/team-coaching.rsc",
       "allowHeader": [
@@ -1148,7 +1271,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/resources",
       "dataRoute": "/resources.rsc",
       "allowHeader": [
@@ -1172,9 +1296,39 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/resources/brochure",
       "dataRoute": "/resources/brochure.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/robots.txt": {
+      "initialHeaders": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "text/plain",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/robots.txt/layout,_N_T_/robots.txt/route,_N_T_/robots.txt"
+      },
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/robots.txt",
+      "dataRoute": null,
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -1225,7 +1379,8 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "initialRevalidateSeconds": false,
+      "initialRevalidateSeconds": 300,
+      "initialExpireSeconds": 31536000,
       "srcRoute": "/terms",
       "dataRoute": "/terms.rsc",
       "allowHeader": [
@@ -1241,8 +1396,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "80506549398d62f6b7c03fc36121e850",
-    "previewModeSigningKey": "86c94aec1fbbb7699574895a7fece86d3c6e6f126ea9438fd55750770e9f5028",
-    "previewModeEncryptionKey": "3d5f43627ac41cd37b7af6325d2b41d4d03c97d2bf3389eb147d5df21ebf83c4"
+    "previewModeId": "1b9407dfe6b7fe1dbab6c3b054f494b2",
+    "previewModeSigningKey": "97776c71e341777a9a20ad1f8dddd484baff2aa7a835f9f38a585f502f9bda55",
+    "previewModeEncryptionKey": "bc0606e0f9f215cddb91fe805eb804c102dbd463a4132e11c4a8547b52b52739"
   }
 }

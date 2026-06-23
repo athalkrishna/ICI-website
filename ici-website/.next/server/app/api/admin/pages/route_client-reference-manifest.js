@@ -1,3 +1,1 @@
-globalThis.__RSC_MANIFEST = globalThis.__RSC_MANIFEST || {};
-globalThis.__RSC_MANIFEST["/api/admin/pages/route"] = {"moduleLoading":{"prefix":"","crossOrigin":null},"clientModules":{},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"rscModuleMapping":{},"edgeRscModuleMapping":{},"entryCSSFiles":{},"entryJSFiles":{}};
-
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/admin/pages/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"C:\\Users\\Acer\\Downloads\\International coaching Institute\\ici-website\\src\\app\\api\\admin\\pages\\[...slug]\\route":[],"C:\\Users\\Acer\\Downloads\\International coaching Institute\\ici-website\\src\\app\\api\\admin\\pages\\route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

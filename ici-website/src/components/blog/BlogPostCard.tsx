@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import BlogCategoryBadge from '@/components/blog/BlogCategoryBadge';
 import {
-  blogCategoryLabel,
   estimateReadTime,
   formatBlogDate,
   authorInitials,
@@ -53,9 +52,6 @@ export default function BlogPostCard({ post, excerptOverride }: BlogPostCardProp
 
         <div className="p-6 sm:p-8 flex-1 flex flex-col">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-sans text-navy-400 mb-4">
-            <span className="inline-flex items-center rounded-full bg-brand-navy-50 border border-brand-navy-100 px-3 py-1 text-xs font-semibold text-brand-navy-700">
-              {blogCategoryLabel(post.category)}
-            </span>
             {post.publishedAt && (
               <time dateTime={new Date(post.publishedAt).toISOString()}>
                 {formatBlogDate(post.publishedAt)}

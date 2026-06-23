@@ -108,7 +108,6 @@ export default async function BlogPostPage({ params }: PageProps) {
                 readTime={readTime}
                 title={post.title}
                 slug={slug}
-                category={post.category}
               />
             </AnimatedSection>
           </div>

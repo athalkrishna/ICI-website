@@ -1,3 +1,0 @@
-module.exports=[55203,a=>{"use strict";a.s(["default",0,function({children:a}){return a},"metadata",0,{title:{absolute:"Pricing | ICI Coaching Certifications"},description:"Clear, transparent pricing for the ICI Mastery Pathway. Four one-to-one, online certifications, from Catalyst to Luminary. Enrol level by level."}])},92950,a=>{a.n(a.i(55203))}];
-
-//# sourceMappingURL=0wta_International%20coaching%20Institute_ici-website_src_app_pricing_layout_tsx_1m4wfl4._.js.map

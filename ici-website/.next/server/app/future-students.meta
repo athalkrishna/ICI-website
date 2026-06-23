@@ -2,7 +2,7 @@
   "headers": {
     "x-nextjs-stale-time": "300",
     "x-nextjs-prerender": "1",
-    "x-next-cache-tags": "_N_T_/layout,_N_T_/future-students/layout,_N_T_/future-students/page,_N_T_/future-students"
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/future-students/layout,_N_T_/future-students/page,_N_T_/future-students,cms:global,cms:page:/future-students"
   },
   "segmentPaths": [
     "/_tree",

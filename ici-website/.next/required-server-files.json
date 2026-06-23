@@ -49,6 +49,7 @@
       "disableStaticImages": false,
       "minimumCacheTTL": 14400,
       "formats": [
+        "image/avif",
         "image/webp"
       ],
       "maximumRedirects": 3,
@@ -121,7 +122,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\Acer",
+    "outputFileTracingRoot": "C:\\Users\\Acer\\Downloads\\International coaching Institute\\ici-website",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -184,7 +185,7 @@
       "optimisticClientCache": true,
       "manualClientBasePath": false,
       "cpus": 1,
-      "memoryBasedWorkersCount": true,
+      "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
       "imgOptMaxInputPixels": 268402689,
@@ -238,6 +239,7 @@
       "turbopackInferModuleSideEffects": true,
       "turbopackPluginRuntimeStrategy": "childProcesses",
       "optimizePackageImports": [
+        "framer-motion",
         "lucide-react",
         "date-fns",
         "lodash-es",
@@ -320,18 +322,36 @@
     "htmlLimitedBots": "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
-    "eslint": {
-      "ignoreDuringBuilds": true
+    "turbopack": {
+      "root": "C:\\Users\\Acer\\Downloads\\International coaching Institute\\ici-website"
     },
-    "optimizeFonts": false,
     "serverExternalPackages": [
       "@sanity/client"
     ],
-    "turbopack": {
-      "root": "C:\\Users\\Acer"
-    },
     "distDirRoot": ".next",
     "_originalRedirects": [
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "host",
+            "value": "www.internationalcoachinginstitute.org"
+          }
+        ],
+        "destination": "https://internationalcoachinginstitute.org/:path*",
+        "permanent": true
+      },
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "host",
+            "value": "international-coaching-institute.vercel.app"
+          }
+        ],
+        "destination": "https://internationalcoachinginstitute.org/:path*",
+        "permanent": true
+      },
       {
         "source": "/about/rankings",
         "destination": "/about/accreditation",
@@ -395,7 +415,7 @@
     ]
   },
   "appDir": "C:\\Users\\Acer\\Downloads\\International coaching Institute\\ici-website",
-  "relativeAppDir": "Downloads\\International coaching Institute\\ici-website",
+  "relativeAppDir": "",
   "files": [
     ".next\\package.json",
     ".next\\routes-manifest.json",
@@ -405,6 +425,8 @@
     ".next\\server\\functions-config-manifest.json",
     ".next\\server\\middleware-manifest.json",
     ".next\\server\\middleware-build-manifest.js",
+    ".next\\server\\middleware-react-loadable-manifest.js",
+    ".next\\react-loadable-manifest.json",
     ".next\\server\\app-paths-manifest.json",
     ".next\\app-path-routes-manifest.json",
     ".next\\server\\server-reference-manifest.js",

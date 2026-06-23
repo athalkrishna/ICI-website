@@ -2,7 +2,7 @@
   "headers": {
     "x-nextjs-stale-time": "300",
     "x-nextjs-prerender": "1",
-    "x-next-cache-tags": "_N_T_/layout,_N_T_/alumni/layout,_N_T_/alumni/page,_N_T_/alumni"
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/alumni/layout,_N_T_/alumni/page,_N_T_/alumni,cms:global,cms:page:/alumni"
   },
   "segmentPaths": [
     "/_tree",

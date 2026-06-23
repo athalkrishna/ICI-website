@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { Calendar, Clock, Link2 } from 'lucide-react';
 import { authorInitials, formatBlogDate } from '@/lib/blog-utils';
-import BlogCategoryBadge from '@/components/blog/BlogCategoryBadge';
 
 type BlogPostMetaBarProps = {
   authorName: string;
@@ -12,7 +11,6 @@ type BlogPostMetaBarProps = {
   readTime: number;
   title: string;
   slug: string;
-  category: string;
 };
 
 function LinkedInIcon({ size = 16 }: { size?: number }) {
@@ -38,7 +36,6 @@ export default function BlogPostMetaBar({
   readTime,
   title,
   slug,
-  category,
 }: BlogPostMetaBarProps) {
   async function shareLinkedIn() {
     const url = `${window.location.origin}/blog/${slug}`;
@@ -85,10 +82,6 @@ export default function BlogPostMetaBar({
             <p className="text-navy-300 text-xs">Author</p>
           </div>
         </div>
-
-        <div className="hidden sm:block w-px h-10 bg-white/10" aria-hidden />
-
-        <BlogCategoryBadge category={category} variant="hero" />
 
         <div className="hidden sm:block w-px h-10 bg-white/10" aria-hidden />
 

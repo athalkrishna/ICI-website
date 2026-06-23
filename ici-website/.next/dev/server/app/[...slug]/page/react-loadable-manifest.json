@@ -1,1 +1,31 @@
-{}
+{
+  "[project]/src/components/layout/MobileMenu.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/components/layout/MobileMenu.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_1665qwm._.js",
+      "static/chunks/src_components_layout_MobileMenu_tsx_02llc-j._.js"
+    ]
+  },
+  "[project]/src/components/layout/TopBarAuthLink.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/components/layout/TopBarAuthLink.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_1xnga09._.js",
+      "static/chunks/src_components_layout_TopBarAuthLink_tsx_02llc-j._.js"
+    ]
+  },
+  "[project]/src/components/newsletter/NewsletterSubscribeForm.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/components/newsletter/NewsletterSubscribeForm.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/src_components_newsletter_NewsletterSubscribeForm_tsx_1tw6hh6._.js",
+      "static/chunks/src_components_newsletter_NewsletterSubscribeForm_tsx_02llc-j._.js"
+    ]
+  },
+  "[project]/src/components/layout/SiteCookieNotice.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/components/layout/SiteCookieNotice.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/src_components_shared_CookieNotice_tsx_16-e9tu._.js",
+      "static/chunks/src_components_layout_SiteCookieNotice_tsx_06iz934._.js",
+      "static/chunks/src_components_layout_SiteCookieNotice_tsx_02llc-j._.js"
+    ]
+  }
+}
