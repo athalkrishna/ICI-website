@@ -10,6 +10,11 @@ import {
   isHomePageSlug,
   lockedHomeHeroDbValue,
 } from '../src/lib/home-hero-defaults';
+import {
+  HOME_SEO_FIELD_KEYS,
+  isHomeSeoLockedField,
+  lockedHomeSeoDbValue,
+} from '../src/lib/home-seo-defaults';
 
 dotenv.config({ path: '.env.local' });
 dotenv.config();
@@ -54,11 +59,17 @@ async function seedUsers() {
   console.log('Seeded admin users');
 }
 
-async function enforceHomeHeroFields(pageId: string) {
+async function enforceHomeLockedFields(pageId: string) {
   for (const key of HOME_HERO_FIELD_KEYS) {
     await prisma.contentField.updateMany({
       where: { pageId, key },
       data: { value: lockedHomeHeroDbValue(key) },
+    });
+  }
+  for (const key of HOME_SEO_FIELD_KEYS) {
+    await prisma.contentField.updateMany({
+      where: { pageId, key },
+      data: { value: lockedHomeSeoDbValue(key) },
     });
   }
 }
@@ -86,8 +97,11 @@ async function seedPages() {
 
     for (const field of pageData.fields) {
       const seedValue =
-        isHomePageSlug(pageData.slug) && isHomeHeroLockedField(field.key)
-          ? lockedHomeHeroDbValue(field.key)
+        isHomePageSlug(pageData.slug) &&
+        (isHomeHeroLockedField(field.key) || isHomeSeoLockedField(field.key))
+          ? isHomeHeroLockedField(field.key)
+            ? lockedHomeHeroDbValue(field.key)
+            : lockedHomeSeoDbValue(field.key)
           : field.value;
 
       await prisma.contentField.upsert({
@@ -116,7 +130,7 @@ async function seedPages() {
     }
 
     if (isHomePageSlug(pageData.slug)) {
-      await enforceHomeHeroFields(page.id);
+      await enforceHomeLockedFields(page.id);
     }
   }
 

@@ -137,9 +137,6 @@ async function main() {
     if (defaults.description) {
       await upsertSimpleField(page.id, 'meta_description', defaults.description, -29);
     }
-    if (seoKeywordsValue) {
-      await upsertSimpleField(page.id, 'meta_keywords', seoKeywordsValue, -25);
-    }
 
     console.log(`[ok] ${slug}${focusValue ? ` → "${focusValue}"` : ''}`);
   }

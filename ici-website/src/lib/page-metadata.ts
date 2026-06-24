@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 import { getPublishedPageContent, getGlobalContent } from '@/lib/content';
 import { cmsField, stripHtml } from '@/lib/cms-helpers';
-import {
-  PAGE_SEO_DEFAULTS,
-  SITE_DEFAULT_KEYWORDS,
-  buildPageKeywordList,
-} from '@/lib/page-seo-defaults';
+import { PAGE_SEO_DEFAULTS } from '@/lib/page-seo-defaults';
+import { HOME_SEO_DEFAULTS } from '@/lib/home-seo-defaults';
+import { isHomePageSlug } from '@/lib/home-hero-defaults';
 import { resolveMetadataTitle } from '@/lib/metadata-title';
 import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
 import { getSiteSettings } from '@/lib/data';
@@ -20,14 +18,6 @@ function publicPath(cmsSlug: string): string {
   return cmsSlug.startsWith('/') ? cmsSlug : `/${cmsSlug}`;
 }
 
-function contentSeoMap(content: Record<string, string>) {
-  return {
-    focus_keyword: cmsField(content, 'focus_keyword', ''),
-    seo_keywords: cmsField(content, 'seo_keywords', ''),
-    meta_keywords: cmsField(content, 'meta_keywords', ''),
-  };
-}
-
 /** Build Next.js metadata from CMS SEO fields for a page slug. */
 export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
   const defaults = PAGE_SEO_DEFAULTS[cmsSlug];
@@ -37,21 +27,19 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
     getSiteSettings(),
   ]);
 
-  const metaTitle =
-    cmsField(content, 'meta_title', '') ||
-    defaults?.title ||
-    cmsField(global, 'default_meta_title', '') ||
-    '';
+  const metaTitle = isHomePageSlug(cmsSlug)
+    ? HOME_SEO_DEFAULTS.meta_title
+    : cmsField(content, 'meta_title', '') ||
+      defaults?.title ||
+      cmsField(global, 'default_meta_title', '') ||
+      '';
 
-  const metaDescription =
-    stripHtml(cmsField(content, 'meta_description', '')) ||
-    defaults?.description ||
-    cmsField(global, 'default_meta_description', SITE_DEFAULT_DESCRIPTION) ||
-    SITE_DEFAULT_DESCRIPTION;
-
-  const keywordList = buildPageKeywordList(contentSeoMap(content), defaults);
-  const keywords =
-    keywordList.length > 0 ? keywordList : cmsSlug === '/' ? SITE_DEFAULT_KEYWORDS : undefined;
+  const metaDescription = isHomePageSlug(cmsSlug)
+    ? HOME_SEO_DEFAULTS.meta_description
+    : stripHtml(cmsField(content, 'meta_description', '')) ||
+      defaults?.description ||
+      cmsField(global, 'default_meta_description', SITE_DEFAULT_DESCRIPTION) ||
+      SITE_DEFAULT_DESCRIPTION;
 
   const path = publicPath(cmsSlug);
   const canonicalUrl = `${SITE_URL}${path}`;
@@ -62,21 +50,20 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
   );
 
   const resolvedTitle = resolveMetadataTitle(metaTitle, {
-    forceAbsolute: defaults?.absolute === true || cmsSlug === '/',
+    forceAbsolute: defaults?.absolute === true || isHomePageSlug(cmsSlug),
   });
 
   const ogTitle =
     typeof resolvedTitle === 'object' && resolvedTitle && 'absolute' in resolvedTitle
       ? resolvedTitle.absolute
       : metaTitle
-        ? metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle
+        ? `${metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle} | ICI`
         : undefined;
 
   const shared: Metadata = {
     description: metaDescription,
     alternates: { canonical: canonicalUrl },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-    ...(keywords ? { keywords } : {}),
     openGraph: {
       title: ogTitle,
       description: metaDescription,

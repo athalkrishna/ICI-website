@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 # Run on Cloudways SSH after Git Pull:
-#   cd ~/applications/gjrsrtruhn/public_html/ici-website
+#   cd ~/applications/tkfxsgmxuc/public_html/ici-website
 #   bash scripts/deploy-cloudways.sh
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 echo "==> Working directory: $(pwd)"
+echo "==> Branch: $(git branch --show-current) @ $(git rev-parse --short HEAD)"
+
+echo ""
+echo "WARNING: Production deploys must use branch 'main' only."
+echo "WARNING: Do NOT run 'npm run db:seed' or 'npm run db:seed-page-seo -- --force' on production."
+echo "         Those commands can overwrite CMS SEO values. Use 'npm run db:repair-home-hero' instead."
+echo ""
 
 echo "==> npm install..."
 npm install --cache "/tmp/npm-cache-$(whoami)"
@@ -30,4 +37,8 @@ fi
 echo "OK: Found ${CSS_COUNT} CSS file(s) in .next/static/css/"
 
 echo ""
-echo "SUCCESS. Now: Cloudways dashboard -> Restart App -> Purge cache."
+echo "SUCCESS. Recommended post-deploy (once per release if homepage reverted):"
+echo "  npm run db:repair-home-hero"
+echo "  npm run db:repair-seo"
+echo ""
+echo "Then: Cloudways dashboard -> Restart App -> Purge cache."

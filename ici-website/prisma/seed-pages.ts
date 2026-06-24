@@ -113,15 +113,6 @@ function seoFields(slug: string, adminTitle: string, pageDescription: string): S
       -26,
       'Public URL path for this page, e.g. /about or /programmes/certified-life-coach',
     ),
-    f(
-      'meta_keywords',
-      'Legacy Meta Keywords',
-      T.TEXT,
-      seoKeywords,
-      SEO_SECTION,
-      -25,
-      'Deprecated — use Focus Keyword and Additional SEO Keywords above. Kept for compatibility.',
-    ),
   ];
 }
 
@@ -471,7 +462,7 @@ const GLOBAL_PAGE: SeedPage = page('global', 'Global — Header & Footer', 'Site
   f('footer_col_2_heading', 'Footer Column 2 Heading', T.TEXT, 'Programmes & Credentials', 'Footer', 13),
   f('footer_col_3_heading', 'Footer Column 3 Heading', T.TEXT, 'About', 'Footer', 14),
   f('footer_col_4_heading', 'Footer Column 4 Heading', T.TEXT, 'Legal', 'Footer', 15),
-  f('default_meta_title', 'Default Meta Title', T.TEXT, 'International Coaching Institute | World-Class Coaching Education', 'SEO Defaults', 19, 'Fallback when a page has no meta title set'),
+  f('default_meta_title', 'Default Meta Title', T.TEXT, 'International Coaching Institute | Become a Certified Coach', 'SEO Defaults', 19, 'Fallback when a page has no meta title set'),
   f('default_meta_description', 'Default Meta Description', T.TEXTAREA, 'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.', 'SEO Defaults', 20, 'Max 160 characters'),
   f('default_og_image', 'Default Social Share Image', T.IMAGE, '/logo-transparent.webp', 'SEO Defaults', 21),
   f('head_code', 'Global Head Code', T.CODE, '', 'Custom Code (Site-wide)', 30, 'DEVELOPER ONLY - Injected into head on every page'),

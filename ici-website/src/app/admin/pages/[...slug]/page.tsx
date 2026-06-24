@@ -22,6 +22,11 @@ import {
   isHomeHeroLockedField,
   lockedHomeHeroDbValue,
 } from '@/lib/home-hero-defaults';
+import {
+  HOME_SEO_FIELD_KEYS,
+  isHomeSeoLockedField,
+  lockedHomeSeoDbValue,
+} from '@/lib/home-seo-defaults';
 import { stripHtml } from '@/lib/cms-helpers';
 
 const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
@@ -103,6 +108,9 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string[
       if (dbSlug === '/') {
         for (const key of HOME_HERO_FIELD_KEYS) {
           initial[key] = lockedHomeHeroDbValue(key);
+        }
+        for (const key of HOME_SEO_FIELD_KEYS) {
+          initial[key] = lockedHomeSeoDbValue(key);
         }
       }
       setValues(initial);
@@ -235,16 +243,18 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string[
   const renderField = (field: ContentField) => {
     const value = values[field.key] ?? '';
 
-    if (dbSlug === '/' && isHomeHeroLockedField(field.key)) {
+    if (dbSlug === '/' && (isHomeHeroLockedField(field.key) || isHomeSeoLockedField(field.key))) {
       const display =
         field.type === 'RICHTEXT' || field.key === 'hero_body'
           ? stripHtml(lockedHomeHeroDbValue(field.key))
-          : lockedHomeHeroDbValue(field.key);
+          : isHomeSeoLockedField(field.key)
+            ? lockedHomeSeoDbValue(field.key)
+            : lockedHomeHeroDbValue(field.key);
       return (
         <div className="rounded-xl border border-navy-100 bg-cream-50 p-3">
           <p className="text-sm text-brand-navy-900 whitespace-pre-wrap">{display}</p>
           <p className="text-xs text-muted mt-2">
-            Fixed homepage copy — always shown on the live site and cannot be edited here.
+            Fixed homepage {isHomeSeoLockedField(field.key) ? 'SEO' : 'copy'} — always shown on the live site and cannot be edited here.
           </p>
         </div>
       );

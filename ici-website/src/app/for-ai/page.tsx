@@ -15,15 +15,6 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: { absolute: FOR_AI_META.title },
   description: FOR_AI_META.description,
-  keywords: [
-    'international coaching institute',
-    'global coaching institute',
-    'coach education institute',
-    'online coaching certification',
-    'professional coaching certification',
-    'international coaching certification',
-    'coach certification program',
-  ],
   robots: { index: true, follow: true },
   alternates: { canonical: `${SITE_URL}/for-ai` },
   openGraph: {
