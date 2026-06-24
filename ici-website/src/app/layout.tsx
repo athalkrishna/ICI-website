@@ -54,6 +54,8 @@ export const metadata: Metadata = {
   },
 }
 
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -61,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${playfair.variable} ${montserrat.variable}`}
     >
       <body className="font-sans bg-white text-brand-navy-700 antialiased">
+        <GoogleAnalytics gaId="G-R2SJ4387X5" />
         <JsonLdScript data={buildOrganizationSchema()} />
         <SiteChromeShell>{children}</SiteChromeShell>
       </body>
