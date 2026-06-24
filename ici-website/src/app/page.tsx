@@ -3,7 +3,7 @@ import AnnouncementBanner from '@/components/home/AnnouncementBanner'
 import AccreditationLogos from '@/components/home/AccreditationLogos'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { pageMetadata } from '@/lib/page-metadata'
+import { HOME_PAGE_METADATA } from '@/lib/home-metadata'
 import { getPageContent } from '@/lib/content'
 import { cmsAnnouncements } from '@/lib/cms-helpers'
 import { getLatestBlogPosts } from '@/lib/data'
@@ -17,11 +17,9 @@ const GlobalReachMap   = dynamic(() => import('@/components/home/GlobalReachMap'
 const LatestBlogPosts  = dynamic(() => import('@/components/home/LatestBlogPosts'),  { ssr: false, loading: () => null })
 const ApplyCTA         = dynamic(() => import('@/components/home/ApplyCTA'),         { ssr: false, loading: () => null })
 
-export async function generateMetadata(): Promise<Metadata> {
-  return pageMetadata('/');
-}
+export const metadata: Metadata = HOME_PAGE_METADATA;
 
-export const revalidate = 300;
+export const dynamic = 'force-static';
 
 export default async function Home() {
   const [content, latestPosts] = await Promise.all([

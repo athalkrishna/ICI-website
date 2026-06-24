@@ -68,6 +68,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/',
+        headers: [{ key: 'X-Robots-Tag', value: 'index, follow, max-image-preview:large' }],
+      },
+      {
         source: '/admin/:path*',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
