@@ -2,6 +2,10 @@
  * Production SEO repair: fix OG image CMS values, unpublish malformed blog posts.
  * Run on server after deploy: npx tsx prisma/repair-production-seo.ts
  */
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
+dotenv.config();
+
 import { prisma } from '../src/lib/prisma';
 import { isValidBlogSlug } from '../src/lib/blog-utils';
 import { PRODUCTION_SITE_URL } from '../src/lib/site-url';
