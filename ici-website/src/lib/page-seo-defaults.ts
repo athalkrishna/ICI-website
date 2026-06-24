@@ -14,49 +14,60 @@ export type PageSeoDefault = {
 
 /**
  * Client-approved keyword map — use ONLY these terms per page.
- * Source: ICI SEO keyword strategy (navigational / informational / transactional).
+ * Updated from ICI master keyword sheet (homepage, credentials, programmes, pricing, levels, blog).
  */
 export const PAGE_KEYWORD_TARGETS: Record<string, { focus: string; additional: string[] }> = {
-  '/': {
-    focus: 'international coaching institute',
-    additional: ['global coaching institute'],
+  '/credentials': {
+    focus: 'professional coaching certification',
+    additional: ['online coaching certification', 'international coaching certification'],
+  },
+  '/pricing': {
+    focus: 'coaching certification cost',
+    additional: ['coaching certification fees', 'coach certification program'],
+  },
+  '/programmes': {
+    focus: 'coach training program',
+    additional: ['coaching certification courses'],
+  },
+  '/programmes/certified-life-coach': {
+    focus: 'transformational coaching certification',
+    additional: ['life coaching course', 'become a certified life coach'],
+  },
+  '/programmes/executive-coaching': {
+    focus: 'executive coach training',
+    additional: ['executive coaching certification', 'leadership coaching certification'],
+  },
+  '/programmes/business-coach': {
+    focus: 'business coach certification',
+    additional: ['business coaching course'],
+  },
+  '/programmes/health-wellness': {
+    focus: 'health and wellness coach training',
+    additional: ['wellness coach certification', 'wellness coaching course'],
+  },
+  '/programmes/team-coaching': {
+    focus: 'leadership coach training',
+    additional: ['corporate coach training'],
   },
   '/about': {
     focus: 'global coaching institute',
     additional: ['coach education institute'],
   },
-  '/programmes': {
-    focus: 'coach certification program',
-    additional: ['coach education institute'],
-  },
-  '/credentials': {
-    focus: 'international coaching certification',
-    additional: ['coach certification program'],
-  },
   '/credentials/catalyst': {
-    focus: 'transformational coaching certification',
+    focus: 'coaching certification for beginners',
+    additional: ['foundation coaching certification'],
+  },
+  '/credentials/architect': {
+    focus: 'advanced coaching certification',
     additional: [],
   },
-  '/programmes/certified-life-coach': {
-    focus: 'online life coach training',
-    additional: ['life coaching course'],
-  },
-  '/programmes/executive-coaching': {
-    focus: 'executive coach training',
-    additional: [
-      'leadership coach training',
-      'executive coaching certification',
-      'leadership coaching certification',
-      'certified executive coach',
-    ],
-  },
-  '/programmes/business-coach': {
-    focus: 'business coaching course',
+  '/credentials/sage': {
+    focus: 'master coaching certification',
     additional: [],
   },
-  '/programmes/health-wellness': {
-    focus: 'wellness coach certification',
-    additional: ['health and wellness coach training', 'wellness coaching course'],
+  '/credentials/luminary': {
+    focus: 'master coach certification',
+    additional: [],
   },
 };
 
@@ -78,12 +89,12 @@ export function approvedKeywordsForPage(slug: string): string[] | undefined {
 }
 
 export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
-  '/': withKeywordTargets('/', {
+  '/': {
     title: 'International Coaching Institute | Become a Certified Coach',
     description:
       'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
     absolute: true,
-  }),
+  },
   '/for-ai': {
     title: 'International Coaching Institute | Global Coaching Certification & Training',
     description:
@@ -102,12 +113,12 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     description:
       'Earn your international coaching certification with ICI. Four progressive levels — Catalyst, Architect, Sage and Luminary — taught one-to-one and online.',
   }),
-  '/pricing': {
+  '/pricing': withKeywordTargets('/pricing', {
     title: 'Pricing',
     description:
       'Transparent pricing for ICI online coach certification: four one-to-one Mastery Pathway levels from Catalyst to Luminary. See costs and enrol level by level.',
     absolute: true,
-  },
+  }),
   '/admissions': {
     title: 'Admissions',
     description:
@@ -262,25 +273,25 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     description: 'How to file a complaint with the International Coaching Institute and our process for resolving it.',
   },
   '/credentials/catalyst': withKeywordTargets('/credentials/catalyst', {
-    title: 'Transformational Coaching Certification Catalyst (Level 1)',
+    title: 'Coaching Certification for Beginners | ICI Catalyst (Level 1)',
     description:
-      'Transformational coaching certification with ICI Catalyst. A one-to-one, online foundation credential: 36 hours of coaching with a professional coach plus guided self-work.',
+      'Foundation coaching certification with ICI Catalyst. A one-to-one, online beginner credential: 36 hours of coaching with a professional coach plus guided self-work.',
   }),
-  '/credentials/architect': {
+  '/credentials/architect': withKeywordTargets('/credentials/architect', {
     title: 'ICI Architect Coach (Level 2) | Professional Certification',
     description:
       'Build a thriving, ethical coaching practice. The ICI Architect Coach certification is 60 hours, one-to-one and online: 20 hours coaching plus 40 hours self-work.',
-  },
-  '/credentials/sage': {
+  }),
+  '/credentials/sage': withKeywordTargets('/credentials/sage', {
     title: 'ICI Sage Coach (Level 3) | Senior Coach Certification',
     description:
       'Coach with depth, range and presence. The ICI Sage Coach certification is 90 hours, one-to-one and online: 30 hours with a master coach plus 60 hours self-work.',
-  },
-  '/credentials/luminary': {
+  }),
+  '/credentials/luminary': withKeywordTargets('/credentials/luminary', {
     title: 'ICI Luminary (Level 4) | The Highest Coaching Distinction',
     description:
       'The ICI Luminary is our highest distinction. 120 hours, one-to-one, for master coaches who shape the field, mentor others and make an original contribution to coaching.',
-  },
+  }),
   '/programmes/certified-life-coach': withKeywordTargets('/programmes/certified-life-coach', {
     title: 'Life Coaching Course | Online Life Coach Training',
     description:
@@ -301,11 +312,11 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     description:
       'Wellness coach certification and health and wellness coach training with ICI. Guide sustainable change, one-to-one and online.',
   }),
-  '/programmes/team-coaching': {
+  '/programmes/team-coaching': withKeywordTargets('/programmes/team-coaching', {
     title: 'Team & Organisational Coaching',
     description:
       'Build a coaching culture with ICI. A team and organisational focus within the Mastery Pathway, delivered one-to-one and online.',
-  },
+  }),
 };
 
 /** Build comma-separated keywords string for CMS seeding. */
