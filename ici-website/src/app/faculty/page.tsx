@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import PageHero from '@/components/layout/PageHero'
+import CoachGrid from '@/components/coaches/CoachGrid'
+import { getPublishedFacultyCoaches } from '@/lib/coaches'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
@@ -13,7 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FacultyResearchPage() {
-  const content = await getPublishedPageContent('/faculty')
+  const [content, facultyCoaches] = await Promise.all([
+    getPublishedPageContent('/faculty'),
+    getPublishedFacultyCoaches(),
+  ])
 
   const themeItems = cmsIndexedWithFallbacks(content, 'theme_', [
     'The inner life of high achievers, including the loneliness of success',
@@ -42,6 +47,10 @@ export default async function FacultyResearchPage() {
             <p className="text-muted text-lg mb-12">
               {stripHtml(cmsHtml(content, 'faculty_section_body', 'ICI faculty combine deep coaching experience with grounding in leadership, psychology, neuroscience and human behaviour. Many continue to coach senior leaders while they teach, so what you learn reflects how coaching actually works today. Because we teach one-to-one, you work closely with a coach matched to your level and focus.'))}
             </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <CoachGrid coaches={facultyCoaches} />
           </AnimatedSection>
         </Container>
       </Section>

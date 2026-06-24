@@ -4,6 +4,8 @@ import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import CoachGrid from '@/components/coaches/CoachGrid'
+import { getPublishedFacultyCoaches } from '@/lib/coaches'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 
@@ -12,7 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function LeadershipFacultyPage() {
-  const content = await getPublishedPageContent('/about/leadership-faculty')
+  const [content, facultyCoaches] = await Promise.all([
+    getPublishedPageContent('/about/leadership-faculty'),
+    getPublishedFacultyCoaches(),
+  ])
 
   return (
     <div className="bg-cream-50 min-h-screen">
@@ -59,6 +64,13 @@ export default async function LeadershipFacultyPage() {
               </Link>
             </div>
           </AnimatedSection>
+
+          {facultyCoaches.length > 0 && (
+            <AnimatedSection delay={0.15} className="mt-20">
+              <h2 className="text-h2 text-brand-navy-900 mb-8">Meet our faculty coaches</h2>
+              <CoachGrid coaches={facultyCoaches} />
+            </AnimatedSection>
+          )}
         </Container>
       </Section>
     </div>

@@ -15,6 +15,7 @@ import {
   Settings,
   UserCog,
   Megaphone,
+  UserRound,
 } from 'lucide-react';
 import PortalSidebar, { type PortalNavItem } from '@/components/portal/PortalSidebar';
 import { formatEnumLabel } from '@/lib/admin-utils';
@@ -28,6 +29,7 @@ const navItems: (PortalNavItem & { superAdminOnly?: boolean })[] = [
   { label: 'Students', href: '/admin/students', icon: GraduationCap },
   { label: 'Course Materials', href: '/admin/materials', icon: BookOpen },
   { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquareQuote },
+  { label: 'Coaches', href: '/admin/coaches', icon: UserRound },
   { label: 'Media Library', href: '/admin/media', icon: ImageIcon },
   { label: 'Newsletter', href: '/admin/newsletter', icon: Megaphone },
   { label: 'Subscriber Lists', href: '/admin/newsletter/subscribers', icon: Users },

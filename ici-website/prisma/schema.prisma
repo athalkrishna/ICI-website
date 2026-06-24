@@ -26,6 +26,11 @@ enum EnrolledLevel {
   LUMINARY
 }
 
+enum CoachAvailability {
+  TAKING_CLIENTS
+  WAITLIST
+}
+
 enum Specialisation {
   LIFE_COACHING
   EXECUTIVE_LEADERSHIP
@@ -465,6 +470,33 @@ model FacultyMember {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("faculty_members")
+}
+
+model Coach {
+  id              String            @id @default(cuid())
+  slug            String            @unique
+  name            String
+  title           String
+  bio             String            @db.Text
+  imageUrl        String?           @map("image_url")
+  specialisation  Specialisation?   @map("specialisation")
+  credentialLevel EnrolledLevel?    @map("credential_level")
+  languages       String            @default("English")
+  location        String?
+  availability    CoachAvailability @default(TAKING_CLIENTS)
+  bookingUrl      String?           @map("booking_url")
+  email           String?
+  linkedinUrl     String?           @map("linkedin_url")
+  showOnFaculty   Boolean           @default(false) @map("show_on_faculty")
+  showInDirectory Boolean           @default(true) @map("show_in_directory")
+  isPublished     Boolean           @default(false) @map("is_published")
+  displayOrder    Int               @default(0) @map("display_order")
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+
+  @@index([isPublished, showInDirectory, displayOrder])
+  @@index([isPublished, showOnFaculty, displayOrder])
+  @@map("coaches")
 }
 
 model MediaFile {
