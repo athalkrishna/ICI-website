@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile } from '@marsidev/react-turnstile';
-import { isBotFieldValue, mapProgrammeInterest, submitLeadRequest } from '@/lib/lead-utils';
+import { mapProgrammeInterest, submitLeadRequest } from '@/lib/lead-utils';
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -17,7 +17,6 @@ const schema = z.object({
   experience: z.string().min(10, 'Please describe your experience'),
   goals: z.string().min(10, 'Please describe your goals'),
   source: z.string().optional(),
-  honeypot: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -44,16 +43,10 @@ export default function ApplyForm({
     defaultValues: {
       country: '',
       level: '',
-      honeypot: '',
     },
   });
 
   const onSubmit = async (data: FormData) => {
-    if (isBotFieldValue(data.honeypot)) {
-      setStatus('success');
-      return;
-    }
-
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
       setErrorMessage('Please complete the CAPTCHA');
       setStatus('error');
@@ -63,7 +56,7 @@ export default function ApplyForm({
     setStatus('submitting');
     setErrorMessage('');
 
-    const { honeypot: _honeypot, source: referralSource, ...fields } = data;
+    const { source: referralSource, ...fields } = data;
 
     try {
       await submitLeadRequest({
@@ -108,18 +101,6 @@ export default function ApplyForm({
 
   return (
     <form className="space-y-6 relative z-10" onSubmit={handleSubmit(onSubmit)}>
-      {/* Honeypot field - invisible to real users */}
-      <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden>
-        <input
-          type="text"
-          {...register('honeypot')}
-          tabIndex={-1}
-          autoComplete="off"
-          data-lpignore="true"
-          data-1p-ignore
-        />
-      </div>
-
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">

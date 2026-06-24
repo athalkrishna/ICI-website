@@ -11,13 +11,12 @@ export default function ProspectusQuickForm() {
 
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email')
-    const honeypot = formData.get('bot_field')
 
     try {
       const response = await fetch('/api/prospectus', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, honeypot }),
+        body: JSON.stringify({ email }),
       })
 
       if (response.ok) {
@@ -40,7 +39,6 @@ export default function ProspectusQuickForm() {
 
   return (
     <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
-      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <input
         type="email"
         name="email"

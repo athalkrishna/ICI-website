@@ -14,11 +14,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { email, name, honeypot, context } = body;
-
-    if (honeypot) {
-      return jsonOk({ success: true });
-    }
+    const { email, name, context } = body;
 
     if (!email?.trim()) {
       return jsonError('Email is required');

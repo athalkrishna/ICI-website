@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile } from '@marsidev/react-turnstile';
-import { isBotFieldValue, submitLeadRequest } from '@/lib/lead-utils';
+import { submitLeadRequest } from '@/lib/lead-utils';
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -15,7 +15,6 @@ const schema = z.object({
   country: z.string().min(2, 'Country and time zone are required'),
   discuss: z.string().min(10, 'Please tell us what you would like to discuss'),
   times: z.string().min(2, 'Please let us know your preferred times'),
-  honeypot: z.string().optional(),
   gdprConsent: z.boolean().refine(val => val === true, 'You must agree to the privacy policy'),
 });
 
@@ -32,17 +31,9 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: {
-      honeypot: '',
-    },
   });
 
   const onSubmit = async (data: FormData) => {
-    if (isBotFieldValue(data.honeypot)) {
-      setStatus('success');
-      return;
-    }
-
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
       setErrorMessage('Please complete the CAPTCHA');
       setStatus('error');
@@ -52,7 +43,7 @@ export default function ContactForm() {
     setStatus('submitting');
     setErrorMessage('');
 
-    const { honeypot: _honeypot, gdprConsent: _gdprConsent, ...fields } = data;
+    const { gdprConsent: _gdprConsent, ...fields } = data;
 
     try {
       await submitLeadRequest({
@@ -92,18 +83,6 @@ export default function ContactForm() {
 
   return (
     <form className="space-y-6 relative z-10" onSubmit={handleSubmit(onSubmit)}>
-      {/* Honeypot field - invisible to real users */}
-      <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden>
-        <input
-          type="text"
-          {...register('honeypot')}
-          tabIndex={-1}
-          autoComplete="off"
-          data-lpignore="true"
-          data-1p-ignore
-        />
-      </div>
-
       <div className="grid md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">

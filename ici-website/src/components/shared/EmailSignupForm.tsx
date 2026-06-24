@@ -23,13 +23,12 @@ export default function EmailSignupForm({
 
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email')
-    const honeypot = formData.get('bot_field')
 
     try {
       const response = await fetch('/api/events-interest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, honeypot, context }),
+        body: JSON.stringify({ email, context }),
       })
 
       if (response.ok) {
@@ -52,7 +51,6 @@ export default function EmailSignupForm({
 
   return (
     <form className={className} onSubmit={handleSubmit}>
-      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <input
         type="email"
         name="email"

@@ -27,7 +27,6 @@ const submitLeadSchema = z.object({
   utmMedium: z.string().optional().nullable(),
   utmCampaign: z.string().optional().nullable(),
   turnstileToken: z.string().optional(),
-  honeypot: z.string().optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -47,10 +46,6 @@ export async function POST(req: NextRequest) {
     }
 
     const data = parsed.data;
-
-    if (data.honeypot) {
-      return jsonOk({ success: true });
-    }
 
     const captcha = await verifyTurnstile(data.turnstileToken, ip);
     if (!captcha.ok) return jsonError(captcha.message);

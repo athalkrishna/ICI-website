@@ -7,7 +7,6 @@ import { getClientIp } from '@/lib/leads';
 
 const subscribeSchema = z.object({
   email: z.string().email('Valid email is required'),
-  honeypot: z.string().optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -23,10 +22,6 @@ export async function POST(req: NextRequest) {
     const parsed = subscribeSchema.safeParse(body);
     if (!parsed.success) {
       return jsonError(parsed.error.issues[0]?.message ?? 'Invalid email');
-    }
-
-    if (parsed.data.honeypot) {
-      return jsonOk({ message: 'Subscribed successfully' });
     }
 
     const email = parsed.data.email.trim().toLowerCase();

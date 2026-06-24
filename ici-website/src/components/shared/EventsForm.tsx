@@ -11,13 +11,12 @@ export default function EventsForm() {
 
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email')
-    const honeypot = formData.get('bot_field')
 
     try {
       const response = await fetch('/api/events-interest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, honeypot, context: 'Events page interest signup' }),
+        body: JSON.stringify({ email, context: 'Events page interest signup' }),
       })
 
       if (response.ok) {
@@ -45,9 +44,6 @@ export default function EventsForm() {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mt-8" id="events-form">
       <div className="flex flex-col sm:flex-row gap-4">
-        {/* Honeypot field */}
-        <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-        
         <input
           type="email"
           name="email"

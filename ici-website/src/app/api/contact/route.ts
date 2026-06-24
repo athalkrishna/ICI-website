@@ -2,11 +2,7 @@ import { NextRequest } from 'next/server';
 import { formRateLimiter } from '@/lib/rate-limit';
 import { jsonOk, jsonError, serverError } from '@/lib/api';
 import { createLead, getClientIp, verifyTurnstile } from '@/lib/leads';
-import { isBotFieldValue, mapProgrammeInterest } from '@/lib/lead-utils';
-
-function isBotSubmission(body: Record<string, unknown>) {
-  return ['website', 'honeypot', 'bot_field', '_hp'].some((key) => isBotFieldValue(body[key]));
-}
+import { mapProgrammeInterest } from '@/lib/lead-utils';
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,10 +15,6 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-
-    if (isBotSubmission(body)) {
-      return jsonOk({ success: true });
-    }
 
     const {
       name,

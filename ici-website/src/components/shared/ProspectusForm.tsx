@@ -15,13 +15,12 @@ export default function ProspectusForm() {
     const email = formData.get('email')
     const country = formData.get('country')
     const interest = formData.get('interest')
-    const honeypot = formData.get('bot_field')
 
     try {
       const response = await fetch('/api/prospectus', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, country, interest, honeypot }),
+        body: JSON.stringify({ name, email, country, interest }),
       })
 
       if (response.ok) {
@@ -53,9 +52,6 @@ export default function ProspectusForm() {
           <p className="text-red-600 font-body">Something went wrong. Please email{' '}<ObfuscatedEmail user="info" domain="internationalcoachinginstitute.org" className="underline font-semibold" /></p>
         </div>
       )}
-
-      {/* Honeypot field */}
-      <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <div className="space-y-2">
         <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider">

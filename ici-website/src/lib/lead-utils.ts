@@ -58,10 +58,6 @@ export function mapProgrammeInterest(value?: string | null): ProgrammeInterestVa
   return 'NOT_SURE';
 }
 
-export function isBotFieldValue(value: unknown): boolean {
-  return typeof value === 'string' && value.trim().length > 0;
-}
-
 export async function submitLeadRequest(payload: {
   fullName: string;
   email: string;

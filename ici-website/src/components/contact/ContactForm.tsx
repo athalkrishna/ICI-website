@@ -57,14 +57,6 @@ export default function ContactForm({ successMessage = 'Thank you. An advisor wi
 
   return (
     <form className="space-y-8 relative z-10" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="website"
-        className="hidden"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-      />
       <div className="grid md:grid-cols-2 gap-8">
         <div className="flex flex-col justify-end h-full relative">
           <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider mb-2 relative z-10">
