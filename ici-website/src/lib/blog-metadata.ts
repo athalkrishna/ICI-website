@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import type { BlogPost } from '@prisma/client';
 import { resolveMetadataTitle } from '@/lib/metadata-title';
 import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
+import { buildBlogKeywordList } from '@/lib/blog-seo';
 
 export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
   const url = `${SITE_URL}/blog/${slug}`;
   const displayTitle = post.metaTitle?.trim() || post.title;
   const description = post.metaDescription?.trim() || post.excerpt;
+  const keywords = buildBlogKeywordList(post);
   const useAbsoluteTitle = Boolean(post.metaTitle?.trim());
   const title = resolveMetadataTitle(displayTitle, { forceAbsolute: useAbsoluteTitle });
   const ogTitle =
@@ -20,6 +22,7 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
   return {
     title,
     description,
+    ...(keywords.length > 0 ? { keywords } : {}),
     alternates: { canonical: `${SITE_URL}/blog/${slug}` },
     openGraph: {
       title: ogTitle,

@@ -18,6 +18,29 @@ function publicPath(cmsSlug: string): string {
   return cmsSlug.startsWith('/') ? cmsSlug : `/${cmsSlug}`;
 }
 
+function resolvePageKeywords(
+  cmsSlug: string,
+  content: Record<string, string>,
+  defaults?: (typeof PAGE_SEO_DEFAULTS)[string],
+): string[] {
+  if (isHomePageSlug(cmsSlug)) return [...HOME_SEO_KEYWORD_LIST];
+
+  const approved = approvedKeywordsForPage(cmsSlug);
+  if (approved) return approved;
+
+  if (defaults?.focusKeyword || defaults?.seoKeywords?.length) {
+    return buildPageKeywordList({}, defaults);
+  }
+
+  return buildPageKeywordList(
+    {
+      focus_keyword: cmsField(content, 'focus_keyword', ''),
+      seo_keywords: cmsField(content, 'seo_keywords', ''),
+    },
+    defaults,
+  );
+}
+
 /** Build Next.js metadata from CMS SEO fields for a page slug. */
 export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
   const defaults = PAGE_SEO_DEFAULTS[cmsSlug];
@@ -60,16 +83,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
         ? `${metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle} | ICI`
         : undefined;
 
-  const keywords = isHomePageSlug(cmsSlug)
-    ? [...HOME_SEO_KEYWORD_LIST]
-    : approvedKeywordsForPage(cmsSlug) ??
-      buildPageKeywordList(
-        {
-          focus_keyword: cmsField(content, 'focus_keyword', ''),
-          seo_keywords: cmsField(content, 'seo_keywords', ''),
-        },
-        defaults,
-      );
+  const keywords = resolvePageKeywords(cmsSlug, content, defaults);
 
   const shared: Metadata = {
     description: metaDescription,
