@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { getPublishedPageContent, getGlobalContent } from '@/lib/content';
 import { cmsField, stripHtml } from '@/lib/cms-helpers';
-import { PAGE_SEO_DEFAULTS } from '@/lib/page-seo-defaults';
-import { HOME_SEO_DEFAULTS } from '@/lib/home-seo-defaults';
+import { PAGE_SEO_DEFAULTS, approvedKeywordsForPage, buildPageKeywordList } from '@/lib/page-seo-defaults';
+import { HOME_SEO_DEFAULTS, HOME_SEO_KEYWORD_LIST } from '@/lib/home-seo-defaults';
 import { isHomePageSlug } from '@/lib/home-hero-defaults';
 import { resolveMetadataTitle } from '@/lib/metadata-title';
 import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
@@ -60,10 +60,22 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
         ? `${metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle} | ICI`
         : undefined;
 
+  const keywords = isHomePageSlug(cmsSlug)
+    ? [...HOME_SEO_KEYWORD_LIST]
+    : approvedKeywordsForPage(cmsSlug) ??
+      buildPageKeywordList(
+        {
+          focus_keyword: cmsField(content, 'focus_keyword', ''),
+          seo_keywords: cmsField(content, 'seo_keywords', ''),
+        },
+        defaults,
+      );
+
   const shared: Metadata = {
     description: metaDescription,
     alternates: { canonical: canonicalUrl },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    ...(keywords.length > 0 ? { keywords } : {}),
     openGraph: {
       title: ogTitle,
       description: metaDescription,

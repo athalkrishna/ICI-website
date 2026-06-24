@@ -27,12 +27,7 @@ const PILLAR = {
   authorName: 'ICI Faculty',
   category: 'COACHING_INSIGHTS' as const,
   focusKeyword: 'become a certified life coach',
-  seoKeywords: [
-    'online life coach training',
-    'life coaching course',
-    'transformational coaching certification',
-    'online coaching certification',
-  ],
+  seoKeywords: ['online life coach training', 'life coaching course'],
   metaTitle: 'How to Become a Certified Life Coach | ICI Guide',
   metaDescription:
     'Learn how to become a certified life coach with ICI: transformational coaching certification, online life coach training, and a clear path from Catalyst to practice.',

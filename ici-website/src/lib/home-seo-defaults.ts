@@ -3,7 +3,14 @@ export const HOME_SEO_DEFAULTS = {
   meta_title: 'International Coaching Institute | Become a Certified Coach',
   meta_description:
     'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+  focus_keyword: 'international coaching institute',
+  seo_keywords: 'global coaching institute',
 } as const;
+
+export const HOME_SEO_KEYWORD_LIST = [
+  HOME_SEO_DEFAULTS.focus_keyword,
+  HOME_SEO_DEFAULTS.seo_keywords,
+] as const;
 
 export const HOME_SEO_FIELD_KEYS = Object.keys(HOME_SEO_DEFAULTS) as (keyof typeof HOME_SEO_DEFAULTS)[];
 
