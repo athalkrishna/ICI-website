@@ -2,20 +2,18 @@ import HeroSection from '@/components/home/HeroSection'
 import AnnouncementBanner from '@/components/home/AnnouncementBanner'
 import AccreditationLogos from '@/components/home/AccreditationLogos'
 import type { Metadata } from 'next'
-import nextDynamic from 'next/dynamic'
+import AudienceCards from '@/components/home/AudienceCards'
+import CredentialPathway from '@/components/home/CredentialPathway'
+import ICIDifference from '@/components/home/ICIDifference'
+import FeaturedProgrammes from '@/components/home/FeaturedProgrammes'
+import Testimonials from '@/components/home/Testimonials'
+import GlobalReachMap from '@/components/home/GlobalReachMap'
+import LatestBlogPosts from '@/components/home/LatestBlogPosts'
+import ApplyCTA from '@/components/home/ApplyCTA'
 import { HOME_PAGE_METADATA } from '@/lib/home-metadata'
 import { getPageContent } from '@/lib/content'
 import { cmsAnnouncements } from '@/lib/cms-helpers'
 import { getLatestBlogPosts } from '@/lib/data'
-
-const AudienceCards    = nextDynamic(() => import('@/components/home/AudienceCards'),    { ssr: false, loading: () => null })
-const CredentialPathway = nextDynamic(() => import('@/components/home/CredentialPathway'), { ssr: false, loading: () => null })
-const ICIDifference    = nextDynamic(() => import('@/components/home/ICIDifference'),    { ssr: false, loading: () => null })
-const FeaturedProgrammes = nextDynamic(() => import('@/components/home/FeaturedProgrammes'), { ssr: false, loading: () => null })
-const Testimonials     = nextDynamic(() => import('@/components/home/Testimonials'),     { ssr: false, loading: () => null })
-const GlobalReachMap   = nextDynamic(() => import('@/components/home/GlobalReachMap'),   { ssr: false, loading: () => null })
-const LatestBlogPosts  = nextDynamic(() => import('@/components/home/LatestBlogPosts'),  { ssr: false, loading: () => null })
-const ApplyCTA         = nextDynamic(() => import('@/components/home/ApplyCTA'),         { ssr: false, loading: () => null })
 
 export const metadata: Metadata = HOME_PAGE_METADATA;
 
