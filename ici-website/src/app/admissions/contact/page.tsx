@@ -7,6 +7,7 @@ import Container from '@/components/layout/Container'
 import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import ObfuscatedEmail from '@/components/shared/ObfuscatedEmail'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/admissions/contact');
@@ -44,9 +45,11 @@ export default async function ContactAdmissionsPage() {
                 {cmsField(content, 'phone_display', '(+91) 98199 84575')}
               </a>{' '}
               {cmsField(content, 'direct_contact_and', 'and')}{' '}
-              <a href="mailto:info@internationalcoachinginstitute.org" className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors">
-                {cmsField(content, 'email_display', 'info@internationalcoachinginstitute.org')}
-              </a>
+              <ObfuscatedEmail
+                user="info"
+                domain="internationalcoachinginstitute.org"
+                className="text-brand-navy-900 font-bold hover:text-brand-gold-500 transition-colors"
+              />
             </p>
           </AnimatedSection>
 

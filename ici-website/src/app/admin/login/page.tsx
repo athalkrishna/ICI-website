@@ -6,7 +6,7 @@ import AuthConfigNotice from '@/components/auth/AuthConfigNotice';
 import PortalLoginShell from '@/components/portal/PortalLoginShell';
 
 export const metadata: Metadata = {
-  title: 'Admin Login | International Coaching Institute',
+  title: 'Admin Login',
 };
 
 export default async function AdminLoginPage() {

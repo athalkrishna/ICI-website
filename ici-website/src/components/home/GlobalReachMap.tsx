@@ -14,12 +14,11 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/global-network-bg.webp"
-          alt=""
+          alt="International Coaching Institute global network of coaches"
           fill
           loading="lazy"
           sizes="100vw"
           className="object-cover opacity-40 object-center mix-blend-screen"
-          aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900 via-brand-navy-900/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900 via-transparent to-brand-navy-900/50" />

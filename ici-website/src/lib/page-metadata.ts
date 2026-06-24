@@ -69,7 +69,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
     typeof resolvedTitle === 'object' && resolvedTitle && 'absolute' in resolvedTitle
       ? resolvedTitle.absolute
       : metaTitle
-        ? `${metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle} | ICI`
+        ? metaTitle.replace(BRAND_SUFFIX_RE, '').trim() || metaTitle
         : undefined;
 
   const shared: Metadata = {

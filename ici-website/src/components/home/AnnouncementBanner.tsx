@@ -26,7 +26,7 @@ export default function AnnouncementBanner({ announcements }: AnnouncementBanner
 
   return (
     <div className="bg-brand-gold-500 text-brand-navy-700 w-full overflow-hidden overflow-x-hidden flex">
-      <div className="flex animate-ticker whitespace-nowrap hover:[animation-play-state:paused] w-max">
+      <div className="flex animate-ticker whitespace-nowrap hover:[animation-play-state:paused] motion-reduce:animate-none w-max">
         {marqueeItems.map((item, i) => (
           <div key={`${item._id}-${i}`} className="flex items-center min-h-[44px] gap-2 mx-10 text-sm font-sans font-semibold shrink-0">
             <span className="text-brand-navy-600"><CalendarIcon /></span>

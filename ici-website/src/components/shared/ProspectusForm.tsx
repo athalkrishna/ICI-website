@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ObfuscatedEmail from '@/components/shared/ObfuscatedEmail'
 
 export default function ProspectusForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -49,7 +50,7 @@ export default function ProspectusForm() {
     <form onSubmit={handleSubmit} className="space-y-6 relative z-10" id="prospectus-form">
       {status === 'error' && (
         <div className="bg-red-600/30 border border-red-600/50 p-4 rounded-xl text-center mb-6">
-          <p className="text-red-600 font-body">Something went wrong. Please email info@internationalcoachinginstitute.org</p>
+          <p className="text-red-600 font-body">Something went wrong. Please email{' '}<ObfuscatedEmail user="info" domain="internationalcoachinginstitute.org" className="underline font-semibold" /></p>
         </div>
       )}
 

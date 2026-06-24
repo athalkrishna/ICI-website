@@ -8,6 +8,7 @@ import Container from '@/components/layout/Container'
 import HeroDecor from '@/components/layout/HeroDecor'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import { ObfuscatedEmailText } from '@/components/shared/ObfuscatedEmail'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/contact');
@@ -86,7 +87,7 @@ export default async function ContactPage() {
                           {cmsField(content, 'email_label', 'Email')}
                         </div>
                         <div className="font-body text-brand-navy-900 break-words">
-                          {cmsField(content, 'email_display', 'info@internationalcoachinginstitute.org')}
+                          <ObfuscatedEmailText user="info" domain="internationalcoachinginstitute.org" />
                         </div>
                       </div>
                     </div>

@@ -8,14 +8,14 @@ import { getPageContent } from '@/lib/content'
 import { cmsAnnouncements } from '@/lib/cms-helpers'
 import { getLatestBlogPosts } from '@/lib/data'
 
-const AudienceCards = dynamic(() => import('@/components/home/AudienceCards'))
-const CredentialPathway = dynamic(() => import('@/components/home/CredentialPathway'))
-const ICIDifference = dynamic(() => import('@/components/home/ICIDifference'))
-const FeaturedProgrammes = dynamic(() => import('@/components/home/FeaturedProgrammes'))
-const Testimonials = dynamic(() => import('@/components/home/Testimonials'))
-const GlobalReachMap = dynamic(() => import('@/components/home/GlobalReachMap'))
-const LatestBlogPosts = dynamic(() => import('@/components/home/LatestBlogPosts'))
-const ApplyCTA = dynamic(() => import('@/components/home/ApplyCTA'))
+const AudienceCards    = dynamic(() => import('@/components/home/AudienceCards'),    { ssr: false, loading: () => null })
+const CredentialPathway = dynamic(() => import('@/components/home/CredentialPathway'), { ssr: false, loading: () => null })
+const ICIDifference    = dynamic(() => import('@/components/home/ICIDifference'),    { ssr: false, loading: () => null })
+const FeaturedProgrammes = dynamic(() => import('@/components/home/FeaturedProgrammes'), { ssr: false, loading: () => null })
+const Testimonials     = dynamic(() => import('@/components/home/Testimonials'),     { ssr: false, loading: () => null })
+const GlobalReachMap   = dynamic(() => import('@/components/home/GlobalReachMap'),   { ssr: false, loading: () => null })
+const LatestBlogPosts  = dynamic(() => import('@/components/home/LatestBlogPosts'),  { ssr: false, loading: () => null })
+const ApplyCTA         = dynamic(() => import('@/components/home/ApplyCTA'),         { ssr: false, loading: () => null })
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/');

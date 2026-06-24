@@ -13,7 +13,7 @@ export function resolveMetadataTitle(
   const topic = trimmed.replace(BRAND_SUFFIX_RE, '').trim() || trimmed;
 
   if (options?.forceAbsolute || trimmed.includes('|')) {
-    return { absolute: `${topic} | ICI` };
+    return { absolute: topic };
   }
 
   return topic;

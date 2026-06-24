@@ -6,7 +6,7 @@ import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Checkout | International Coaching Institute',
+    absolute: 'Checkout',
   },
   description: 'Complete your enrolment to the International Coaching Institute.',
 };

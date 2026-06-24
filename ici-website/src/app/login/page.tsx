@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import PortalLoginShell from '@/components/portal/PortalLoginShell';
 
 export const metadata: Metadata = {
-  title: 'Log In | International Coaching Institute',
+  title: 'Log In',
   description:
     'Log in to your ICI student portal to access materials, credentials and programme resources.',
 };

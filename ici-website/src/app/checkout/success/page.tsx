@@ -9,7 +9,7 @@ import PageHero from '@/components/layout/PageHero'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Enrolment Successful | International Coaching Institute',
+    absolute: 'Enrolment Successful',
   },
   description: 'Your payment was successful and your place is confirmed.',
 };

@@ -50,7 +50,7 @@ export function metadataFromSanitySeo(
   const seo = doc.seo;
   const slug = doc.slug?.current ?? '';
   const canonical = seo?.canonicalUrl ?? `${SITE}${pathPrefix}/${slug}`.replace(/\/+/g, '/');
-  const metaTitle = seo?.metaTitle ?? `${doc.title} | International Coaching Institute`;
+  const metaTitle = seo?.metaTitle ?? `${doc.title}`;
   const metaDescription = seo?.metaDescription ?? '';
   const ogTitle = seo?.ogTitle ?? metaTitle;
   const ogDescription = seo?.ogDescription ?? metaDescription;

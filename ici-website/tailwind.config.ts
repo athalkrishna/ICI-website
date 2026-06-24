@@ -78,7 +78,7 @@ const config: Config = {
         'fade-in':     'fadeIn 0.8s ease-out forwards',
         'pulse-dot':   'pulseDot 2s ease-in-out infinite',
         'shimmer':     'shimmer 2s linear infinite',
-        'ticker':      'ticker 30s linear infinite',
+        'ticker':      'ticker 60s linear infinite',
       },
       keyframes: {
         fadeUp:    { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },

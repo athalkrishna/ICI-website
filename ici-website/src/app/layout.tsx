@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
 import SiteChromeShell from '@/components/layout/SiteChromeShell'
@@ -22,11 +22,16 @@ const montserrat = Montserrat({
   adjustFontFallback: true,
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0A1F44',
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: 'International Coaching Institute | Become a Certified Coach',
-    template: '%s | ICI',
   },
   description:
     'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Loader2 } from 'lucide-react';
+import ObfuscatedEmail from '@/components/shared/ObfuscatedEmail';
 
 type ContactFormProps = {
   successMessage?: string;
@@ -165,7 +166,7 @@ export default function ContactForm({ successMessage = 'Thank you. An advisor wi
 
       {error && (
         <div className="text-red-600 font-sans text-sm p-3 border border-red-200 bg-red-50 rounded-lg">
-          Something went wrong. Please email info@internationalcoachinginstitute.org.
+          Something went wrong. Please email{' '}<ObfuscatedEmail user="info" domain="internationalcoachinginstitute.org" className="underline font-semibold" />.
         </div>
       )}
 

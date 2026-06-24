@@ -14,7 +14,7 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
   const ogTitle =
     typeof title === 'object' && title && 'absolute' in title
       ? title.absolute
-      : `${displayTitle} | ICI`;
+      : displayTitle;
 
   const ogImageUrl = resolveOgImageUrl(post.coverImageUrl || SITE_LOGO_PATH);
   const ogImageAlt = post.coverImageAlt?.trim() || (post.coverImageUrl ? post.title : 'International Coaching Institute logo');

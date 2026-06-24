@@ -5,7 +5,7 @@ import AdminProviders from './AdminProviders';
 import AdminLayoutShell from '@/components/admin/AdminLayoutShell';
 
 export const metadata: Metadata = {
-  title: 'Admin | International Coaching Institute',
+  title: 'Admin',
   robots: { index: false, follow: false },
 };
 

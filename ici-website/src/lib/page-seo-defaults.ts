@@ -87,9 +87,9 @@ function withKeywordTargets(slug: string, base: PageSeoDefault): PageSeoDefault 
 
 export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
   '/': {
-    title: 'International Coaching Institute | Become a Certified Coach',
+    title: 'Online Coaching Certification | Mastery Pathway | International Coaching Institute',
     description:
-      'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+      'Explore the Mastery Pathway at the International Coaching Institute. Earn your online coaching certification through guided work and dedicated hours of one-to-one online coaching.',
     focusKeyword: 'coaching certification',
     seoKeywords: [
       'online coaching course',
@@ -113,12 +113,12 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     absolute: true,
   },
   '/programmes': withKeywordTargets('/programmes', {
-    title: 'Coach Certification Programs & Specialisations | ICI',
+    title: 'Coach Certification Programs & Specialisations',
     description:
       'Explore ICI coach certification programs: the four-level Mastery Pathway plus specialisations in life, executive, business, wellness and team coaching. One-to-one and online.',
   }),
   '/credentials': withKeywordTargets('/credentials', {
-    title: 'Online Coaching Certification | ICI Mastery Pathway',
+    title: 'Online Coaching Certification Mastery Pathway',
     description:
       'Earn your online coaching certification with ICI. Four progressive levels — Catalyst, Architect, Sage and Luminary — professional coaching certification taught one-to-one and online.',
   }),
@@ -129,18 +129,18 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     absolute: true,
   },
   '/admissions': {
-    title: 'Admissions | International Coaching Institute',
+    title: 'Admissions',
     description:
       'How to join ICI: choose your level, apply free, speak with an advisor and begin one-to-one coaching training online.',
     absolute: true,
   },
   '/admissions/contact': {
-    title: 'Speak to an Advisor | ICI Admissions',
+    title: 'Speak to an Advisor Admissions',
     description:
       'Talk to an ICI advisor about programmes, levels, timing or cost. No script and no pressure, just a straight conversation to help you decide.',
   },
   '/admissions/assessment': {
-    title: 'Admissions Assessment | International Coaching Institute',
+    title: 'Admissions Assessment',
     description:
       'Answer a few quick questions to discover which coaching credential level aligns with your experience and goals.',
     absolute: true,
@@ -172,31 +172,31 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     ],
   },
   '/about/history': {
-    title: 'History & Heritage | International Coaching Institute',
+    title: 'History & Heritage',
     description:
       'The heritage behind ICI: coaching craft, behavioural science and one-to-one teaching traditions that shape how we train coaches today.',
   },
   '/about/leadership-faculty': {
-    title: 'Leadership & Faculty | International Coaching Institute',
+    title: 'Leadership & Faculty',
     description: 'Our faculty are practicing coaches who deliver live, online, one-to-one programmes.',
   },
   '/about/press': {
-    title: 'Press & Media | International Coaching Institute',
+    title: 'Press & Media',
     description:
       'Media enquiries, commentary and press resources from the International Coaching Institute on coaching, leadership and human change.',
   },
   '/about/partnerships': {
-    title: 'Partnerships & Alliances | International Coaching Institute',
+    title: 'Partnerships & Alliances',
     description:
       'Partner with ICI: organisational training, institutional programmes, referral alliances and community collaborations.',
   },
   '/about/annual-reports': {
-    title: 'Annual Reports | International Coaching Institute',
+    title: 'Annual Reports',
     description:
       'ICI annual reports on coaches trained, assessment standards, community activity and institutional transparency.',
   },
   '/about/global': {
-    title: 'Global Presence | International Coaching Institute',
+    title: 'Global Presence',
     description:
       'Delivered entirely online, ICI trains coaches across many countries and time zones. Our campus is the community, not a building.',
   },
@@ -206,7 +206,7 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'How ICI holds its coaching standard, the bodies we work with and the recognition behind our credentials, stated plainly.',
   },
   '/about/mission': {
-    title: 'Our Mission | International Coaching Institute',
+    title: 'Our Mission',
     description:
       'ICI mission, vision and values: raising the standard of coaching through skill, self-awareness and rigorous one-to-one training.',
     absolute: true,
@@ -217,32 +217,32 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'Coaching can be solitary work. The ICI community connects coaches worldwide for supervision, referrals and real support, long after they qualify.',
   },
   '/future-students': {
-    title: 'Future Students | International Coaching Institute',
+    title: 'Future Students',
     description:
       'Thinking about becoming a coach? Everything a prospective ICI student needs: the Mastery Pathway, specialisations, pricing and a free assessment to find your level.',
   },
   '/current-students': {
-    title: 'Current Students | International Coaching Institute',
+    title: 'Current Students',
     description:
       'Your ICI student hub: cohort schedule, session links, materials, supervision and support. Everything you need while you train, in one place.',
   },
   '/organisations': {
-    title: 'Coaching for Organisations | ICI',
+    title: 'Coaching for Organisations',
     description:
       'Build a coaching culture with ICI. Train managers and internal coaches one-to-one, develop leaders, and make feedback and accountability part of how people work.',
   },
   '/alumni': {
-    title: 'ICI Alumni | International Coaching Institute',
+    title: 'ICI Alumni',
     description:
       'ICI alumni stay connected for supervision, referrals, continued learning and friendship. Qualifying is the beginning of your relationship with the institute.',
   },
   '/faculty-staff': {
-    title: 'Faculty & Staff | International Coaching Institute',
+    title: 'Faculty & Staff',
     description:
       'Resources and tools for ICI faculty and staff: schedules, supervision, internal systems and support. Everything the team needs, in one place.',
   },
   '/resources': {
-    title: 'Coaching Resources, Insights & Prospectus | ICI',
+    title: 'Coaching Resources, Insights & Prospectus',
     description:
       'Free coaching resources from ICI: articles on leadership, psychology and change, plus the prospectus. Practical thinking for coaches and the people they serve.',
   },
@@ -252,12 +252,12 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'Download the International Coaching Institute prospectus: the Mastery Pathway, specialisations, pricing and admissions, in one clear PDF.',
   },
   '/prospectus': {
-    title: 'Prospectus | International Coaching Institute',
+    title: 'Prospectus',
     description:
       'Request the ICI prospectus: programmes, credentials, pricing and admissions in one comprehensive guide to coaching certification.',
   },
   '/events': {
-    title: 'Coaching Events, Summits & Masterclasses | ICI',
+    title: 'Coaching Events, Summits & Masterclasses',
     description:
       'Join ICI events: masterclasses, summits and live sessions for coaches and leaders. Learn, connect and grow with the wider coaching community.',
   },
@@ -267,26 +267,26 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'Looking for a coach you can trust? Find an ICI-certified coach by specialism, level and language. Every coach here earned their credential through real practice.',
   },
   '/blog': {
-    title: 'Coaching Insights & Articles | ICI Blog',
+    title: 'Coaching Insights & Articles Blog',
     description:
       'Read the latest thinking from ICI on coaching, leadership, psychology and human change. Practical insights for coaches and the people they lead.',
   },
   '/terms': {
-    title: 'Terms of Service | International Coaching Institute',
+    title: 'Terms of Service',
     description:
       'The terms that govern your use of the ICI website and our programmes, including enrolment, payment, intellectual property and liability.',
   },
   '/privacy': {
-    title: 'Privacy Policy | International Coaching Institute',
+    title: 'Privacy Policy',
     description:
       'How the International Coaching Institute collects, uses and protects your personal data, and the rights you have over it.',
   },
   '/complaints': {
-    title: 'Complaints Policy | International Coaching Institute',
+    title: 'Complaints Policy',
     description: 'How to file a complaint with the International Coaching Institute and our process for resolving it.',
   },
   '/credentials/catalyst': withKeywordTargets('/credentials/catalyst', {
-    title: 'Transformational Coaching Certification | ICI Catalyst (Level 1)',
+    title: 'Transformational Coaching Certification Catalyst (Level 1)',
     description:
       'Transformational coaching certification with ICI Catalyst. A one-to-one, online foundation credential: 36 hours of coaching with a professional coach plus guided self-work.',
   }),
@@ -306,27 +306,27 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
       'The ICI Luminary is our highest distinction. 120 hours, one-to-one, for master coaches who shape the field, mentor others and make an original contribution to coaching.',
   },
   '/programmes/certified-life-coach': withKeywordTargets('/programmes/certified-life-coach', {
-    title: 'Life Coaching Course | Online Life Coach Training | ICI',
+    title: 'Life Coaching Course | Online Life Coach Training',
     description:
       'ICI life coaching course and online life coach training within the Mastery Pathway. Learn to guide clients through real change, one-to-one and online.',
   }),
   '/programmes/executive-coaching': withKeywordTargets('/programmes/executive-coaching', {
-    title: 'Executive Coach Training & Leadership Coaching Certification | ICI',
+    title: 'Executive Coach Training & Leadership Coaching Certification',
     description:
       'Executive coach training and leadership coaching certification with ICI. Coach senior leaders one-to-one and online within the four-level Mastery Pathway.',
   }),
   '/programmes/business-coach': withKeywordTargets('/programmes/business-coach', {
-    title: 'Business Coaching Course | ICI Certification',
+    title: 'Business Coaching Course Certification',
     description:
       'Business coaching course with ICI. Help founders and owners build companies that work — one-to-one, online, within the Mastery Pathway.',
   }),
   '/programmes/health-wellness': withKeywordTargets('/programmes/health-wellness', {
-    title: 'Wellness Coach Certification | Health & Wellness Training | ICI',
+    title: 'Wellness Coach Certification | Health & Wellness Training',
     description:
       'Wellness coach certification and health and wellness coach training with ICI. Guide sustainable change, one-to-one and online.',
   }),
   '/programmes/team-coaching': {
-    title: 'Team & Organisational Coaching | ICI',
+    title: 'Team & Organisational Coaching',
     description:
       'Build a coaching culture with ICI. A team and organisational focus within the Mastery Pathway, delivered one-to-one and online.',
   },

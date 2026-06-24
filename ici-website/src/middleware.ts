@@ -4,8 +4,10 @@ import { NextRequest, NextResponse } from 'next/server';
 const CANONICAL_HOST = 'internationalcoachinginstitute.org';
 
 function httpsRedirect(req: NextRequest, host: string): NextResponse | null {
-  const proto = req.headers.get('x-forwarded-proto');
-  if (proto !== 'http') return null;
+  if (host.includes('localhost')) return null;
+  
+  const proto = req.headers.get('x-forwarded-proto') || req.nextUrl.protocol.replace(':', '');
+  if (proto === 'https') return null;
 
   const url = req.nextUrl.clone();
   url.protocol = 'https:';

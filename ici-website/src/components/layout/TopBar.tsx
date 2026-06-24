@@ -2,6 +2,7 @@
 import { Phone, Mail, Globe, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import Container from '@/components/layout/Container'
+import ObfuscatedEmail from '@/components/shared/ObfuscatedEmail'
 
 const audiences = [
   { label: 'Future Students', href: '/future-students' },
@@ -22,10 +23,11 @@ export default function TopBar({ isLoggedIn = false }: { isLoggedIn?: boolean })
             <Phone size={12} />
             (+91) 98199 84575
           </a>
-          <a href="mailto:info@internationalcoachinginstitute.org" className="flex items-center gap-1.5 hover:text-brand-gold-400 transition-colors">
-            <Mail size={12} />
-            info@internationalcoachinginstitute.org
-          </a>
+          <ObfuscatedEmail
+            user="info"
+            domain="internationalcoachinginstitute.org"
+            className="flex items-center gap-1.5 hover:text-brand-gold-400 transition-colors"
+          />
           <div className="flex items-center gap-1.5 cursor-pointer hover:text-brand-gold-400 transition-colors">
             <Globe size={12} />
             <span>Language: English</span>

@@ -3,7 +3,7 @@ import DashboardProviders from './DashboardProviders';
 import DashboardPortalShell from './DashboardPortalShell';
 
 export const metadata = {
-  title: 'Student Portal | International Coaching Institute',
+  title: 'Student Portal',
   robots: { index: false, follow: false },
 };
 
