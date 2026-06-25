@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { HOME_SEO_DEFAULTS, HOME_SEO_KEYWORD_LIST, homeCanonicalUrl } from '@/lib/home-seo-defaults';
-import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
+import { SITE_URL, SITE_OG_IMAGE_PATH, resolveOgImageUrl } from '@/lib/site-url';
 
 /** Sync homepage metadata — no DB fetch, always in initial HTML for crawlers and SEO tools. */
 export const HOME_PAGE_METADATA: Metadata = {
@@ -28,10 +28,10 @@ export const HOME_PAGE_METADATA: Metadata = {
     locale: 'en_GB',
     images: [
       {
-        url: resolveOgImageUrl(SITE_LOGO_PATH),
+        url: resolveOgImageUrl(SITE_OG_IMAGE_PATH),
         width: 1200,
         height: 630,
-        alt: 'International Coaching Institute logo',
+        alt: 'International Coaching Institute — Developing Leaders. Empowering Futures.',
       },
     ],
   },
@@ -39,6 +39,6 @@ export const HOME_PAGE_METADATA: Metadata = {
     card: 'summary_large_image',
     title: HOME_SEO_DEFAULTS.meta_title,
     description: HOME_SEO_DEFAULTS.meta_description,
-    images: [resolveOgImageUrl(SITE_LOGO_PATH)],
+    images: [resolveOgImageUrl(SITE_OG_IMAGE_PATH)],
   },
 };

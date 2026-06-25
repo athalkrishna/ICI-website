@@ -1,5 +1,6 @@
 import { getGlobalContent } from '@/lib/content';
 import { getSiteSettings } from '@/lib/data';
+import { DEFAULT_GA_MEASUREMENT_ID } from '@/lib/site-url';
 import SiteChrome from '@/components/layout/SiteChrome';
 import AppProviders from '@/components/providers/AppProviders';
 import DeferredAnalytics from '@/components/DeferredAnalytics';
@@ -17,7 +18,8 @@ export default async function SiteChromeShell({ children }: { children: React.Re
 
   try {
     const siteSettings = await getSiteSettings();
-    googleAnalyticsId = siteSettings?.googleAnalyticsId ?? null;
+    googleAnalyticsId =
+      siteSettings?.googleAnalyticsId?.trim() || DEFAULT_GA_MEASUREMENT_ID;
     facebookPixelId = siteSettings?.facebookPixelId ?? null;
   } catch (error) {
     console.warn('[SiteChromeShell] getSiteSettings failed:', error);

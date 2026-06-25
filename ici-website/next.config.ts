@@ -62,7 +62,7 @@ const nextConfig: NextConfig = {
       { source: '/programs/:path*', destination: '/programmes/:path*', permanent: true },
       { source: '/organizations', destination: '/organisations', permanent: true },
       { source: '/organizations/:path*', destination: '/organisations/:path*', permanent: true },
-
+      { source: '/home', destination: '/', permanent: true },
     ];
   },
   async headers() {

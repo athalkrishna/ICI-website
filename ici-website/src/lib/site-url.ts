@@ -1,8 +1,14 @@
 /** Canonical production domain — used when env points at staging/localhost. */
 export const PRODUCTION_SITE_URL = 'https://internationalcoachinginstitute.org';
 
-/** Primary ICI logo — default for OG/Twitter, JSON-LD, and social sharing. */
+/** Primary ICI logo — JSON-LD and in-site branding (not the social share card). */
 export const SITE_LOGO_PATH = '/logo-transparent.webp';
+
+/** Default Open Graph / Twitter card image when a page has no custom share image. */
+export const SITE_OG_IMAGE_PATH = '/ici-social-share.png';
+
+/** Production Google Analytics 4 measurement ID. */
+export const DEFAULT_GA_MEASUREMENT_ID = 'G-R2SJ4387X5';
 
 function normalizeOrigin(url: string): string {
   return url.replace(/\/$/, '');
@@ -54,10 +60,11 @@ export function resolveSiteUrl(): string {
 
 export const SITE_URL = resolveSiteUrl();
 export const SITE_LOGO_URL = `${SITE_URL}${SITE_LOGO_PATH}`;
+export const SITE_OG_IMAGE_URL = `${SITE_URL}${SITE_OG_IMAGE_PATH}`;
 
-/** Normalize social share image URLs — never emit localhost/staging/deprecated og-image assets. */
+/** Normalize social share image URLs — never emit localhost/staging/deprecated assets. */
 export function resolveOgImageUrl(raw: string | undefined | null): string {
-  const fallback = SITE_LOGO_URL;
+  const fallback = SITE_OG_IMAGE_URL;
   const value = raw?.trim();
   if (!value) return fallback;
 

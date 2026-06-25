@@ -464,7 +464,7 @@ const GLOBAL_PAGE: SeedPage = page('global', 'Global — Header & Footer', 'Site
   f('footer_col_4_heading', 'Footer Column 4 Heading', T.TEXT, 'Legal', 'Footer', 15),
   f('default_meta_title', 'Default Meta Title', T.TEXT, 'International Coaching Institute | Become a Certified Coach', 'SEO Defaults', 19, 'Fallback when a page has no meta title set'),
   f('default_meta_description', 'Default Meta Description', T.TEXTAREA, 'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.', 'SEO Defaults', 20, 'Max 160 characters'),
-  f('default_og_image', 'Default Social Share Image', T.IMAGE, '/logo-transparent.webp', 'SEO Defaults', 21),
+  f('default_og_image', 'Default Social Share Image', T.IMAGE, '/ici-social-share.png', 'SEO Defaults', 21),
   f('head_code', 'Global Head Code', T.CODE, '', 'Custom Code (Site-wide)', 30, 'DEVELOPER ONLY - Injected into head on every page'),
   f('body_code', 'Global Body Code', T.CODE, '', 'Custom Code (Site-wide)', 31, 'DEVELOPER ONLY - Injected at bottom of body'),
 ]);

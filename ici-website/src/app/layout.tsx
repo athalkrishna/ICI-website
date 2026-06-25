@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
 import SiteChromeShell from '@/components/layout/SiteChromeShell'
-import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url'
+import { SITE_URL, SITE_OG_IMAGE_PATH, resolveOgImageUrl } from '@/lib/site-url'
 import { buildOrganizationSchema } from '@/lib/structured-data'
 import JsonLdScript from '@/components/seo/JsonLdScript'
 
@@ -47,14 +47,14 @@ export const metadata: Metadata = {
     siteName: 'International Coaching Institute',
     images: [
       {
-        url: resolveOgImageUrl(SITE_LOGO_PATH),
-        alt: 'International Coaching Institute logo',
+        url: resolveOgImageUrl(SITE_OG_IMAGE_PATH),
+        width: 1200,
+        height: 630,
+        alt: 'International Coaching Institute — Developing Leaders. Empowering Futures.',
       },
     ],
   },
 }
-
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -63,7 +63,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${playfair.variable} ${montserrat.variable}`}
     >
       <body className="font-sans bg-white text-brand-navy-700 antialiased">
-        <GoogleAnalytics gaId="G-R2SJ4387X5" />
         <JsonLdScript data={buildOrganizationSchema()} />
         <SiteChromeShell>{children}</SiteChromeShell>
       </body>

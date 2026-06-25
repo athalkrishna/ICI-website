@@ -151,8 +151,8 @@ async function seedSiteSettings() {
       copyrightText: 'Copyright © 2026 International Coaching Institute. All rights reserved.',
       defaultMetaDescription:
         'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
-      defaultOgImageUrl: 'https://internationalcoachinginstitute.org/logo-transparent.webp',
-      googleAnalyticsId: '',
+      defaultOgImageUrl: 'https://internationalcoachinginstitute.org/ici-social-share.png',
+      googleAnalyticsId: 'G-R2SJ4387X5',
       facebookPixelId: '',
       headCode: '',
       bodyCode: '',
@@ -169,7 +169,8 @@ async function seedSiteSettings() {
       copyrightText: 'Copyright © 2026 International Coaching Institute. All rights reserved.',
       defaultMetaDescription:
         'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
-      defaultOgImageUrl: 'https://internationalcoachinginstitute.org/logo-transparent.webp',
+      defaultOgImageUrl: 'https://internationalcoachinginstitute.org/ici-social-share.png',
+      googleAnalyticsId: 'G-R2SJ4387X5',
     },
   });
 

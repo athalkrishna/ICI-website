@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { BlogPost } from '@prisma/client';
 import { resolveMetadataTitle } from '@/lib/metadata-title';
-import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
+import { SITE_URL, SITE_OG_IMAGE_PATH, resolveOgImageUrl } from '@/lib/site-url';
 import { buildBlogKeywordList } from '@/lib/blog-seo';
 
 export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
@@ -16,7 +16,7 @@ export function buildBlogPostMetadata(post: BlogPost, slug: string): Metadata {
       ? title.absolute
       : displayTitle;
 
-  const ogImageUrl = resolveOgImageUrl(post.coverImageUrl || SITE_LOGO_PATH);
+  const ogImageUrl = resolveOgImageUrl(post.coverImageUrl || SITE_OG_IMAGE_PATH);
   const ogImageAlt = post.coverImageAlt?.trim() || (post.coverImageUrl ? post.title : 'International Coaching Institute logo');
 
   return {

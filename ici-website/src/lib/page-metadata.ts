@@ -5,7 +5,7 @@ import { PAGE_SEO_DEFAULTS, approvedKeywordsForPage, buildPageKeywordList } from
 import { HOME_SEO_DEFAULTS, HOME_SEO_KEYWORD_LIST, homeCanonicalUrl } from '@/lib/home-seo-defaults';
 import { isHomePageSlug } from '@/lib/home-hero-defaults';
 import { resolveMetadataTitle } from '@/lib/metadata-title';
-import { SITE_URL, SITE_LOGO_PATH, resolveOgImageUrl } from '@/lib/site-url';
+import { SITE_URL, SITE_OG_IMAGE_PATH, resolveOgImageUrl } from '@/lib/site-url';
 import { getSiteSettings } from '@/lib/data';
 
 const BRAND_SUFFIX_RE = /\s*\|\s*(International Coaching Institute|ICI)\s*$/i;
@@ -69,7 +69,7 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
   const ogImage = resolveOgImageUrl(
     cmsField(global, 'default_og_image', '') ||
       siteSettings?.defaultOgImageUrl ||
-      SITE_LOGO_PATH,
+      SITE_OG_IMAGE_PATH,
   );
 
   const resolvedTitle = resolveMetadataTitle(metaTitle, {

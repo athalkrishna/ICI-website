@@ -10,13 +10,15 @@ type DeferredAnalyticsProps = {
   facebookPixelId?: string | null;
 };
 
+import { DEFAULT_GA_MEASUREMENT_ID } from '@/lib/site-url';
+
 /** Load analytics only after user interaction or delay — keeps Lighthouse Performance higher. */
 export default function DeferredAnalytics({
   googleAnalyticsId,
   facebookPixelId,
 }: DeferredAnalyticsProps) {
   const pathname = usePathname();
-  const gaId = googleAnalyticsId?.trim() || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const gaId = googleAnalyticsId?.trim() || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || DEFAULT_GA_MEASUREMENT_ID;
   const pixelId = facebookPixelId?.trim() || process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const [enabled, setEnabled] = useState(false);
 
