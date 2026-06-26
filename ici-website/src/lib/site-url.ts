@@ -4,8 +4,15 @@ export const PRODUCTION_SITE_URL = 'https://internationalcoachinginstitute.org';
 /** Primary ICI logo — JSON-LD and in-site branding (not the social share card). */
 export const SITE_LOGO_PATH = '/logo-transparent.webp';
 
-/** Default Open Graph / Twitter card image when a page has no custom share image. */
-export const SITE_OG_IMAGE_PATH = '/ici-social-share.png';
+/** Default Open Graph / Twitter card image when a page has no custom share image.
+ *  High-resolution 1200×630 landscape PNG for crisp display on all social platforms.
+ */
+export const SITE_OG_IMAGE_PATH = '/ici-og-facebook.png';
+
+/** Platform-specific social share images — each sized for optimal display. */
+export const SITE_TWITTER_IMAGE_PATH = '/ici-og-twitter.png';   // 1200×675 (16:9)
+export const SITE_LINKEDIN_IMAGE_PATH = '/ici-og-linkedin.png'; // 1200×627
+export const SITE_INSTAGRAM_IMAGE_PATH = '/ici-og-instagram.png'; // 1080×1080 (square, for manual posts)
 
 /** Production Google Analytics 4 measurement ID. */
 export const DEFAULT_GA_MEASUREMENT_ID = 'G-R2SJ4387X5';

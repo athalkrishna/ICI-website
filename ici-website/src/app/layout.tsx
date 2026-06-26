@@ -48,11 +48,20 @@ export const metadata: Metadata = {
     images: [
       {
         url: resolveOgImageUrl(SITE_OG_IMAGE_PATH),
+        secureUrl: resolveOgImageUrl(SITE_OG_IMAGE_PATH),
         width: 1200,
         height: 630,
         alt: 'International Coaching Institute — Developing Leaders. Empowering Futures.',
+        type: 'image/png',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'International Coaching Institute | Become a Certified Coach',
+    description:
+      'Train and certify as a coach with the International Coaching Institute. One-to-one, online programmes blending coaching craft with psychology and neuroscience.',
+    images: [resolveOgImageUrl(SITE_OG_IMAGE_PATH)],
   },
 }
 
