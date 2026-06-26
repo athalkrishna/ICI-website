@@ -1,1 +1,1 @@
-self.__RSC_SERVER_MANIFEST="{\"node\":{},\"edge\":{},\"encryptionKey\":\"process.env.NEXT_SERVER_ACTIONS_ENCRYPTION_KEY\"}"
+self.__RSC_SERVER_MANIFEST="{\"node\":{\"40b6780f5c289af8ef541c8da6224d7250b19d3562\":{\"workers\":{\"app/verify/page\":{\"moduleId\":\"27295\",\"async\":false}},\"filename\":\"../C:\\\\Users\\\\Acer\\\\Downloads\\\\International coaching Institute\\\\ici-website\\\\src\\\\app\\\\verify\\\\actions.ts\",\"exportedName\":\"verifyCredential\"}},\"edge\":{},\"encryptionKey\":\"process.env.NEXT_SERVER_ACTIONS_ENCRYPTION_KEY\"}"

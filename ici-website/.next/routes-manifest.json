@@ -108,9 +108,31 @@
       "destination": "/organisations/:path*",
       "statusCode": 308,
       "regex": "^(?!/_next)/organizations(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/home(?:/)?$"
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/home/(?:/)?$"
     }
   ],
   "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow, max-image-preview:large"
+        }
+      ],
+      "regex": "^/(?:/)?$"
+    },
     {
       "source": "/admin/:path*",
       "headers": [
@@ -172,6 +194,14 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/api/admin/blog/(?<nxtPid>[^/]+?)/publish(?:/)?$"
+    },
+    {
+      "page": "/api/admin/coaches/[id]",
+      "regex": "^/api/admin/coaches/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/coaches/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
       "page": "/api/admin/events/[id]",
@@ -460,6 +490,12 @@
       "namedRegex": "^/admin/blog(?:/)?$"
     },
     {
+      "page": "/admin/coaches",
+      "regex": "^/admin/coaches(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/coaches(?:/)?$"
+    },
+    {
       "page": "/admin/email-logs",
       "regex": "^/admin/email\\-logs(?:/)?$",
       "routeKeys": {},
@@ -572,6 +608,12 @@
       "regex": "^/api/admin/blog(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/admin/blog(?:/)?$"
+    },
+    {
+      "page": "/api/admin/coaches",
+      "regex": "^/api/admin/coaches(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/coaches(?:/)?$"
     },
     {
       "page": "/api/admin/content",
@@ -716,6 +758,24 @@
       "regex": "^/api/auth/reset\\-password(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/auth/reset\\-password(?:/)?$"
+    },
+    {
+      "page": "/api/bunny/delete",
+      "regex": "^/api/bunny/delete(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/bunny/delete(?:/)?$"
+    },
+    {
+      "page": "/api/bunny/list",
+      "regex": "^/api/bunny/list(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/bunny/list(?:/)?$"
+    },
+    {
+      "page": "/api/bunny/upload",
+      "regex": "^/api/bunny/upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/bunny/upload(?:/)?$"
     },
     {
       "page": "/api/checkout/verify",
@@ -1052,6 +1112,12 @@
       "regex": "^/terms(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/terms(?:/)?$"
+    },
+    {
+      "page": "/verify",
+      "regex": "^/verify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/verify(?:/)?$"
     }
   ],
   "dataRoutes": [],

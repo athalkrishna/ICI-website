@@ -411,6 +411,16 @@ self.__SERVER_FILES_MANIFEST={
         "source": "/organizations/:path*",
         "destination": "/organisations/:path*",
         "permanent": true
+      },
+      {
+        "source": "/home",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/home/",
+        "destination": "/",
+        "permanent": true
       }
     ]
   },

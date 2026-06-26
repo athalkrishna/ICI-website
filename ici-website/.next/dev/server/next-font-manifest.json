@@ -1,62 +1,10 @@
 {
   "app": {
-    "[project]/src/app/[...slug]/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/blog/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/email-logs/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/events/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/leads/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
     "[project]/src/app/admin/login/page": [
       "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
       "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
     ],
-    "[project]/src/app/admin/materials/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/media/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/newsletter/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/newsletter/subscribers/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
     "[project]/src/app/admin/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/pages/[...slug]/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/pages/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/settings/newsletter-branding/page": [
-      "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
-      "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
-    ],
-    "[project]/src/app/admin/testimonials/page": [
       "static/media/ad85ec941b4c8b5c-s.p.0hcpo7hwkj_b3.woff2",
       "static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2"
     ],
