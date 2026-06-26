@@ -84,7 +84,7 @@ export default async function VerifyPage() {
 
       <Section spacing="standard" className="relative z-20 -mt-10 sm:-mt-16 pb-24">
         <Container>
-          <div className="grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-14 items-start">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] gap-10 lg:gap-14 items-start">
             <AnimatedSection>
               <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-navy-100">
                 <VerifyForm copy={formCopy} />
@@ -92,46 +92,44 @@ export default async function VerifyPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <div className="lg:sticky lg:top-32 space-y-6">
-                <div className="bg-white rounded-3xl border border-navy-100 shadow-lg p-8">
+              <div className="lg:sticky lg:top-32 min-w-0 space-y-6">
+                <div className="bg-white rounded-3xl border border-navy-100 shadow-lg p-6 sm:p-8 min-w-0">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold-500/10 border border-brand-gold-500/20 flex items-center justify-center text-brand-gold-600">
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold-500/10 border border-brand-gold-500/20 flex items-center justify-center text-brand-gold-600 shrink-0">
                       <FileSearch className="w-5 h-5" />
                     </div>
-                    <h3 className="text-h4 text-brand-navy-900">
+                    <h3 className="text-h4 text-brand-navy-900 min-w-0">
                       {cmsField(content, 'info_heading', d.info_heading)}
                     </h3>
                   </div>
 
                   <ol className="space-y-5">
                     {steps.map((step, index) => (
-                      <li key={index} className="flex gap-4">
+                      <li key={index} className="flex gap-4 min-w-0">
                         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-navy-900 text-sm font-bold text-brand-gold-400">
                           {index + 1}
                         </span>
-                        <p className="text-muted text-body pt-1 leading-relaxed">{step}</p>
+                        <p className="text-muted text-body pt-1 leading-relaxed min-w-0 break-words">{step}</p>
                       </li>
                     ))}
                   </ol>
                 </div>
 
-                <div className="rounded-3xl border border-brand-gold-500/25 bg-gradient-to-br from-brand-navy-900 to-brand-navy-800 p-8 text-white shadow-xl">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-gold-500/15 border border-brand-gold-500/30 flex items-center justify-center shrink-0">
-                      <ShieldCheck className="w-6 h-6 text-brand-gold-400" />
+                <div className="rounded-3xl border border-brand-gold-500/25 bg-gradient-to-br from-brand-navy-900 to-brand-navy-800 p-6 sm:p-8 text-white shadow-xl overflow-hidden min-w-0">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-2xl bg-brand-gold-500/15 border border-brand-gold-500/30 flex items-center justify-center shrink-0">
+                      <ShieldCheck className="w-5 h-5 text-brand-gold-400" />
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <BadgeCheck className="w-4 h-4 text-brand-gold-400" />
-                        <p className="text-sm font-sans font-bold uppercase tracking-wider text-brand-gold-400">
-                          {cmsField(content, 'info_badge', d.info_badge)}
-                        </p>
-                      </div>
-                      <p className="text-navy-100 text-sm leading-relaxed font-body">
-                        {cmsField(content, 'info_note', d.info_note)}
+                    <div className="flex items-center gap-2 min-w-0">
+                      <BadgeCheck className="w-4 h-4 text-brand-gold-400 shrink-0" />
+                      <p className="text-sm font-sans font-bold uppercase tracking-wider text-brand-gold-400">
+                        {cmsField(content, 'info_badge', d.info_badge)}
                       </p>
                     </div>
                   </div>
+                  <p className="text-navy-100 text-sm leading-relaxed font-body break-words [overflow-wrap:anywhere]">
+                    {cmsField(content, 'info_note', d.info_note)}
+                  </p>
                 </div>
               </div>
             </AnimatedSection>
