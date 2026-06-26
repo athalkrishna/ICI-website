@@ -75,8 +75,8 @@ export async function pageMetadata(cmsSlug: string): Promise<Metadata> {
         {
           url: ogImage,
           secureUrl: ogImage,
-          width: 1200,
-          height: 630,
+          width: 1024,
+          height: 1024,
           alt: metaTitle || 'International Coaching Institute logo',
           type: 'image/png',
         },

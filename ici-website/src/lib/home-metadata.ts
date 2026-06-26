@@ -29,8 +29,8 @@ export const HOME_PAGE_METADATA: Metadata = {
       {
         url: resolveOgImageUrl(SITE_OG_IMAGE_PATH),
         secureUrl: resolveOgImageUrl(SITE_OG_IMAGE_PATH),
-        width: 1200,
-        height: 630,
+        width: 1024,
+        height: 1024,
         alt: 'International Coaching Institute — Developing Leaders. Empowering Futures.',
         type: 'image/png',
       },
