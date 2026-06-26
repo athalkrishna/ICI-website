@@ -63,10 +63,10 @@ export default async function GlobalPage() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
-                <Link href="/community" className="btn-primary text-center">
+                <Link href={cmsField(content, 'cta_link_1_url', '/community')} className="btn-primary text-center">
                   {cmsField(content, 'cta_link_1_text', 'Join a global community of coaches')}
                 </Link>
-                <Link href="/credentials" className="btn-secondary-light text-center">
+                <Link href={cmsField(content, 'cta_link_2_url', '/credentials')} className="btn-secondary-light text-center">
                   {cmsField(content, 'cta_link_2_text', 'See the pathway')}
                 </Link>
               </div>

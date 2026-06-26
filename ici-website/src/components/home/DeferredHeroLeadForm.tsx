@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
+import type { ContentMap } from '@/lib/content';
+
 const HeroLeadForm = dynamic(() => import('@/components/home/HeroLeadForm'), { ssr: false });
 
 const placeholder = (
@@ -12,7 +14,7 @@ const placeholder = (
   />
 );
 
-export default function DeferredHeroLeadForm() {
+export default function DeferredHeroLeadForm({ content = {} }: { content?: ContentMap }) {
   const [ready, setReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +59,7 @@ export default function DeferredHeroLeadForm() {
 
   return (
     <div ref={containerRef}>
-      {ready ? <HeroLeadForm /> : placeholder}
+      {ready ? <HeroLeadForm content={content} /> : placeholder}
     </div>
   );
 }

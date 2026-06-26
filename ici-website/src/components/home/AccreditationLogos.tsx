@@ -1,5 +1,11 @@
 import Section from '@/components/layout/Section'
-import { HOME_STANDARDS_ITEMS } from '@/lib/home-standards-defaults'
+import { cmsField } from '@/lib/cms-helpers'
+import type { ContentMap } from '@/lib/content'
+import { HOME_STANDARDS_SECTION_HEADING, homeStandardsFromContent } from '@/lib/home-standards-defaults'
+
+interface AccreditationLogosProps {
+  content?: ContentMap;
+}
 
 function PlusIcon() {
   return (
@@ -16,18 +22,21 @@ function PlusIcon() {
   )
 }
 
-export default function AccreditationLogos() {
+export default function AccreditationLogos({ content = {} }: AccreditationLogosProps) {
+  const items = homeStandardsFromContent(content)
+  const sectionHeading = cmsField(content, 'standards_section_heading', HOME_STANDARDS_SECTION_HEADING)
+
   return (
     <Section spacing="standard" className="bg-white border-y border-navy-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <p className="text-center text-[11px] font-sans font-semibold text-navy-400 uppercase tracking-[0.2em] mb-10">
-          The standard we hold ourselves to
+          {sectionHeading}
         </p>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 sm:gap-y-8 lg:hidden">
-          {HOME_STANDARDS_ITEMS.map((item) => (
+          {items.map((item) => (
             <li
-              key={item.name}
+              key={`${item.name}-${item.subtitle}`}
               className="flex items-center gap-3 text-navy-400 mx-auto w-full max-w-[220px] sm:max-w-none sm:mx-0"
             >
               <PlusIcon />
@@ -44,8 +53,8 @@ export default function AccreditationLogos() {
         </ul>
 
         <ul className="hidden lg:flex lg:items-center lg:justify-between lg:gap-5 xl:gap-8">
-          {HOME_STANDARDS_ITEMS.map((item) => (
-            <li key={item.name} className="flex shrink-0 items-center gap-3 text-navy-400">
+          {items.map((item) => (
+            <li key={`${item.name}-${item.subtitle}-lg`} className="flex shrink-0 items-center gap-3 text-navy-400">
               <PlusIcon />
               <div className="flex flex-col justify-center gap-1.5">
                 <span className="font-display font-bold text-[15px] leading-none text-brand-navy-700 tracking-tight whitespace-nowrap">

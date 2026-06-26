@@ -62,7 +62,7 @@ export default function FeaturedProgrammes({ content = {} }: FeaturedProgrammesP
             </h2>
           </div>
           <Link href="/programmes" className="text-brand-gold-700 hover:text-brand-gold-800 font-sans font-semibold text-sm underline underline-offset-4 min-h-[44px] inline-flex items-center">
-            View All Programmes
+            {cmsField(content, 'programmes_view_all_text', 'View All Programmes')}
           </Link>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

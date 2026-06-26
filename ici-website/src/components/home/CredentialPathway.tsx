@@ -59,6 +59,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
       desc: cmsPlainBody(content, `${prefix}body`, def.desc),
       badge: i === 3 ? 'bg-navy-500/20 text-brand-gold-300' : 'bg-white/10 text-white',
       href: cmsField(content, `${prefix}button_link`, def.href),
+      buttonText: cmsField(content, `${prefix}button_text`, `Explore ${def.name} pathway`),
       bullets: cmsIndexedWithFallbacks(content, `${prefix}bullet_`, def.bullets),
     };
   });
@@ -119,7 +120,7 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
                   href={cred.href}
                   className="flex items-center gap-2 text-sm font-sans font-bold transition-colors group/link w-fit min-h-[44px] text-white hover:text-brand-gold-400"
                 >
-                  Explore {cred.name} pathway
+                  {cred.buttonText}
                   <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" aria-hidden />
                 </Link>
               </div>
@@ -128,8 +129,11 @@ export default function CredentialPathway({ content = {} }: CredentialPathwayPro
         </div>
 
         <div className="text-center">
-          <Link href="/admissions/contact" className="btn-primary inline-flex text-base px-8 py-4 min-h-[44px]">
-            Not sure where to start? Speak to an advisor
+          <Link
+            href={cmsField(content, 'pathway_advisor_link', '/admissions/contact')}
+            className="btn-primary inline-flex text-base px-8 py-4 min-h-[44px]"
+          >
+            {cmsField(content, 'pathway_advisor_text', 'Not sure where to start? Speak to an advisor')}
             <ChevronRight size={18} aria-hidden />
           </Link>
         </div>

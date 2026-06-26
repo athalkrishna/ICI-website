@@ -19,6 +19,8 @@
     "db:seed": "prisma db seed",
     "db:seed-media": "tsx scripts/seed-public-media-to-bunny.ts",
     "db:repair-home-hero": "tsx scripts/repair-home-hero.ts",
+    "db:repair-standards": "tsx scripts/repair-standards-section.ts",
+    "db:repair-cms-content": "tsx scripts/repair-cms-approved-copy.ts",
     "db:push": "prisma db push",
     "db:seed-page-seo": "tsx prisma/seed-page-seo.ts",
     "db:seed-pillar-blog": "tsx prisma/seed-pillar-blog.ts",

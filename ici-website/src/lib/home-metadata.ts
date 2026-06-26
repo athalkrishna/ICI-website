@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { HOME_SEO_DEFAULTS, HOME_SEO_KEYWORD_LIST, homeCanonicalUrl } from '@/lib/home-seo-defaults';
+import { HOME_SEO_DEFAULTS, homeCanonicalUrl } from '@/lib/home-seo-defaults';
 import { SITE_URL, SITE_OG_IMAGE_PATH, resolveOgImageUrl } from '@/lib/site-url';
 
 /** Sync homepage metadata — no DB fetch, always in initial HTML for crawlers and SEO tools. */
 export const HOME_PAGE_METADATA: Metadata = {
   title: { absolute: HOME_SEO_DEFAULTS.meta_title },
   description: HOME_SEO_DEFAULTS.meta_description,
-  keywords: [...HOME_SEO_KEYWORD_LIST],
   alternates: { canonical: homeCanonicalUrl(SITE_URL) },
   robots: {
     index: true,

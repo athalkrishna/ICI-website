@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { HOME_HERO_DEFAULTS } from '@/lib/home-hero-defaults';
+import { cmsField, cmsPlainBody } from '@/lib/cms-helpers';
+import type { ContentMap } from '@/lib/content';
 import DeferredHeroLeadForm from '@/components/home/DeferredHeroLeadForm';
+
+interface HeroSectionProps {
+  content?: ContentMap;
+}
 
 function IconArrowRight() {
   return (
@@ -26,26 +32,12 @@ function IconChevronDown() {
   );
 }
 
-const stats = [
-  {
-    value: `${HOME_HERO_DEFAULTS.stat_1_number}${HOME_HERO_DEFAULTS.stat_1_suffix}`,
-    label: HOME_HERO_DEFAULTS.stat_1_label,
-  },
-  {
-    value: `${HOME_HERO_DEFAULTS.stat_2_number}${HOME_HERO_DEFAULTS.stat_2_suffix}`,
-    label: HOME_HERO_DEFAULTS.stat_2_label,
-  },
-  {
-    value: `${HOME_HERO_DEFAULTS.stat_3_number}${HOME_HERO_DEFAULTS.stat_3_suffix}`,
-    label: HOME_HERO_DEFAULTS.stat_3_label,
-  },
-  {
-    value: `${HOME_HERO_DEFAULTS.stat_4_number}${HOME_HERO_DEFAULTS.stat_4_suffix}`,
-    label: HOME_HERO_DEFAULTS.stat_4_label,
-  },
-];
+export default function HeroSection({ content = {} }: HeroSectionProps) {
+  const stats = [1, 2, 3, 4].map((n) => ({
+    value: `${cmsField(content, `stat_${n}_number`, HOME_HERO_DEFAULTS[`stat_${n}_number`])}${cmsField(content, `stat_${n}_suffix`, HOME_HERO_DEFAULTS[`stat_${n}_suffix`])}`,
+    label: cmsField(content, `stat_${n}_label`, HOME_HERO_DEFAULTS[`stat_${n}_label`]),
+  }));
 
-export default function HeroSection() {
   return (
     <section className="relative min-h-[85dvh] lg:min-h-screen flex items-center bg-brand-navy-700 overflow-hidden">
       <div className="absolute inset-0 bg-hero-pattern" aria-hidden />
@@ -58,15 +50,15 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-5 gap-16 items-center">
           <div className="lg:col-span-3">
             <p className="text-eyebrow text-brand-gold-400 flex items-center gap-3 justify-center mb-6">
-              {HOME_HERO_DEFAULTS.hero_eyebrow}
+              {cmsField(content, 'hero_eyebrow', HOME_HERO_DEFAULTS.hero_eyebrow)}
             </p>
 
             <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 whitespace-pre-line">
-              {HOME_HERO_DEFAULTS.hero_heading}
+              {cmsField(content, 'hero_heading', HOME_HERO_DEFAULTS.hero_heading)}
             </h1>
 
             <p className="text-body-lg text-navy-100 mb-8 max-w-xl text-justify">
-              {HOME_HERO_DEFAULTS.hero_body}
+              {cmsPlainBody(content, 'hero_body', HOME_HERO_DEFAULTS.hero_body)}
             </p>
 
             <div className="flex flex-wrap md:flex-nowrap items-center gap-y-6 mb-10">
@@ -84,22 +76,25 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Link href={HOME_HERO_DEFAULTS.hero_primary_button_link} className="btn-primary text-base px-8 py-4 min-h-[44px]">
-                {HOME_HERO_DEFAULTS.hero_primary_button_text}
+              <Link
+                href={cmsField(content, 'hero_primary_button_link', HOME_HERO_DEFAULTS.hero_primary_button_link)}
+                className="btn-primary text-base px-8 py-4 min-h-[44px]"
+              >
+                {cmsField(content, 'hero_primary_button_text', HOME_HERO_DEFAULTS.hero_primary_button_text)}
                 <IconArrowRight />
               </Link>
               <Link
-                href={HOME_HERO_DEFAULTS.hero_secondary_button_link}
+                href={cmsField(content, 'hero_secondary_button_link', HOME_HERO_DEFAULTS.hero_secondary_button_link)}
                 className="btn-secondary text-base px-8 py-4 min-h-[44px]"
               >
                 <IconDownload />
-                {HOME_HERO_DEFAULTS.hero_secondary_button_text}
+                {cmsField(content, 'hero_secondary_button_text', HOME_HERO_DEFAULTS.hero_secondary_button_text)}
               </Link>
             </div>
           </div>
 
           <div className="lg:col-span-2">
-            <DeferredHeroLeadForm />
+            <DeferredHeroLeadForm content={content} />
           </div>
         </div>
       </div>

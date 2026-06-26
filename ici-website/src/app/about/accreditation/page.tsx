@@ -14,6 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/about/accreditation');
 }
 
+const STANDARD_ICONS = [<Award key="award" />, <Scale key="scale" />, <BookOpen key="book" />, <ShieldCheck key="shield" />]
+
 export default async function AccreditationPage() {
   const content = await getPublishedPageContent('/about/accreditation')
 
@@ -24,6 +26,11 @@ export default async function AccreditationPage() {
     'Independent review of our assessment process',
   ])
 
+  const accreditationBodies = [1, 2, 3, 4, 5].map((n) => ({
+    name: cmsField(content, `accreditation_${n}_name`, ''),
+    description: stripHtml(cmsHtml(content, `accreditation_${n}_description`, '')),
+  })).filter((item) => item.name)
+
   return (
     <div className="bg-cream-50 min-h-screen">
       <PageHero
@@ -32,47 +39,80 @@ export default async function AccreditationPage() {
         body={stripHtml(cmsHtml(content, 'hero_body', 'A credential is only worth what it can be trusted to mean. This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned. We would rather say less and be believed than claim more and be doubted.'))}
       />
 
-      {/* ── Main Content ── */}
       <Section spacing="standard">
         <Container>
-          
-          <div className="max-w-3xl mx-auto mb-32">
+          <div className="max-w-3xl mx-auto mb-24">
             <AnimatedSection delay={0.2}>
               <div className="bg-white p-10 lg:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10" />
                 <h3 className="text-h3 text-brand-navy-800 mb-10">
                   {cmsField(content, 'standards_heading', 'How we hold our standard')}
                 </h3>
-                
+
                 <div className="space-y-8">
-                  {[
-                    { icon: <Award /> },
-                    { icon: <Scale /> },
-                    { icon: <BookOpen /> },
-                    { icon: <ShieldCheck /> },
-                  ].map((item, i) => (
+                  {STANDARD_ICONS.map((icon, i) => (
                     <div key={i} className="flex gap-6 items-start group">
                       <div className="w-12 h-12 bg-cream-50 rounded-xl flex items-center justify-center shrink-0 text-brand-gold-700 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors">
-                        {item.icon}
+                        {icon}
                       </div>
                       <div className="pt-2.5">
-                        <span className="font-body text-lg text-navy-700 group-hover:text-brand-navy-900 transition-colors">{standardItems[i]}</span>
+                        <span className="font-body text-lg text-navy-700 group-hover:text-brand-navy-900 transition-colors">
+                          {standardItems[i]}
+                        </span>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
-                <Link href="/credentials" className="btn-primary text-center">
-                  {cmsField(content, 'cta_link_1_text', 'See the Mastery Pathway')}
-                </Link>
-                <Link href="/admissions/contact" className="btn-secondary-light text-center">
-                  {cmsField(content, 'cta_link_2_text', 'Contact us')}
-                </Link>
-              </div>
             </AnimatedSection>
           </div>
 
+          {accreditationBodies.length > 0 && (
+            <AnimatedSection delay={0.25} className="mb-24">
+              <div className="text-center mb-12">
+                <h2 className="text-h2 text-brand-navy-800 mb-4">
+                  {cmsField(content, 'accreditations_heading', 'Recognition & professional bodies')}
+                </h2>
+                <p className="text-muted max-w-2xl mx-auto text-body">
+                  {cmsField(
+                    content,
+                    'accreditations_intro',
+                    'We work with and align to recognised professional bodies where it genuinely applies to our programmes.',
+                  )}
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {accreditationBodies.map((body) => (
+                  <div
+                    key={body.name}
+                    className="bg-white p-8 rounded-3xl shadow-xl border border-navy-100 hover:shadow-2xl transition-shadow"
+                  >
+                    <h3 className="text-h4 text-brand-navy-800 mb-3">{body.name}</h3>
+                    {body.description ? (
+                      <p className="text-muted text-body">{body.description}</p>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          )}
+
+          <AnimatedSection delay={0.3}>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link
+                href={cmsField(content, 'cta_link_1_url', '/credentials')}
+                className="btn-primary text-center"
+              >
+                {cmsField(content, 'cta_link_1_text', 'See the Mastery Pathway')}
+              </Link>
+              <Link
+                href={cmsField(content, 'cta_link_2_url', '/admissions/contact')}
+                className="btn-secondary-light text-center"
+              >
+                {cmsField(content, 'cta_link_2_text', 'Contact us')}
+              </Link>
+            </div>
+          </AnimatedSection>
         </Container>
       </Section>
     </div>

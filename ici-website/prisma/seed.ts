@@ -5,15 +5,12 @@ import { createPrismaClient } from './db';
 import { SEED_PAGES } from './seed-pages';
 import { seedNewsletterBranding, seedNewsletterTemplates } from './seed-newsletter';
 import {
-  HOME_HERO_FIELD_KEYS,
-  isHomeHeroLockedField,
-  isHomePageSlug,
-  lockedHomeHeroDbValue,
+  HOME_HERO_DEFAULTS,
+  approvedHomeHeroDbValue,
 } from '../src/lib/home-hero-defaults';
 import {
   HOME_SEO_FIELD_KEYS,
-  isHomeSeoLockedField,
-  lockedHomeSeoDbValue,
+  lockedHomeSeoDbValue as approvedHomeSeoDbValue,
 } from '../src/lib/home-seo-defaults';
 
 dotenv.config({ path: '.env.local' });
@@ -59,21 +56,6 @@ async function seedUsers() {
   console.log('Seeded admin users');
 }
 
-async function enforceHomeLockedFields(pageId: string) {
-  for (const key of HOME_HERO_FIELD_KEYS) {
-    await prisma.contentField.updateMany({
-      where: { pageId, key },
-      data: { value: lockedHomeHeroDbValue(key) },
-    });
-  }
-  for (const key of HOME_SEO_FIELD_KEYS) {
-    await prisma.contentField.updateMany({
-      where: { pageId, key },
-      data: { value: lockedHomeSeoDbValue(key) },
-    });
-  }
-}
-
 async function seedPages() {
   for (const pageData of SEED_PAGES) {
     const page = await prisma.page.upsert({
@@ -97,12 +79,11 @@ async function seedPages() {
 
     for (const field of pageData.fields) {
       const seedValue =
-        isHomePageSlug(pageData.slug) &&
-        (isHomeHeroLockedField(field.key) || isHomeSeoLockedField(field.key))
-          ? isHomeHeroLockedField(field.key)
-            ? lockedHomeHeroDbValue(field.key)
-            : lockedHomeSeoDbValue(field.key)
-          : field.value;
+        pageData.slug === '/' && field.key in HOME_HERO_DEFAULTS
+          ? approvedHomeHeroDbValue(field.key)
+          : pageData.slug === '/' && (HOME_SEO_FIELD_KEYS as readonly string[]).includes(field.key)
+            ? approvedHomeSeoDbValue(field.key)
+            : field.value;
 
       await prisma.contentField.upsert({
         where: {
@@ -127,10 +108,6 @@ async function seedPages() {
           section: field.section,
         },
       });
-    }
-
-    if (isHomePageSlug(pageData.slug)) {
-      await enforceHomeLockedFields(page.id);
     }
   }
 

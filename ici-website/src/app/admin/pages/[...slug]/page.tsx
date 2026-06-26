@@ -17,17 +17,6 @@ import {
 import TipTapEditor from '@/components/admin/TipTapEditor';
 import MediaPicker from '@/components/admin/MediaPicker';
 import { resolvePageSlug, pageApiPath, pagePublishApiPath, pageVersionsApiPath, pageRestoreApiPath, formatDateTime, slugToPreviewPath, groupFieldsBySection } from '@/lib/admin-utils';
-import {
-  HOME_HERO_FIELD_KEYS,
-  isHomeHeroLockedField,
-  lockedHomeHeroDbValue,
-} from '@/lib/home-hero-defaults';
-import {
-  HOME_SEO_FIELD_KEYS,
-  isHomeSeoLockedField,
-  lockedHomeSeoDbValue,
-} from '@/lib/home-seo-defaults';
-import { stripHtml } from '@/lib/cms-helpers';
 
 const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
 
@@ -105,14 +94,6 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string[
       data.fields.forEach((f) => {
         initial[f.key] = f.value;
       });
-      if (dbSlug === '/') {
-        for (const key of HOME_HERO_FIELD_KEYS) {
-          initial[key] = lockedHomeHeroDbValue(key);
-        }
-        for (const key of HOME_SEO_FIELD_KEYS) {
-          initial[key] = lockedHomeSeoDbValue(key);
-        }
-      }
       setValues(initial);
       setSavedValues(initial);
     } catch {
@@ -242,23 +223,6 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string[
 
   const renderField = (field: ContentField) => {
     const value = values[field.key] ?? '';
-
-    if (dbSlug === '/' && (isHomeHeroLockedField(field.key) || isHomeSeoLockedField(field.key))) {
-      const display =
-        field.type === 'RICHTEXT' || field.key === 'hero_body'
-          ? stripHtml(lockedHomeHeroDbValue(field.key))
-          : isHomeSeoLockedField(field.key)
-            ? lockedHomeSeoDbValue(field.key)
-            : lockedHomeHeroDbValue(field.key);
-      return (
-        <div className="rounded-xl border border-navy-100 bg-cream-50 p-3">
-          <p className="text-sm text-brand-navy-900 whitespace-pre-wrap">{display}</p>
-          <p className="text-xs text-muted mt-2">
-            Fixed homepage {isHomeSeoLockedField(field.key) ? 'SEO' : 'copy'} — always shown on the live site and cannot be edited here.
-          </p>
-        </div>
-      );
-    }
 
     const charHint =
       field.key === 'meta_title' ? (
@@ -541,12 +505,6 @@ export default function PageEditor({ params }: { params: Promise<{ slug: string[
                 </button>
                 {!isCollapsed && (
                   <div className="px-4 pb-4 space-y-6 border-t border-navy-50">
-                    {dbSlug === '/' &&
-                      (section === 'Hero' || section === 'Hero Stats' || section === 'Hero Form') && (
-                        <p className="text-xs text-muted bg-cream-50 border border-navy-100 rounded-lg px-3 py-2 mt-4">
-                          This section is locked to the approved one-to-one homepage design.
-                        </p>
-                      )}
                     {fields.map((field) => (
                       <div key={field.key}>
                         <label className="block text-sm font-medium text-navy-700 mb-1">

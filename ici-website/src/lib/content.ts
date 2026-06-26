@@ -7,7 +7,6 @@ import {
   slugToPath,
   type ContentMap,
 } from './cms';
-import { normalizeHomeHeroContent } from './home-hero-defaults';
 
 export type { ContentMap };
 export { slugToPath };
@@ -41,9 +40,6 @@ function mapLegacyCredentialFields(slug: string, content: ContentMap): ContentMa
 
 function applyPageContentGuards(slug: string, content: ContentMap): ContentMap {
   const mapped = mapLegacyCredentialFields(slug, content);
-  if (slug === 'home' || slug === '/') {
-    return normalizeHomeHeroContent(mapped);
-  }
   return mapped;
 }
 

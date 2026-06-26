@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { createPrismaClient } from '../prisma/db';
-import { HOME_HERO_FIELD_KEYS, lockedHomeHeroDbValue } from '../src/lib/home-hero-defaults';
+import { HOME_HERO_FIELD_KEYS, approvedHomeHeroDbValue } from '../src/lib/home-hero-defaults';
 import { HOME_SEO_FIELD_KEYS, lockedHomeSeoDbValue } from '../src/lib/home-seo-defaults';
 
 dotenv.config({ path: '.env.local' });
@@ -41,7 +41,7 @@ async function main() {
   let updated = 0;
 
   for (const key of HOME_HERO_FIELD_KEYS) {
-    const value = lockedHomeHeroDbValue(key);
+    const value = approvedHomeHeroDbValue(key);
     await upsertLockedField(prisma, page.id, key, value, 'Hero', 'TEXT');
     updated += 1;
   }

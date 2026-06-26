@@ -56,6 +56,11 @@ export default async function PartnershipsPage() {
         <Container>
 
           <AnimatedSection delay={0.2} className="mb-32">
+            <div className="text-center mb-12">
+              <h2 className="text-h2 text-brand-navy-800">
+                {cmsField(content, 'ways_heading', 'Ways we work together')}
+              </h2>
+            </div>
             <Container size="mid" className="grid md:grid-cols-2 gap-8">
               {[
                 { icon: <Building2 className="w-8 h-8" /> },
@@ -82,6 +87,9 @@ export default async function PartnershipsPage() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-500 rounded-full blur-[80px] opacity-20 -translate-x-1/3 translate-y-1/3"></div>
               
               <div className="relative z-10">
+                <h2 className="text-h3 text-white mb-6">
+                  {cmsField(content, 'cta_heading', 'Partner with ICI')}
+                </h2>
                 <p className="text-white mb-10 max-w-2xl mx-auto text-body">
                   {cmsField(content, 'cta_body', 'If your organisation develops people, or serves a community we could serve better together, we would like to hear from you.')}
                 </p>

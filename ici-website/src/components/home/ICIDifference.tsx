@@ -14,7 +14,7 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
         <div className="flex-1 w-full">
           <div className="w-full aspect-square md:aspect-[4/3] bg-brand-navy-50 rounded-2xl relative overflow-hidden shadow-2xl">
             <Image 
-              src="/ici-difference-coaching.webp" 
+              src={cmsField(content, 'difference_image', '/ici-difference-coaching.webp') || '/ici-difference-coaching.webp'} 
               alt="Professional one-on-one coaching session" 
               fill 
               loading="lazy"
@@ -40,21 +40,21 @@ export default function ICIDifference({ content = {} }: ICIDifferenceProps) {
             <li className="flex gap-4">
               <span className="text-brand-gold-700 font-bold text-xl shrink-0" aria-hidden>01</span>
               <div>
-                <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_1_title', 'Evidence with humanity')}</strong>
+                <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_1_heading', cmsField(content, 'difference_point_1_title', 'Evidence with humanity'))}</strong>
                 <span className="text-sm text-brand-navy-600">{cmsPlainBody(content, 'difference_point_1_body', 'Coaching psychology, neuroscience and behavioural science, taught in plain language and tied to what happens in a real session.')}</span>
               </div>
             </li>
             <li className="flex gap-4">
               <span className="text-brand-gold-700 font-bold text-xl shrink-0" aria-hidden>02</span>
               <div>
-                <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_2_title', 'One-to-one mastery')}</strong>
+                <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_2_heading', cmsField(content, 'difference_point_2_title', 'One-to-one mastery'))}</strong>
                 <span className="text-sm text-brand-navy-600">{cmsPlainBody(content, 'difference_point_2_body', 'You are coached and developed individually, so nothing is glossed over and no one hides at the back of a room.')}</span>
               </div>
             </li>
             <li className="flex gap-4">
               <span className="text-brand-gold-700 font-bold text-xl shrink-0" aria-hidden>03</span>
               <div>
-                <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_3_title', 'Practising faculty')}</strong>
+                <strong className="block text-brand-navy-800 mb-1">{cmsField(content, 'difference_point_3_heading', cmsField(content, 'difference_point_3_title', 'Practising faculty'))}</strong>
                 <span className="text-sm text-brand-navy-600">{cmsPlainBody(content, 'difference_point_3_body', 'Learn from working coaches who carry real client experience into every session.')}</span>
               </div>
             </li>

@@ -56,10 +56,13 @@ export default async function LeadershipFacultyPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 pt-8">
-              <Link href="/credentials" className="btn-primary text-center">
-                {cmsField(content, 'cta_link_1_text', 'Explore the Mastery Pathway')}
+              <Link href={cmsField(content, 'cta_link_1_url', '/credentials')} className="btn-primary text-center">
+                {cmsField(content, 'cta_link_1_text', cmsField(content, 'cta_button_text', 'Explore the Mastery Pathway'))}
               </Link>
-              <Link href="/contact" className="btn-secondary-light text-center">
+              <Link
+                href={cmsField(content, 'cta_link_2_url', cmsField(content, 'cta_button_link', '/contact'))}
+                className="btn-secondary-light text-center"
+              >
                 {cmsField(content, 'cta_link_2_text', 'Speak to an advisor')}
               </Link>
             </div>

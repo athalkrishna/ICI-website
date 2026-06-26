@@ -2,21 +2,27 @@
 
 import { ArrowRight } from 'lucide-react';
 import { HOME_HERO_DEFAULTS } from '@/lib/home-hero-defaults';
+import { cmsField } from '@/lib/cms-helpers';
+import type { ContentMap } from '@/lib/content';
 
-const trustBadges = [
-  HOME_HERO_DEFAULTS.trust_point_1,
-  HOME_HERO_DEFAULTS.trust_point_2,
-  HOME_HERO_DEFAULTS.trust_point_3,
-];
+interface HeroLeadFormProps {
+  content?: ContentMap;
+}
 
-export default function HeroLeadForm() {
+export default function HeroLeadForm({ content = {} }: HeroLeadFormProps) {
+  const trustBadges = [
+    cmsField(content, 'trust_point_1', HOME_HERO_DEFAULTS.trust_point_1),
+    cmsField(content, 'trust_point_2', HOME_HERO_DEFAULTS.trust_point_2),
+    cmsField(content, 'trust_point_3', HOME_HERO_DEFAULTS.trust_point_3),
+  ];
+
   return (
     <div className="bg-white rounded-2xl shadow-2xl p-7 border-l-4 border-brand-gold-500">
       <h2 className="font-display text-xl font-bold text-brand-navy-700 mb-1">
-        {HOME_HERO_DEFAULTS.hero_form_heading}
+        {cmsField(content, 'hero_form_heading', HOME_HERO_DEFAULTS.hero_form_heading)}
       </h2>
       <p className="text-brand-navy-600 mb-5 text-body">
-        {HOME_HERO_DEFAULTS.hero_form_subheading}
+        {cmsField(content, 'hero_form_subheading', HOME_HERO_DEFAULTS.hero_form_subheading)}
       </p>
 
       <form
@@ -41,16 +47,9 @@ export default function HeroLeadForm() {
 
             if (res.ok) {
               if (typeof window !== 'undefined') {
-                if ((window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
-                  (window as Window & { gtag: (...args: unknown[]) => void }).gtag('event', 'form_submit', {
-                    form_name: 'lead_form',
-                  });
-                }
-                if ((window as Window & { fbq?: (...args: unknown[]) => void }).fbq) {
-                  (window as Window & { fbq: (...args: unknown[]) => void }).fbq('track', 'Lead', {
-                    content_name: 'lead_form',
-                  });
-                }
+                const w = window as Window & { gtag?: (...args: unknown[]) => void; fbq?: (...args: unknown[]) => void };
+                w.gtag?.('event', 'form_submit', { form_name: 'lead_form' });
+                w.fbq?.('track', 'Lead', { content_name: 'lead_form' });
               }
               form.innerHTML =
                 '<div class="text-green-800 font-sans font-bold text-center py-4 bg-green-50 rounded-lg">Thank you. We will be in touch shortly.</div>';
@@ -105,7 +104,7 @@ export default function HeroLeadForm() {
           <option value="team-organisational">Team & Organisational</option>
         </select>
         <button type="submit" className="w-full btn-primary justify-center py-3.5 text-base min-h-[44px]">
-          {HOME_HERO_DEFAULTS.hero_form_button_text}
+          {cmsField(content, 'hero_form_button_text', HOME_HERO_DEFAULTS.hero_form_button_text)}
           <ArrowRight size={18} aria-hidden />
         </button>
       </form>

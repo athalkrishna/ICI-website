@@ -9,11 +9,34 @@ interface GlobalReachMapProps {
 }
 
 export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
+  const bgImage = cmsField(content, 'global_bg_image', '/images/global-network-bg.webp') || '/images/global-network-bg.webp'
+  const citiesRaw = cmsField(content, 'global_cities', 'New York · London · Dubai · Singapore · Sydney')
+  const cities = citiesRaw.split(/[·,|]/).map((city) => city.trim()).filter(Boolean)
+
+  const stats = [
+    {
+      label: cmsField(content, 'global_stat_1_label', 'Countries'),
+      value: cmsField(content, 'global_stat_1_value', '60+'),
+    },
+    {
+      label: cmsField(content, 'global_stat_2_label', 'Alumni'),
+      value: cmsField(content, 'global_stat_2_value', '25,000+'),
+    },
+    {
+      label: cmsField(content, 'global_stat_3_label', 'Campuses'),
+      value: cmsField(content, 'global_stat_3_value', '5'),
+    },
+    {
+      label: cmsField(content, 'global_stat_4_label', 'Partners'),
+      value: cmsField(content, 'global_stat_4_value', '200+'),
+    },
+  ]
+
   return (
     <Section spacing="large" className="bg-brand-navy-900 relative overflow-hidden text-white">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/global-network-bg.webp"
+          src={bgImage}
           alt="International Coaching Institute global network of coaches"
           fill
           loading="lazy"
@@ -41,12 +64,7 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-4xl">
-            {[
-              { label: 'Countries', value: '60+' },
-              { label: 'Alumni', value: '25,000+' },
-              { label: 'Campuses', value: '5' },
-              { label: 'Partners', value: '200+' },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="bg-brand-navy-800/50 backdrop-blur-md border border-brand-navy-700/50 rounded-2xl p-6 shadow-xl">
                 <div className="text-3xl lg:text-4xl font-display font-bold text-brand-gold-400 mb-2">{stat.value}</div>
                 <div className="text-brand-navy-100 text-eyebrow">{stat.label}</div>
@@ -55,7 +73,7 @@ export default function GlobalReachMap({ content = {} }: GlobalReachMapProps) {
           </div>
           
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-sans font-bold uppercase tracking-widest text-brand-navy-100" role="list" aria-label="Global coaching community locations">
-            {['New York', 'London', 'Dubai', 'Singapore', 'Sydney'].map((city) => (
+            {cities.map((city) => (
               <span key={city} role="listitem" className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-gold-400" aria-hidden />
                 {city}

@@ -1,6 +1,6 @@
 import type { ContentMap } from './content';
 
-/** Canonical home hero copy — fixed one-to-one homepage design. Do not change via CMS. */
+/** Client-approved home hero copy — CMS fallbacks and repair baseline. */
 export const HOME_HERO_DEFAULTS: Record<string, string> = {
   hero_eyebrow: 'One-to-one, online coaching certification',
   hero_heading: 'Where great coaches are made.',
@@ -33,29 +33,13 @@ export const HOME_HERO_DEFAULTS: Record<string, string> = {
 
 export const HOME_HERO_FIELD_KEYS = Object.keys(HOME_HERO_DEFAULTS) as (keyof typeof HOME_HERO_DEFAULTS)[];
 
-const HOME_HERO_LOCKED_KEYS = new Set<string>(HOME_HERO_FIELD_KEYS);
-
 export function isHomePageSlug(slug: string): boolean {
   return slug === '/';
 }
 
-export function isHomeHeroLockedField(key: string): boolean {
-  return HOME_HERO_LOCKED_KEYS.has(key);
-}
-
-export function lockedHomeHeroDbValue(key: string): string {
+/** Rich-text hero body for CMS seed/repair. */
+export function approvedHomeHeroDbValue(key: string): string {
   const canonical = HOME_HERO_DEFAULTS[key];
   if (!canonical) return '';
   return key === 'hero_body' ? `<p>${canonical}</p>` : canonical;
-}
-
-/** Always apply fixed hero copy — CMS values for these keys are ignored on the public site. */
-export function normalizeHomeHeroContent(content: ContentMap): ContentMap {
-  const next = { ...content };
-
-  for (const key of HOME_HERO_FIELD_KEYS) {
-    next[key] = lockedHomeHeroDbValue(key);
-  }
-
-  return next;
 }

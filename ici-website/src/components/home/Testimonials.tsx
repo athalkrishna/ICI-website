@@ -1,53 +1,72 @@
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import { cmsField } from '@/lib/cms-helpers'
+import { CREDENTIAL_LABELS } from '@/lib/cms-helpers'
+import type { ContentMap } from '@/lib/content'
+import type { EnrolledLevel } from '@prisma/client'
 
-const testimonials = [
-  {
-    name: 'Priya Menon',
-    title: 'People & Culture Leader turned Coach',
-    credential: 'ICI-C',
-    location: 'Bengaluru, India',
-    quote: 'My first one-to-one sessions quietly showed me how much I had been missing. The Catalyst work rebuilt the way I pay attention, and my clients can feel the difference.'
-  },
-  {
-    name: 'Rohan Iyer',
-    title: 'Engineering Manager & Executive Coach',
-    credential: 'ICI-A',
-    location: 'Mumbai, India',
-    quote: 'There was nowhere to hide and nothing to coast through. By the end I was coaching senior people with a steadiness I simply did not have before.'
-  },
-  {
-    name: 'Ananya Reddy',
-    title: 'Health & Wellness Coach',
-    credential: 'ICI-C',
-    location: 'Hyderabad, India',
-    quote: 'The self-work hours were harder than the live ones, and that was the point. I had to face my own patterns before I could help anyone with theirs.'
-  },
-  {
-    name: 'Vikram Singh',
-    title: 'Leadership Coach & Former Army Officer',
-    credential: 'ICI-S',
-    location: 'Pune, India',
-    quote: 'This was the first training that changed how I am, not just what I know. The work on presence stayed with me long after the certificate did.'
-  },
-  {
-    name: 'Arjun Nair',
-    title: 'Business Coach',
-    credential: 'ICI-A',
-    location: 'Kochi, India',
-    quote: 'I coach founders and they can smell anything shallow. The depth of the psychology and behavioural work here is what lets me sit in the room with them as an equal.'
-  },
-  {
-    name: 'Dr Kavita Desai',
-    title: 'Physician & Wellness Coach',
-    credential: 'ICI-C',
-    location: 'Ahmedabad, India',
-    quote: 'Coaching taught me to stop fixing and start listening. The two skills could not be more different, and I needed both.'
-  },
-];
+type TestimonialItem = {
+  studentName: string
+  studentTitle: string
+  credentialLevel: EnrolledLevel
+  studentLocation: string
+  quote: string
+}
 
-function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
-  const initials = t.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+const FALLBACK_TESTIMONIALS: TestimonialItem[] = [
+  {
+    studentName: 'Priya Menon',
+    studentTitle: 'People & Culture Leader turned Coach',
+    credentialLevel: 'CATALYST',
+    studentLocation: 'Bengaluru, India',
+    quote: 'My first one-to-one sessions quietly showed me how much I had been missing. The Catalyst work rebuilt the way I pay attention, and my clients can feel the difference.',
+  },
+  {
+    studentName: 'Rohan Iyer',
+    studentTitle: 'Engineering Manager & Executive Coach',
+    credentialLevel: 'ARCHITECT' as const,
+    studentLocation: 'Mumbai, India',
+    quote: 'There was nowhere to hide and nothing to coast through. By the end I was coaching senior people with a steadiness I simply did not have before.',
+  },
+  {
+    studentName: 'Ananya Reddy',
+    studentTitle: 'Health & Wellness Coach',
+    credentialLevel: 'CATALYST',
+    studentLocation: 'Hyderabad, India',
+    quote: 'The self-work hours were harder than the live ones, and that was the point. I had to face my own patterns before I could help anyone with theirs.',
+  },
+  {
+    studentName: 'Vikram Singh',
+    studentTitle: 'Leadership Coach & Former Army Officer',
+    credentialLevel: 'SAGE' as const,
+    studentLocation: 'Pune, India',
+    quote: 'This was the first training that changed how I am, not just what I know. The work on presence stayed with me long after the certificate did.',
+  },
+  {
+    studentName: 'Arjun Nair',
+    studentTitle: 'Business Coach',
+    credentialLevel: 'ARCHITECT' as const,
+    studentLocation: 'Kochi, India',
+    quote: 'I coach founders and they can smell anything shallow. The depth of the psychology and behavioural work here is what lets me sit in the room with them as an equal.',
+  },
+  {
+    studentName: 'Dr Kavita Desai',
+    studentTitle: 'Physician & Wellness Coach',
+    credentialLevel: 'CATALYST',
+    studentLocation: 'Ahmedabad, India',
+    quote: 'Coaching taught me to stop fixing and start listening. The two skills could not be more different, and I needed both.',
+  },
+]
+
+interface TestimonialsProps {
+  testimonials?: TestimonialItem[]
+  content?: ContentMap
+}
+
+function TestimonialCard({ t }: { t: TestimonialItem }) {
+  const initials = t.studentName.split(' ').map((n) => n[0]).join('').slice(0, 2)
+  const credential = CREDENTIAL_LABELS[t.credentialLevel] ?? t.credentialLevel
+
   return (
     <div className="w-[340px] md:w-[400px] shrink-0 h-[220px]">
       <div className="h-full bg-gradient-to-br from-brand-navy-800 to-brand-navy-900 backdrop-blur-md rounded-2xl border border-white/8 shadow-xl p-6 flex flex-col justify-between">
@@ -64,9 +83,9 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
             <span className="text-brand-gold-400 font-sans font-bold text-sm">{initials}</span>
           </div>
           <div className="min-w-0">
-            <div className="font-sans font-bold text-white text-sm truncate">{t.name}</div>
-            <div className="font-sans text-xs text-brand-gold-400/80 truncate">{t.title} · <span className="text-brand-gold-500 font-bold">{t.credential}</span></div>
-            <div className="font-sans text-xs text-navy-300 truncate">{t.location}</div>
+            <div className="font-sans font-bold text-white text-sm truncate">{t.studentName}</div>
+            <div className="font-sans text-xs text-brand-gold-400/80 truncate">{t.studentTitle} · <span className="text-brand-gold-500 font-bold">{credential}</span></div>
+            <div className="font-sans text-xs text-navy-300 truncate">{t.studentLocation}</div>
           </div>
         </div>
       </div>
@@ -74,8 +93,9 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
   )
 }
 
-export default function Testimonials() {
-  const row = [...testimonials, ...testimonials];
+export default function Testimonials({ testimonials = [], content = {} }: TestimonialsProps) {
+  const items = testimonials.length > 0 ? testimonials : FALLBACK_TESTIMONIALS
+  const row = [...items, ...items]
 
   return (
     <Section spacing="standard" className="bg-brand-navy-900 text-white relative overflow-hidden">
@@ -84,9 +104,19 @@ export default function Testimonials() {
 
       <Container className="relative z-10 mb-14">
         <div className="text-center">
-          <p className="text-eyebrow flex items-center gap-3 mb-4 justify-center">Alumni Success</p>
-          <h2 className="text-h2 text-white">Hear From Our Graduates</h2>
-          <p className="text-muted-dark max-w-xl mx-auto mt-4 text-body">Coaches trained one-to-one, in 60+ countries, building practices they are proud of.</p>
+          <p className="text-eyebrow flex items-center gap-3 mb-4 justify-center">
+            {cmsField(content, 'testimonials_section_label', 'Alumni Success')}
+          </p>
+          <h2 className="text-h2 text-white">
+            {cmsField(content, 'testimonials_section_heading', 'Hear From Our Graduates')}
+          </h2>
+          <p className="text-muted-dark max-w-xl mx-auto mt-4 text-body">
+            {cmsField(
+              content,
+              'testimonials_section_body',
+              'Coaches trained one-to-one, in 60+ countries, building practices they are proud of.',
+            )}
+          </p>
         </div>
       </Container>
 
@@ -94,7 +124,9 @@ export default function Testimonials() {
         <div className="absolute top-0 bottom-0 left-0 w-24 md:w-40 bg-gradient-to-r from-brand-navy-900 to-transparent z-20 pointer-events-none" aria-hidden />
         <div className="absolute top-0 bottom-0 right-0 w-24 md:w-40 bg-gradient-to-l from-brand-navy-900 to-transparent z-20 pointer-events-none" aria-hidden />
         <div className="flex w-max animate-marquee-fwd gap-4 px-4 motion-reduce:animate-none">
-          {row.map((t, i) => <TestimonialCard key={`r1-${t.name}-${i}`} t={t} />)}
+          {row.map((t, i) => (
+            <TestimonialCard key={`${t.studentName}-${i}`} t={t} />
+          ))}
         </div>
       </div>
     </Section>

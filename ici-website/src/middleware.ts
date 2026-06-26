@@ -42,6 +42,10 @@ export async function middleware(req: NextRequest) {
   if (hostRedirect) return hostRedirect;
 
   const path = req.nextUrl.pathname;
+  if (path === '/home' || path === '/home/') {
+    return NextResponse.redirect(new URL('/', req.url), 301);
+  }
+
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
   if (path.startsWith('/admin/login')) {

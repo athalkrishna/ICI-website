@@ -13,16 +13,17 @@ import ApplyCTA from '@/components/home/ApplyCTA'
 import { HOME_PAGE_METADATA } from '@/lib/home-metadata'
 import { getPageContent } from '@/lib/content'
 import { cmsAnnouncements } from '@/lib/cms-helpers'
-import { getLatestBlogPosts } from '@/lib/data'
+import { getLatestBlogPosts, getPublishedTestimonials } from '@/lib/data'
 
 export const metadata: Metadata = HOME_PAGE_METADATA;
 
 export const dynamic = 'force-static';
 
 export default async function Home() {
-  const [content, latestPosts] = await Promise.all([
+  const [content, latestPosts, testimonials] = await Promise.all([
     getPageContent('home'),
     getLatestBlogPosts(3),
+    getPublishedTestimonials(),
   ]);
 
   const fallbackAnnouncements = [
@@ -37,13 +38,13 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <AnnouncementBanner announcements={announcements} />
-      <HeroSection />
-      <AccreditationLogos />
+      <HeroSection content={content} />
+      <AccreditationLogos content={content} />
       <AudienceCards content={content} />
       <CredentialPathway content={content} />
       <ICIDifference content={content} />
       <FeaturedProgrammes content={content} />
-      <Testimonials />
+      <Testimonials testimonials={testimonials} content={content} />
       <GlobalReachMap content={content} />
       <LatestBlogPosts posts={latestPosts} content={content} />
       <ApplyCTA content={content} />
