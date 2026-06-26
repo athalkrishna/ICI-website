@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CheckCircle2, UserPlus, Compass } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
-import { cmsField, cmsIndexedWithFallbacks, cmsPlainBody } from '@/lib/cms-helpers';
+import { cmsField, cmsIndexedWithFallbacks, cmsPlainBody, cmsHeroEyebrow } from '@/lib/cms-helpers';
 import type { ContentMap } from '@/lib/content';
 import type { ProgrammeSpecialisationData } from '@/lib/programme-defaults';
 
@@ -40,7 +40,7 @@ export default function ProgrammeSpecialisationView({ content, defaults, learnIc
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
               <div className="text-eyebrow text-brand-gold-400">
-                {cmsField(content, 'hero_tag', defaults.heroTag)}
+                {cmsHeroEyebrow(content, defaults.heroTag)}
               </div>
             </div>
             <h1 className="text-h1 text-white mb-8">

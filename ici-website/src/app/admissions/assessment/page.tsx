@@ -3,7 +3,7 @@ import AssessmentForm from '@/components/admissions/AssessmentForm';
 import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'
 import { getPublishedPageContent } from '@/lib/content'
-import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import { cmsField, cmsHtml, stripHtml, cmsHeroEyebrow } from '@/lib/cms-helpers'
 
 import { pageMetadata } from '@/lib/page-metadata';
 
@@ -19,6 +19,13 @@ export default async function AssessmentPage() {
       <Section spacing="standard" className="bg-brand-navy-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
         <Container className="relative z-20 text-center">
+          <div className="flex items-center justify-center gap-6 mb-6">
+            <div className="w-16 h-[1px] gradient-accent-gold"></div>
+            <div className="text-eyebrow text-brand-gold-400">
+              {cmsHeroEyebrow(content, 'Admissions')}
+            </div>
+            <div className="w-16 h-[1px] gradient-accent-gold"></div>
+          </div>
           <h1 className="text-h1 text-white mb-4">
             {cmsField(content, 'hero_heading', 'Free Admissions Assessment')}
           </h1>

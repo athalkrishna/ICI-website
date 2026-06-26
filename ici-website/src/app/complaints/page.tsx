@@ -2,7 +2,7 @@ import ArticleLayout from '@/components/layout/ArticleLayout'
 import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/page-metadata'
 import { getPublishedPageContent } from '@/lib/content'
-import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import { cmsField, cmsHtml, stripHtml, cmsHeroEyebrow } from '@/lib/cms-helpers'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/complaints');
@@ -14,7 +14,7 @@ export default async function ComplaintsPage() {
   return (
     <ArticleLayout
       title={cmsField(content, 'page_heading', 'Complaints Policy')}
-      subtitle={cmsField(content, 'page_subtitle', 'Complaints')}
+      subtitle={cmsHeroEyebrow(content, 'Complaints')}
       image="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=1920&q=80"
       lastUpdated={new Date('2024-01-01')}
     >

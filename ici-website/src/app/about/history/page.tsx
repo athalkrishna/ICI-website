@@ -3,8 +3,18 @@ import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/page-metadata'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+
+const HISTORY_HERO_BODY_HTML =
+  '<p>The International Coaching Institute is young, and we say so plainly. Our heritage is not measured in decades of our own, but in the far older traditions we draw upon and bring together.</p>'
+
+const PARAGRAPH_FALLBACKS = [
+  "Coaching, at its best, sits at a meeting point. From the behavioural sciences, psychology and neuroscience, we inherit a clear understanding of how people actually change. From the world's contemplative and reflective traditions, we inherit something quieter and just as vital: the practice of self-mastery, and the conviction that no one can guide another further than they have travelled themselves.",
+  'We also inherit a way of teaching. Craft has always been passed from one person to another, closely and personally, and that is why we train one-to-one rather than in crowded rooms. It is the oldest method there is, and still the best.',
+  'So when we speak of heritage, we mean a lineage of ideas about human growth that long predates us, and which we are proud to carry forward with rigour and care.',
+]
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/about/history');
@@ -13,41 +23,17 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HistoryPage() {
   const content = await getPublishedPageContent('/about/history')
 
-  const paragraphFallbacks = [
-    'The International Coaching Institute is young, and we say so plainly. Our heritage is not measured in decades of our own, but in the far older traditions we draw upon and bring together.',
-    "Coaching, at its best, sits at a meeting point. From the behavioural sciences, psychology and neuroscience, we inherit a clear understanding of how people actually change. From the world's contemplative and reflective traditions, we inherit something quieter and just as vital: the practice of self-mastery, and the conviction that no one can guide another further than they have travelled themselves.",
-    'We also inherit a way of teaching. Craft has always been passed from one person to another, closely and personally, and that is why we train one-to-one rather than in crowded rooms. It is the oldest method there is, and still the best.',
-    'So when we speak of heritage, we mean a lineage of ideas about human growth that long predates us, and which we are proud to carry forward with rigour and care.',
-  ]
-
-  const paragraphs = paragraphFallbacks.map((fallback, i) =>
+  const paragraphs = PARAGRAPH_FALLBACKS.map((fallback, i) =>
     stripHtml(cmsHtml(content, `paragraph_${i + 1}`, `<p>${fallback}</p>`)),
   )
 
   return (
     <div className="bg-cream-50 min-h-screen">
-      {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
-
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-        </div>
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'Our Story')}
-              </div>
-            </div>
-            <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'History & Heritage')}
-            </h1>
-          </AnimatedSection>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow={cmsField(content, 'hero_eyebrow', 'Our Story')}
+        title={cmsField(content, 'hero_heading', 'History & Heritage')}
+        body={stripHtml(cmsHtml(content, 'hero_body', HISTORY_HERO_BODY_HTML))}
+      />
 
       {/* ── Main Content ── */}
       <Section spacing="standard" className="lg:py-32">

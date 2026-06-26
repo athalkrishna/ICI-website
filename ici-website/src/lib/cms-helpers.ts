@@ -20,6 +20,20 @@ export function cmsField(
   return looksLikeHtml(trimmed) ? stripHtml(trimmed) : trimmed;
 }
 
+/** Hero eyebrow — reads `hero_eyebrow`, with legacy key fallbacks during CMS migration. */
+export function cmsHeroEyebrow(
+  content: ContentMap | null | undefined,
+  fallback: string,
+): string {
+  const primary = content?.hero_eyebrow?.trim();
+  if (primary) return primary;
+  const legacy =
+    content?.hero_label?.trim() ||
+    content?.hero_tag?.trim() ||
+    content?.page_subtitle?.trim();
+  return legacy || fallback;
+}
+
 export function cmsNumber(
   content: ContentMap | null | undefined,
   key: string,

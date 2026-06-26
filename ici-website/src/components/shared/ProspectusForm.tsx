@@ -2,9 +2,21 @@
 
 import { useState } from 'react'
 import ObfuscatedEmail from '@/components/shared/ObfuscatedEmail'
+import {
+  defaultProspectusFormCopy,
+  splitBrochureContactEmail,
+  type ProspectusFormCopy,
+} from '@/lib/prospectus-defaults'
 
-export default function ProspectusForm() {
+type ProspectusFormProps = {
+  copy?: ProspectusFormCopy
+}
+
+export default function ProspectusForm({
+  copy = defaultProspectusFormCopy(),
+}: ProspectusFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const { user: emailUser, domain: emailDomain } = splitBrochureContactEmail(copy.contactEmail)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -32,7 +44,7 @@ export default function ProspectusForm() {
       } else {
         setStatus('error')
       }
-    } catch (err) {
+    } catch {
       setStatus('error')
     }
   }
@@ -40,7 +52,7 @@ export default function ProspectusForm() {
   if (status === 'success') {
     return (
       <div className="bg-cream-50 border border-brand-gold-500/30 p-8 rounded-2xl text-center relative z-10">
-        <p className="text-brand-gold-700 text-body">Thank you. We will email you the prospectus shortly.</p>
+        <p className="text-brand-gold-700 text-body">{copy.successMessage}</p>
       </div>
     )
   }
@@ -49,83 +61,85 @@ export default function ProspectusForm() {
     <form onSubmit={handleSubmit} className="space-y-6 relative z-10" id="prospectus-form">
       {status === 'error' && (
         <div className="bg-red-600/30 border border-red-600/50 p-4 rounded-xl text-center mb-6">
-          <p className="text-red-600 font-body">Something went wrong. Please email{' '}<ObfuscatedEmail user="info" domain="internationalcoachinginstitute.org" className="underline font-semibold" /></p>
+          <p className="text-red-600 font-body">
+            {copy.errorPrefix}{' '}
+            <ObfuscatedEmail user={emailUser} domain={emailDomain} className="underline font-semibold" />
+          </p>
         </div>
       )}
 
       <div className="space-y-2">
         <label htmlFor="name" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider">
-          Name <span className="text-brand-gold-500">*</span>
+          {copy.labels.name} <span className="text-brand-gold-500">*</span>
         </label>
-        <input 
-          type="text" 
-          id="name" 
+        <input
+          type="text"
+          id="name"
           name="name"
-          required 
+          required
           className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
-          placeholder="Your name"
+          placeholder={copy.placeholders.name}
         />
       </div>
-      
+
       <div className="space-y-2">
         <label htmlFor="email" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider">
-          Email <span className="text-brand-gold-500">*</span>
+          {copy.labels.email} <span className="text-brand-gold-500">*</span>
         </label>
-        <input 
-          type="email" 
-          id="email" 
+        <input
+          type="email"
+          id="email"
           name="email"
-          required 
+          required
           className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body"
-          placeholder="you@example.com"
+          placeholder={copy.placeholders.email}
         />
       </div>
 
       <div className="space-y-2">
         <label htmlFor="country" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider">
-          Country <span className="text-brand-gold-500">*</span>
+          {copy.labels.country} <span className="text-brand-gold-500">*</span>
         </label>
-        <select 
-          id="country" 
+        <select
+          id="country"
           name="country"
           required
           defaultValue=""
           className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body appearance-none"
         >
-          <option value="" disabled>Select your country</option>
-          <option value="UK">United Kingdom</option>
-          <option value="US">United States</option>
-          <option value="IN">India</option>
-          <option value="AU">Australia</option>
-          <option value="Other">Other</option>
+          <option value="" disabled>{copy.placeholders.country}</option>
+          <option value="UK">{copy.countryOptions.uk}</option>
+          <option value="US">{copy.countryOptions.us}</option>
+          <option value="IN">{copy.countryOptions.in}</option>
+          <option value="AU">{copy.countryOptions.au}</option>
+          <option value="Other">{copy.countryOptions.other}</option>
         </select>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="interest" className="block font-sans text-sm font-bold text-navy-700 uppercase tracking-wider">
-          Level or specialism of interest <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+          {copy.labels.interest}{' '}
+          <span className="text-muted text-xs font-normal lowercase tracking-normal">{copy.labels.interestOptional}</span>
         </label>
-        <select 
-          id="interest" 
+        <select
+          id="interest"
           name="interest"
           defaultValue=""
           className="w-full bg-white border border-navy-200 shadow-sm rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand-gold-500 focus:border-brand-gold-500 transition-all font-body appearance-none"
         >
-          <option value="" disabled>Select a specialism</option>
-          <option value="Catalyst">Catalyst</option>
-          <option value="Executive Coaching">Executive Coaching</option>
-          <option value="Team Coaching">Team Coaching</option>
-          <option value="Other">Other</option>
+          <option value="" disabled>{copy.placeholders.interest}</option>
+          <option value="Catalyst">{copy.interestOptions.catalyst}</option>
+          <option value="Executive Coaching">{copy.interestOptions.executive}</option>
+          <option value="Team Coaching">{copy.interestOptions.team}</option>
+          <option value="Other">{copy.interestOptions.other}</option>
         </select>
       </div>
 
       <div className="pt-4 text-center">
         <button type="submit" disabled={status === 'loading'} className="btn-primary w-full justify-center py-4 text-base mb-4">
-          {status === 'loading' ? 'Sending...' : 'Send me the prospectus'}
+          {status === 'loading' ? copy.submittingText : copy.submitText}
         </button>
-        <p className="text-muted text-body">
-          We will email you the prospectus as soon as it is released, within the next few weeks.
-        </p>
+        <p className="text-muted text-body">{copy.footerNote}</p>
       </div>
     </form>
   )

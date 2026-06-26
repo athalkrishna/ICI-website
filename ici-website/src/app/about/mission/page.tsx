@@ -3,56 +3,55 @@ import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/page-metadata'
 import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
+import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
-import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
+import { cmsField, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
+import { MISSION_DEFAULTS } from '@/lib/mission-defaults'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/about/mission');
 }
 
+function missionBody(content: Record<string, string | undefined>): string {
+  const fromMission = content.mission_body?.trim();
+  if (fromMission) return stripHtml(fromMission);
+  const fromHero = content.hero_body?.trim();
+  if (fromHero) return stripHtml(fromHero);
+  return MISSION_DEFAULTS.mission_body;
+}
+
+function visionBody(content: Record<string, string | undefined>): string {
+  const fromVision = content.vision_body?.trim();
+  if (fromVision) return stripHtml(fromVision);
+  const fromSection = content.section_1_body?.trim();
+  if (fromSection) return stripHtml(fromSection);
+  return MISSION_DEFAULTS.vision_body;
+}
+
 export default async function MissionPage() {
   const content = await getPublishedPageContent('/about/mission')
+  const d = MISSION_DEFAULTS
 
   const valueTitles = cmsIndexedWithFallbacks(content, 'value_title_', [
-    'Depth over performance',
-    'Evidence with humanity',
-    'Practice, not theory',
-    'Self-mastery first',
+    d.value_title_1,
+    d.value_title_2,
+    d.value_title_3,
+    d.value_title_4,
   ])
   const valueDescs = cmsIndexedWithFallbacks(content, 'value_desc_', [
-    'We prize real understanding of people over polished technique.',
-    'We teach what the science supports, in language that respects the person in front of you.',
-    'Every concept is tied to what happens in a real session.',
-    'A coach can only take a client as far as they have gone themselves.',
+    d.value_desc_1,
+    d.value_desc_2,
+    d.value_desc_3,
+    d.value_desc_4,
   ])
 
   return (
     <div className="bg-cream-50 min-h-screen">
-      {/* ── Hero Section ── */}
-      <Section spacing="hero" className="bg-brand-navy-800 relative overflow-hidden border-b border-faint">
-        
-        <div className="absolute inset-0 bg-hero-pattern opacity-10" aria-hidden />
+      <PageHero
+        eyebrow={cmsField(content, 'hero_eyebrow', d.hero_eyebrow)}
+        title={cmsField(content, 'hero_heading', d.hero_heading)}
+      />
 
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold-400 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
-        </div>
-
-        <Container className="relative z-20">
-          <AnimatedSection className="max-w-4xl">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-[1px] bg-brand-gold-400"></div>
-              <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'Mission, vision and values')}
-              </div>
-            </div>
-            <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'A New Standard for Coaching')}
-            </h1>
-          </AnimatedSection>
-        </Container>
-      </Section>
-
-      {/* ── Standard Section ── */}
       <Section spacing="compact" className="lg:py-24 relative z-20">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-32">
@@ -60,22 +59,22 @@ export default async function MissionPage() {
               <div className="pl-6 border-l-2 border-brand-gold-400 relative">
                 <span className="absolute -left-[3px] top-0 text-brand-gold-400 text-6xl leading-none font-display opacity-20">&quot;</span>
                 <h2 className="text-h3 text-brand-navy-800 mb-6">
-                  {cmsField(content, 'mission_heading', 'Our mission')}
+                  {cmsField(content, 'mission_heading', d.mission_heading)}
                 </h2>
-                <p className="text-brand-navy-600 text-body">
-                  {stripHtml(cmsHtml(content, 'hero_body', 'To raise the standard of coaching by training and certifying coaches who combine genuine skill with genuine self-awareness.'))}
+                <p className="text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
+                  {missionBody(content)}
                 </p>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.2}>
               <div className="pl-6 border-l-2 border-brand-navy-200 relative">
                 <span className="absolute -left-[3px] top-0 text-brand-navy-200 text-6xl leading-none font-display opacity-20">&quot;</span>
                 <h2 className="text-h3 text-brand-navy-800 mb-6">
-                  {cmsField(content, 'section_1_heading', 'Our vision')}
+                  {cmsField(content, 'vision_heading', cmsField(content, 'section_1_heading', d.vision_heading))}
                 </h2>
-                <p className="text-brand-navy-600 text-body">
-                  {stripHtml(cmsHtml(content, 'section_1_body', 'A world where good coaching is widely available and widely trusted, and where leaders are measured by how well they help others grow.'))}
+                <p className="text-xl md:text-2xl text-brand-navy-600 leading-relaxed font-light">
+                  {visionBody(content)}
                 </p>
               </div>
             </AnimatedSection>
@@ -84,7 +83,7 @@ export default async function MissionPage() {
           <AnimatedSection delay={0.3}>
             <div className="text-center mb-16">
               <h2 className="text-h2 text-brand-navy-800 mb-6">
-                {cmsField(content, 'section_2_heading', 'What we value')}
+                {cmsField(content, 'values_heading', cmsField(content, 'section_2_heading', d.values_heading))}
               </h2>
               <div className="w-24 h-1 bg-brand-gold-400 mx-auto rounded-full"></div>
             </div>
@@ -100,7 +99,6 @@ export default async function MissionPage() {
               ))}
             </div>
           </AnimatedSection>
-          
         </Container>
       </Section>
     </div>

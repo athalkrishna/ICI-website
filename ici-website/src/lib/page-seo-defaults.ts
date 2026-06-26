@@ -272,6 +272,11 @@ export const PAGE_SEO_DEFAULTS: Record<string, PageSeoDefault> = {
     title: 'Complaints Policy',
     description: 'How to file a complaint with the International Coaching Institute and our process for resolving it.',
   },
+  '/verify': {
+    title: 'Verify Credential | International Coaching Institute',
+    description:
+      'Verify the authenticity of an ICI coach credential by entering the reference number from their certificate.',
+  },
   '/credentials/catalyst': withKeywordTargets('/credentials/catalyst', {
     title: 'Coaching Certification for Beginners | ICI Catalyst (Level 1)',
     description:

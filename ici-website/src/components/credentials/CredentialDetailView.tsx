@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ChevronRight, CheckCircle2 } from 'lucide-react';
 import Section from '@/components/layout/Section';
 import Container from '@/components/layout/Container';
-import { cmsField, cmsIndexedWithFallbacks } from '@/lib/cms-helpers';
+import { cmsField, cmsIndexedWithFallbacks, cmsHeroEyebrow } from '@/lib/cms-helpers';
 import type { ContentMap } from '@/lib/content';
 import type { CredentialDetailDefaults } from '@/lib/credential-defaults';
 
@@ -36,7 +36,7 @@ export default function CredentialDetailView({ content, defaults }: Props) {
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
               <div className="text-eyebrow text-brand-gold-400">
-                {cmsField(content, 'hero_label', defaults.heroLabel)}
+                {cmsHeroEyebrow(content, defaults.heroLabel)}
               </div>
             </div>
             <h1 className="text-h1 text-white mb-6">

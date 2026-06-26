@@ -1,8 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { defaultEventsFormCopy, type EventsFormCopy } from '@/lib/events-defaults'
 
-export default function EventsForm() {
+type EventsFormProps = {
+  copy?: EventsFormCopy
+}
+
+export default function EventsForm({ copy = defaultEventsFormCopy() }: EventsFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -28,7 +33,7 @@ export default function EventsForm() {
       } else {
         setStatus('error')
       }
-    } catch (err) {
+    } catch {
       setStatus('error')
     }
   }
@@ -36,7 +41,7 @@ export default function EventsForm() {
   if (status === 'success') {
     return (
       <div className="bg-cream-50 border border-brand-gold-500/30 p-8 rounded-2xl text-center">
-        <p className="text-brand-gold-700 text-body">Thank you — we will be in touch.</p>
+        <p className="text-brand-gold-700 text-body">{copy.successMessage}</p>
       </div>
     )
   }
@@ -48,7 +53,7 @@ export default function EventsForm() {
           type="email"
           name="email"
           required
-          placeholder="Your email address"
+          placeholder={copy.placeholderEmail}
           className="flex-1 bg-white border border-navy-200 shadow-sm rounded-full px-6 py-4 text-brand-navy-900 placeholder-muted focus:outline-none focus:border-brand-gold-500 transition-colors"
         />
         <button
@@ -56,11 +61,11 @@ export default function EventsForm() {
           disabled={status === 'loading'}
           className="btn-primary whitespace-nowrap"
         >
-          {status === 'loading' ? 'Sending...' : 'Notify me'}
+          {status === 'loading' ? copy.submittingText : copy.submitText}
         </button>
       </div>
       {status === 'error' && (
-        <p className="text-red-600 mt-4 text-sm">Something went wrong. Please try again.</p>
+        <p className="text-red-600 mt-4 text-sm">{copy.errorMessage}</p>
       )}
     </form>
   )

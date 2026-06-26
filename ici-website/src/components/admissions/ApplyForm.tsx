@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { mapProgrammeInterest, submitLeadRequest } from '@/lib/lead-utils';
+import { defaultApplyFormCopy, type ApplyFormCopy } from '@/lib/apply-defaults';
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -22,14 +23,10 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 type ApplyFormProps = {
-  successHeading?: string;
-  successBody?: string;
+  copy?: ApplyFormCopy;
 };
 
-export default function ApplyForm({
-  successHeading = 'Application received',
-  successBody = 'Thank you for applying to the International Coaching Institute. We will review your application and an advisor will be in touch within 2 working days.',
-}: ApplyFormProps) {
+export default function ApplyForm({ copy = defaultApplyFormCopy() }: ApplyFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState<string>('');
@@ -48,7 +45,7 @@ export default function ApplyForm({
 
   const onSubmit = async (data: FormData) => {
     if (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken) {
-      setErrorMessage('Please complete the CAPTCHA');
+      setErrorMessage(copy.captchaError);
       setStatus('error');
       return;
     }
@@ -81,7 +78,7 @@ export default function ApplyForm({
       setStatus('success');
     } catch (err) {
       setStatus('error');
-      setErrorMessage(err instanceof Error ? err.message : 'There was an error submitting your application.');
+      setErrorMessage(err instanceof Error ? err.message : copy.errorMessage);
     }
   };
 
@@ -91,10 +88,8 @@ export default function ApplyForm({
         <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
-        <h3 className="font-display text-2xl font-bold text-brand-navy-900 mb-4">{successHeading}</h3>
-        <p className="text-muted mb-8 text-body">
-          {successBody}
-        </p>
+        <h3 className="font-display text-2xl font-bold text-brand-navy-900 mb-4">{copy.successHeading}</h3>
+        <p className="text-muted mb-8 text-body">{copy.successBody}</p>
       </div>
     );
   }
@@ -104,28 +99,28 @@ export default function ApplyForm({
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-            Full name <span className="text-brand-gold-500">*</span>
+            {copy.labels.name} <span className="text-brand-gold-500">*</span>
           </label>
-          <input 
-            type="text" 
-            id="name" 
+          <input
+            type="text"
+            id="name"
             {...register('name')}
             className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
-            placeholder="Your full name"
+            placeholder={copy.placeholders.name}
           />
           {errors.name && <p className="text-red-600 text-sm">{errors.name.message}</p>}
         </div>
-        
+
         <div className="space-y-2">
           <label htmlFor="email" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-            Email <span className="text-brand-gold-500">*</span>
+            {copy.labels.email} <span className="text-brand-gold-500">*</span>
           </label>
-          <input 
-            type="email" 
-            id="email" 
+          <input
+            type="email"
+            id="email"
             {...register('email')}
             className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
-            placeholder="you@example.com"
+            placeholder={copy.placeholders.email}
           />
           {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
         </div>
@@ -134,27 +129,29 @@ export default function ApplyForm({
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="phone" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-            WhatsApp Number <span className="text-brand-gold-500">*</span>
+            {copy.labels.phone} <span className="text-brand-gold-500">*</span>
           </label>
-          <input 
-            type="tel" 
-            id="phone" 
+          <input
+            type="tel"
+            id="phone"
             {...register('phone')}
             className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
-            placeholder="+1 (555) 000-0000"
+            placeholder={copy.placeholders.phone}
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="country" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-            Country <span className="text-brand-gold-500">*</span>
+            {copy.labels.country} <span className="text-brand-gold-500">*</span>
           </label>
-          <select 
-            id="country" 
+          <select
+            id="country"
             {...register('country')}
             className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
           >
-            <option value="" disabled>Select your country</option>
+            <option value="" disabled>
+              {copy.placeholders.country}
+            </option>
             <option value="UK">United Kingdom</option>
             <option value="US">United States</option>
             <option value="IN">India</option>
@@ -167,16 +164,20 @@ export default function ApplyForm({
 
       <div className="space-y-2">
         <label htmlFor="level" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          Level of interest <span className="text-brand-gold-500">*</span>
+          {copy.labels.level} <span className="text-brand-gold-500">*</span>
         </label>
-        <select 
-          id="level" 
+        <select
+          id="level"
           {...register('level')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body appearance-none min-h-[44px]"
         >
-          <option value="" disabled>Select a level</option>
+          <option value="" disabled>
+            {copy.placeholders.level}
+          </option>
           {['Catalyst', 'Architect', 'Sage', 'Luminary'].map((level) => (
-            <option key={level} value={level}>{level}</option>
+            <option key={level} value={level}>
+              {level}
+            </option>
           ))}
         </select>
         {errors.level && <p className="text-red-600 text-sm">{errors.level.message}</p>}
@@ -184,64 +185,65 @@ export default function ApplyForm({
 
       <div className="space-y-2">
         <label htmlFor="specialism" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          Specialism of interest <span className="text-brand-gold-500">*</span>
+          {copy.labels.specialism} <span className="text-brand-gold-500">*</span>
         </label>
-        <input 
-          type="text" 
-          id="specialism" 
+        <input
+          type="text"
+          id="specialism"
           required
           {...register('specialism')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
-          placeholder="e.g. Executive Coaching, Health & Wellness"
+          placeholder={copy.placeholders.specialism}
         />
         {errors.specialism && <p className="text-red-600 text-sm">{errors.specialism.message}</p>}
       </div>
 
       <div className="space-y-2">
         <label htmlFor="experience" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          Your current experience with coaching <span className="text-brand-gold-500">*</span>
+          {copy.labels.experience} <span className="text-brand-gold-500">*</span>
         </label>
-        <textarea 
-          id="experience" 
+        <textarea
+          id="experience"
           rows={3}
           {...register('experience')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body resize-none"
-          placeholder="Briefly describe your background..."
-        ></textarea>
+          placeholder={copy.placeholders.experience}
+        />
         {errors.experience && <p className="text-red-600 text-sm">{errors.experience.message}</p>}
       </div>
 
       <div className="space-y-2">
         <label htmlFor="goals" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          What you hope to achieve <span className="text-brand-gold-500">*</span>
+          {copy.labels.goals} <span className="text-brand-gold-500">*</span>
         </label>
-        <textarea 
-          id="goals" 
+        <textarea
+          id="goals"
           rows={3}
           {...register('goals')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body resize-none"
-          placeholder="What are your goals for taking this programme?"
-        ></textarea>
+          placeholder={copy.placeholders.goals}
+        />
         {errors.goals && <p className="text-red-600 text-sm">{errors.goals.message}</p>}
       </div>
 
       <div className="space-y-2">
         <label htmlFor="source" className="block font-sans text-sm font-bold text-brand-navy-900 uppercase tracking-wider">
-          How did you hear about us? <span className="text-muted text-xs font-normal lowercase tracking-normal">(Optional)</span>
+          {copy.labels.source}{' '}
+          <span className="text-muted text-xs font-normal lowercase tracking-normal">{copy.labels.sourceOptional}</span>
         </label>
-        <input 
-          type="text" 
-          id="source" 
+        <input
+          type="text"
+          id="source"
           {...register('source')}
           className="w-full bg-cream-50 border border-navy-200 rounded-xl px-4 py-3.5 text-brand-navy-900 placeholder:text-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-gold-500/70 focus:border-brand-gold-500/50 transition-all font-body min-h-[44px]"
-          placeholder="e.g. LinkedIn, a colleague, Google search"
+          placeholder={copy.placeholders.source}
         />
       </div>
 
       {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
         <div className="pt-2">
-          <Turnstile 
-            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} 
+          <Turnstile
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
             onSuccess={(token) => setTurnstileToken(token)}
             options={{ theme: 'light' }}
           />
@@ -250,21 +252,19 @@ export default function ApplyForm({
 
       {status === 'error' && (
         <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">
-          {errorMessage || 'There was an error submitting your application. Please try again later.'}
+          {errorMessage || copy.errorMessage}
         </div>
       )}
 
       <div className="pt-6 text-center">
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={status === 'submitting'}
           className="btn-primary w-full justify-center py-4 text-base mb-4 disabled:opacity-50 min-h-[44px]"
         >
-          {status === 'submitting' ? 'Submitting...' : 'Submit application'}
+          {status === 'submitting' ? copy.submittingText : copy.submitText}
         </button>
-        <p className="text-muted text-body">
-          Free to apply. No commitment. An advisor will be in touch within 2 working days.
-        </p>
+        <p className="text-muted text-body">{copy.footerNote}</p>
       </div>
     </form>
   );

@@ -9,6 +9,12 @@ import CoachGrid from '@/components/coaches/CoachGrid'
 import { getPublishedFacultyCoaches } from '@/lib/coaches'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
+import {
+  FACULTY_DEFAULTS,
+  FACULTY_HERO_BODY_HTML,
+  FACULTY_SECTION_BODY_HTML,
+  FACULTY_THEME_ITEMS,
+} from '@/lib/faculty-defaults'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/faculty');
@@ -20,21 +26,16 @@ export default async function FacultyResearchPage() {
     getPublishedFacultyCoaches(),
   ])
 
-  const themeItems = cmsIndexedWithFallbacks(content, 'theme_', [
-    'The inner life of high achievers, including the loneliness of success',
-    'How change really happens in the brain and the nervous system',
-    'Leadership as a practice of self-mastery',
-    'Defence mechanisms, projection and the patterns that shape behaviour',
-    'Contemplative traditions and modern behavioural science in dialogue',
-  ])
+  const d = FACULTY_DEFAULTS
+  const themeItems = cmsIndexedWithFallbacks(content, 'theme_', [...FACULTY_THEME_ITEMS])
 
   return (
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       <PageHero
-        eyebrow={cmsField(content, 'hero_eyebrow', 'Faculty & Research')}
-        title={cmsField(content, 'hero_heading', 'Taught by people who still do the work')}
-        body={stripHtml(cmsHtml(content, 'hero_body', 'A coaching school is only as good as the people who teach in it. At ICI you learn from practising coaches, not career lecturers, people who carry real client work into the room with them. Alongside our teaching, we share thinking on coaching, leadership and the psychology of change, because the field only advances when practitioners keep questioning it.'))}
+        eyebrow={cmsField(content, 'hero_eyebrow', d.hero_eyebrow)}
+        title={cmsField(content, 'hero_heading', d.hero_heading)}
+        body={stripHtml(cmsHtml(content, 'hero_body', FACULTY_HERO_BODY_HTML))}
       />
 
       {/* ── Our Faculty ── */}
@@ -42,15 +43,18 @@ export default async function FacultyResearchPage() {
         <Container>
           <AnimatedSection className="max-w-3xl">
             <h2 className="text-h2 text-brand-navy-900 mb-6">
-              {cmsField(content, 'faculty_section_heading', 'Our faculty')}
+              {cmsField(content, 'faculty_section_heading', d.faculty_section_heading)}
             </h2>
             <p className="text-muted text-lg mb-12">
-              {stripHtml(cmsHtml(content, 'faculty_section_body', 'ICI faculty combine deep coaching experience with grounding in leadership, psychology, neuroscience and human behaviour. Many continue to coach senior leaders while they teach, so what you learn reflects how coaching actually works today. Because we teach one-to-one, you work closely with a coach matched to your level and focus.'))}
+              {stripHtml(cmsHtml(content, 'faculty_section_body', FACULTY_SECTION_BODY_HTML))}
             </p>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <CoachGrid coaches={facultyCoaches} />
+            <CoachGrid
+              coaches={facultyCoaches}
+              emptyMessage={cmsField(content, 'faculty_empty_message', d.faculty_empty_message)}
+            />
           </AnimatedSection>
         </Container>
       </Section>
@@ -61,21 +65,21 @@ export default async function FacultyResearchPage() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <AnimatedSection>
               <h2 className="text-h2 text-brand-navy-900 mb-6">
-                {cmsField(content, 'research_heading', 'Our approach to research and thinking')}
+                {cmsField(content, 'research_heading', d.research_heading)}
               </h2>
               <p className="text-muted mb-8 text-body">
-                {cmsField(content, 'research_body', 'Coaching deserves rigour. We draw on coaching psychology, behavioural science and neuroscience, test ideas against real practice, and share what we learn through articles and teaching. The aim is not theory for its own sake, but better coaching for the people our graduates serve.')}
+                {cmsField(content, 'research_body', d.research_body)}
               </p>
               <div className="mt-8">
-                <Link href={cmsField(content, 'cta_button_link', '/resources')} className="btn-primary">
-                  {cmsField(content, 'cta_button_text', 'Read our latest insights')}
+                <Link href={cmsField(content, 'cta_button_link', d.cta_button_link)} className="btn-primary">
+                  {cmsField(content, 'cta_button_text', d.cta_button_text)}
                 </Link>
               </div>
             </AnimatedSection>
             
             <AnimatedSection delay={0.2} className="bg-white p-8 md:p-10 rounded-3xl border border-navy-100 shadow-xl">
               <h3 className="text-h3 text-brand-navy-900 mb-6">
-                {cmsField(content, 'themes_heading', 'Themes we explore')}
+                {cmsField(content, 'themes_heading', d.themes_heading)}
               </h3>
               <ul className="space-y-4 text-muted text-body">
                 {themeItems.map((theme, i) => (

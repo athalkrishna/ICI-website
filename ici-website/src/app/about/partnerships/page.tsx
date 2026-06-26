@@ -7,6 +7,10 @@ import Section from '@/components/layout/Section'
 import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
+import {
+  PARTNERSHIPS_DEFAULTS,
+  PARTNERSHIPS_HERO_BODY_HTML,
+} from '@/lib/partnerships-defaults'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/about/partnerships');
@@ -14,13 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PartnershipsPage() {
   const content = await getPublishedPageContent('/about/partnerships')
+  const d = PARTNERSHIPS_DEFAULTS
 
-  const wayDescriptions = cmsIndexedWithFallbacks(content, 'way_', [
-    'Training and certifying coaches inside organisations',
-    'Co-developing programmes with institutions and employers',
-    'Referral and delivery alliances with aligned platforms',
-    'Community and social-impact collaborations',
-  ])
+  const wayDescriptions = cmsIndexedWithFallbacks(content, 'way_', [...d.ways])
 
   return (
     <div className="bg-cream-50 min-h-screen">
@@ -38,14 +38,14 @@ export default async function PartnershipsPage() {
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-[1px] bg-brand-gold-400"></div>
               <div className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'Collaborate with us')}
+                {cmsField(content, 'hero_eyebrow', d.hero_eyebrow)}
               </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'Partnerships & Alliances')}
+              {cmsField(content, 'hero_heading', d.hero_heading)}
             </h1>
             <p className="text-navy-100 text-base max-w-2xl">
-              {stripHtml(cmsHtml(content, 'hero_body', 'Good coaching does not happen in isolation, and neither does good coaching education. We work with organisations that share our standard: universities and colleges, professional bodies, employers building a coaching culture, and platforms that help good coaches reach the people who need them. We partner where it genuinely raises the quality or reach of coaching, and we decline where it would only add a logo.'))}
+              {stripHtml(cmsHtml(content, 'hero_body', PARTNERSHIPS_HERO_BODY_HTML))}
             </p>
           </AnimatedSection>
         </Container>
@@ -58,7 +58,7 @@ export default async function PartnershipsPage() {
           <AnimatedSection delay={0.2} className="mb-32">
             <div className="text-center mb-12">
               <h2 className="text-h2 text-brand-navy-800">
-                {cmsField(content, 'ways_heading', 'Ways we work together')}
+                {cmsField(content, 'ways_heading', d.ways_heading)}
               </h2>
             </div>
             <Container size="mid" className="grid md:grid-cols-2 gap-8">
@@ -88,13 +88,13 @@ export default async function PartnershipsPage() {
               
               <div className="relative z-10">
                 <h2 className="text-h3 text-white mb-6">
-                  {cmsField(content, 'cta_heading', 'Partner with ICI')}
+                  {cmsField(content, 'cta_heading', d.cta_heading)}
                 </h2>
                 <p className="text-white mb-10 max-w-2xl mx-auto text-body">
-                  {cmsField(content, 'cta_body', 'If your organisation develops people, or serves a community we could serve better together, we would like to hear from you.')}
+                  {cmsField(content, 'cta_body', d.cta_body)}
                 </p>
-                <Link href={cmsField(content, 'cta_button_link', '/contact')} className="btn-primary">
-                  {cmsField(content, 'cta_button_text', 'Discuss a partnership')}
+                <Link href={cmsField(content, 'cta_button_link', d.cta_button_link)} className="btn-primary">
+                  {cmsField(content, 'cta_button_text', d.cta_button_text)}
                   <ArrowRight size={18} />
                 </Link>
               </div>

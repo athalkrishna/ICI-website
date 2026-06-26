@@ -9,6 +9,10 @@ import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml, cmsIndexedWithFallbacks } from '@/lib/cms-helpers'
 
 import { pageMetadata } from '@/lib/page-metadata'
+import {
+  ACCREDITATION_DEFAULTS,
+  ACCREDITATION_HERO_BODY_HTML,
+} from '@/lib/accreditation-defaults'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/about/accreditation');
@@ -18,13 +22,9 @@ const STANDARD_ICONS = [<Award key="award" />, <Scale key="scale" />, <BookOpen 
 
 export default async function AccreditationPage() {
   const content = await getPublishedPageContent('/about/accreditation')
+  const d = ACCREDITATION_DEFAULTS
 
-  const standardItems = cmsIndexedWithFallbacks(content, 'standard_', [
-    'Every level is assessed on real coaching, not attendance',
-    'Faculty are practising coaches held to a professional code',
-    'Curriculum aligned to international coaching competency standards',
-    'Independent review of our assessment process',
-  ])
+  const standardItems = cmsIndexedWithFallbacks(content, 'standard_', [...d.standard_points])
 
   const accreditationBodies = [1, 2, 3, 4, 5].map((n) => ({
     name: cmsField(content, `accreditation_${n}_name`, ''),
@@ -34,9 +34,9 @@ export default async function AccreditationPage() {
   return (
     <div className="bg-cream-50 min-h-screen">
       <PageHero
-        eyebrow={cmsField(content, 'hero_eyebrow', 'Recognition & Accreditation')}
-        title={cmsField(content, 'hero_heading', 'Standards you can stand behind')}
-        body={stripHtml(cmsHtml(content, 'hero_body', 'A credential is only worth what it can be trusted to mean. This page sets out how ICI holds its standard, the bodies it works with, and the recognition behind its credentials, stated plainly and only where it is genuinely earned. We would rather say less and be believed than claim more and be doubted.'))}
+        eyebrow={cmsField(content, 'hero_eyebrow', d.hero_eyebrow)}
+        title={cmsField(content, 'hero_heading', d.hero_heading)}
+        body={stripHtml(cmsHtml(content, 'hero_body', ACCREDITATION_HERO_BODY_HTML))}
       />
 
       <Section spacing="standard">
@@ -46,7 +46,7 @@ export default async function AccreditationPage() {
               <div className="bg-white p-10 lg:p-14 relative overflow-hidden rounded-3xl shadow-xl border border-navy-100">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-cream-100 rounded-bl-full -z-10" />
                 <h3 className="text-h3 text-brand-navy-800 mb-10">
-                  {cmsField(content, 'standards_heading', 'How we hold our standard')}
+                  {cmsField(content, 'standards_heading', d.standards_heading)}
                 </h3>
 
                 <div className="space-y-8">
@@ -71,14 +71,10 @@ export default async function AccreditationPage() {
             <AnimatedSection delay={0.25} className="mb-24">
               <div className="text-center mb-12">
                 <h2 className="text-h2 text-brand-navy-800 mb-4">
-                  {cmsField(content, 'accreditations_heading', 'Recognition & professional bodies')}
+                  {cmsField(content, 'accreditations_heading', d.accreditations_heading)}
                 </h2>
                 <p className="text-muted max-w-2xl mx-auto text-body">
-                  {cmsField(
-                    content,
-                    'accreditations_intro',
-                    'We work with and align to recognised professional bodies where it genuinely applies to our programmes.',
-                  )}
+                  {cmsField(content, 'accreditations_intro', d.accreditations_intro)}
                 </p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -100,16 +96,16 @@ export default async function AccreditationPage() {
           <AnimatedSection delay={0.3}>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link
-                href={cmsField(content, 'cta_link_1_url', '/credentials')}
+                href={cmsField(content, 'cta_link_1_url', d.cta_link_1_url)}
                 className="btn-primary text-center"
               >
-                {cmsField(content, 'cta_link_1_text', 'See the Mastery Pathway')}
+                {cmsField(content, 'cta_link_1_text', d.cta_link_1_text)}
               </Link>
               <Link
-                href={cmsField(content, 'cta_link_2_url', '/admissions/contact')}
+                href={cmsField(content, 'cta_link_2_url', d.cta_link_2_url)}
                 className="btn-secondary-light text-center"
               >
-                {cmsField(content, 'cta_link_2_text', 'Contact us')}
+                {cmsField(content, 'cta_link_2_text', d.cta_link_2_text)}
               </Link>
             </div>
           </AnimatedSection>

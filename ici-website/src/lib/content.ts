@@ -31,7 +31,7 @@ function mapLegacyCredentialFields(slug: string, content: ContentMap): ContentMa
   if (!slug.startsWith('cred-')) return content;
   return {
     ...content,
-    label: content.hero_label ?? content.label ?? '',
+    label: content.hero_eyebrow ?? content.hero_label ?? content.label ?? '',
     heading: content.hero_heading ?? content.heading ?? '',
     credential: content.programme_level ?? content.credential ?? '',
     body: content.hero_body ?? content.body ?? '',

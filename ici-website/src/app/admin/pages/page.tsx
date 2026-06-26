@@ -23,8 +23,8 @@ type PageItem = {
 const PAGE_GROUPS: { label: string; match: (slug: string) => boolean }[] = [
   { label: 'Core', match: (s) => s === '/' || s === 'global' },
   { label: 'Programmes', match: (s) => s.startsWith('/programmes') },
-  { label: 'Credentials', match: (s) => s.startsWith('/credentials') },
-  { label: 'Admissions & Apply', match: (s) => s.startsWith('/admissions') || s === '/apply' || s === '/prospectus' },
+  { label: 'Credentials', match: (s) => s.startsWith('/credentials') || s === '/verify' },
+  { label: 'Admissions & Apply', match: (s) => s.startsWith('/admissions') || s === '/apply' || s === '/prospectus' || s === '/resources/brochure' },
   { label: 'About', match: (s) => s.startsWith('/about') },
   { label: 'Students & Community', match: (s) => ['/future-students', '/current-students', '/community', '/alumni', '/faculty-staff'].includes(s) },
   { label: 'Resources & Blog', match: (s) => s.startsWith('/resources') || s === '/blog' || s === '/events' },

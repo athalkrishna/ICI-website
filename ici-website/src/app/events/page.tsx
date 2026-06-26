@@ -8,14 +8,36 @@ import Container from '@/components/layout/Container'
 import PageHero from '@/components/layout/PageHero'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
+import {
+  EVENTS_DEFAULTS,
+  EVENTS_HERO_BODY_HTML,
+  defaultEventsFormCopy,
+  type EventsFormCopy,
+} from '@/lib/events-defaults'
+import type { ContentMap } from '@/lib/content'
 import { pageMetadata } from '@/lib/page-metadata'
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/events');
 }
 
+function buildEventsFormCopy(content: ContentMap): EventsFormCopy {
+  const d = EVENTS_DEFAULTS;
+  const defaults = defaultEventsFormCopy();
+
+  return {
+    placeholderEmail: cmsField(content, 'form_placeholder_email', d.form_placeholder_email),
+    submitText: cmsField(content, 'form_submit_text', d.form_submit_text),
+    submittingText: cmsField(content, 'form_submitting_text', d.form_submitting_text),
+    successMessage: cmsField(content, 'form_success_message', defaults.successMessage),
+    errorMessage: cmsField(content, 'form_error_message', d.form_error_message),
+  };
+}
+
 export default async function EventsPage() {
   const content = await getPublishedPageContent('/events')
+  const d = EVENTS_DEFAULTS
+  const formCopy = buildEventsFormCopy(content)
 
   let events: any[] = [];
   try {
@@ -31,9 +53,9 @@ export default async function EventsPage() {
     <div className="bg-cream-50 min-h-screen font-sans selection:bg-brand-gold-500/30">
       
       <PageHero
-        eyebrow={cmsField(content, 'hero_eyebrow', 'Events')}
-        title={cmsField(content, 'hero_heading', 'Where the community comes together')}
-        body={stripHtml(cmsHtml(content, 'hero_body', 'Some things only happen when people gather, even online. ICI events bring together coaches, leaders and the people we teach for masterclasses, summits and live sessions that go deeper than any recording can. Below are the events coming up. Each one is a chance to learn something real and meet people worth knowing.'))}
+        eyebrow={cmsField(content, 'hero_eyebrow', d.hero_eyebrow)}
+        title={cmsField(content, 'hero_heading', d.hero_heading)}
+        body={stripHtml(cmsHtml(content, 'hero_body', EVENTS_HERO_BODY_HTML))}
       />
 
       {/* ── Upcoming Events ── */}
@@ -41,15 +63,15 @@ export default async function EventsPage() {
         <Container>
           <AnimatedSection>
             <h2 className="text-h2 text-brand-navy-900 mb-12">
-              {cmsField(content, 'upcoming_heading', 'Upcoming events')}
+              {cmsField(content, 'upcoming_heading', d.upcoming_heading)}
             </h2>
             
             {events.length === 0 ? (
               <Container size="narrow" className="bg-white border border-navy-100 shadow-xl rounded-[24px] overflow-hidden p-10 md:p-16 flex flex-col items-center justify-center text-center">
                 <p className="text-muted mb-8 text-body">
-                  {cmsField(content, 'empty_state_body', 'Our first public events are being scheduled. Register your interest and we will tell you first.')}
+                  {cmsField(content, 'empty_state_body', d.empty_state_body)}
                 </p>
-                <EventsForm />
+                <EventsForm copy={formCopy} />
               </Container>
             ) : (
               <div className="grid gap-8 max-w-4xl mx-auto">
@@ -66,7 +88,7 @@ export default async function EventsPage() {
                     )}
                     {event.registerLink && (
                       <Link href={event.registerLink} target="_blank" className="btn-primary inline-flex">
-                        {cmsField(content, 'register_button_text', 'Register for event')}
+                        {cmsField(content, 'register_button_text', d.register_button_text)}
                       </Link>
                     )}
                   </div>
@@ -75,11 +97,11 @@ export default async function EventsPage() {
             )}
 
             <div className="flex flex-col sm:flex-row justify-center gap-6 mt-16">
-              <Link href="#all-events" className="btn-primary text-center">
-                {cmsField(content, 'cta_1_text', 'See all events')}
+              <Link href={cmsField(content, 'cta_1_link', d.cta_1_link)} className="btn-primary text-center">
+                {cmsField(content, 'cta_1_text', d.cta_1_text)}
               </Link>
-              <Link href="#events-form" className="btn-secondary-light text-center">
-                {cmsField(content, 'cta_2_text', 'Register your interest')}
+              <Link href={cmsField(content, 'cta_2_link', d.cta_2_link)} className="btn-secondary-light text-center">
+                {cmsField(content, 'cta_2_text', d.cta_2_text)}
               </Link>
             </div>
           </AnimatedSection>
@@ -91,14 +113,14 @@ export default async function EventsPage() {
         <Container>
           <AnimatedSection className="max-w-3xl">
             <h2 className="text-h2 text-brand-navy-900 mb-6">
-              {cmsField(content, 'masterclasses_heading', 'Masterclasses')}
+              {cmsField(content, 'masterclasses_heading', d.masterclasses_heading)}
             </h2>
             <p className="text-muted mb-12 text-body">
-              {cmsField(content, 'masterclasses_body', 'Short, focused live sessions led by ICI faculty and guests on specific aspects of the craft. Open to students, alumni and, where noted, the public.')}
+              {cmsField(content, 'masterclasses_body', d.masterclasses_body)}
             </p>
             <div className="flex flex-wrap justify-start items-center gap-4">
-              <Link href="#events-form" className="btn-primary">
-                {cmsField(content, 'masterclasses_cta_text', 'Register your interest')}
+              <Link href={cmsField(content, 'masterclasses_cta_link', d.masterclasses_cta_link)} className="btn-primary">
+                {cmsField(content, 'masterclasses_cta_text', d.masterclasses_cta_text)}
               </Link>
             </div>
           </AnimatedSection>

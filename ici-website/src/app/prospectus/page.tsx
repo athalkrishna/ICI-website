@@ -6,6 +6,13 @@ import Container from '@/components/layout/Container'
 import { getPublishedPageContent } from '@/lib/content'
 import { cmsField, cmsHtml, stripHtml } from '@/lib/cms-helpers'
 import ProspectusQuickForm from '@/components/shared/ProspectusQuickForm'
+import {
+  PROSPECTUS_DEFAULTS,
+  PROSPECTUS_HERO_BODY_HTML,
+  defaultProspectusQuickFormCopy,
+  type ProspectusQuickFormCopy,
+} from '@/lib/prospectus-defaults'
+import type { ContentMap } from '@/lib/content'
 
 export const revalidate = 60;
 
@@ -13,8 +20,23 @@ export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata('/prospectus');
 }
 
+function buildProspectusQuickFormCopy(content: ContentMap): ProspectusQuickFormCopy {
+  const d = PROSPECTUS_DEFAULTS;
+  const defaults = defaultProspectusQuickFormCopy();
+
+  return {
+    placeholderEmail: cmsField(content, 'form_placeholder_email', d.form_placeholder_email),
+    submitText: cmsField(content, 'form_submit_text', d.form_submit_text),
+    submittingText: cmsField(content, 'form_submitting_text', d.form_submitting_text),
+    successMessage: cmsField(content, 'form_success_message', defaults.successMessage),
+    errorMessage: cmsField(content, 'form_error_message', d.form_error_message),
+  };
+}
+
 export default async function ProspectusPage() {
   const content = await getPublishedPageContent('/prospectus')
+  const d = PROSPECTUS_DEFAULTS
+  const formCopy = buildProspectusQuickFormCopy(content)
 
   return (
     <div className="bg-cream-50 min-h-screen pb-24 lg:pb-32 font-sans selection:bg-brand-gold-500/30">
@@ -32,14 +54,14 @@ export default async function ProspectusPage() {
             <div className="flex items-center gap-6 mb-8">
               <div className="w-16 h-[1px] gradient-accent-gold"></div>
               <div className="text-eyebrow text-brand-gold-400">
-                {cmsField(content, 'hero_eyebrow', 'Resources')}
+                {cmsField(content, 'hero_eyebrow', d.hero_eyebrow)}
               </div>
             </div>
             <h1 className="text-h1 text-white mb-8">
-              {cmsField(content, 'hero_heading', 'Request Prospectus')}
+              {cmsField(content, 'hero_heading', d.hero_heading)}
             </h1>
             <p className="text-muted-dark mb-12 text-body">
-              {stripHtml(cmsHtml(content, 'hero_body', 'If you would rather read at your own pace, the prospectus brings together the whole picture, from philosophy to practicalities, in a single document.'))}
+              {stripHtml(cmsHtml(content, 'hero_body', PROSPECTUS_HERO_BODY_HTML))}
             </p>
           </AnimatedSection>
         </Container>
@@ -50,12 +72,12 @@ export default async function ProspectusPage() {
         <Container>
           <AnimatedSection delay={0.2} className="max-w-4xl mx-auto bg-white p-8 md:p-16 text-center rounded-3xl shadow-xl border border-navy-100">
             <h2 className="text-h3 text-brand-navy-900 mb-6">
-              {cmsField(content, 'form_heading', 'Download the ICI Prospectus')}
+              {cmsField(content, 'form_heading', d.form_heading)}
             </h2>
             <p className="text-muted mb-8 max-w-xl mx-auto text-body">
-              {cmsField(content, 'form_subheading', 'Enter your email to receive an instant link to download our comprehensive guide to coaching credentials.')}
+              {cmsField(content, 'form_subheading', d.form_subheading)}
             </p>
-            <ProspectusQuickForm />
+            <ProspectusQuickForm copy={formCopy} />
           </AnimatedSection>
         </Container>
       </Section>

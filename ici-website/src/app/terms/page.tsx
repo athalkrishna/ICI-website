@@ -2,7 +2,7 @@ import ArticleLayout from '@/components/layout/ArticleLayout'
 import type { Metadata } from 'next'
 import { pageMetadata } from '@/lib/page-metadata'
 import { getPublishedPageContent } from '@/lib/content'
-import { cmsField, cmsLegalHtml } from '@/lib/cms-helpers'
+import { cmsField, cmsLegalHtml, cmsHeroEyebrow } from '@/lib/cms-helpers'
 import { TERMS_CONTENT_HTML, TERMS_CONTENT_STUB } from '@/lib/legal-defaults'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,7 +15,7 @@ export default async function TermsPage() {
   return (
     <ArticleLayout
       title={cmsField(content, 'page_heading', 'Terms of Service')}
-      subtitle={cmsField(content, 'page_subtitle', 'Terms')}
+      subtitle={cmsHeroEyebrow(content, 'Terms')}
       image="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=1920&q=80"
       lastUpdated={new Date('2024-01-01')}
     >
