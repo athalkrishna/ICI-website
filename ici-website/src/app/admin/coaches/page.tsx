@@ -142,8 +142,8 @@ export default function AdminCoachesPage() {
             body: JSON.stringify(payload),
           });
       if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error || 'Save failed');
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `Save failed (${res.status})`);
       }
       toast.success(editingId ? 'Coach updated' : 'Coach created');
       setModalOpen(false);

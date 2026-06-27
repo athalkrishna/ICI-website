@@ -1,43 +1,13 @@
 import { NextRequest } from 'next/server';
 import { revalidatePath } from 'next/cache';
-import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
-import { jsonOk, jsonError, unauthorized, notFound, serverError } from '@/lib/api';
+import { jsonOk, jsonError, unauthorized, notFound } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
 import { slugifyCoachName } from '@/lib/coach-labels';
+import { coachApiError, coachUpdateSchema } from '@/lib/coach-admin';
 
 type RouteParams = { params: Promise<{ id: string }> };
-
-const enrolledLevel = z.enum(['CATALYST', 'ARCHITECT', 'SAGE', 'LUMINARY']);
-const specialisation = z.enum([
-  'LIFE_COACHING',
-  'EXECUTIVE_LEADERSHIP',
-  'BUSINESS_COACHING',
-  'HEALTH_WELLNESS',
-  'TEAM_ORGANISATIONAL',
-]);
-const availability = z.enum(['TAKING_CLIENTS', 'WAITLIST']);
-
-const updateCoachSchema = z.object({
-  slug: z.string().min(1).max(100).optional(),
-  name: z.string().min(1).optional(),
-  title: z.string().min(1).optional(),
-  bio: z.string().min(1).optional(),
-  imageUrl: z.string().optional().nullable(),
-  specialisation: specialisation.optional().nullable(),
-  credentialLevel: enrolledLevel.optional().nullable(),
-  languages: z.string().optional(),
-  location: z.string().optional().nullable(),
-  availability: availability.optional(),
-  bookingUrl: z.string().optional().nullable(),
-  email: z.string().email().optional().nullable().or(z.literal('')),
-  linkedinUrl: z.string().url().optional().nullable().or(z.literal('')),
-  showOnFaculty: z.boolean().optional(),
-  showInDirectory: z.boolean().optional(),
-  isPublished: z.boolean().optional(),
-  displayOrder: z.number().int().optional(),
-});
 
 function revalidateCoachPages() {
   revalidatePath('/find-a-coach');
@@ -55,7 +25,7 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
     if (!existing) return notFound('Coach not found');
 
     const body = await req.json();
-    const parsed = updateCoachSchema.safeParse(body);
+    const parsed = coachUpdateSchema.safeParse(body);
     if (!parsed.success) {
       return jsonError(parsed.error.issues[0]?.message ?? 'Invalid payload');
     }
@@ -84,9 +54,9 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
         ...(data.languages !== undefined ? { languages: data.languages.trim() || 'English' } : {}),
         ...(data.location !== undefined ? { location: data.location?.trim() || null } : {}),
         ...(data.availability !== undefined ? { availability: data.availability } : {}),
-        ...(data.bookingUrl !== undefined ? { bookingUrl: data.bookingUrl?.trim() || null } : {}),
+        ...(data.bookingUrl !== undefined ? { bookingUrl: data.bookingUrl } : {}),
         ...(data.email !== undefined ? { email: data.email?.trim() || null } : {}),
-        ...(data.linkedinUrl !== undefined ? { linkedinUrl: data.linkedinUrl?.trim() || null } : {}),
+        ...(data.linkedinUrl !== undefined ? { linkedinUrl: data.linkedinUrl } : {}),
         ...(data.showOnFaculty !== undefined ? { showOnFaculty: data.showOnFaculty } : {}),
         ...(data.showInDirectory !== undefined ? { showInDirectory: data.showInDirectory } : {}),
         ...(data.isPublished !== undefined ? { isPublished: data.isPublished } : {}),
@@ -106,8 +76,7 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
 
     return jsonOk(coach);
   } catch (err) {
-    console.error('[admin/coaches/[id] PUT]', err);
-    return serverError();
+    return coachApiError(err, '[admin/coaches/[id] PUT]');
   }
 }
 
@@ -134,7 +103,6 @@ export async function DELETE(_req: NextRequest, { params }: RouteParams) {
 
     return jsonOk({ success: true });
   } catch (err) {
-    console.error('[admin/coaches/[id] DELETE]', err);
-    return serverError();
+    return coachApiError(err, '[admin/coaches/[id] DELETE]');
   }
 }

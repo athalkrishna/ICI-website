@@ -1,41 +1,11 @@
 import { NextRequest } from 'next/server';
 import { revalidatePath } from 'next/cache';
-import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { requireAdmin } from '@/lib/auth';
-import { jsonOk, jsonError, unauthorized, serverError } from '@/lib/api';
+import { jsonOk, jsonError, unauthorized } from '@/lib/api';
 import { logActivity } from '@/lib/activity';
 import { slugifyCoachName } from '@/lib/coach-labels';
-
-const enrolledLevel = z.enum(['CATALYST', 'ARCHITECT', 'SAGE', 'LUMINARY']);
-const specialisation = z.enum([
-  'LIFE_COACHING',
-  'EXECUTIVE_LEADERSHIP',
-  'BUSINESS_COACHING',
-  'HEALTH_WELLNESS',
-  'TEAM_ORGANISATIONAL',
-]);
-const availability = z.enum(['TAKING_CLIENTS', 'WAITLIST']);
-
-const coachSchema = z.object({
-  slug: z.string().min(1).max(100).optional(),
-  name: z.string().min(1),
-  title: z.string().min(1),
-  bio: z.string().min(1),
-  imageUrl: z.string().optional().nullable(),
-  specialisation: specialisation.optional().nullable(),
-  credentialLevel: enrolledLevel.optional().nullable(),
-  languages: z.string().optional(),
-  location: z.string().optional().nullable(),
-  availability: availability.optional(),
-  bookingUrl: z.string().optional().nullable(),
-  email: z.string().email().optional().nullable().or(z.literal('')),
-  linkedinUrl: z.string().url().optional().nullable().or(z.literal('')),
-  showOnFaculty: z.boolean().optional(),
-  showInDirectory: z.boolean().optional(),
-  isPublished: z.boolean().optional(),
-  displayOrder: z.number().int().optional(),
-});
+import { coachApiError, coachWriteSchema } from '@/lib/coach-admin';
 
 async function uniqueSlug(base: string, excludeId?: string): Promise<string> {
   let slug = slugifyCoachName(base);
@@ -74,8 +44,7 @@ export async function GET(req: NextRequest) {
 
     return jsonOk(coaches);
   } catch (err) {
-    console.error('[admin/coaches GET]', err);
-    return serverError();
+    return coachApiError(err, '[admin/coaches GET]');
   }
 }
 
@@ -85,7 +54,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const parsed = coachSchema.safeParse(body);
+    const parsed = coachWriteSchema.safeParse(body);
     if (!parsed.success) {
       return jsonError(parsed.error.issues[0]?.message ?? 'Invalid payload');
     }
@@ -107,9 +76,9 @@ export async function POST(req: NextRequest) {
         languages: data.languages?.trim() || 'English',
         location: data.location?.trim() || null,
         availability: data.availability ?? 'TAKING_CLIENTS',
-        bookingUrl: data.bookingUrl?.trim() || null,
+        bookingUrl: data.bookingUrl,
         email: data.email?.trim() || null,
-        linkedinUrl: data.linkedinUrl?.trim() || null,
+        linkedinUrl: data.linkedinUrl,
         showOnFaculty: data.showOnFaculty ?? false,
         showInDirectory: data.showInDirectory ?? true,
         isPublished: data.isPublished ?? false,
@@ -130,7 +99,6 @@ export async function POST(req: NextRequest) {
 
     return jsonOk(coach, 201);
   } catch (err) {
-    console.error('[admin/coaches POST]', err);
-    return serverError();
+    return coachApiError(err, '[admin/coaches POST]');
   }
 }

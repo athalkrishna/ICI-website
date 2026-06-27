@@ -23,6 +23,9 @@ npx prisma generate
 echo "==> prisma db push..."
 npx prisma db push
 
+echo "==> Verifying coaches table..."
+npx tsx scripts/test-coaches-table.ts
+
 echo "==> next build (webpack)..."
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=4096}"
 npm run build
